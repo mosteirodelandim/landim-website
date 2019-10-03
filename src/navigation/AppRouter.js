@@ -5,10 +5,10 @@ import { BrowserRouter, Route, Switch, Redirect } from 'react-router-dom';
 
 // IMPORT PROJECT REFERENCES
 
-import { Header } from '../Header/Header';
-import { HomePage } from '../pages/HomePage';
-import { AboutPage } from '../pages/AboutPage';
-import { ZipCodesPage } from '../pages/ZipCodesPage';
+import { Header } from '../components/Header/Header';
+import { HomePage } from '../components/pages/HomePage';
+import { AboutPage } from '../components/pages/AboutPage';
+import { ZipCodesPage } from '../components/pages/ZipCodesPage';
 
 
 // COMPONENT

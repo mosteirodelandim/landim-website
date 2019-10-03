@@ -1,4 +1,4 @@
-import { fetchZipCodes } from '../../../services/ZipCodeService';
+import { fetchZipCodes } from '../../services/ZipCodeService';
 
 // FETCH ZIPCODES ACTION NAMES
 
