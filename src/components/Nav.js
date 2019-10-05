@@ -1,7 +1,8 @@
 import React from 'react';
 import { Link } from 'gatsby';
+import PropTypes from 'prop-types';
 
-export default function Nav({ onMenuToggle = () => {} }) {
+function Nav({ onMenuToggle = () => {} }) {
   return (
     <nav id="nav">
       <ul>
@@ -42,3 +43,9 @@ export default function Nav({ onMenuToggle = () => {} }) {
     </nav>
   );
 }
+
+Nav.propTypes = {
+  onMenuToggle: PropTypes.func.isRequired,
+};
+
+export default Nav;

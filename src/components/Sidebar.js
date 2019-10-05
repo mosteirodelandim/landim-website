@@ -1,8 +1,9 @@
 import React, { useState } from 'react';
 import { Link } from 'gatsby';
+import PropTypes from 'prop-types';
 import Nav from './Nav';
 
-export default function SideBar({ fullMenu }) {
+function SideBar({ fullMenu }) {
   const [headerOpen, toggleHeader] = useState(false);
   return (
     <header id="header" className={`${fullMenu ? '' : 'alt'}`}>
@@ -15,3 +16,13 @@ export default function SideBar({ fullMenu }) {
     </header>
   );
 }
+
+SideBar.propTypes = {
+  fullMenu: PropTypes.bool,
+};
+
+SideBar.defaultProps = {
+  fullMenu: false,
+};
+
+export default SideBar;

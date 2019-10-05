@@ -5,14 +5,6 @@ import PropTypes from 'prop-types';
 const Element = (props) => props.children;
 
 class Scroll extends React.Component {
-  static propTypes = {
-    type: PropTypes.string,
-    element: PropTypes.string,
-    offset: PropTypes.number,
-    timeout: PropTypes.number,
-    children: PropTypes.node.isRequired,
-  };
-
   constructor() {
     super();
     this.handleClick = this.handleClick.bind(this);
@@ -20,6 +12,19 @@ class Scroll extends React.Component {
 
   componentDidMount() {
     smoothscroll.polyfill();
+  }
+
+  scrollTo = (element, offSet = 0, timeout = null) => {
+    const elemPos = element
+      ? element.getBoundingClientRect().top + window.pageYOffset
+      : 0;
+    if (timeout) {
+      setTimeout(() => {
+        window.scroll({ top: elemPos + offSet, left: 0, behavior: 'smooth' });
+      }, timeout);
+    } else {
+      window.scroll({ top: elemPos + offSet, left: 0, behavior: 'smooth' });
+    }
   }
 
   handleClick(e) {
@@ -30,9 +35,11 @@ class Scroll extends React.Component {
       type, element, offset, timeout,
     } = this.props;
     if (type && element) {
+      const elemIndex = 0;
+
       switch (type) {
         case 'class':
-          elem = document.getElementsByClassName(element)[0];
+          elem = document.getElementsByClassName(element)[elemIndex];
           scroll = !!elem;
           break;
         case 'id':
@@ -42,21 +49,11 @@ class Scroll extends React.Component {
         default:
       }
     }
-    scroll
-      ? this.scrollTo(elem, offset, timeout)
-      : console.log(`Element not found: ${element}`); // eslint-disable-line
-  }
 
-  scrollTo(element, offSet = 0, timeout = null) {
-    const elemPos = element
-      ? element.getBoundingClientRect().top + window.pageYOffset
-      : 0;
-    if (timeout) {
-      setTimeout(() => {
-        window.scroll({ top: elemPos + offSet, left: 0, behavior: 'smooth' });
-      }, timeout);
+    if (scroll) {
+      this.scrollTo(elem, offset, timeout);
     } else {
-      window.scroll({ top: elemPos + offSet, left: 0, behavior: 'smooth' });
+      console.log(`Element not found: ${element}`); // eslint-disable-line
     }
   }
 
@@ -72,5 +69,20 @@ class Scroll extends React.Component {
     );
   }
 }
+
+Scroll.propTypes = {
+  type: PropTypes.string,
+  element: PropTypes.string,
+  offset: PropTypes.number,
+  timeout: PropTypes.number,
+  children: PropTypes.node.isRequired,
+};
+
+Scroll.defaultProps = {
+  type: null,
+  element: null,
+  offset: 0,
+  timeout: 0,
+};
 
 export default Scroll;

@@ -74,6 +74,11 @@ class Layout extends Component {
 
 Layout.propTypes = {
   children: PropTypes.node.isRequired,
+  fullMenu: PropTypes.bool,
+};
+
+Layout.defaultProps = {
+  fullMenu: false,
 };
 
 export default Layout;
