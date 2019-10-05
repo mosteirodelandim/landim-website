@@ -1,14 +1,10 @@
 {
-  "name": "gatsby-starter-spectral",
+  "name": "landim-website",
   "version": "0.0.1",
-  "description": "Gatsby.js V2 starter template based on Spectral by HTML5 UP",
+  "description": "The website for Mosteiro de Santa Maria de Landim",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/anubhavsrivastava/gatsby-starter-spectral.git"
-  },
-  "author": {
-    "name": "Anubhav Srivastava",
-    "email": "anubhav.srivastava00@gmail.com"
+    "url": "git+https://github.com/LuchoTurtle/landim-website.git"
   },
   "dependencies": {
     "gatsby": "^2.4.3",
@@ -53,8 +49,5 @@
     "gatsby-starter-spectral"
   ],
   "license": "MIT",
-  "bugs": {
-    "url": "https://github.com/anubhavsrivastava/gatsby-starter-spectral/issues"
-  },
-  "homepage": "https://github.com/anubhavsrivastava/gatsby-starter-spectral#readme"
+  "homepage": "https://github.com/LuchoTurtle/landim-website.git#readme"
 }
