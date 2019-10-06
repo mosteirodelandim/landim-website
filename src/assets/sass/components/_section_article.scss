@@ -1,0 +1,60 @@
+/* Section/Article */
+
+section, article {
+  &.special {
+    text-align: center;
+  }
+}
+
+header {
+  p {
+    color: _palette(fg-light);
+    position: relative;
+    top: -0.25em;
+  }
+
+  h2 + p {
+  }
+
+  h3 + p {
+    font-size: 1.1em;
+  }
+
+  h4 + p,
+  h5 + p,
+  h6 + p {
+    font-size: 0.9em;
+  }
+
+  &.major {
+    margin: 0 0 (_size(element-margin) * 1.75) 0;
+
+    h2, h3, h4, h5, h6 {
+      border-bottom: solid 2px _palette(border);
+      display: inline-block;
+      padding-bottom: 1em;
+      position: relative;
+
+      &:after {
+        content: '';
+        display: block;
+        height: 1px;
+      }
+    }
+
+    p {
+      color: _palette(fg);
+      top: 0;
+    }
+
+    @include breakpoint('<=small') {
+      margin: 0 0 _size(element-margin) 0;
+    }
+  }
+
+  @include breakpoint('<=medium') {
+    br {
+      display: none;
+    }
+  }
+}
