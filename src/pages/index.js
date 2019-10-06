@@ -1,13 +1,15 @@
 import React from 'react';
 
 import Typewriter from 'typewriter-effect';
-import Layout from '../components/Layout';
+import Lottie from 'lottie-react-web';
 
+import Layout from '../components/Layout';
 import Scroll from '../components/Scroll';
 
 import pic1 from '../assets/images/pic01.jpg';
 import pic2 from '../assets/images/pic02.jpg';
 import pic3 from '../assets/images/pic03.jpg';
+import scrollAnim from '../assets/lottie/scroll_down.json';
 import config from '../../config';
 
 const IndexPage = () => (
@@ -41,9 +43,16 @@ const IndexPage = () => (
       </div>
       <Scroll type="id" element="one">
         <a href="#one" className="more">
-          Learn More
+          <Lottie
+            options={{
+              animationData: scrollAnim,
+            }}
+            width="75%"
+            height="75%"
+          />
         </a>
       </Scroll>
+
     </section>
 
     <section id="one" className="wrapper style1 special">
