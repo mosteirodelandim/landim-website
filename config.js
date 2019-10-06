@@ -8,29 +8,43 @@ module.exports = {
   manifestDisplay: 'standalone',
   manifestIcon: 'src/assets/img/website-icon.png',
   pathPrefix: '/mosteirodelandim/',
+
   // header
   heading: 'Mosteiro de Landim',
   subHeading: 'A place ',
   subheadingTextCarousel: ['of inspiration.', 'of old.', 'of tradition.', 'for you.'],
+
   // social
   socialLinks: [
     {
+      style: 'solid',
+      icon: 'fa-envelope',
+      name: 'Email',
+      url: 'mailto:info@mosteirodelandim.com',
+    },
+    {
       style: 'brands',
-      icon: 'fa-github',
-      name: 'Github',
-      url: 'https://github.com/anubhavsrivastava',
+      icon: 'fa-facebook',
+      name: 'Facebook',
+      url: 'https://www.facebook.com/mosteirodelandim',
+    },
+    {
+      style: 'brands',
+      icon: 'fa-instagram',
+      name: 'Instagram',
+      url: 'https://www.instagram.com/mosteirodelandim/',
     },
     {
       style: 'brands',
       icon: 'fa-twitter',
       name: 'Twitter',
-      url: 'https://twitter.com/onlyanubhav',
+      url: 'https://twitter.com/mosteirolandim',
     },
     {
-      style: 'solid',
-      icon: 'fa-envelope',
-      name: 'Email',
-      url: 'mailto:test@example.com',
+      style: 'brands',
+      icon: 'fa-pinterest',
+      name: 'Pinterest',
+      url: 'https://www.pinterest.com/mosteirolandim/',
     },
   ],
 };
