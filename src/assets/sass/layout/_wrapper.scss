@@ -226,10 +226,6 @@
     background-color: transparent;
   }
 
-  &.style5 {
-    @include wrapper(accent7);
-  }
-
   @include breakpoint('<=medium') {
     @include padding(4em, 3em);
   }
