@@ -6,16 +6,13 @@ import Lottie from 'lottie-react-web';
 import Layout from '../components/Layout';
 import Scroll from '../components/Scroll';
 
-import pic1 from '../assets/images/pic01.jpg';
-import pic2 from '../assets/images/pic02.jpg';
-import pic3 from '../assets/images/pic03.jpg';
 import scrollAnim from '../assets/lottie/scroll_down.json';
 import config from '../../config';
 
 const IndexPage = () => (
-  <Layout>
+  <Layout fullMenu={false}>
     <section id="banner">
-      <div className="inner">
+      <div>
         <h2>{config.heading}</h2>
         <br />
         <div id="subHeading">
@@ -41,6 +38,10 @@ const IndexPage = () => (
           />
         </div>
       </div>
+
+      {/*
+      //TODO substituir o href=one pelo id da nova seccao para dar scroll
+      */}
       <Scroll type="id" element="one">
         <a href="#one" className="more">
           <Lottie

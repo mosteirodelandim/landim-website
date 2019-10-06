@@ -22,9 +22,6 @@ function Nav({ onMenuToggle = () => {} }) {
               <li>
                 <Link to="/">Home</Link>
               </li>
-              <li>
-                <Link to="/Elements">Elements</Link>
-              </li>
             </ul>
             <a
               className="close"
