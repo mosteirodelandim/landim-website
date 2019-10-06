@@ -29,6 +29,7 @@
         "react/destructuring-assignment": 0,
         "jsx-a11y/click-events-have-key-events": 0,
         "jsx-a11y/no-static-element-interactions": 0,
+        "no-param-reassign": 0,
         "react/jsx-filename-extension": [1, { "extensions": [".js", ".jsx"] }],
         "no-tabs": ["error", { "allowIndentationTabs": true }],
         "react/jsx-one-expression-per-line": "off"

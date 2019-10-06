@@ -1620,6 +1620,15 @@
 			}
 		}
 
+		span {
+			letter-spacing: _size(letter-spacing-alt);
+			text-transform: uppercase;
+
+			a {
+				color: inherit;
+			}
+		}
+
 		p {
 			letter-spacing: _size(letter-spacing-alt);
 			text-transform: uppercase;
@@ -1627,6 +1636,11 @@
 			a {
 				color: inherit;
 			}
+		}
+
+		// To customize the div that wraps the Typewriter effect
+		.Typewriter {
+			display: inline-block;
 		}
 
 		.more {

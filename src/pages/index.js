@@ -1,5 +1,6 @@
 import React from 'react';
 
+import Typewriter from 'typewriter-effect';
 import Layout from '../components/Layout';
 
 import Scroll from '../components/Scroll';
@@ -14,16 +15,37 @@ const IndexPage = () => (
     <section id="banner">
       <div className="inner">
         <h2>{config.heading}</h2>
-        <p>{config.subHeading}</p>
-        <ul className="actions special">
-          <li>
-            <Scroll type="id" element="one">
-              <a href="/#" className="button primary">
-                Explore
-              </a>
-            </Scroll>
-          </li>
-        </ul>
+        <br />
+        <span><strong>{config.subHeading}</strong></span>
+        <Typewriter
+          onInit={(typewriter) => {
+            const carouselArray = config.subheadingTextCarousel;
+
+            for (let i = 0; i < carouselArray.length; i += 1) {
+              typewriter.typeString(carouselArray[i])
+                .pauseFor(2500);
+
+              if (i !== carouselArray.length - 1) {
+                typewriter.deleteAll()
+                  .callFunction((obj) => {
+                    obj.elements.cursor.style.display = 'none';
+                  });
+              }
+            }
+
+            typewriter.start();
+            /*
+            typewriter.typeString('<span>Hello World!<span/>')
+              .pauseFor(2500)
+              .deleteAll()
+              .pauseFor(2500)
+              .typeString('<span>Hello World!2<span/>')
+              .start();
+          }}
+          */
+          }}
+        />
+
       </div>
       <Scroll type="id" element="one">
         <a href="#one" className="more">

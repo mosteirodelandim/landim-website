@@ -19,7 +19,8 @@
     "react-helmet": "^5.2.1",
     "react-images": "^0.5.19",
     "react-scrollspy": "^3.4.0",
-    "smoothscroll-polyfill": "^0.4.4"
+    "smoothscroll-polyfill": "^0.4.4",
+    "typewriter-effect": "^2.12.1"
   },
   "scripts": {
     "lint": "eslint ./src --fix",
