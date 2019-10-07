@@ -21,7 +21,7 @@ export default function Footer() {
       <ul className="copyright">
         <li>All rights reserved</li>
         <li>
-          {(new Date().getFullYear())} Mosteiro de Landim<sup>&copy;</sup>
+           Mosteiro de Landim &copy; {(new Date().getFullYear())}
         </li>
       </ul>
     </footer>
