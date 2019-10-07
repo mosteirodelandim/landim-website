@@ -9,11 +9,11 @@ export default function Footer() {
       <ul className="icons">
         {config.socialLinks.map((social) => {
           const {
-            style, icon, name, url,
+            style, icon, name, url, urlApp,
           } = social;
           return (
             <li key={url}>
-              <a href={url} className={`icon ${style} ${icon}`}>
+              <a href={urlApp} className={`icon ${style} ${icon}`}>
                 <span className="label">{name}</span>
               </a>
             </li>
