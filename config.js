@@ -7,7 +7,7 @@ module.exports = {
   manifestThemeColor: '#663399',
   manifestDisplay: 'standalone',
   manifestIcon: 'src/assets/img/website-icon.png',
-  pathPrefix: '/mosteirodelandim/',
+  // pathPrefix: '/mosteirodelandim/',
 
   // header
   heading: 'Mosteiro de Landim',
