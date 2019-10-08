@@ -9,12 +9,15 @@ module.exports = {
   manifestIcon: 'src/assets/img/website-icon.png',
   // pathPrefix: '/mosteirodelandim/',
 
-  // header
+  // Landing page
   heading: 'Mosteiro de Landim',
   subHeading: 'A place ',
   subheadingTextCarousel: ['of inspiration.', 'of old.', 'of tradition.', 'for you.'],
 
-  // social
+  // 404
+  houseDogs: ['Ringo', 'Spot'],
+
+  // Footer - social
   socialLinks: [
     {
       style: 'solid',

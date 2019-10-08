@@ -13,7 +13,6 @@ import servicesTile from '../assets/images/services_tile.jpg';
 import productsTile from '../assets/images/products_tile.jpg';
 import faqTile from '../assets/images/statue_tile.png';
 
-
 import config from '../../config';
 
 const IndexPage = () => (

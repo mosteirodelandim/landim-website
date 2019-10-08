@@ -3,8 +3,10 @@ import React from 'react';
 import Lottie from 'lottie-react-web';
 import dogWagging from '../assets/lottie/dog_wagging';
 
+import config from '../../config';
+
 function randomDog() {
-  const dogArray = ['Ringo', 'Spot'];
+  const dogArray = config.houseDogs;
 
   const rand = Math.floor(Math.random() * dogArray.length);
   return dogArray[rand];
