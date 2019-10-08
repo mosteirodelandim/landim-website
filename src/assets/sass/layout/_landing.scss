@@ -1,5 +1,9 @@
 /* Landing */
 
+#subHeading {
+  height: 20px;
+}
+
 body.landing, .main-body.landing {
   #page-wrapper {
     @include vendor('background-image', ('linear-gradient(to top, rgba(0,0,0,0.5), rgba(0,0,0,0.5))', 'url("../images/banner3.jpg")'));
