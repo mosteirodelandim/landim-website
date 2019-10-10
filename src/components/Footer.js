@@ -19,6 +19,7 @@ export default function Footer() {
             </li>
           );
         })}
+        
         {isMobile
           ? (
             <li key="phone">
