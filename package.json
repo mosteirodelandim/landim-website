@@ -7,6 +7,7 @@
     "url": "git+https://github.com/LuchoTurtle/landim-website.git"
   },
   "dependencies": {
+    "fs-extra": "^8.1.0",
     "gatsby": "^2.4.3",
     "gatsby-plugin-manifest": "^2.1.1",
     "gatsby-plugin-offline": "^2.1.0",
