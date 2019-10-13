@@ -1,8 +1,11 @@
 import React from 'react';
 import { Link } from 'gatsby';
 import PropTypes from 'prop-types';
+import { useTranslation } from 'react-i18next';
 
 function Nav({ onMenuToggle = () => {} }) {
+  const { t } = useTranslation();
+
   return (
     <nav id="nav">
       <ul>
@@ -15,12 +18,12 @@ function Nav({ onMenuToggle = () => {} }) {
             }}
             className="menuToggle"
           >
-            <span>Menu</span>
+            <span>{t('sidebar:label')}</span>
           </a>
           <div id="menu">
             <ul>
               <li>
-                <Link to="/">Home</Link>
+                <Link to="/">{t('sidebar:landing')}</Link>
               </li>
             </ul>
             <a

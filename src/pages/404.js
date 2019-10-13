@@ -15,8 +15,7 @@ function randomDog() {
 }
 
 function IndexPage() {
-  const { t, i18n } = useTranslation();
-  console.log(i18n);
+  const { t } = useTranslation();
 
   return (
     <div id="not-found-page">
