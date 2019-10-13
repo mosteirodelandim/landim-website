@@ -1,5 +1,5 @@
 import React from 'react';
-import '../i18n';
+import '../i18n/i18n';
 
 import Typewriter from 'typewriter-effect';
 import Lottie from 'lottie-react-web';
@@ -15,8 +15,6 @@ import servicesTile from '../assets/images/services_tile.jpg';
 import productsTile from '../assets/images/products_tile.jpg';
 import faqTile from '../assets/images/statue_tile.png';
 
-import config from '../../config';
-
 function IndexPage() {
   const { t } = useTranslation();
 
@@ -27,10 +25,10 @@ function IndexPage() {
           <h2>{t('heading')}</h2>
           <br />
           <div id="subHeading">
-            <span><strong>{config.subHeading}</strong></span>
+            <span><strong>{t('subHeading')}</strong></span>
             <Typewriter
               onInit={(typewriter) => {
-                const carouselArray = config.subheadingTextCarousel;
+                const carouselArray = t('subheadingTextCarousel');
 
                 for (let i = 0; i < carouselArray.length; i += 1) {
                   typewriter.typeString(carouselArray[i])

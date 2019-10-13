@@ -3,8 +3,8 @@ import { initReactI18next } from 'react-i18next';
 import Backend from 'i18next-xhr-backend';
 import LanguageDetector from 'i18next-browser-languagedetector';
 
-import translationEN from './locales/en/index.json';
-import translationPT from './locales/pt/index.json';
+import translationEN from './locales/en';
+import translationPT from './locales/pt';
 
 // the translations
 // (tip move them in a JSON file and import them)
@@ -26,6 +26,8 @@ i18n
   .init({
     resources,
     fallbackLng: 'en',
+    lng: 'pt',
+    returnObjects: true, // to return objects (in case of arrays, e.g.)
 
     interpolation: {
       escapeValue: false, // not needed for react as it escapes by default
