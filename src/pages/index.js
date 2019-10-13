@@ -22,13 +22,13 @@ function IndexPage() {
     <Layout fullMenu={false}>
       <section id="banner">
         <div>
-          <h2>{t('heading')}</h2>
+          <h2>{t('landing:heading')}</h2>
           <br />
           <div id="subHeading">
-            <span><strong>{t('subHeading')}</strong></span>
+            <span><strong>{t('landing:subHeading')}</strong></span>
             <Typewriter
               onInit={(typewriter) => {
-                const carouselArray = t('subheadingTextCarousel');
+                const carouselArray = t('landing:subheadingTextCarousel');
 
                 for (let i = 0; i < carouselArray.length; i += 1) {
                   typewriter.typeString(carouselArray[i])
@@ -66,39 +66,32 @@ function IndexPage() {
 
           <article style={{ backgroundImage: `url(${historyTile})` }}>
             <header className="major">
-              <h3>History</h3>
-              <p>From luscious gardens to a timeless cloister,
-                  Mosteiro de Landim carries centuries of history
-                  and tradition.
-              </p>
+              <h3>{t('landing:history.title')}</h3>
+              <p>{t('landing:history.description')}</p>
             </header>
             <Link to="/history" className="link primary" />
           </article>
 
           <article style={{ backgroundImage: `url(${servicesTile})` }}>
             <header className="major">
-              <h3>Services</h3>
-              <p>Get to know the services we provide for all types of smile-inducing events.</p>
+              <h3>{t('landing:services.title')}</h3>
+              <p>{t('landing:services.description')}</p>
             </header>
             <Link to="/services" className="link primary" />
           </article>
 
           <article style={{ backgroundImage: `url(${productsTile})` }}>
             <header className="major">
-              <h3>Wine & Stay</h3>
-              <p>Wander through this family-run historic wine farm and national heritage site
-                  with our locally-made white wine.
-              </p>
+              <h3>{t('landing:wineAndStay.title')}</h3>
+              <p>{t('landing:wineAndStay.description')}</p>
             </header>
             <Link to="/wine_stay" className="link primary" />
           </article>
 
           <article style={{ backgroundImage: `url(${faqTile})` }}>
             <header className="major">
-              <h3>FAQ</h3>
-              <p>Details on how to reach out to us and answering some of the
-                  most frequent asked questions.
-              </p>
+              <h3>{t('landing:faq.title')}</h3>
+              <p>{t('landing:faq.description')}</p>
             </header>
             <Link to="/faq" className="link primary" />
           </article>

@@ -9,11 +9,6 @@ module.exports = {
   manifestIcon: 'src/assets/img/website-icon.png',
   // pathPrefix: '/mosteirodelandim/',
 
-  // Landing page
-  heading: 'Mosteiro de Landim',
-  subHeading: 'A place ',
-  subheadingTextCarousel: ['of inspiration.', 'of old.', 'of tradition.', 'for you.'],
-
   // 404
   houseDogs: ['Ringo', 'Spot'],
 

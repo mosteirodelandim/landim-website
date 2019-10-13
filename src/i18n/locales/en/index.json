@@ -2,6 +2,28 @@
   "en": {
     "heading": "Mosteiro de Landim",
     "subHeading": "A place ",
-    "subheadingTextCarousel": ["of inspiration.", "of old.", "of tradition.", "for you."]
+    "subheadingTextCarousel": [
+      "of inspiration.",
+      "of old.",
+      "of tradition.",
+      "for you."
+    ],
+    "history": {
+      "title": "History",
+      "description": "rom luscious gardens to a timeless cloister, Mosteiro de Landim carries centuries of history and tradition."
+    },
+    "services": {
+      "title": "Services",
+      "description": "Get to know the services we provide for all types of smile-inducing events."
+    },
+    "wineAndStay": {
+      "title": "Wine & Stay",
+      "description": "Wander through this family-run historic wine farm and national heritage site with our locally-made white wine."
+    },
+    "faq": {
+      "title": "FAQ",
+      "description": "Details on how to reach out to us and answering some of the most frequent asked questions."
+    },
+    "footer": "All rights reserved"
   }
 }

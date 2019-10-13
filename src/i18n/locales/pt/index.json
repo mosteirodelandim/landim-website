@@ -2,6 +2,28 @@
   "pt": {
     "heading": "Mosteiro de Landim",
     "subHeading": "Um sítio ",
-    "subheadingTextCarousel": ["de inspiração.", "de idade.", "de tradição.", "para ti."]
+    "subheadingTextCarousel": [
+      "de inspiração.",
+      "de idade.",
+      "de tradição.",
+      "para ti."
+    ],
+    "history": {
+      "title": "História",
+      "description": "Desde vastos jardins a um claustro intemporal, o Mosteiro de Landim carrega vários anos de história e tradição."
+    },
+    "services": {
+      "title": "Serviços",
+      "description": "Descubra mais sobre os serviços que oferecemos para partilhar sensações e memórias."
+    },
+    "wineAndStay": {
+      "title": "Vinho e estadia",
+      "description": "Vagueie por esta quinta histórica familiar e património nacional com o nosso vinho verde."
+    },
+    "faq": {
+      "title": "FAQ",
+      "description": "Detalhes de como nos contactar e respondendo a algumas perguntas mais frequentes."
+    },
+    "footer": "Direitos reservados"
   }
 }

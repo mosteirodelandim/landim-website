@@ -1,24 +1,25 @@
 import i18n from 'i18next';
 import { initReactI18next } from 'react-i18next';
-import Backend from 'i18next-xhr-backend';
 import LanguageDetector from 'i18next-browser-languagedetector';
 
-import translationEN from './locales/en';
-import translationPT from './locales/pt';
+import landingEN from './locales/en/index.json';
+import landingPT from './locales/pt/index.json';
+import notFoundEN from './locales/en/404.json';
+import notFoundPT from './locales/pt/404.json';
 
-// the translations
-// (tip move them in a JSON file and import them)
 const resources = {
   pt: {
-    translation: translationPT.pt,
+    landing: landingPT.pt,
+    notFound: notFoundPT.pt,
   },
   en: {
-    translation: translationEN.en,
+    landing: landingEN.en,
+    notFound: notFoundEN.en,
   },
 };
 
 i18n
-  // detect user language
+// detect user language
   .use(LanguageDetector)
   // pass the i18n instance to react-i18next.
   .use(initReactI18next)
@@ -27,6 +28,10 @@ i18n
     resources,
     fallbackLng: 'en',
     lng: 'pt',
+
+    ns: ['landing', 'notFound'],
+    defaultNS: 'landing',
+
     returnObjects: true, // to return objects (in case of arrays, e.g.)
 
     interpolation: {

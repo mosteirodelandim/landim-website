@@ -1,9 +1,12 @@
 import React from 'react';
 import { isMobile } from 'react-device-detect';
+import { useTranslation } from 'react-i18next';
 
 import config from '../../config';
 
 export default function Footer() {
+  const { t } = useTranslation();
+
   return (
     <footer id="footer">
       <ul className="icons">
@@ -19,7 +22,7 @@ export default function Footer() {
             </li>
           );
         })}
-        
+
         {isMobile
           ? (
             <li key="phone">
@@ -30,7 +33,7 @@ export default function Footer() {
           ) : null}
       </ul>
       <ul className="copyright">
-        <li>All rights reserved</li>
+        <li>{t('landing:footer')}</li>
         <li>
            Mosteiro de Landim &copy; {(new Date().getFullYear())}
         </li>
