@@ -31,7 +31,6 @@ i18n
   .init({
     resources,
     fallbackLng: 'en',
-    lng: 'pt',
 
     ns: ['landing', 'notFound', 'sidebar'],
     defaultNS: 'landing',

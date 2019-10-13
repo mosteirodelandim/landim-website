@@ -298,6 +298,18 @@
 	}
 }
 
+// Nav
+
+#flags {
+	all: unset;
+
+	div{
+		all:unset;
+		margin: 10px;
+		cursor: pointer;
+	}
+}
+
 // Components
 	@import 'components/section_article';
 	@import 'components/icon';
