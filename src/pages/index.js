@@ -9,11 +9,11 @@ import { useTranslation } from 'react-i18next';
 import Layout from '../components/Layout';
 import Scroll from '../components/Scroll';
 
-import scrollAnim from '../assets/lottie/scroll_down.json';
-import historyTile from '../assets/images/history_tile.png';
-import servicesTile from '../assets/images/services_tile.jpg';
-import productsTile from '../assets/images/products_tile.jpg';
-import faqTile from '../assets/images/statue_tile.png';
+import scrollAnim from '../assets/images/lottie/scroll_down.json';
+import historyTile from '../assets/images/landing/history_tile.png';
+import servicesTile from '../assets/images/landing/services_tile.jpg';
+import productsTile from '../assets/images/landing/products_tile.jpg';
+import faqTile from '../assets/images/landing/statue_tile.png';
 
 function IndexPage() {
   const { t } = useTranslation();
