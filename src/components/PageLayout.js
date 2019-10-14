@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 
 import '../assets/sass/main.scss';
 import Footer from './Footer';
+import SideBar from './Sidebar';
 
 class PageLayout extends React.Component {
   constructor(props) {
@@ -33,11 +34,12 @@ class PageLayout extends React.Component {
   }
 
   render() {
-    const { children } = this.props;
+    const { children, fullMenu } = this.props;
 
     return (
       <div>
         <div id="wrapper">
+          <SideBar fullMenu={fullMenu} />
           {children}
           <Footer />
         </div>
