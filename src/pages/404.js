@@ -1,6 +1,5 @@
 import React from 'react';
-// TODO see if I need to import dedicated sass file
-// import '../assets/sass/layout/_notfound.scss';
+import '../assets/sass/layout/_notfound.scss';
 import Lottie from 'lottie-react-web';
 import { useTranslation } from 'react-i18next';
 import dogWagging from '../assets/lottie/dog_wagging';
