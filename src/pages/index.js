@@ -6,7 +6,7 @@ import Lottie from 'lottie-react-web';
 import { Link } from 'gatsby';
 
 import { useTranslation } from 'react-i18next';
-import Layout from '../components/Layout';
+import LandingLayout from '../components/LandingLayout';
 import Scroll from '../components/Scroll';
 
 import scrollAnim from '../assets/lottie/scroll_down.json';
@@ -19,7 +19,7 @@ function IndexPage() {
   const { t } = useTranslation();
 
   return (
-    <Layout fullMenu={false}>
+    <LandingLayout fullMenu={false}>
       <section id="banner">
         <div>
           <h2>{t('landing:heading')}</h2>
@@ -65,7 +65,7 @@ function IndexPage() {
         <section id="one" className="tiles">
 
           <article style={{ backgroundImage: `url(${historyTile})` }}>
-            <header className="major">
+            <header className="landingHeader major">
               <h3>{t('landing:history.title')}</h3>
               <p>{t('landing:history.description')}</p>
             </header>
@@ -73,7 +73,7 @@ function IndexPage() {
           </article>
 
           <article style={{ backgroundImage: `url(${servicesTile})` }}>
-            <header className="major">
+            <header className="landingHeader major">
               <h3>{t('landing:services.title')}</h3>
               <p>{t('landing:services.description')}</p>
             </header>
@@ -81,7 +81,7 @@ function IndexPage() {
           </article>
 
           <article style={{ backgroundImage: `url(${productsTile})` }}>
-            <header className="major">
+            <header className="landingHeader major">
               <h3>{t('landing:wineAndStay.title')}</h3>
               <p>{t('landing:wineAndStay.description')}</p>
             </header>
@@ -89,7 +89,7 @@ function IndexPage() {
           </article>
 
           <article style={{ backgroundImage: `url(${faqTile})` }}>
-            <header className="major">
+            <header className="landingHeader major">
               <h3>{t('landing:faq.title')}</h3>
               <p>{t('landing:faq.description')}</p>
             </header>
@@ -114,7 +114,7 @@ function IndexPage() {
         */}
         </section>
       </div>
-    </Layout>
+    </LandingLayout>
   );
 }
 

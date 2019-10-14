@@ -7,7 +7,7 @@ import '../assets/sass/main.scss';
 import Footer from './Footer';
 import SideBar from './Sidebar';
 
-class Layout extends Component {
+class LandingLayout extends Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -76,13 +76,13 @@ class Layout extends Component {
   }
 }
 
-Layout.propTypes = {
+LandingLayout.propTypes = {
   children: PropTypes.node.isRequired,
   fullMenu: PropTypes.bool,
 };
 
-Layout.defaultProps = {
+LandingLayout.defaultProps = {
   fullMenu: false,
 };
 
-export default Layout;
+export default LandingLayout;
