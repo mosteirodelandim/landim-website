@@ -13,15 +13,15 @@ function Nav({ onMenuToggle = () => {} }) {
       <ul>
         <div id="flags">
           <div onClick={() => {
-            window.location.reload();
             i18n.changeLanguage('pt');
+            window.location.reload();
           }}
           >
             <FlagIcon code="pt" />
           </div>
           <div onClick={() => {
-            window.location.reload();
             i18n.changeLanguage('en');
+            window.location.reload();
           }}
           >
             <FlagIcon code="gb" />
