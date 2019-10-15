@@ -298,34 +298,21 @@
 	}
 }
 
-// Nav
-
-#flags {
-	all: unset;
-
-	div{
-		all:unset;
-		margin: 10px;
-		cursor: pointer;
-	}
-}
-
 // Components
-	@import 'components/section_article';
 	@import 'components/icon';
 	@import 'components/icons';
-	@import 'components/tiles';
-
 
 // Layout
 
 	@import 'layout/menu';
 	@import 'layout/header';
 	@import 'layout/banner';
-	@import 'layout/main';
 	@import 'layout/footer';
-	@import 'layout/landing';
-	@import 'layout/notfound';
+
+// Pages
+
+	@import 'pages/landing';
+	@import 'pages/notfound';
 
 
 

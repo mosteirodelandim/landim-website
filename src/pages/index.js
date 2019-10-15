@@ -61,7 +61,7 @@ function IndexPage() {
         </Scroll>
       </section>
 
-      <div id="main">
+      <div id="landingPageMain">
         <section id="one" className="tiles">
 
           <article style={{ backgroundImage: `url(${historyTile})` }}>

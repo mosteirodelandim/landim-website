@@ -1,22 +1,4 @@
-/* Page Wrapper + Menu */
-
-#page-wrapper {
-  @include vendor('transition', 'opacity #{_duration(menu)} ease');
-  opacity: 1;
-  padding-top: 3em;
-
-  &:before {
-    background: rgba(0,0,0,0);
-    content: '';
-    display: none;
-    height: 100%;
-    left: 0;
-    position: fixed;
-    top: 0;
-    width: 100%;
-    z-index: _misc(z-index-base) + 1;
-  }
-}
+/* Menu */
 
 #menu {
   @include vendor('transform', 'translateX(20em)');
@@ -112,13 +94,14 @@
   }
 }
 
+//TODO check opacity not changing
 .is-menu-visible {
-  #page-wrapper {
-    opacity: 0.35;
+    #landingPageWrapper {
+      opacity: 0.35;
 
-    &:before {
-      display: block;
-    }
+      &:before {
+        display: block;
+      }
   }
 
   #menu {

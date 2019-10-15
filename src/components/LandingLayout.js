@@ -106,7 +106,7 @@ class LandingLayout extends Component {
             </Helmet>
 
             <div className={isPreloaded ? 'landing main-body is-preload' : 'landing main-body'}>
-              <div id="page-wrapper">
+              <div id="landingPageWrapper">
                 <SideBar fullMenu={fullMenu} />
                 {children}
                 <Footer />

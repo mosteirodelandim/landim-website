@@ -1,6 +1,7 @@
 # gatsby-starter-spectral
 
 ### TODO 
+CHECK TODOS
 Verify website ownership [here](https://htmlhead.dev/);
 Check [this](https://support.google.com/webmasters/answer/79812?hl=en).
 

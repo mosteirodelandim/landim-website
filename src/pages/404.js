@@ -1,5 +1,5 @@
 import React from 'react';
-import '../assets/sass/layout/_notfound.scss';
+import '../assets/sass/pages/_notfound.scss';
 import Lottie from 'lottie-react-web';
 import { useTranslation } from 'react-i18next';
 import dogWagging from '../assets/images/lottie/dog_wagging';
