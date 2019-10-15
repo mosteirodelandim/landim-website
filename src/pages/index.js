@@ -6,7 +6,7 @@ import Lottie from 'lottie-react-web';
 import { Link } from 'gatsby';
 
 import { useTranslation } from 'react-i18next';
-import Layout from '../components/Layout';
+import LandingLayout from '../components/LandingLayout';
 import Scroll from '../components/Scroll';
 
 import scrollAnim from '../assets/images/lottie/scroll_down.json';
@@ -19,7 +19,7 @@ function IndexPage() {
   const { t } = useTranslation();
 
   return (
-    <Layout fullMenu={false}>
+    <LandingLayout fullMenu={false}>
       <section id="banner">
         <div>
           <h2>{t('landing:heading')}</h2>
@@ -114,7 +114,7 @@ function IndexPage() {
         */}
         </section>
       </div>
-    </Layout>
+    </LandingLayout>
   );
 }
 

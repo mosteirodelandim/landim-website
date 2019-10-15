@@ -1,13 +1,20 @@
 module.exports = {
+  // HELMET (relevant for SEO) ----------------
   siteTitle: 'Mosteiro de Landim',
-  manifestName: 'Mosteiro de Landim',
-  manifestShortName: 'Landim',
+  siteDescription: 'Quinta idílica para eventos e património nacional. A quinta do Mosteiro de Landim é mantida pela sua própria família e encontra-se a apenas 30 minutos do Porto.',
+  siteKeywords: ['mosteiro', 'quinta', 'casamento', 'eventos'],
+  siteOGPThumbnail: 'https://cidadehoje.pt/wp-content/uploads/2017/08/Mosteiro-de-Landim.jpg',
+
+  manifestName: 'Mosteiro de Santa Maria de Landim',
+  manifestShortName: 'Mosteiro de Landim',
   manifestStartUrl: '/',
-  manifestBackgroundColor: '#663399',
-  manifestThemeColor: '#663399',
+  manifestBackgroundColor: '#ec8d81',
+  manifestThemeColor: '#ec8d81',
   manifestDisplay: 'standalone',
   manifestIcon: 'src/assets/images/common/website-icon.png',
-  // pathPrefix: '/mosteirodelandim/',
+  pathPrefix: '',
+
+  // PAGES ---------------------
 
   // 404
   houseDogs: ['Ringo', 'Spot'],

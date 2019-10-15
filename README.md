@@ -1,5 +1,12 @@
 # gatsby-starter-spectral
 
+### TODO 
+Verify website ownership [here](https://htmlhead.dev/);
+Check [this](https://support.google.com/webmasters/answer/79812?hl=en).
+
+### Overview
+
+
 Gatsby.js V2 starter template based on Spectral by HTML5 UP
 
 For an overview of the project structure please refer to the [Gatsby documentation - Building with Components](https://www.gatsbyjs.org/docs/building-with-components/).
@@ -74,3 +81,4 @@ Please create issue or open PR request for contribution.
 [![Open Source Love](https://badges.frapsoft.com/os/mit/mit.svg?v=102)](LICENSE)
 
 refer `LICENSE` file in this repository.
+

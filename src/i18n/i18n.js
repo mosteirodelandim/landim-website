@@ -22,6 +22,10 @@ const resources = {
   },
 };
 
+const detection = {
+  order: ['localStorage', 'querystring', 'cookie','navigator', 'htmlTag', 'path', 'subdomain'],
+}
+
 i18n
 // detect user language
   .use(LanguageDetector)
@@ -30,6 +34,7 @@ i18n
   // init i18next
   .init({
     resources,
+    detection,
     fallbackLng: 'en',
 
     ns: ['landing', 'notFound', 'sidebar'],

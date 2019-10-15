@@ -8,7 +8,6 @@
   &:before {
     background: rgba(0,0,0,0);
     content: '';
-    display: block;
     display: none;
     height: 100%;
     left: 0;
@@ -50,6 +49,10 @@
         padding-top: 0 !important;
       }
 
+      &:nth-child(2) {
+        border-top: solid 2px #FFFFFF;
+      }
+
       > a {
         border: 0;
         color: inherit;
@@ -81,6 +84,28 @@
     vertical-align: middle;
     width: 7em;
   }
+
+  .flags {
+    background-position: .85em 1em;
+    background-repeat: no-repeat;
+    flex-direction: row;
+    border: 0;
+    display: block;
+    height: 3em;
+    position: absolute;
+    left: 0;
+    top: 0;
+    vertical-align: middle;
+    width: 7em;
+    margin-left: 1.7em;
+
+      div {
+        all: unset;
+        margin: 5px;
+        cursor: pointer;
+      }
+  }
+
 
   @include breakpoint('<=small') {
     padding: 3em 1.5em;

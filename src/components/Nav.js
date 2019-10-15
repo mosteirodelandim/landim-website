@@ -11,22 +11,6 @@ function Nav({ onMenuToggle = () => {} }) {
   return (
     <nav id="nav">
       <ul>
-        <div id="flags">
-          <div onClick={() => {
-            i18n.changeLanguage('pt');
-            window.location.reload();
-          }}
-          >
-            <FlagIcon code="pt" />
-          </div>
-          <div onClick={() => {
-            i18n.changeLanguage('en');
-            window.location.reload();
-          }}
-          >
-            <FlagIcon code="gb" />
-          </div>
-        </div>
         <li className="special">
           <a
             href="#menu"
@@ -41,9 +25,29 @@ function Nav({ onMenuToggle = () => {} }) {
           <div id="menu">
             <ul>
               <li>
+                <div className="flags">
+                  <div onClick={() => {
+                    i18n.changeLanguage('pt');
+                    window.location.reload();
+                  }}
+                  >
+                    <FlagIcon code="pt" />
+                  </div>
+                  <div onClick={() => {
+                    i18n.changeLanguage('en');
+                    window.location.reload();
+                  }}
+                  >
+                    <FlagIcon code="gb" />
+                  </div>
+                </div>
+              </li>
+
+              <li>
                 <Link to="/">{t('sidebar:landing')}</Link>
               </li>
             </ul>
+
             <a
               className="close"
               onClick={(e) => {
