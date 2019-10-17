@@ -82,9 +82,10 @@
     margin-left: 1.7em;
 
       div {
-        all: unset;
         margin: 5px;
         cursor: pointer;
+        text-align: center;
+        display: inline-block;
       }
   }
 
@@ -94,7 +95,6 @@
   }
 }
 
-//TODO check opacity not changing
 .is-menu-visible {
     #landingPageWrapper {
       opacity: 0.35;
