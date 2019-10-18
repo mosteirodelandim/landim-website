@@ -12,9 +12,9 @@ function ServicesPage() {
   return (
     <LandingLayout fullMenu>
       <article id="pageMain">
-        <header>
-          <h2>Generic Page</h2>
-          <p>Aliquam ut ex ut interdum donec amet imperdiet eleifend</p>
+        <header id="servicesHeader">
+          <h2>Services</h2>
+          <p>We provide a myriad of services for a wide variety of events. It's pick and choose!</p>
         </header>
         <section className="wrapper style5">
           <div className="inner">
