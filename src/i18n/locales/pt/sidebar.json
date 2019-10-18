@@ -1,6 +1,10 @@
 {
   "pt": {
     "label": "Menu",
-    "landing": "Início"
+    "landing": "Início",
+    "services": "Serviços",
+    "history": "História",
+    "wine_stay": "Vinho e estadia",
+    "faq": "FAQ"
   }
 }

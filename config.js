@@ -22,13 +22,6 @@ module.exports = {
   // Footer - social
   socialLinks: [
     {
-      style: 'solid',
-      icon: 'fa-envelope',
-      name: 'Email',
-      url: 'mailto:info@mosteirodelandim.com',
-      urlApp: 'mailto:info@mosteirodelandim.com',
-    },
-    {
       style: 'brands',
       icon: 'fa-facebook',
       name: 'Facebook',

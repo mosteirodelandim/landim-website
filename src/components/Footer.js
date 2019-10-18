@@ -22,15 +22,6 @@ export default function Footer() {
             </li>
           );
         })}
-
-        {isMobile
-          ? (
-            <li key="phone">
-              <a href="tel://+351911042785" className="icon solid fa-phone">
-                <span className="label">Mobile phone</span>
-              </a>
-            </li>
-          ) : null}
       </ul>
       <ul className="copyright">
         <li>{t('landing:footer')}</li>

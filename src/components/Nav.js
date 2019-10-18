@@ -46,6 +46,18 @@ function Nav({ onMenuToggle = () => {} }) {
               <li>
                 <Link to="/">{t('sidebar:landing')}</Link>
               </li>
+              <li>
+                <Link to="/history">{t('sidebar:history')}</Link>
+              </li>
+              <li>
+                <Link to="/services">{t('sidebar:services')}</Link>
+              </li>
+              <li>
+                <Link to="/wine_stay">{t('sidebar:wine_stay')}</Link>
+              </li>
+              <li>
+                <Link to="/faq">{t('sidebar:faq')}</Link>
+              </li>
             </ul>
 
             <a

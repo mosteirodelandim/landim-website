@@ -322,12 +322,12 @@
       @include vendor('flex-direction', 'row-reverse');
     }
 
-    @for $i from 1 through _misc(max-spotlights) {
-      $j: 0.075 * $i;
+    &:nth-child(1) {
+      background-color: _palette(service_cloister-bg);
+    }
 
-      &:nth-child(#{$i}) {
-        background-color: rgba(0,0,0, $j);
-      }
+    &:nth-child(2) {
+      background-color: _palette(service_garden-bg);
     }
 
     @include breakpoint('<=large') {
@@ -561,6 +561,7 @@
 
     &.stacked {
       @include vendor('flex-direction', 'column');
+      @include vendor('justify-content', 'center');
       margin-left: 0;
 
       li {

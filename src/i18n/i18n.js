@@ -8,17 +8,21 @@ import notFoundEN from './locales/en/404.json';
 import notFoundPT from './locales/pt/404.json';
 import sidebarEN from './locales/en/sidebar.json';
 import sidebarPT from './locales/pt/sidebar.json';
+import servicesEN from './locales/en/services.json';
+import servicesPT from './locales/pt/services.json';
 
 const resources = {
   pt: {
     landing: landingPT.pt,
     notFound: notFoundPT.pt,
     sidebar: sidebarPT.pt,
+    services: servicesPT.pt,
   },
   en: {
     landing: landingEN.en,
     notFound: notFoundEN.en,
     sidebar: sidebarEN.en,
+    services: servicesEN.en,
   },
 };
 
@@ -37,7 +41,7 @@ i18n
     detection,
     fallbackLng: 'en',
 
-    ns: ['landing', 'notFound', 'sidebar'],
+    ns: ['landing', 'notFound', 'sidebar', 'services'],
     defaultNS: 'landing',
 
     returnObjects: true, // to return objects (in case of arrays, e.g.)

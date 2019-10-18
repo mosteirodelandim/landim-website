@@ -1,0 +1,28 @@
+{
+  "en": {
+    "heading": "Services",
+    "subHeading": "We provide a myriad of services for a wide variety of events. It's pick and choose!",
+
+    "firstParagraph": {
+      "title": "A space for all",
+      "description1": "Mosteiro de Landim's gates open up to create unforgettable and smile-inducing memories. As time unfolds in either weddings, birthdays, unnamed parties, christenings, conferences, book presentation or simply visits, the minutes slowly blend with the color patterns found in the garden, the intensity of the cloister, the ancient walls. It's more than a space, we want everyone to experience memories and emotions.",
+      "description2": "Our specialty is decoration. We know every inch and corner of our loved venue. We are fond of the tiniest of details that imagination brings to reality. Mosteiro de Landim has had countless events, with every type of decoration and pattern imaginable. Our photogallery showcases some examples of the stories that have unfolded here.",
+      "description3": "There are multiple spaces within the premises that one can access and partake in creating new memories. What follows are our most prized spaces that are (omni)present in almost all of the events that have occured."
+    },
+
+    "spotlights": {
+      "cloister": {
+        "title": "Our beloved cloister",
+        "description": "Countless generations have created their own stories within our beloved cloister that dates back to the XVI century. It's ideal as the main space for weddings."
+      },
+      "gardens": {
+        "title": "Our renowed gardens",
+        "description": "It's not for naught that our magnificient gardens were visited by countless entitites, including national broadcasters and made an appearance in news reports. The beauty it conveys throuhgout the year with different colours stemming from century-old camellia trees make it ideal for any setting and occasion."
+      },
+      "rooms": {
+        "title": "Our beautiful adjacent rooms",
+        "description": "Confining the cloister are two emblematic rooms that effectively make the event bigger and more spacious. With a carved ceiling hailing dating as back as the XVIII century, these rooms make the events more glamorous."
+      }
+    }
+  }
+}
