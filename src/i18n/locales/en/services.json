@@ -13,7 +13,7 @@
     "spotlights": {
       "cloister": {
         "title": "Our beloved cloister",
-        "description": "Countless generations have created their own stories within our beloved cloister that dates back to the XVI century. It's ideal as the main space for weddings."
+        "description": "Countless generations have created their own stories within our beloved cloister that dates back to the 16th century. It's ideal as the main space for weddings."
       },
       "gardens": {
         "title": "Our renowed gardens",
@@ -21,7 +21,11 @@
       },
       "rooms": {
         "title": "Our beautiful adjacent rooms",
-        "description": "Confining the cloister are two emblematic rooms that effectively make the event bigger and more spacious. With a carved ceiling hailing dating as back as the XVIII century, these rooms make the events more glamorous."
+        "description": "Confining the cloister are two emblematic rooms that effectively make the event bigger and more spacious. With a carved ceiling hailing dating as back as the 18th century, these rooms make the events more glamorous."
+      },
+      "church": {
+        "title": "The church",
+        "description": "The local church has a beautiful 18th century carving in its altarpiece, being the ideal place for the celebration of the religious ceremony, given the proximity to Mosteiro de Landim."
       }
     }
   }

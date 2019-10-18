@@ -7,6 +7,7 @@ import LandingLayout from '../components/LandingLayout';
 import cloisterPic from '../assets/images/services/cloister.jpg';
 import gardenPic from '../assets/images/services/garden.jpg';
 import roomPic from '../assets/images/services/rooms.jpg';
+import churchPic from '../assets/images/services/church.jpg';
 
 function ServicesPage() {
   const { t } = useTranslation();
@@ -54,6 +55,15 @@ function ServicesPage() {
             <div className="content">
               <h2>{t('services:spotlights.rooms.title')}</h2>
               <p>{t('services:spotlights.rooms.description')}</p>
+            </div>
+          </section>
+          <section className="spotlight">
+            <div className="image">
+              <img src={churchPic} alt="" />
+            </div>
+            <div className="content">
+              <h2>{t('services:spotlights.church.title')}</h2>
+              <p>{t('services:spotlights.church.description')}</p>
             </div>
           </section>
         </section>
