@@ -53,6 +53,14 @@ import churchThumbnail2 from '../assets/images/photo-gallery/thumbnails/church2.
 import church3 from '../assets/images/photo-gallery/full-images/church3.png';
 import churchThumbnail3 from '../assets/images/photo-gallery/thumbnails/church3.png';
 
+// FOREST
+import forest1 from '../assets/images/photo-gallery/full-images/forest1.png';
+import forestThumbnail1 from '../assets/images/photo-gallery/thumbnails/forest1.png';
+import forest2 from '../assets/images/photo-gallery/full-images/forest2.png';
+import forestThumbnail2 from '../assets/images/photo-gallery/thumbnails/forest2.png';
+import forest3 from '../assets/images/photo-gallery/full-images/forest3.png';
+import forestThumbnail3 from '../assets/images/photo-gallery/thumbnails/forest3.png';
+
 const images = [
   {
     original: cloister1,
@@ -147,6 +155,18 @@ const images = [
   {
     original: church3,
     thumbnail: churchThumbnail3,
+  },
+  {
+    original: forest1,
+    thumbnail: forestThumbnail1,
+  },
+  {
+    original: forest2,
+    thumbnail: forestThumbnail2,
+  },
+  {
+    original: forest3,
+    thumbnail: forestThumbnail3,
   },
 ];
 

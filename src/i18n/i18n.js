@@ -10,6 +10,8 @@ import sidebarEN from './locales/en/sidebar.json';
 import sidebarPT from './locales/pt/sidebar.json';
 import servicesEN from './locales/en/services.json';
 import servicesPT from './locales/pt/services.json';
+import historyEN from './locales/en/history.json';
+import historyPT from './locales/pt/history.json';
 
 const resources = {
   pt: {
@@ -17,18 +19,20 @@ const resources = {
     notFound: notFoundPT.pt,
     sidebar: sidebarPT.pt,
     services: servicesPT.pt,
+    history: historyPT.pt,
   },
   en: {
     landing: landingEN.en,
     notFound: notFoundEN.en,
     sidebar: sidebarEN.en,
     services: servicesEN.en,
+    history: historyEN.en,
   },
 };
 
 const detection = {
-  order: ['localStorage', 'querystring', 'cookie','navigator', 'htmlTag', 'path', 'subdomain'],
-}
+  order: ['localStorage', 'querystring', 'cookie', 'navigator', 'htmlTag', 'path', 'subdomain'],
+};
 
 i18n
 // detect user language
@@ -41,7 +45,7 @@ i18n
     detection,
     fallbackLng: 'en',
 
-    ns: ['landing', 'notFound', 'sidebar', 'services'],
+    ns: ['landing', 'notFound', 'sidebar', 'services', 'history'],
     defaultNS: 'landing',
 
     returnObjects: true, // to return objects (in case of arrays, e.g.)

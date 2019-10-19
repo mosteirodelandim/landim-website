@@ -1,0 +1,23 @@
+{
+  "pt": {
+    "title": "História",
+    "subHeading": "Embarque numa viagem sobre a longa história do Mosteiro de Landim que se tem desenrolado desde o século XII.",
+
+    "origins_architecture": {
+      "title": "Origens e arquitectura",
+      "subHeading": "De onde o Mosteiro de Landim nasceu e como o seu estilo arquitetónico evoluiu com o passar do tempo.",
+      "description1" : "As origens do Mosteiro de Santa Maria de Landim remontam aos alvores da Baixa Idade Média, muito embora sejam contraditórias e escassas as notícias sobre a sua fundação. Apesar da incerteza das datas, terá sido o seu fundador D. Gonçalo Rodrigues da Palmeira, filho do Conde Rodrigo Forjaz de Trastâmara, membro da linhagem dos Travas, que foi companheiro de armas de Henrique da Borgonha, pai do nosso primeiro Rei. Este Gonçalo Rodrigues, que ocupou lugares de relevo na corte de D. Teresa e esteve na origem da linhagem dos Pereira através de um seu filho, terá fundado o primitivo <i>Monasterio de Nandim</i> entre 1110 e 1128, tendo-o dotado mais tarde com o <b>domínio da palmeira</b> que lhe coutou D. Afonso Henriques. A doação foi confirmada pelos seus filhos em documento de 1177, numa altura em que o Mosteiro, cuja comunidade original adoptou com toda a certeza os cânones da tradição hispânica, já estava reformado pelos Cónegos Regrantes de Santo Agostinho, sediados em Santa Cruz de Coimbra, conforme se lê no texto onde é designado por <i>Monasterio de Nandim & Ordini Sancti Agustini</i>. Nas Inquirições de 1258 aparece pela primeira vez com o nome de <i>Monasterio de Sancte Marie de Nandim</i>, e manter-se-ia sempre no seio dos crúzios até à sua extinção em 1770.",
+      "description2": "À data da sua fundação, nos inícios do séc. XII, o Mosteiro era românico e dele ainda permanecem alguns vestígios, como são exemplo os <b>capitéis</b> e as <b>arcardas cegas</b> na capela da igreja e alguns <b>capitéis geminados</b> com motivos da época, talvez já de transição para a centúria de duzentos, como assinalam as bases de bolbo, todos eles fragmentos possivelmente oriundos dum claustro românico destruído na reconstrução do séc. XVI. A igreja era de uma só nave, mais baixa do que a actual, e a capela de paredes rectas, sensivelmente quadrangular. Tinha tectos de madeira e um portal de três arquivoltas , cujos restos se encontram no antigo cemitério. A reforma do séc. XIII instalou a actual abóbada da capela sustentada em contrafortes exteriores e fez levantar a altura da nave, sendo dessa época alguns dos ornamentos românicos que resistiram às alterações posteriores, como os arcos-sob-cornija e o friso enxaquetado que rodeia a capela. A grande transformação viria, no entanto, a ocorrer no séc. XVI sob a égide do Cardeal-Bispo de Viseu, D. Miguel da Silva, vulto de grande destaque na corrente renascentista europeia, que foi Comendatário do Mosteiro na primeira metade de quinhentos. A reconstrução maneirista, fortemente marcada pelo estilo arquitectónico da Companhia de Jesus, caracteriza-se pela obra da <b>fachada da igreja</b>, reconstruída em três corpos lisos, divididos horizontalmente por cornijas rectilíneas, com galilé de três arcos e coro alto, e a edificação da torre e nave colateral.",
+      "description3": "No Mosteiro, totalmente remodelado, salientam-se as construções do novo claustro com colunas dóricas “à romana” e do sobreclaustro aberto entre colunelos, que seria fechado, possivelmente já como domínio privado, em finais de setecentos. Os interiores conheceram sucessivas remodelações de decoração ao longo dos séc. XVII e XVIII com abundante utilização de azulejaria, onde sobressaiem padronagens de tapete e registos de natureza figurativa ao gosto popular de seiscentos, como os que se observam na <b>Casa do Paço</b> , junto ao antigo campo do Jogo da Péla, e alguns notáveis trabalhos de talha barroca que se podem ver no <b>retábulo da capela</b> e no arco de transição da nave ou no admirável tecto da <b>Sala do Capítulo</b>, perto do portal de entrada do Mosteiro novo. É ainda do séc. XVIII o órgão que embeleza a igreja, cuja construção invulgar justificaria restauro urgente.",
+
+      "imagesCaptions": {
+        "picture1": "Demarcação dos Coutos da Plameira e de Landim num mapa do séc. XIII.",
+        "picture2": "Capitel na capela da Igreja.",
+        "picture3": "Arcada cega na capela da Igreja.",
+        "picture4": "Capitel geminado com motivos zoomórficos e Capitel geminado com motivos vegetais.",
+        "picture5": "Recinto do jogo da Péla. Ao fundo, a Casa do Paço.",
+        "picture6": "Sala do Capítulo do Mosteiro."
+      }
+    }
+  }
+}

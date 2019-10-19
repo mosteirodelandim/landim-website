@@ -27,7 +27,7 @@
     "react-helmet": "^5.2.1",
     "react-i18next": "^10.13.1",
     "react-image-gallery": "^0.9.1",
-    "react-images": "^0.5.19",
+    "react-image-lightbox": "^5.1.0",
     "react-scrollspy": "^3.4.0",
     "smoothscroll-polyfill": "^0.4.4",
     "typewriter-effect": "^2.12.1"
