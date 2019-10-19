@@ -1,3 +1,5 @@
+@import "~react-image-gallery/styles/scss/image-gallery.scss";
+
 #pageMain{
   > header {
     @include padding(12em, 0);
@@ -91,10 +93,12 @@
       &.major {
         h2, h3, h4, h5, h6 {
           border-color: _palette($p, border);
+          text-align: center;
         }
 
         p {
           color: _palette($p, fg);
+          text-align: center;
         }
       }
     }
@@ -717,6 +721,18 @@
     @include breakpoint('<=small') {
       height: 3.75em;
       line-height: 3.75em;
+    }
+  }
+
+  /* Photogallery */
+
+  #photogallery {
+    @include breakpoint('<=xlarge') {
+      padding: 4vh 0;
+    }
+
+    .image-gallery-slide {
+      background-color: rgba(0,0,0,0);
     }
   }
 }
