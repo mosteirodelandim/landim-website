@@ -7,20 +7,20 @@ import FlagIcon from './FlagIcon';
 import i18n from '../i18n/i18n';
 import 'react-slidedown/lib/slidedown.css';
 
-function historyTab(t, toggleHistory, setToggleHistory) {
+function historyTab(t, historyOpen, setToggleHistory) {
   return (
     <>
       <li style={{ display: 'flex', justifyContent: 'space-between' }}>
         <Link to="/history">{t('sidebar:history.main')}</Link>
-        <a onClick={() => setToggleHistory(!toggleHistory)}>
-          { toggleHistory
-            ? <span className="icon solid fa-chevron-down" />
-            : <span className="icon solid fa-chevron-left" />}
+        <a onClick={() => setToggleHistory(!historyOpen)}>
+          { historyOpen
+            ? <span className="icon solid fa-chevron-up" />
+            : <span className="icon solid fa-chevron-down" />}
         </a>
       </li>
 
       <SlideDown className="my-dropdown-slidedown">
-        {toggleHistory
+        {historyOpen
 
           ? (
             <>
@@ -51,7 +51,7 @@ function historyTab(t, toggleHistory, setToggleHistory) {
 
 function Nav({ onMenuToggle = () => {} }) {
   const { t } = useTranslation();
-  const [toggleHistory, setToggleHistory] = useState(false);
+  const [historyOpen, setToggleHistory] = useState(false);
 
   return (
     <nav id="nav">
@@ -92,7 +92,7 @@ function Nav({ onMenuToggle = () => {} }) {
                 <Link to="/">{t('sidebar:landing')}</Link>
               </li>
 
-              {historyTab(t, toggleHistory, setToggleHistory)}
+              {historyTab(t, historyOpen, setToggleHistory)}
 
               <li>
                 <Link to="/services">{t('sidebar:services')}</Link>
