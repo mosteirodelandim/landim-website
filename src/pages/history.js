@@ -18,17 +18,42 @@ import originPic8 from '../assets/images/history/origins_architecture/pic8.jpg';
 import priestPic1 from '../assets/images/history/priests/pic1.jpg';
 import priestPic2 from '../assets/images/history/priests/pic2.jpg';
 
+/* Extinction */
+import brevePic1 from '../assets/images/history/extinction/Breve1.jpg';
+import brevePic2 from '../assets/images/history/extinction/Breve2.jpg';
+import brevePic3 from '../assets/images/history/extinction/Breve3.jpg';
+import brevePic4 from '../assets/images/history/extinction/Breve4.jpg';
+import brevePic5 from '../assets/images/history/extinction/Breve5.jpg';
+import brevePic6 from '../assets/images/history/extinction/Breve6.jpg';
+import brevePic7 from '../assets/images/history/extinction/Breve7.jpg';
+import brevePic8 from '../assets/images/history/extinction/Breve8.jpg';
+import brevePic9 from '../assets/images/history/extinction/Breve9.jpg';
+import brevePic10 from '../assets/images/history/extinction/Breve10.jpg';
+import brevePic11 from '../assets/images/history/extinction/Breve11.jpg';
+import brevePic12 from '../assets/images/history/extinction/Breve12.jpg';
+import brevePic13 from '../assets/images/history/extinction/Breve13.jpg';
+import brevePic14 from '../assets/images/history/extinction/Breve14.jpg';
+import receitaPic1 from '../assets/images/history/extinction/Receita1.jpg';
+import receitaPic2 from '../assets/images/history/extinction/Receita2.jpg';
+import receitaPic3 from '../assets/images/history/extinction/Receita3.jpg';
+import receitaPic4 from '../assets/images/history/extinction/Receita4.jpg';
+import receitaPic5 from '../assets/images/history/extinction/Receita5.jpg';
+
 const images = [originPic1, originPic2, originPic3, originPic4, originPic5, originPic6,
   originPic7, originPic8,
-  priestPic1, priestPic2];
+  priestPic1, priestPic2,
+  brevePic1, brevePic2, brevePic3, brevePic4, brevePic5, brevePic6, brevePic7, brevePic8,
+  brevePic9, brevePic10, brevePic11, brevePic12, brevePic13, brevePic14,
+  receitaPic1, receitaPic2, receitaPic3, receitaPic4, receitaPic5];
 
 function HistoryPage() {
   const { t } = useTranslation();
   const [lightboxIsOpen, setToggleLightbox] = useState(false);
   const [photoIndex, setPhotoIndex] = useState(0);
 
-  const captions = Object.values(t('history:origins_architecture.imagesCaptions'))
-    .concat(Object.values(t('history:priests_commissioners.imagesCaptions')));
+  const captions = Object.values(t('history:origins_architecture.imagesCaptions')) // origins
+    .concat(Object.values(t('history:priests_commissioners.imagesCaptions'))) // priests
+    .concat(Object.values(t('history:extinction.imagesCaptions'))); // extinction
 
   return (
     <>
@@ -205,6 +230,59 @@ function HistoryPage() {
                       { __html: t('history:priests_commissioners.description8', { interpolation: { escapeValue: false } }) }
                     }
                 />
+              </section>
+
+              <section>
+                <hr />
+                <header>
+                  <h2>{t('history:extinction.title')}</h2>
+                  <p>{t('history:extinction.subHeading')}</p>
+                  <hr />
+                </header>
+
+                <>
+                  <span
+                    onClick={() => {
+                      setPhotoIndex(images.indexOf(brevePic1));
+                      setToggleLightbox(true);
+                    }}
+                    className="image right"
+                    style={{ width: '30vh' }}
+                  >
+                    <img src={brevePic1} alt="" />
+                    {t('history:extinction.imagesCaptions.breve1')}
+                  </span>
+                  <p
+                    dangerouslySetInnerHTML={
+                      { __html: t('history:extinction.description1', { interpolation: { escapeValue: false } }) }
+                    }
+                  />
+
+                  <p
+                    dangerouslySetInnerHTML={
+                      { __html: t('history:extinction.description2', { interpolation: { escapeValue: false } }) }
+                    }
+                  />
+                </>
+
+                <>
+                  <span
+                    onClick={() => {
+                      setPhotoIndex(images.indexOf(receitaPic1));
+                      setToggleLightbox(true);
+                    }}
+                    className="image left"
+                    style={{ width: '32vh' }}
+                  >
+                    <img src={receitaPic1} alt="" />
+                    {t('history:extinction.imagesCaptions.receita1')}
+                  </span>
+                  <p
+                    dangerouslySetInnerHTML={
+                      { __html: t('history:extinction.description3', { interpolation: { escapeValue: false } }) }
+                    }
+                  />
+                </>
               </section>
 
               <section>

@@ -38,6 +38,36 @@
         "picture1": "Santo António vestido com o hábito de Cónego Regrante. Pintura de André Gonçalves, séc XVIII, em Santa Cruz de Coimbra.",
         "picture2": "Pormenor do quadro de Cristo em Casa de Marta pintado por Grão Vasco (c. 1535), representando D. Miguel da Silva."
       }
+    },
+
+    "extinction": {
+      "title": "Extinção do mosteiro",
+      "subHeading": "O período que ditou a extinção de várias organizações monásticas, incluindo o Mosteiro de Landim.",
+      "description1" : "No quadro da sociedade portuguesa em finais do século XVIII, o enorme poderio que detinham as ordens monásticas traduzia-se quer na persistente acumulação de domínios fundiários e de um significativo entesouramento, quer no que hoje se pode considerar como um poderoso centro de influências e de domínio ideológico do aparelho de ensino. É neste cenário de luta pelo enfraquecimento dos poderes detidos pelas instituições religiosas que o <b>breve apostólico de Clemente XIV</b>, <i>Sacrosanctum Apostolatus Ministerium</i>, de 4 de Julho de 1770, se justifica, determinando a extinção de nove mosteiros da Congregação de Santa Cruz de Coimbra, entre os quais o Mosteiro de Santa Maria de Landim.",
+      "description2" : "A carta régia de D. José I, de 6 de Setembro de 1770, dirigida ao Cardeal da Cunha, indigitado pelo Papa para executor do Breve Apostólico, marca o início do processo de extinção destes mosteiros. Nessa carta o rei informa da decisão contida no Breve, concedendo ao Cardeal o <i>Real beneplacito e Regio auxilio</i> para dar cumprimento às directivas do Papa. A 15 de Setembro do mesmo ano, o desembargador da Relação do Porto recebe ordens do Cardeal da Cunha para se dirigir ao Mosteiro de Landim, afim de pôr em <i>geral Sequestro com tudo o que lhe hé pertencente</i> e intimar os cónegos a abandoná-lo. A esta carta é anexado um documento – <i>Formula do Inventario, que se deve fazer dos bens, e rendas do Convento de Santa Maria de Nandim sito na Dioceze de Braga</i>, preparado pelo prelado da Mitra de Lisboa, onde se especifica tudo quanto deveria ser objecto de inventário. O primeiro acto do desembargador foi informar a comunidade religiosa, reunida na Caza do Capítulo do Mosteiro no dia 25 de Setembro, <i>das ordens e diligencia, a que vinhá proceder</i> e da instrução que lhe tinha sido transmitida pelo Cardeal da Cunha para os cónegos se <i>hirem hospedar no Real de Santa Cruz de Coimbra</i>.",
+      "description3" : "Nesse mesmo dia, o meirinho procedia ao <i>sequestro geral e real aprehenção</i> de todos os bens do mosteiro, nomeadamente <i>joyas, e alfayas de ouro e prata, pertencentes a este mosteiro, e Sua Igreja, e nos ornamentos, e roupas della, e Sanchristia, e nos moveis e comum do refeitorio, adegas, seleiro, despença, e cozinha, e nas quintas, e fazendas, e gados, e em todos os frutos recolhidos e pendentes, como tambem em todos os prazos, e foros, e bens de raiz, e nas dividas activas, e passivas, e em todas as cauzas deste Mosteiro, e nas Capellas da Igreja delle, e bens da sua fundaçam e instithuição</i>. Após a conclusão de todos os sequestros e de terem sido afixados editais públicos em Landim, localidades vizinhas e no Porto, a 11 de Novembro decorreu, no pátio junto à portaria do Mosteiro, a arrematação de alguns dos seus bens. A 20 de Dezembro de 1770, o sequestro do Mosteiro de Landim, documentado em mais de <b>quinhentas páginas</b>, chegou, finalmente, ao seu termo.",
+
+      "imagesCaptions": {
+        "breve1": "Breve Apostólico de Clemente XIV Sacrosanctum Apostulatus Ministerium.",
+        "breve2": "Breve Apostólico de Clemente XIV Sacrosanctum Apostulatus Ministerium (pág.2).",
+        "breve3": "Breve Apostólico de Clemente XIV Sacrosanctum Apostulatus Ministerium (pág.3).",
+        "breve4": "Breve Apostólico de Clemente XIV Sacrosanctum Apostulatus Ministerium (pág.4).",
+        "breve5": "Breve Apostólico de Clemente XIV Sacrosanctum Apostulatus Ministerium (pág.5).",
+        "breve6": "Breve Apostólico de Clemente XIV Sacrosanctum Apostulatus Ministerium (pág.6).",
+        "breve7": "Breve Apostólico de Clemente XIV Sacrosanctum Apostulatus Ministerium (pág.7).",
+        "breve8": "Breve Apostólico de Clemente XIV Sacrosanctum Apostulatus Ministerium (pág.8).",
+        "breve9": "Breve Apostólico de Clemente XIV Sacrosanctum Apostulatus Ministerium (pág.9).",
+        "breve10": "Breve Apostólico de Clemente XIV Sacrosanctum Apostulatus Ministerium (pág.10).",
+        "breve11": "Breve Apostólico de Clemente XIV Sacrosanctum Apostulatus Ministerium (pág.11).",
+        "breve12": "Breve Apostólico de Clemente XIV Sacrosanctum Apostulatus Ministerium (pág.12).",
+        "breve13": "Breve Apostólico de Clemente XIV Sacrosanctum Apostulatus Ministerium (pág.13).",
+        "breve14": "Breve Apostólico de Clemente XIV Sacrosanctum Apostulatus Ministerium (pág.14).",
+        "receita1": "Folha do Livro do Inventário.",
+        "receita2": "Folha do Livro do Inventário (pág.2) .",
+        "receita3": "Folha do Livro do Inventário (pág.3).",
+        "receita4": "Folha do Livro do Inventário (pág.4).",
+        "receita5": "Folha do Livro do Inventário (pág.5)."
+      }
     }
   }
 }
