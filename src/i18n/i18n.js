@@ -12,6 +12,8 @@ import servicesEN from './locales/en/services.json';
 import servicesPT from './locales/pt/services.json';
 import historyEN from './locales/en/history.json';
 import historyPT from './locales/pt/history.json';
+import wineStayEN from './locales/en/wine_stay.json';
+import wineStayPT from './locales/pt/wine_stay.json';
 
 const resources = {
   pt: {
@@ -20,6 +22,7 @@ const resources = {
     sidebar: sidebarPT.pt,
     services: servicesPT.pt,
     history: historyPT.pt,
+    wine_stay: wineStayPT.pt,
   },
   en: {
     landing: landingEN.en,
@@ -27,6 +30,7 @@ const resources = {
     sidebar: sidebarEN.en,
     services: servicesEN.en,
     history: historyEN.en,
+    wine_stay: wineStayEN.en,
   },
 };
 
@@ -45,7 +49,7 @@ i18n
     detection,
     fallbackLng: 'en',
 
-    ns: ['landing', 'notFound', 'sidebar', 'services', 'history'],
+    ns: ['landing', 'notFound', 'sidebar', 'services', 'history', 'wine_stay'],
     defaultNS: 'landing',
 
     returnObjects: true, // to return objects (in case of arrays, e.g.)
