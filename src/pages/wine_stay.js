@@ -12,7 +12,7 @@ function WineStayPage() {
   return (
     <LandingLayout fullMenu>
       <article id="pageMain">
-        <header id="historyHeader">
+        <header id="winestayHeader">
           <h2>{t('wine_stay:title')}</h2>
           <p style={{ margin: '0 2em 2em 2em' }}>{t('wine_stay:subHeading')}</p>
         </header>

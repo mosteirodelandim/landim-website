@@ -81,7 +81,7 @@ function HistoryPage() {
     <>
       <LandingLayout fullMenu>
         <article id="historyMain">
-          <header>
+          <header id="historyHeader">
             <h2>{t('history:title')}</h2>
             <p>{t('history:subHeading')}</p>
           </header>
