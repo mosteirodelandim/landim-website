@@ -4,7 +4,15 @@
     "landing": "Início",
     "services": "Serviços",
     "photos": "Fotografias",
-    "history": "História",
+    "history": {
+      "main": "História",
+      "origins": "Origens e Arquitectura",
+      "priests": "Priores e Comandários",
+      "extinction": "Extinção do Mosteiro",
+      "sale": "Venda e propriedade familiar",
+      "notable": "Figuras de relevo",
+      "book": "Livro"
+    },
     "wine_stay": "Vinho e estadia",
     "faq": "FAQ"
   }

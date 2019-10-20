@@ -47,7 +47,25 @@ function Nav({ onMenuToggle = () => {} }) {
                 <Link to="/">{t('sidebar:landing')}</Link>
               </li>
               <li>
-                <Link to="/history">{t('sidebar:history')}</Link>
+                <Link to="/history">{t('sidebar:history.main')}</Link>
+              </li>
+              <li id="li-submenu">
+                <Link to="/history#origin">{t('sidebar:history.origins')}</Link>
+              </li>
+              <li id="li-submenu">
+                <Link to="/history#priests">{t('sidebar:history.priests')}</Link>
+              </li>
+              <li id="li-submenu">
+                <Link to="/history#extinction">{t('sidebar:history.extinction')}</Link>
+              </li>
+              <li id="li-submenu">
+                <Link to="/history#sale">{t('sidebar:history.sale')}</Link>
+              </li>
+              <li id="li-submenu">
+                <Link to="/history#notable">{t('sidebar:history.notable')}</Link>
+              </li>
+              <li id="li-submenu">
+                <Link to="/history#book">{t('sidebar:history.book')}</Link>
               </li>
               <li>
                 <Link to="/services">{t('sidebar:services')}</Link>

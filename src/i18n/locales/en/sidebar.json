@@ -4,7 +4,15 @@
     "landing": "Home",
     "services": "Services",
     "photos": "Photos",
-    "history": "History",
+    "history": {
+      "main": "History",
+      "origins": "Origins and Architecture",
+      "priests": "Priests and Commissioners",
+      "extinction": "Monastery Extinction",
+      "sale": "Sale and family property",
+      "notable": "Notable people",
+      "book": "Book"
+    },
     "wine_stay": "Wine & Stay",
     "faq": "FAQ"
   }

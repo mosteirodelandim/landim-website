@@ -301,7 +301,7 @@ function HistoryPage() {
                 </>
               </section>
 
-              <section id="notable_people">
+              <section id="notable">
                 <hr />
                 <header>
                   <h2>{t('history:notable_people.title')}</h2>

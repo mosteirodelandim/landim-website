@@ -50,6 +50,12 @@
         }
       }
     }
+
+    #li-submenu {
+      border-top: solid 1px _palette(accent1, border-submenu);
+      text-align: right;
+      font-size: 0.8em;
+    }
   }
 
   .close {
