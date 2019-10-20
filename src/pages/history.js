@@ -11,9 +11,16 @@ import originPic3 from '../assets/images/history/origins_architecture/pic3.jpg';
 import originPic4 from '../assets/images/history/origins_architecture/pic4.jpg';
 import originPic5 from '../assets/images/history/origins_architecture/pic5.jpg';
 import originPic6 from '../assets/images/history/origins_architecture/pic6.jpg';
+import originPic7 from '../assets/images/history/origins_architecture/pic7.jpg';
+import originPic8 from '../assets/images/history/origins_architecture/pic8.jpg';
 
+/* Priests */
+import priestPic1 from '../assets/images/history/priests/pic1.jpg';
+import priestPic2 from '../assets/images/history/priests/pic2.jpg';
 
-const images = [originPic1, originPic2, originPic3, originPic4, originPic5, originPic6];
+const images = [originPic1, originPic2, originPic3, originPic4, originPic5, originPic6,
+  originPic7, originPic8,
+  priestPic1, priestPic2];
 
 function HistoryPage() {
   const { t } = useTranslation();
@@ -21,7 +28,7 @@ function HistoryPage() {
   const [photoIndex, setPhotoIndex] = useState(0);
 
   const captions = Object.values(t('history:origins_architecture.imagesCaptions'))
-    .concat(/* adicionar aqui os outros */);
+    .concat(Object.values(t('history:priests_commissioners.imagesCaptions')));
 
   return (
     <>
@@ -35,7 +42,6 @@ function HistoryPage() {
             <div className="inner">
 
               <section>
-                <hr />
                 <header>
                   <h2>{t('history:origins_architecture.title')}</h2>
                   <p>{t('history:origins_architecture.subHeading')}</p>
@@ -52,6 +58,7 @@ function HistoryPage() {
                     style={{ width: '25vh' }}
                   >
                     <img src={originPic1} alt="" />
+                    {t('history:origins_architecture.imagesCaptions.picture1')}
                   </span>
                   <p
                     dangerouslySetInnerHTML={
@@ -70,6 +77,7 @@ function HistoryPage() {
                     style={{ width: '35vh' }}
                   >
                     <img src={originPic2} alt="" />
+                    {t('history:origins_architecture.imagesCaptions.picture2')}
                   </span>
                   <p
                     dangerouslySetInnerHTML={
@@ -95,7 +103,10 @@ function HistoryPage() {
                         setToggleLightbox(true);
                       }}
                     >
-                      <span className="image fit"><img src={originPic5} alt="" /></span>
+                      <span className="image fit">
+                        <img src={originPic5} alt="" />
+                        {t('history:origins_architecture.imagesCaptions.picture5')}
+                      </span>
                     </div>
                     <div
                       className="col-6"
@@ -104,10 +115,99 @@ function HistoryPage() {
                         setToggleLightbox(true);
                       }}
                     >
-                      <span className="image fit"><img src={originPic6} alt="" /></span>
+                      <span className="image fit" style={{ textAlign: 'right' }}>
+                        <img src={originPic6} alt="" />
+                        {t('history:origins_architecture.imagesCaptions.picture6')}
+                      </span>
                     </div>
                   </div>
                 </div>
+              </section>
+
+              <section>
+                <hr />
+                <header>
+                  <h2>{t('history:priests_commissioners.title')}</h2>
+                  <p>{t('history:priests_commissioners.subHeading')}</p>
+                  <hr />
+                </header>
+
+                <>
+                  <span
+                    onClick={() => {
+                      setPhotoIndex(images.indexOf(priestPic1));
+                      setToggleLightbox(true);
+                    }}
+                    className="image right"
+                    style={{ width: '35vh' }}
+                  >
+                    <img src={priestPic1} alt="" />
+                    {t('history:priests_commissioners.imagesCaptions.picture1')}
+                  </span>
+                  <p
+                    dangerouslySetInnerHTML={
+                      { __html: t('history:priests_commissioners.description1', { interpolation: { escapeValue: false } }) }
+                    }
+                  />
+
+                  <p
+                    dangerouslySetInnerHTML={
+                      { __html: t('history:priests_commissioners.description2', { interpolation: { escapeValue: false } }) }
+                    }
+                  />
+                </>
+
+                <>
+                  <p
+                    dangerouslySetInnerHTML={
+                      { __html: t('history:priests_commissioners.description3', { interpolation: { escapeValue: false } }) }
+                    }
+                  />
+                </>
+
+                <p
+                  dangerouslySetInnerHTML={
+                      { __html: t('history:priests_commissioners.description4', { interpolation: { escapeValue: false } }) }
+                    }
+                />
+                <p
+                  dangerouslySetInnerHTML={
+                      { __html: t('history:priests_commissioners.description5', { interpolation: { escapeValue: false } }) }
+                    }
+                />
+
+                <>
+                  <span
+                    onClick={() => {
+                      setPhotoIndex(images.indexOf(priestPic2));
+                      setToggleLightbox(true);
+                    }}
+                    className="image left"
+                    style={{ width: '35vh' }}
+                  >
+                    <img src={priestPic2} alt="" />
+                    {t('history:priests_commissioners.imagesCaptions.picture2')}
+                  </span>
+                  <p
+                    dangerouslySetInnerHTML={
+                      { __html: t('history:priests_commissioners.description6', { interpolation: { escapeValue: false } }) }
+                    }
+                  />
+                  <p
+                    dangerouslySetInnerHTML={
+                      { __html: t('history:priests_commissioners.description7', { interpolation: { escapeValue: false } }) }
+                    }
+                  />
+                </>
+
+                <p
+                  dangerouslySetInnerHTML={
+                      { __html: t('history:priests_commissioners.description8', { interpolation: { escapeValue: false } }) }
+                    }
+                />
+              </section>
+
+              <section>
                 <header>
                   <h5>Heading with a Subtitle</h5>
                   <p>Lorem ipsum dolor sit amet nullam id egestas urna aliquam</p>
@@ -122,22 +222,7 @@ function HistoryPage() {
                 <hr />
                 <h5>Blockquote</h5>
                 <blockquote>Fringilla nisl. Donec accumsan interdum nisi, quis tincidunt felis sagittis eget tempus euismod. Vestibulum ante ipsum primis in faucibus vestibulum. Blandit adipiscing eu felis iaculis volutpat ac adipiscing accumsan faucibus. Vestibulum ante ipsum primis in faucibus lorem ipsum dolor sit amet nullam adipiscing eu felis.</blockquote>
-                <h5>Preformatted</h5>
-                <pre>
-                  <code>i = 0;
 
-							while (!deck.isInOrder()) {`{
-							print 'Iteration ' + i;
-							deck.shuffle();
-							i++;
-							}` }
-
-              print 'It took ' + i + ' iterations to sort the deck.';
-                  </code>
-                </pre>
-              </section>
-
-              <section>
                 <h4>Lists</h4>
                 <div className="row">
                   <div className="col-6 col-12-medium">
@@ -405,7 +490,7 @@ function HistoryPage() {
           onCloseRequest={() => setToggleLightbox(false)}
           onMovePrevRequest={() => setPhotoIndex((photoIndex + images.length - 1) % images.length)}
           onMoveNextRequest={() => setPhotoIndex((photoIndex + 1) % images.length)}
-          imageCaption={captions[photoIndex]}
+          imageCaption={`(${photoIndex + 1}/${images.length}) ${captions[photoIndex]}`}
         />
       )}
     </>

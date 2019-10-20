@@ -746,9 +746,11 @@
 
     // to center images vertically
     >.row {
+      /*
       display: flex;
       align-items: center;
       justify-content: center;
+      */
     }
   }
 
@@ -816,6 +818,12 @@
 
   /* Image */
 
+  span {
+    font-size: .8em;
+    color: gray;
+  }
+
+
   .image {
     border-radius: 3px;
     border: 0;
@@ -832,12 +840,14 @@
       float: left;
       margin: 0 2em 2em 0;
       top: 0.25em;
+      text-align: left;
     }
 
     &.right {
       float: right;
       margin: 0 0 2em 2em;
       top: 0.25em;
+      text-align: right;
     }
 
     &.left,
