@@ -29,6 +29,7 @@
     "react-image-gallery": "^0.9.1",
     "react-image-lightbox": "^5.1.0",
     "react-scrollspy": "^3.4.0",
+    "react-slidedown": "^2.4.4",
     "smoothscroll-polyfill": "^0.4.4",
     "typewriter-effect": "^2.12.1"
   },
