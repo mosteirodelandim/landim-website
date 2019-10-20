@@ -3,6 +3,8 @@ import '../assets/sass/pages/_notfound.scss';
 import Lottie from 'lottie-react-web';
 import { useTranslation } from 'react-i18next';
 import dogWagging from '../assets/images/lottie/dog_wagging';
+import dogWalking from '../assets/images/lottie/doggie_walking';
+
 
 import config from '../../config';
 
@@ -27,10 +29,10 @@ function IndexPage() {
         </div>
         <Lottie
           options={{
-            animationData: dogWagging,
+            animationData: dogWalking,
           }}
-          width="50%"
-          height="50%"
+          width="35%"
+          height="35%"
         />
       </div>
     </div>

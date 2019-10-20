@@ -68,6 +68,55 @@
         "receita4": "Folha do Livro do Inventário (pág.4).",
         "receita5": "Folha do Livro do Inventário (pág.5)."
       }
+    },
+
+    "notable_people": {
+      "title": "Figuras de relevo",
+      "subHeading": "Pelo Mosteiro de Landim já passaram ilustres figuras de relevo que cá deixaram a sua marca.",
+
+      "camilo": {
+        "title": "Camilo Castelo Branco",
+        "subHeading": "Romancista, [1825-1890]",
+        "description1": "Camilo Castelo Branco era amigo de António Vicente de Carvalho Leal e Souza, proprietário do Mosteiro de Landim no período de 1849 a 1875.",
+        "description2": "O escritor visitava, com alguma regularidade, a família do mosteiro e, não raras vezes, aí estanciava para repousar e escrever algumas páginas dos seus romances, dispondo de um quarto sempre preparado para o receber – o <i>quarto de Camilo</i>, como passou a ser designado desde esse tempo. Das suas estadias no mosteiro são conhecidas algumas histórias caricatas. Maria Henriqueta Leal Sampaio, neta de António Vicente, contava que, um dia, Camilo pediu ao amigo para o receber pois encontrando-se prestes a morrer, escolhera a sua casa para passar os derradeiros momentos de vida. A obsessão da morte que o trouxe até Landim, rapidamente seria esquecida. Bastaram alguns dias de descanso e de mesa farta para que o escritor <i>se retirasse muito bem disposto!</i> Uma outra história com contornos diferentes ocorreu no ano de 1868, quando o proprietário do mosteiro ordenou a remoção de umas lápides tumulares da sacristia da Igreja de Landim para o claustro do mosteiro, afim de permitir a Camilo melhores condições para examinar as suas inscrições. Como resultado deste procedimento António Vicente viu-se confrontado com um processo judicial por crime de violação de sepulturas. As alegações do seu advogado de defesa para conseguir provar o não cometimento do crime, fundamentavam-se, sobretudo, na finalidade que levou ao acto de remover as ditas lápides, a de facultar material de trabalho ao romancista para escrever <i>O Senhor do Paço de Ninães</i>. O grande prestígio literário de Camilo Castelo Branco e a bem arquitectada argumentação da defesa, conduziram a um desfecho favorável a António Vicente, sendo ilibado de todas as acusações que sobre ele pendiam. Como forma de compensar o amigo por o ter envolvido nas malhas da justiça, o escritor escreveria esta pequena nota no seu romance: <i>O antigo mosteiro é hoje a bela casa e quinta do meu amigo António Vicente de Carvalho Leal e Souza, herdeiro e sobrinho do último capitão-mor de Landim</i>.",
+        "lettersCaption": "Carta de Camilo Castelo Branco"
+      },
+
+      "alberto": {
+        "title": "Alberto Sampaio",
+        "subHeading": "Historiador, [1841-1908]",
+        "description1": "Alberto Sampaio, membro destacado da famosa Geração de 70, distinguiu-se como um dos mais brilhantes historiadores do século XIX. A primeira relação com Landim surge quando iniciou a formação escolar no Colégio Correia de Abreu, situado na alameda do Mosteiro. A partir de 1868, ano do casamento de seu irmão José da Cunha Sampaio com a filha do então proprietário do Mosteiro, António Vicente de Carvalho Leal e Sousa, a pequena povoação do vale do Ave passou a fazer parte do seu percurso familiar. Nesse tempo já o historiador residia na <b>Casa de Boamense</b>, uma propriedade rural localizada na freguesia de Cabeçudos do concelho de Vila Nova de Famalicão, onde praticamente viveu toda a sua vida, entregue às investigações históricas e ao estudo experimental das práticas de agricultura e vitivinicultura. Numa das suas visitas ao Mosteiro conheceu, por intermédio de António Vicente, Camilo Castelo Branco. Os momentos de convívio que, por certo, desfrutaram nos antigos domínios dos crúzios, conduziram a uma relação muito próxima, preenchida, sobretudo, por assuntos de natureza literária, como se infere a partir das cartas que Camilo escreveu a Alberto Sampaio e pela colaboração deste na tradução da obra “Fair Lusitania” de C. C. Lady Jackson."
+      },
+
+      "sebastiao": {
+        "title": "Sebastião de Carvalho",
+        "subHeading": "Poeta, [1869-1926]",
+        "description1": "Sebastião de Carvalho, poeta famalicense, foi director da revista literária Nova Alvorada, no período de 1894 a 1903, e colaborador em diversos periódicos e revistas literárias do Porto e de Vila Nova de Famalicão. Amigo da família de Landim desde longa data, através da relação que manteve, desde os tempos de Coimbra, com António Vicente Leal Sampaio, irmão da sua futura mulher, visitava com frequência o Mosteiro de Landim. Um ano antes do seu desaparecimento prematuro, casou com Maria Henriqueta Leal Sampaio, já nesse tempo proprietária do Mosteiro. Durante o curto período que viveu em Landim, Sebastião de Carvalho superintendeu as obras que, entretanto, se tinham iniciado nalgumas das dependências da Casa e geriu, com o apoio do seu cunhado, a exploração das propriedades. No único livro de poesia que publicou, <i>Rosas da Minha Terra</i>, figura o poema <i>Na Cerca do Mosteiro</i> que dedicou a sua sogra, refundido da versão original que, inicialmente, se intitulava <i>À Sombra de Árvores</i>.",
+        "poemTitle": "Na cerca do mosteiro",
+        "poem": "À Ex.ma Sr.ª D. Maria José Leal Sampaio\n\n Debaixo destas árvores frondosas\nCheias de musgo, de rugosa idade,\nEu imagino as sestas deleitosas\nQue à sua sombra gozaria um frade!\n\nNas ruas do jardim silencioso\nJulgo ver perpassar neste momento\nO dom-abade, ondeante e sumptuoso,\nVenerando prelado do convento.\n\nHá quanto tempo por aqui passaram!\nSombras errantes como já vão longe!\nQuantas angústias e paixões pulsaram\nDentro de um hábito talar de monge!\n\nO mirto dos canteiros espelhado\nNa frescura do lago se inebria.\nTudo convida à paz. Que sossegado\nÉ agora o claustro e a portaria!\n\nJunto ao murmúrio desta fonte clara\nAlguém aqui seus carmes suspirou;\nA sede d' água a fonte saciara....\nMas a sede d'amor não lha apagou.\n\nAlma gemente de forçada pena\nQue a grade da clausura aferrolhava,\nComo do harém cativa é a agarena,\nFicou, da regra, submissa escrava!\n\nÀ hora do sol posto, lentamente,\nAs sombras têm desenhos movediços;\nSobre a cerca, à janela do poente,\nVinham cismar nostálgicos noviços...\n\nUm crúzio, por o ser e amortalhado,\nTem também coração prisioneiro\nDo amor, porque amar não é pecado,\nE já muito se amou neste mosteiro.\n\nSe estas antigas árvores falassem\nQuantos segredos nos revelariam!\nE que loucos desejos, se os contassem...\nSe elas falassem, o que não diriam!\n\nDebaixo desta abóboda florida,\nAo fundo revestida de azulejos,\nPassa um murmúrio brando, ainda sentida\nA cavatina dum chalrar de beijos...\n\nAos ardis do amor, que tudo arrasta,\nSe rende o coração; para prendê-lo,\nUm olhar de mulher é quanto basta,\nBasta o laço dum fio de cabelo...\n\nÉ ainda o amor, nesta espessura,\nQue palpita as seivas do arvoredo;\nFecunda a terra; pulsa na estrutura\nDo coração das rosas – fulvo e ledo...\n\nTodo o edifício agora mergulhado\nEm sombras, é um túmulo silente...\nNa velha torre, que lhe fica ao lado,\nBatem trindades compassadamente...\n\nE parece que toda a natureza,\nCom as mãos postas, num recolhimento,\nAbaixa os olhos e baixinho reza...\nPelo pó que passou deste convento!"
+      },
+
+      "imagesCaptions": {
+        "camilo1": "Camilo Castelo Branco",
+        "camilo2": "CARTA DE CAMILO CASTELO BRANCO\n\"Meu prezado A. Vicente\nEstou há dias em S. Tirso entregue aos cuidados medicinais do Dr. Ferr.ª. Sinto aqui grande falta de alimentos, e o meu principal tratamento seria a boa alimentação. Diz-me o Nuno que, se o meu am.º lhe der licença, poderia arranjar-me na sua mata algum coelho. Se assim é, não duvidará o meu Ant. Vicente\" (continua)",
+        "camilo3": "CARTA DE CAMILO CASTELO BRANCO\n\"permitir-lhe que ele invada com os cães esses ricos domicílios.\nOuso, pois, em nome da minha anemia pedir-lhe semelhante licença, e que me considere até ao fim desta cansada peregrinação.\"\n \n26/7/85\nSeu mt.º am.º\nCamilo Cast. Br.",
+        "alberto4": "Alberto Sampaio",
+        "alberto5": "Casa de Boamense",
+        "sebastiao6": "Sebastião de Carvalho"
+      }
+    },
+
+    "book": {
+      "title": "Livro",
+      "subHeading": "Mosteiro de Santa Maria de Landim: Raízes e Memória",
+      "subSubHeading": "António Martins e Emília Nóvoa Faria",
+      "subSubSubHeading": "Vila Nova de Famalicão, 2002.",
+      "quote": "Este livro aborda, em duas partes distintas, as origens e a evolução da comunidade monástica que se fixou no vale do Ave, em Landim, tendo adoptado a regra e o costumeiro dos Cónegos Regrantes de Santo Agostinho, instalados em Coimbra a partir de 1134. Na primeira parte – Raízes – o trabalho debruça-se sobre a emergência do mosteiro, através da análise critica das principais fontes, à luz do quadro histórico da época, e descreve, do ponto de vista arquitectónico, as sucessivas transformações que sofreu ao longo do tempo até à reconstrução maneirista iniciada no séc. XVI pela mão de D. Miguel da Silva, Bispo de Viseu e seu comendatário. Na segunda parte – Memória – descreve-se o património acumulado pelo mosteiro, desde a atribuição da Carta de Couto por D. Teresa até à data da sua extinção em 1770, bem como a sucessão de priores e comendatários que presidiram, durante sete séculos, aos destinos da comunidade. O processo de extinção, decretado por Breve de Clemente XIV, a pedido de D. José I e por instâncias do Marquês de Pombal, é narrado com recurso à documentação do sequestro contida no Livro do Inventário que se encontra no Arquivo Distrital do Porto . Em 1772 o conjunto monástico foi adquirido por um landinense radicado no Brasil, Manuel Baptista Landim, que iniciou um longo percurso de domínio privado ao longo dos últimos 230 anos e cuja história familiar encerra este trabalho.",
+      "quoteCitation": "in Revista Monumentos N.º 17/Setembro 2002",
+
+      "imagesCaptions": {
+        "book1": "Mosteiro de Santa Maria de Landim: Raízes e Memória"
+      }
     }
   }
 }
