@@ -39,6 +39,10 @@ import receitaPic3 from '../assets/images/history/extinction/Receita3.jpg';
 import receitaPic4 from '../assets/images/history/extinction/Receita4.jpg';
 import receitaPic5 from '../assets/images/history/extinction/Receita5.jpg';
 
+/* Sale */
+import salePic1 from '../assets/images/history/sale/picture1.jpg';
+import salePic2 from '../assets/images/history/sale/picture2.jpg';
+
 /* Notable people */
 import camiloPic1 from '../assets/images/history/notable_people/camilo.jpg';
 import camiloPic2 from '../assets/images/history/notable_people/camilo2.jpg';
@@ -57,6 +61,7 @@ const images = [originPic1, originPic2, originPic3, originPic4, originPic5, orig
   brevePic1, brevePic2, brevePic3, brevePic4, brevePic5, brevePic6, brevePic7, brevePic8, // extinction
   brevePic9, brevePic10, brevePic11, brevePic12, brevePic13, brevePic14,
   receitaPic1, receitaPic2, receitaPic3, receitaPic4, receitaPic5,
+  salePic1, salePic2, // sale
   camiloPic1, camiloPic2, camiloPic3, albertoPic4, albertoPic5, sebastiaoPic6, // notable people
   bookPic1]; // book
 
@@ -68,6 +73,7 @@ function HistoryPage() {
   const captions = Object.values(t('history:origins_architecture.imagesCaptions')) // origins
     .concat(Object.values(t('history:priests_commissioners.imagesCaptions'))) // priests
     .concat(Object.values(t('history:extinction.imagesCaptions'))) // extinction
+    .concat(Object.values(t('history:sale.imagesCaptions'))) // notable people
     .concat(Object.values(t('history:notable_people.imagesCaptions'))) // notable people
     .concat(Object.values(t('history:book.imagesCaptions'))); // book
 
@@ -299,6 +305,57 @@ function HistoryPage() {
                     }
                   />
                 </>
+              </section>
+
+              <section id="sale">
+                <hr />
+                <header>
+                  <h2>{t('history:sale.title')}</h2>
+                  <p>{t('history:sale.subHeading')}</p>
+                  <hr />
+                </header>
+
+                <>
+                  <span
+                    onClick={() => {
+                      setPhotoIndex(images.indexOf(salePic1));
+                      setToggleLightbox(true);
+                    }}
+                    className="image right"
+                    style={{ width: '35vh' }}
+                  >
+                    <img src={salePic1} alt="" />
+                    {t('history:sale.imagesCaptions.picture1')}
+                  </span>
+                  <p
+                    dangerouslySetInnerHTML={
+                      { __html: t('history:sale.description1', { interpolation: { escapeValue: false } }) }
+                    }
+                  />
+
+                  <span
+                    onClick={() => {
+                      setPhotoIndex(images.indexOf(salePic2));
+                      setToggleLightbox(true);
+                    }}
+                    className="image left"
+                    style={{ width: '35vh' }}
+                  >
+                    <img src={salePic2} alt="" />
+                    {t('history:sale.imagesCaptions.picture2')}
+                  </span>
+                  <p
+                    dangerouslySetInnerHTML={
+                      { __html: t('history:sale.description2', { interpolation: { escapeValue: false } }) }
+                    }
+                  />
+                </>
+
+                <p
+                  dangerouslySetInnerHTML={
+                    { __html: t('history:sale.description3', { interpolation: { escapeValue: false } }) }
+                  }
+                />
               </section>
 
               <section id="notable">
