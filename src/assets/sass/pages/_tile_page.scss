@@ -760,5 +760,22 @@
       background-color: rgba(0,0,0,0);
     }
   }
+
+  /* Google Maps */
+  #markerCenter {
+    position: absolute;
+    transform: translate(-50%, -50%);
+  }
+
+  #mapLogosWrapper {
+    margin-bottom: 5vh;
+    display: flex;
+    justify-content: space-evenly;
+
+    >div {
+      font-size: 10vh;
+      cursor: pointer;
+    }
+  }
 }
 

@@ -31,6 +31,10 @@ module.exports = {
     zoom: 18,
   },
 
+  // Map deep links
+  googleMaps: 'http://maps.apple.com/?daddr=Alameda+de+Mosteiro,+4770-328+Vila+Nova+de+Famalicão&dirflg=d&t=m',
+  waze: 'https://www.waze.com/ul?ll=41.38005480%2C-8.46451290&navigate=yes',
+
   // Footer - social
   socialLinks: [
     {
