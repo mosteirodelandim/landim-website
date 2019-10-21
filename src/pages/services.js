@@ -85,20 +85,20 @@ function ServicesPage() {
         <section id="cta" className="wrapper style4">
           <div className="inner">
             <header>
-              <h2>{t('services:interested.title')}</h2>
-              <p>{t('services:interested.description')}</p>
+              <h2>{t('cta:title')}</h2>
+              <p>{t('cta:description')}</p>
             </header>
             <ul className="actions stacked">
               <li>
                 <a href={`mailto:${config.emailContact}`} className="button fit primary">
-                  {t('services:buttons.email')}
+                  {t('cta:buttons.email')}
                 </a>
               </li>
               {isMobile
               && (
               <li>
                 <a href={`tel:${config.phoneContact}`} className="button fit">
-                  {t('services:buttons.call')}
+                  {t('cta:buttons.call')}
                 </a>
               </li>
               )}

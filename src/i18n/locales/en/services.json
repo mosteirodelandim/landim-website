@@ -32,16 +32,6 @@
     "photogallery": {
       "title": "Photo Gallery",
       "description": "Take a peek yourself of our (and hopefully \"yours\" in the future) spaces and see if you find it appealing!"
-    },
-
-    "interested": {
-      "title": "Interested?",
-      "description": "We would be honoured to answer any questions you might have!"
-    },
-
-    "buttons": {
-      "email": "E-mail us",
-      "call": "Call us"
     }
   }
 }

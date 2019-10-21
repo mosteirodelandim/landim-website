@@ -1,0 +1,11 @@
+{
+  "pt": {
+    "title": "Interessado?",
+    "description": "Teremos todo o gosto em responder a qualquer dúvida que disponha!",
+
+    "buttons": {
+      "email": "E-mail",
+      "call": "Telemóvel"
+    }
+  }
+}

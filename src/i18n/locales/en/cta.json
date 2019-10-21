@@ -1,0 +1,11 @@
+{
+  "en": {
+    "title": "Interested?",
+    "description": "We would be glad to answer any questions you might have!",
+
+    "buttons": {
+      "email": "E-mail us",
+      "call": "Call us"
+    }
+  }
+}

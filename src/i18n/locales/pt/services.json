@@ -32,16 +32,6 @@
     "photogallery": {
       "title": "Galeria de fotos",
       "description": "Dê uma olhada nos nossos (e talvez no futuro, seu) espaços e veja se é a seu gosto!"
-    },
-
-    "interested": {
-      "title": "Interessado?",
-      "description": "Teremos todo o gosto em responder a qualquer dúvida que disponha!"
-    },
-
-    "buttons": {
-      "email": "E-mail",
-      "call": "Telemóvel"
     }
   }
 }

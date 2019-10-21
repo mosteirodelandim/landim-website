@@ -1,6 +1,30 @@
 {
   "en": {
     "title": "Wine & Stay",
-    "subHeading": "Besides being an historical site, Mosteiro de Landim also produces \"verde\" wine, a local-specific wine. Furthermore, you can stay here and experience Mosteiro de Landim at your own pace!"
+    "subHeading": "Besides being an historical site, Mosteiro de Landim also produces \"verde\" wine, a specific win from the Minho region. Furthermore, you can stay here and experience Mosteiro de Landim at your own pace!",
+    "wine": {
+      "title": "Our wine",
+      "description1": "Camélia. Evoking the name of this flower hailing from Japan, we want to provide you, through the elegant and fresh aroma of this win, a walk through the gardens of the 19th century of Mosteiro de Landim. The win was carefully crafted by the well-known winemaker Anselmo Mendes, with selected Loureiro grapdes. Cheers!",
+      "description2": "Camélia's harvest from 2005 earned the Revista de Vinhos awards for Best in the Region and Best Buy. In 2007, Revista de Vinhos had ranked it with a score of sixteen in June's edition, having been considered as one of the Best Purchases. Camélia can be purchased in Mosteiro de Landim or by e-mail.",
+      "quote1Title": "Camélia Loureiro 2008 | 15",
+      "quote1": "Um só vinho, mas suficientemente original e entusiástico para encher a alma. Acima de tudo, é um vinho alegre e descomplexado, divertido como todos os vinhos deveriam ser. Uma belíssima aposta para os meses de estio. \n\nCor amarelo-palha muito ténue, quase incolor. O registo floral é efusivo, quase desbragado, repleto de ervas aromáticas, folha de louro, aniz, funcho e um leve final citrino. Fresco e vibrante, tenso e nervoso, é um branco mordaz, acídulo qb, companhia perfeita para o Verão. Original e agradável.",
+      "quote1Author": "Rui Falcão \"Guia de Vinhos 2010\" Oficina do Livro, 2009",
+      "quote2Title": "Camélia Loureiro 2006 | 14",
+      "quote2": "Sob este nome romântico e primaveril esconde-se um vinho profundamente aromático da casta Loureiro, um poema ao Vinho Verde, uma expressão suave do encanto do Minho. Seria genial para a região que o padrão qualitativo dos Vinhos Verdes se assemelhasse a este Camélia. Seria extraordinário que o perfil do Vinho Verde se fundamentasse na lógica do vinho perfumado e mineral. Este Camélia é um vinho verdadeiramente interessante, com atributos suficientes para poder aventurar-se em mercados internacionais. \n\nCor amarela palha. Notas florais inequívocas, com sinais claros de rosas, flor de laranjeira, erva molhada e amores-perfeitos. Elegante e atraente no nariz. Redondo e macio, Cativante na harmonia açucar/acidez, agradável na graça da faceta floral, é um belo modelo de potencial da casta. vale a pena prová-lo.",
+      "quote2Author": "Rui Falcão \"Guia de Vinhos 2008\" Oficina do Livro, 2007"
+    },
+
+    "stay": {
+      "title": "Staying here",
+      "description1": "We're mainly a venue for events but we also are hoping to have a space where you can explore our site at your own pace. Trust us when we say there is much to see and learn! However, we're still working on it. But when it's ready, we'll let everyone know!"
+    },
+
+    "cto": {
+      "title": ""
+    },
+
+    "imageCaptions": {
+      "wine": "Labels of Camélia."
+    }
   }
 }

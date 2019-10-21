@@ -81,6 +81,7 @@
 
     blockquote {
       border-color: _palette($p, border);
+      white-space: pre-line;
     }
 
     code {
@@ -324,6 +325,10 @@
       @include vendor('order', '2');
       max-width: 48em;
       width: 60%;
+    }
+
+    &#staySpotlight {
+      background-color: _palette(accentTile2);
     }
 
     &:nth-child(2n) {
