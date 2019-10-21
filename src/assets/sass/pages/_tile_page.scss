@@ -776,6 +776,12 @@
       font-size: 10vh;
       cursor: pointer;
     }
+
+    @include breakpoint('<=small') {
+      display: flex;
+      justify-content: space-evenly;
+      flex-direction: row;
+    }
   }
 }
 
