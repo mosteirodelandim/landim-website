@@ -22,6 +22,15 @@ module.exports = {
   // 404
   houseDogs: ['Ringo', 'Spot'],
 
+  // Maps
+  mapLocation: {
+    center: {
+      lat: 41.379464,
+      lng: -8.463912,
+    },
+    zoom: 18,
+  },
+
   // Footer - social
   socialLinks: [
     {

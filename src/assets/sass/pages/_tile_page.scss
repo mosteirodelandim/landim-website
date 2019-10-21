@@ -261,6 +261,13 @@
   >.wrapper {
     @include padding(6em, 0);
 
+    #mapSection {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+    }
+
     > .inner {
       width: 60em;
       margin: 0 auto;

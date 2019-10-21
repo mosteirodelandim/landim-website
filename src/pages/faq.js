@@ -1,6 +1,12 @@
 import React from 'react';
 import { useTranslation } from 'react-i18next';
+import GoogleMapReact from 'google-map-react';
 import LandingLayout from '../components/LandingLayout';
+import config from '../../config';
+import Lottie from 'lottie-react-web';
+import lottieAnim from '../assets/images/lottie/pulsing';
+
+const GOOGLE_MAPS_KEY = 'AIzaSyB16LhlSQ1A-CiIbjaYOjXKrNIM09GNfgY';
 
 function FaqPage() {
   const { t } = useTranslation();
@@ -60,11 +66,26 @@ function FaqPage() {
         </section>
 
         <section className="wrapper style3 special" style={{ paddingTop: '3em' }}>
-          <div className="inner">
+          <div id="mapSection" className="inner">
             <header className="major">
-              <p>{t('faq:description1')}</p>
+              <h2>{t('faq:map_section.title')}</h2>
             </header>
-            <ul className="features" style={{width: "100%", height: "100%"}}>
+            <ul className="features" style={{ width: '100%', height: '80vh' }}>
+              <GoogleMapReact
+                bootstrapURLKeys={{ key: GOOGLE_MAPS_KEY }}
+                defaultCenter={config.mapLocation.center}
+                defaultZoom={config.mapLocation.zoom}
+              >
+                <Lottie
+                  lat={config.mapLocation.center.lat}
+                  lng={config.mapLocation.center.lng}
+                  options={{
+                    animationData: lottieAnim,
+                  }}
+                  width="10vh"
+                  height="10vh"
+                />
+              </GoogleMapReact>
             </ul>
           </div>
         </section>

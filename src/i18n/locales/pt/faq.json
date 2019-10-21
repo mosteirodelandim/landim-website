@@ -27,12 +27,16 @@
 
     "per_weekend": {
       "title": "Quando é que está disponível para casamentos?",
-      "description": "O Mosteiro está aberto a qualquer tipo de evento durante todo o ano! No entanto, relativamente a casamentos, nós seguimos uma política de <b>um casamento por fim-de-semana</b>, isto para organizar atempadamente e para termos a certeza que tudo corre bem!"
+      "description": "O Mosteiro está aberto a qualquer tipo de evento durante todo o ano! No entanto, relativamente a casamentos, nós seguimos uma política de um casamento por fim-de-semana, isto para organizar atempadamente e para termos a certeza que tudo corre bem!"
     },
 
     "more": {
       "title": "Ainda tenho perguntas...",
       "description": "Não há problema! Basta contactar-nos (preferencialmente por e-mail) e nós ajudamos!"
+    },
+
+    "map_section": {
+      "title": "Onde nós estamos"
     }
   }
 }
