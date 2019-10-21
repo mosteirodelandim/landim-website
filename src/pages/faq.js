@@ -8,7 +8,7 @@ import { isMobile } from 'react-device-detect';
 
 import lottieAnim from '../assets/images/lottie/pulsing';
 
-const GOOGLE_MAPS_KEY = 'AIzaSyB16LhlSQ1A-CiIbjaYOjXKrNIM09GNfgY';
+const GOOGLE_MAPS_KEY = 'AIzaSyDpAcr1YDNQ9mVIZ-i20rwoWIttsg7rmZw';
 
 const Marker = () => (
   <div
