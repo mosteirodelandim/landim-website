@@ -4,6 +4,8 @@ import LanguageDetector from 'i18next-browser-languagedetector';
 
 import landingEN from './locales/en/index.json';
 import landingPT from './locales/pt/index.json';
+import ctaEN from './locales/en/cta.json';
+import ctaPT from './locales/pt/cta.json';
 import notFoundEN from './locales/en/404.json';
 import notFoundPT from './locales/pt/404.json';
 import sidebarEN from './locales/en/sidebar.json';
@@ -14,8 +16,9 @@ import historyEN from './locales/en/history.json';
 import historyPT from './locales/pt/history.json';
 import wineStayEN from './locales/en/wine_stay.json';
 import wineStayPT from './locales/pt/wine_stay.json';
-import ctaEN from './locales/en/cta.json';
-import ctaPT from './locales/pt/cta.json';
+import faqEN from './locales/en/faq.json';
+import faqPT from './locales/pt/faq.json';
+
 
 const resources = {
   pt: {
@@ -26,6 +29,7 @@ const resources = {
     services: servicesPT.pt,
     history: historyPT.pt,
     wine_stay: wineStayPT.pt,
+    faq: faqPT.pt,
   },
   en: {
     landing: landingEN.en,
@@ -35,6 +39,7 @@ const resources = {
     services: servicesEN.en,
     history: historyEN.en,
     wine_stay: wineStayEN.en,
+    faq: faqEN.en,
   },
 };
 
@@ -53,7 +58,7 @@ i18n
     detection,
     fallbackLng: 'en',
 
-    ns: ['landing', 'cta', 'notFound', 'sidebar', 'services', 'history', 'wine_stay'],
+    ns: ['landing', 'cta', 'notFound', 'sidebar', 'services', 'history', 'wine_stay', 'faq'],
     defaultNS: 'landing',
 
     returnObjects: true, // to return objects (in case of arrays, e.g.)

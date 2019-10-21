@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { useTranslation, Trans } from 'react-i18next';
+import { useTranslation } from 'react-i18next';
 import Lightbox from 'react-image-lightbox';
 import LandingLayout from '../components/LandingLayout';
 import 'react-image-lightbox/style.css'; // This only needs to be imported once in your app
@@ -58,7 +58,8 @@ import bookPic1 from '../assets/images/history/book/book1.jpg';
 const images = [originPic1, originPic2, originPic3, originPic4, originPic5, originPic6,
   originPic7, originPic8, // origin
   priestPic1, priestPic2, // priests
-  brevePic1, brevePic2, brevePic3, brevePic4, brevePic5, brevePic6, brevePic7, brevePic8, // extinction
+  brevePic1, brevePic2, brevePic3, brevePic4, brevePic5, brevePic6, brevePic7,
+  brevePic8, // extinction
   brevePic9, brevePic10, brevePic11, brevePic12, brevePic13, brevePic14,
   receitaPic1, receitaPic2, receitaPic3, receitaPic4, receitaPic5,
   salePic1, salePic2, // sale

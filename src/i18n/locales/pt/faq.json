@@ -1,0 +1,38 @@
+{
+  "pt": {
+    "heading": "Perguntas e contactos",
+    "subHeading": "Respostas a perguntas frequentes e contactos.",
+    "title": "FAQ",
+    "description1": "Depois de ver um bocado do que o Mosteiro de Landim pode oferecer, é normal ter algumas perguntas. Compilámos aqui algumas que são mais frequentes.",
+
+    "church": {
+      "title": "É possível utilizar a igreja para celebrações?",
+      "description": "Sim, de acordo com as regras da paróquia - é sempre necessário consultar previamente o pároco."
+    },
+
+    "services": {
+      "title": "Podem-se requisitar os serviços necessários para a realização de um evento?",
+      "description": "Sim! E inclusivamente pode-se contratar só catering, ou só decoração, etc."
+    },
+
+    "time_limit": {
+      "title": "Há horas limites para o final do evento?",
+      "description": "Como não existem vizinhos, não se põe o problema de ruídos. No entanto é não aconselhável exceder as 04h00. Caso deseje exceder este limite, é possível fazê-lo mas por uma taxa adicional."
+    },
+
+    "travel": {
+      "title": "É fácil chegar ao Mosteiro de Landim?",
+      "description": "O Mosteiro encontra-se numa situação priveligiada, apenas a 30 minutos do Porto. Se deseja direções, veja mais abaixo!"
+    },
+
+    "per_weekend": {
+      "title": "Quando é que está disponível para casamentos?",
+      "description": "O Mosteiro está aberto a qualquer tipo de evento durante todo o ano! No entanto, relativamente a casamentos, nós seguimos uma política de <b>um casamento por fim-de-semana</b>, isto para organizar atempadamente e para termos a certeza que tudo corre bem!"
+    },
+
+    "more": {
+      "title": "Ainda tenho perguntas...",
+      "description": "Não há problema! Basta contactar-nos (preferencialmente por e-mail) e nós ajudamos!"
+    }
+  }
+}

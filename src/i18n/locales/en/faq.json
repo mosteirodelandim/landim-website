@@ -1,0 +1,38 @@
+{
+  "en": {
+    "heading": "FAQ and Contact",
+    "subHeading": "Answering some of the most frequented asked questions and ways to reach out to us.",
+    "title": "FAQ",
+    "description1": "After going through to what Mosteiro de Landim has to offer, it's completely normal to have some questions. We've compiled some that are most frequently asked.",
+
+    "church": {
+      "title": "Can we use the church for celebrations?",
+      "description": "You may but according to parish rules - it is mandatory to contact the parish priest in advance."
+    },
+
+    "services": {
+      "title": "Is it possible to hand-pick specific services for a specific event?",
+      "description": "Of course! Inclusively, you may only hire catering or decoration, etc."
+    },
+
+    "time_limit": {
+      "title": "Are there any time limits for events?",
+      "description": "As there ar eno nearby neighbors, there shouldn't be a problem related with noise. However, we do impose a limit until 04h00. If you wish to exceed this, extra fees may apply."
+    },
+
+    "travel": {
+      "title": "Is it easy to go there?",
+      "description": "Mosteiro de Landim boasts a privileged location, as it's just 30 minutes away from Porto. If you want directions, check below!"
+    },
+
+    "per_weekend": {
+      "title": "When are you open for weddings?",
+      "description": "Mosteiro de Landim is open for any kind of event throughout the year! However, when it comes to weddings, we follow a <b>one wedding per weekend</b> schedule to organize everything on time and to ensure everything goes smoothly!"
+    },
+
+    "more": {
+      "title": "I still have some questions...",
+      "description": "No problem! Just reach out to us (preferably by e-mail) and we'll help you out!"
+    }
+  }
+}

@@ -1,12 +1,12 @@
 import React from 'react';
 import { useTranslation } from 'react-i18next';
 import Lottie from 'lottie-react-web';
+import { isMobile } from 'react-device-detect';
 import LandingLayout from '../components/LandingLayout';
 
 import winePic1 from '../assets/images/wine_stay/wine1.jpg';
 import lottieAnim from '../assets/images/lottie/sleeping';
 import config from '../../config';
-import { isMobile } from "react-device-detect";
 
 function WineStayPage() {
   const { t } = useTranslation();

@@ -57,16 +57,18 @@
 			border2-bg:		rgba(255,255,255,0.2)
 		),
 
+		// for icons
 		accent2: (
-			bg:				#00ffcc,
+			bg:				#ffffff,
 			fg-bold:		#ffffff,
-			fg:				mix(#00ffcc, #ffffff, 25%),
-			fg-light:		mix(#00ffcc, #ffffff, 40%),
+			fg:				mix(#ffffff, #ffffff, 25%),
+			fg-light:		mix(#ffffff, #ffffff, 40%),
 			border:			rgba(0,0,0,0.125),
 			border-bg:		rgba(255,255,255,0.075),
 			border2:		rgba(0,0,0,0.25),
 			border2-bg:		rgba(255,255,255,0.2)
 		),
+
 
 		accent3: (
 			bg:				#00f0ff,
@@ -90,11 +92,13 @@
 			border2-bg:		rgba(255,255,255,0.2)
 		),
 
+		// for icon background
+
 		accent5: (
-			bg:				#505393,
+			bg:				#ffb073,
 			fg-bold:		#ffffff,
-			fg:				mix(#505393, #ffffff, 25%),
-			fg-light:		mix(#505393, #ffffff, 40%),
+			fg:				mix(#ffb073, #ffffff, 25%),
+			fg-light:		mix(#ffb073, #ffffff, 40%),
 			border:			rgba(0,0,0,0.125),
 			border-bg:		rgba(255,255,255,0.075),
 			border2:		rgba(0,0,0,0.25),
