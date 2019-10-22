@@ -23,6 +23,8 @@ module.exports = {
   houseDogs: ['Ringo', 'Spot'],
 
   // Maps
+  apiKey: 'AIzaSyDpAcr1YDNQ9mVIZ-i20rwoWIttsg7rmZw',
+
   mapLocation: {
     center: {
       lat: 41.379464,

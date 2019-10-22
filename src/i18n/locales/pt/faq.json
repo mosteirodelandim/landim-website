@@ -17,7 +17,7 @@
 
     "time_limit": {
       "title": "Há horas limites para o final do evento?",
-      "description": "Como não existem vizinhos, não se põe o problema de ruídos. No entanto é não aconselhável exceder as 04h00. Caso deseje exceder este limite, é possível fazê-lo mas por uma taxa adicional."
+      "description": "Como não existem vizinhos, não se põe o problema de ruídos. No entanto não é aconselhável exceder as 04h00. Caso deseje exceder este limite, é possível fazê-lo mas por uma taxa adicional."
     },
 
     "travel": {
