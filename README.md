@@ -19,7 +19,7 @@
   <p align="center">
     The repo where Mosteiro de Landim's new website was developed.
     <br />
-    <a href="https://github.com/LuchoTurtle/landim-website"><strong>Configure the website »</strong></a>
+    <a href="https://github.com/LuchoTurtle/landim-website#Personalization"><strong>Configure the website »</strong></a>
   </p>
 </p>
 
