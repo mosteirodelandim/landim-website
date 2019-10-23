@@ -37,7 +37,7 @@ function FaqPage() {
           <p>{t('faq:subHeading')}</p>
         </header>
 
-        <section className="wrapper style3 special" style={{ paddingTop: '3em' }}>
+        <section id="faqSection" className="wrapper style3 special">
           <div className="inner">
             <header className="major">
               <p>{t('faq:description1')}</p>
@@ -84,7 +84,7 @@ function FaqPage() {
           </div>
         </section>
 
-        <section className="wrapper style3 special" style={{ paddingTop: '3em' }}>
+        <section id="faqSection" className="wrapper style3 special">
           <div id="mapSection" className="inner">
             <header className="major">
               <h2>{t('faq:map_section.title')}</h2>
@@ -110,7 +110,7 @@ function FaqPage() {
           </div>
         </section>
 
-        <section className="wrapper style3 special" style={{ paddingTop: '3em' }}>
+        <section id="faqSection" className="wrapper style3 special">
           <div className="inner">
             <section>
               <ul id="mapLogosWrapper" className="actions fit large">

@@ -1,3 +1,5 @@
+/* Base SCSS for Services, FAQ, History and Wine and Stay */
+
 @import "~react-image-gallery/styles/scss/image-gallery.scss";
 
 #pageMain{
@@ -761,27 +763,5 @@
     }
   }
 
-  /* Google Maps */
-  #markerCenter {
-    position: absolute;
-    transform: translate(-50%, -50%);
-  }
-
-  #mapLogosWrapper {
-    margin-bottom: 5vh;
-    display: flex;
-    justify-content: space-evenly;
-
-    >div {
-      font-size: 10vh;
-      cursor: pointer;
-    }
-
-    @include breakpoint('<=small') {
-      display: flex;
-      justify-content: space-evenly;
-      flex-direction: row;
-    }
-  }
 }
 
