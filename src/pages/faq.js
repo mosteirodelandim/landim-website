@@ -4,11 +4,8 @@ import GoogleMapReact from 'google-map-react';
 import Lottie from 'lottie-react-web';
 import LandingLayout from '../components/LandingLayout';
 import config from '../../config';
-import { isMobile } from 'react-device-detect';
 
 import lottieAnim from '../assets/images/lottie/pulsing';
-
-const GOOGLE_MAPS_KEY = 'AIzaSyDpAcr1YDNQ9mVIZ-i20rwoWIttsg7rmZw';
 
 const Marker = () => (
   <div
@@ -97,7 +94,7 @@ function FaqPage() {
               }}
             >
               <GoogleMapReact
-                bootstrapURLKeys={{ key: GOOGLE_MAPS_KEY }}
+                bootstrapURLKeys={{ key: config.apiKey }}
                 defaultCenter={config.mapLocation.center}
                 defaultZoom={config.mapLocation.zoom}
               >

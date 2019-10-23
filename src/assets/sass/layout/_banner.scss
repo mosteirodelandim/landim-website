@@ -4,6 +4,15 @@
   @include vendor('display', 'flex');
   @include vendor('flex-direction', 'column');
   @include vendor('justify-content', 'center');
+
+  // this banner is only used in the landing page so we can safely change the background-image
+  @include vendor('background-image', ('linear-gradient(to top, rgba(0,0,0,0.5), rgba(0,0,0,0.5))', 'url("../images/landing/banner.jpg")'));
+  background-attachment: fixed;
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  padding-top: 0;
+
   cursor: default;
   height: 100vh;
   min-height: 35em;
