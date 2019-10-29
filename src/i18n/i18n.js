@@ -64,7 +64,7 @@ i18n
     returnObjects: true, // to return objects (in case of arrays, e.g.)
 
     interpolation: {
-      escapeValue: false, // not needed for react as it escapes by default
+      escapeValue: false,
     },
   });
 export default i18n;
