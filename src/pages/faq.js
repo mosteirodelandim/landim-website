@@ -111,8 +111,16 @@ function FaqPage() {
           <div className="inner">
             <section>
               <ul id="mapLogosWrapper" className="actions fit large">
-                <div className="icon brands fa-waze" onClick={() => window.open(config.waze)} />
-                <div className="icon solid fa-map-marked" onClick={() => window.open(config.googleMaps)} />
+                <li>
+                  <a onClick={() => window.open(config.waze)} className="button large fit icon brands fa-waze">
+                    Waze
+                  </a>
+                </li>
+                <li>
+                  <a onClick={() => window.open(config.googleMaps)} className="button large fit icon solid fa-map-marked ">
+                    Google Maps
+                  </a>
+                </li>
               </ul>
             </section>
           </div>
