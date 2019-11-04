@@ -66,6 +66,442 @@ const images = [originPic1, originPic2, originPic3, originPic4, originPic5, orig
   camiloPic1, camiloPic2, camiloPic3, albertoPic4, albertoPic5, sebastiaoPic6, // notable people
   bookPic1]; // book
 
+function originsSection(t, setPhotoIndex, setToggleLightbox) {
+  return (
+    <section id="origin">
+      <header>
+        <h2>{t('history:origins_architecture.title')}</h2>
+        <p>{t('history:origins_architecture.subHeading')}</p>
+        <hr />
+      </header>
+
+      <>
+        <span
+          onClick={() => {
+            setPhotoIndex(images.indexOf(originPic1));
+            setToggleLightbox(true);
+          }}
+          className="image left"
+          style={{ width: '25vh' }}
+        >
+          <img src={originPic1} alt="" />
+          {t('history:origins_architecture.imagesCaptions.picture1')}
+        </span>
+        <p
+          dangerouslySetInnerHTML={
+            { __html: t('history:origins_architecture.description1', { interpolation: { escapeValue: false } }) }
+          }
+        />
+      </>
+
+      <>
+        <span
+          onClick={() => {
+            setPhotoIndex(images.indexOf(originPic2));
+            setToggleLightbox(true);
+          }}
+          className="image right"
+          style={{ width: '35vh' }}
+        >
+          <img src={originPic2} alt="" />
+          {t('history:origins_architecture.imagesCaptions.picture2')}
+        </span>
+        <p
+          dangerouslySetInnerHTML={
+            { __html: t('history:origins_architecture.description2', { interpolation: { escapeValue: false } }) }
+          }
+        />
+      </>
+
+      <>
+        <p
+          dangerouslySetInnerHTML={
+            { __html: t('history:origins_architecture.description3', { interpolation: { escapeValue: false } }) }
+          }
+        />
+      </>
+
+      <div className="box alt">
+        <div className="row gtr-50 gtr-uniform">
+          <div
+            className="col-6"
+            onClick={() => {
+              setPhotoIndex(images.indexOf(originPic5));
+              setToggleLightbox(true);
+            }}
+          >
+            <span className="image fit">
+              <img src={originPic5} alt="" />
+              {t('history:origins_architecture.imagesCaptions.picture5')}
+            </span>
+          </div>
+          <div
+            className="col-6"
+            onClick={() => {
+              setPhotoIndex(images.indexOf(originPic6));
+              setToggleLightbox(true);
+            }}
+          >
+            <span className="image fit" style={{ textAlign: 'right' }}>
+              <img src={originPic6} alt="" />
+              {t('history:origins_architecture.imagesCaptions.picture6')}
+            </span>
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+}
+
+function priestsSection(t, setPhotoIndex, setToggleLightbox) {
+  return (
+    <section id="priests">
+      <hr />
+      <header>
+        <h2>{t('history:priests_commissioners.title')}</h2>
+        <p>{t('history:priests_commissioners.subHeading')}</p>
+        <hr />
+      </header>
+
+      <>
+        <span
+          onClick={() => {
+            setPhotoIndex(images.indexOf(priestPic1));
+            setToggleLightbox(true);
+          }}
+          className="image right"
+          style={{ width: '35vh' }}
+        >
+          <img src={priestPic1} alt="" />
+          {t('history:priests_commissioners.imagesCaptions.picture1')}
+        </span>
+        <p
+          dangerouslySetInnerHTML={
+            { __html: t('history:priests_commissioners.description1', { interpolation: { escapeValue: false } }) }
+          }
+        />
+
+        <p
+          dangerouslySetInnerHTML={
+            { __html: t('history:priests_commissioners.description2', { interpolation: { escapeValue: false } }) }
+          }
+        />
+      </>
+
+      <>
+        <p
+          dangerouslySetInnerHTML={
+            { __html: t('history:priests_commissioners.description3', { interpolation: { escapeValue: false } }) }
+          }
+        />
+      </>
+
+      <p
+        dangerouslySetInnerHTML={
+          { __html: t('history:priests_commissioners.description4', { interpolation: { escapeValue: false } }) }
+        }
+      />
+      <p
+        dangerouslySetInnerHTML={
+          { __html: t('history:priests_commissioners.description5', { interpolation: { escapeValue: false } }) }
+        }
+      />
+
+      <>
+        <span
+          onClick={() => {
+            setPhotoIndex(images.indexOf(priestPic2));
+            setToggleLightbox(true);
+          }}
+          className="image left"
+          style={{ width: '35vh' }}
+        >
+          <img src={priestPic2} alt="" />
+          {t('history:priests_commissioners.imagesCaptions.picture2')}
+        </span>
+        <p
+          dangerouslySetInnerHTML={
+            { __html: t('history:priests_commissioners.description6', { interpolation: { escapeValue: false } }) }
+          }
+        />
+        <p
+          dangerouslySetInnerHTML={
+            { __html: t('history:priests_commissioners.description7', { interpolation: { escapeValue: false } }) }
+          }
+        />
+      </>
+
+      <p
+        dangerouslySetInnerHTML={
+          { __html: t('history:priests_commissioners.description8', { interpolation: { escapeValue: false } }) }
+        }
+      />
+    </section>
+  );
+}
+
+function extinctionSection(t, setPhotoIndex, setToggleLightbox) {
+  return (
+    <section id="extinction">
+      <hr />
+      <header>
+        <h2>{t('history:extinction.title')}</h2>
+        <p>{t('history:extinction.subHeading')}</p>
+        <hr />
+      </header>
+
+      <>
+        <span
+          onClick={() => {
+            setPhotoIndex(images.indexOf(brevePic1));
+            setToggleLightbox(true);
+          }}
+          className="image right"
+          style={{ width: '30vh' }}
+        >
+          <img src={brevePic1} alt="" />
+          {t('history:extinction.imagesCaptions.breve1')}
+        </span>
+        <p
+          dangerouslySetInnerHTML={
+            { __html: t('history:extinction.description1', { interpolation: { escapeValue: false } }) }
+          }
+        />
+
+        <p
+          dangerouslySetInnerHTML={
+            { __html: t('history:extinction.description2', { interpolation: { escapeValue: false } }) }
+          }
+        />
+      </>
+
+      <>
+        <span
+          onClick={() => {
+            setPhotoIndex(images.indexOf(receitaPic1));
+            setToggleLightbox(true);
+          }}
+          className="image left"
+          style={{ width: '32vh' }}
+        >
+          <img src={receitaPic1} alt="" />
+          {t('history:extinction.imagesCaptions.receita1')}
+        </span>
+        <p
+          dangerouslySetInnerHTML={
+            { __html: t('history:extinction.description3', { interpolation: { escapeValue: false } }) }
+          }
+        />
+      </>
+    </section>
+  );
+}
+
+function saleSection(t, setPhotoIndex, setToggleLightbox) {
+  return (
+    <section id="sale">
+      <hr />
+      <header>
+        <h2>{t('history:sale.title')}</h2>
+        <p>{t('history:sale.subHeading')}</p>
+        <hr />
+      </header>
+
+      <>
+        <span
+          onClick={() => {
+            setPhotoIndex(images.indexOf(salePic1));
+            setToggleLightbox(true);
+          }}
+          className="image right"
+          style={{ width: '35vh' }}
+        >
+          <img src={salePic1} alt="" />
+          {t('history:sale.imagesCaptions.picture1')}
+        </span>
+        <p
+          dangerouslySetInnerHTML={
+            { __html: t('history:sale.description1', { interpolation: { escapeValue: false } }) }
+          }
+        />
+
+        <span
+          onClick={() => {
+            setPhotoIndex(images.indexOf(salePic2));
+            setToggleLightbox(true);
+          }}
+          className="image left"
+          style={{ width: '35vh' }}
+        >
+          <img src={salePic2} alt="" />
+          {t('history:sale.imagesCaptions.picture2')}
+        </span>
+        <p
+          dangerouslySetInnerHTML={
+            { __html: t('history:sale.description2', { interpolation: { escapeValue: false } }) }
+          }
+        />
+      </>
+
+      <p
+        dangerouslySetInnerHTML={
+          { __html: t('history:sale.description3', { interpolation: { escapeValue: false } }) }
+        }
+      />
+    </section>
+  );
+}
+
+function notableSection(t, setPhotoIndex, setToggleLightbox) {
+  return (
+    <section id="notable">
+      <hr />
+      <header>
+        <h2>{t('history:notable_people.title')}</h2>
+        <p>{t('history:notable_people.subHeading')}</p>
+        <hr />
+      </header>
+
+      <header>
+        <h5>{t('history:notable_people.camilo.title')}</h5>
+        <p>{t('history:notable_people.camilo.subHeading')}</p>
+      </header>
+
+      <>
+        <span
+          onClick={() => {
+            setPhotoIndex(images.indexOf(camiloPic1));
+            setToggleLightbox(true);
+          }}
+          className="image right"
+          style={{ width: '30vh' }}
+        >
+          <img src={camiloPic1} alt="" />
+          {t('history:notable_people.imagesCaptions.camilo1')}
+        </span>
+        <p
+          dangerouslySetInnerHTML={
+            { __html: t('history:notable_people.camilo.description1', { interpolation: { escapeValue: false } }) }
+          }
+        />
+      </>
+
+      <p
+        dangerouslySetInnerHTML={
+          { __html: t('history:notable_people.camilo.description2', { interpolation: { escapeValue: false } }) }
+        }
+      />
+
+      <div className="box alt">
+        <div className="row gtr-50 gtr-uniform">
+          <div
+            className="col-6"
+            onClick={() => {
+              setPhotoIndex(images.indexOf(camiloPic2));
+              setToggleLightbox(true);
+            }}
+          >
+            <span className="image fit">
+              <img src={camiloPic2} alt="" />
+              {t('history:notable_people.camilo.lettersCaption')}
+            </span>
+          </div>
+          <div
+            className="col-6"
+            onClick={() => {
+              setPhotoIndex(images.indexOf(camiloPic3));
+              setToggleLightbox(true);
+            }}
+          >
+            <span className="image fit" style={{ textAlign: 'right' }}>
+              <img src={camiloPic3} alt="" />
+            </span>
+          </div>
+        </div>
+      </div>
+
+      <header>
+        <h5>{t('history:notable_people.alberto.title')}</h5>
+        <p>{t('history:notable_people.alberto.subHeading')}</p>
+      </header>
+
+      <>
+        <span
+          onClick={() => {
+            setPhotoIndex(images.indexOf(albertoPic4));
+            setToggleLightbox(true);
+          }}
+          className="image left"
+          style={{ width: '35vh' }}
+        >
+          <img src={albertoPic4} alt="" />
+          {t('history:notable_people.imagesCaptions.alberto4')}
+        </span>
+        <p
+          dangerouslySetInnerHTML={
+            { __html: t('history:notable_people.alberto.description1', { interpolation: { escapeValue: false } }) }
+          }
+        />
+      </>
+
+      <header>
+        <h5>{t('history:notable_people.sebastiao.title')}</h5>
+        <p>{t('history:notable_people.sebastiao.subHeading')}</p>
+      </header>
+
+      <>
+        <span
+          onClick={() => {
+            setPhotoIndex(images.indexOf(sebastiaoPic6));
+            setToggleLightbox(true);
+          }}
+          className="image right"
+          style={{ width: '25vh' }}
+        >
+          <img src={sebastiaoPic6} alt="" />
+          {t('history:notable_people.imagesCaptions.sebastiao6')}
+        </span>
+        <p
+          dangerouslySetInnerHTML={
+            { __html: t('history:notable_people.sebastiao.description1', { interpolation: { escapeValue: false } }) }
+          }
+        />
+
+        <h6>{t('history:notable_people.sebastiao.poemTitle')}</h6>
+        <blockquote style={{ whiteSpace: 'pre-line' }}>{t('history:notable_people.sebastiao.poem')}</blockquote>
+      </>
+    </section>
+  );
+}
+
+function bookSection(t, setPhotoIndex, setToggleLightbox) {
+  return (
+    <section id="book">
+      <header>
+        <hr />
+        <h2>{t('history:book.title')}</h2>
+        <h4>{t('history:book.subHeading')}</h4>
+        <h6>{t('history:book.subSubHeading')}</h6>
+        <p>{t('history:book.subSubSubHeading')}</p>
+      </header>
+      <span
+        onClick={() => {
+          setPhotoIndex(images.indexOf(bookPic1));
+          setToggleLightbox(true);
+        }}
+        className="image right"
+        style={{ width: '30vh' }}
+      >
+        <img src={bookPic1} alt="" />
+        {t('history:book.imagesCaptions.book1')}
+      </span>
+      <blockquote>{t('history:book.quote', { interpolation: { escapeValue: false } })}</blockquote>
+      <p style={{ textAlign: 'right' }}>{t('history:book.quoteCitation')}</p>
+      <hr />
+    </section>
+  );
+}
+
 function HistoryPage() {
   const { t } = useTranslation();
   const [lightboxIsOpen, setToggleLightbox] = useState(false);
@@ -89,417 +525,13 @@ function HistoryPage() {
           <section className="wrapper style5">
             <div className="inner">
 
-              <section id="origin">
-                <header>
-                  <h2>{t('history:origins_architecture.title')}</h2>
-                  <p>{t('history:origins_architecture.subHeading')}</p>
-                  <hr />
-                </header>
+              {originsSection(t, setPhotoIndex, setToggleLightbox)}
+              {priestsSection(t, setPhotoIndex, setToggleLightbox)}
+              {extinctionSection(t, setPhotoIndex, setToggleLightbox)}
+              {saleSection(t, setPhotoIndex, setToggleLightbox)}
+              {notableSection(t, setPhotoIndex, setToggleLightbox)}
+              {bookSection(t, setPhotoIndex, setToggleLightbox)}
 
-                <>
-                  <span
-                    onClick={() => {
-                      setPhotoIndex(images.indexOf(originPic1));
-                      setToggleLightbox(true);
-                    }}
-                    className="image left"
-                    style={{ width: '25vh' }}
-                  >
-                    <img src={originPic1} alt="" />
-                    {t('history:origins_architecture.imagesCaptions.picture1')}
-                  </span>
-                  <p
-                    dangerouslySetInnerHTML={
-                      { __html: t('history:origins_architecture.description1', { interpolation: { escapeValue: false } }) }
-                    }
-                  />
-                </>
-
-                <>
-                  <span
-                    onClick={() => {
-                      setPhotoIndex(images.indexOf(originPic2));
-                      setToggleLightbox(true);
-                    }}
-                    className="image right"
-                    style={{ width: '35vh' }}
-                  >
-                    <img src={originPic2} alt="" />
-                    {t('history:origins_architecture.imagesCaptions.picture2')}
-                  </span>
-                  <p
-                    dangerouslySetInnerHTML={
-                    { __html: t('history:origins_architecture.description2', { interpolation: { escapeValue: false } }) }
-                  }
-                  />
-                </>
-
-                <>
-                  <p
-                    dangerouslySetInnerHTML={
-                      { __html: t('history:origins_architecture.description3', { interpolation: { escapeValue: false } }) }
-                    }
-                  />
-                </>
-
-                <div className="box alt">
-                  <div className="row gtr-50 gtr-uniform">
-                    <div
-                      className="col-6"
-                      onClick={() => {
-                        setPhotoIndex(images.indexOf(originPic5));
-                        setToggleLightbox(true);
-                      }}
-                    >
-                      <span className="image fit">
-                        <img src={originPic5} alt="" />
-                        {t('history:origins_architecture.imagesCaptions.picture5')}
-                      </span>
-                    </div>
-                    <div
-                      className="col-6"
-                      onClick={() => {
-                        setPhotoIndex(images.indexOf(originPic6));
-                        setToggleLightbox(true);
-                      }}
-                    >
-                      <span className="image fit" style={{ textAlign: 'right' }}>
-                        <img src={originPic6} alt="" />
-                        {t('history:origins_architecture.imagesCaptions.picture6')}
-                      </span>
-                    </div>
-                  </div>
-                </div>
-              </section>
-
-              <section id="priests">
-                <hr />
-                <header>
-                  <h2>{t('history:priests_commissioners.title')}</h2>
-                  <p>{t('history:priests_commissioners.subHeading')}</p>
-                  <hr />
-                </header>
-
-                <>
-                  <span
-                    onClick={() => {
-                      setPhotoIndex(images.indexOf(priestPic1));
-                      setToggleLightbox(true);
-                    }}
-                    className="image right"
-                    style={{ width: '35vh' }}
-                  >
-                    <img src={priestPic1} alt="" />
-                    {t('history:priests_commissioners.imagesCaptions.picture1')}
-                  </span>
-                  <p
-                    dangerouslySetInnerHTML={
-                      { __html: t('history:priests_commissioners.description1', { interpolation: { escapeValue: false } }) }
-                    }
-                  />
-
-                  <p
-                    dangerouslySetInnerHTML={
-                      { __html: t('history:priests_commissioners.description2', { interpolation: { escapeValue: false } }) }
-                    }
-                  />
-                </>
-
-                <>
-                  <p
-                    dangerouslySetInnerHTML={
-                      { __html: t('history:priests_commissioners.description3', { interpolation: { escapeValue: false } }) }
-                    }
-                  />
-                </>
-
-                <p
-                  dangerouslySetInnerHTML={
-                      { __html: t('history:priests_commissioners.description4', { interpolation: { escapeValue: false } }) }
-                    }
-                />
-                <p
-                  dangerouslySetInnerHTML={
-                      { __html: t('history:priests_commissioners.description5', { interpolation: { escapeValue: false } }) }
-                    }
-                />
-
-                <>
-                  <span
-                    onClick={() => {
-                      setPhotoIndex(images.indexOf(priestPic2));
-                      setToggleLightbox(true);
-                    }}
-                    className="image left"
-                    style={{ width: '35vh' }}
-                  >
-                    <img src={priestPic2} alt="" />
-                    {t('history:priests_commissioners.imagesCaptions.picture2')}
-                  </span>
-                  <p
-                    dangerouslySetInnerHTML={
-                      { __html: t('history:priests_commissioners.description6', { interpolation: { escapeValue: false } }) }
-                    }
-                  />
-                  <p
-                    dangerouslySetInnerHTML={
-                      { __html: t('history:priests_commissioners.description7', { interpolation: { escapeValue: false } }) }
-                    }
-                  />
-                </>
-
-                <p
-                  dangerouslySetInnerHTML={
-                      { __html: t('history:priests_commissioners.description8', { interpolation: { escapeValue: false } }) }
-                    }
-                />
-              </section>
-
-              <section id="extinction">
-                <hr />
-                <header>
-                  <h2>{t('history:extinction.title')}</h2>
-                  <p>{t('history:extinction.subHeading')}</p>
-                  <hr />
-                </header>
-
-                <>
-                  <span
-                    onClick={() => {
-                      setPhotoIndex(images.indexOf(brevePic1));
-                      setToggleLightbox(true);
-                    }}
-                    className="image right"
-                    style={{ width: '30vh' }}
-                  >
-                    <img src={brevePic1} alt="" />
-                    {t('history:extinction.imagesCaptions.breve1')}
-                  </span>
-                  <p
-                    dangerouslySetInnerHTML={
-                      { __html: t('history:extinction.description1', { interpolation: { escapeValue: false } }) }
-                    }
-                  />
-
-                  <p
-                    dangerouslySetInnerHTML={
-                      { __html: t('history:extinction.description2', { interpolation: { escapeValue: false } }) }
-                    }
-                  />
-                </>
-
-                <>
-                  <span
-                    onClick={() => {
-                      setPhotoIndex(images.indexOf(receitaPic1));
-                      setToggleLightbox(true);
-                    }}
-                    className="image left"
-                    style={{ width: '32vh' }}
-                  >
-                    <img src={receitaPic1} alt="" />
-                    {t('history:extinction.imagesCaptions.receita1')}
-                  </span>
-                  <p
-                    dangerouslySetInnerHTML={
-                      { __html: t('history:extinction.description3', { interpolation: { escapeValue: false } }) }
-                    }
-                  />
-                </>
-              </section>
-
-              <section id="sale">
-                <hr />
-                <header>
-                  <h2>{t('history:sale.title')}</h2>
-                  <p>{t('history:sale.subHeading')}</p>
-                  <hr />
-                </header>
-
-                <>
-                  <span
-                    onClick={() => {
-                      setPhotoIndex(images.indexOf(salePic1));
-                      setToggleLightbox(true);
-                    }}
-                    className="image right"
-                    style={{ width: '35vh' }}
-                  >
-                    <img src={salePic1} alt="" />
-                    {t('history:sale.imagesCaptions.picture1')}
-                  </span>
-                  <p
-                    dangerouslySetInnerHTML={
-                      { __html: t('history:sale.description1', { interpolation: { escapeValue: false } }) }
-                    }
-                  />
-
-                  <span
-                    onClick={() => {
-                      setPhotoIndex(images.indexOf(salePic2));
-                      setToggleLightbox(true);
-                    }}
-                    className="image left"
-                    style={{ width: '35vh' }}
-                  >
-                    <img src={salePic2} alt="" />
-                    {t('history:sale.imagesCaptions.picture2')}
-                  </span>
-                  <p
-                    dangerouslySetInnerHTML={
-                      { __html: t('history:sale.description2', { interpolation: { escapeValue: false } }) }
-                    }
-                  />
-                </>
-
-                <p
-                  dangerouslySetInnerHTML={
-                    { __html: t('history:sale.description3', { interpolation: { escapeValue: false } }) }
-                  }
-                />
-              </section>
-
-              <section id="notable">
-                <hr />
-                <header>
-                  <h2>{t('history:notable_people.title')}</h2>
-                  <p>{t('history:notable_people.subHeading')}</p>
-                  <hr />
-                </header>
-
-                <header>
-                  <h5>{t('history:notable_people.camilo.title')}</h5>
-                  <p>{t('history:notable_people.camilo.subHeading')}</p>
-                </header>
-
-                <>
-                  <span
-                    onClick={() => {
-                      setPhotoIndex(images.indexOf(camiloPic1));
-                      setToggleLightbox(true);
-                    }}
-                    className="image right"
-                    style={{ width: '30vh' }}
-                  >
-                    <img src={camiloPic1} alt="" />
-                    {t('history:notable_people.imagesCaptions.camilo1')}
-                  </span>
-                  <p
-                    dangerouslySetInnerHTML={
-                    { __html: t('history:notable_people.camilo.description1', { interpolation: { escapeValue: false } }) }
-                  }
-                  />
-                </>
-
-                <p
-                  dangerouslySetInnerHTML={
-                      { __html: t('history:notable_people.camilo.description2', { interpolation: { escapeValue: false } }) }
-                    }
-                />
-
-                <div className="box alt">
-                  <div className="row gtr-50 gtr-uniform">
-                    <div
-                      className="col-6"
-                      onClick={() => {
-                        setPhotoIndex(images.indexOf(camiloPic2));
-                        setToggleLightbox(true);
-                      }}
-                    >
-                      <span className="image fit">
-                        <img src={camiloPic2} alt="" />
-                        {t('history:notable_people.camilo.lettersCaption')}
-                      </span>
-                    </div>
-                    <div
-                      className="col-6"
-                      onClick={() => {
-                        setPhotoIndex(images.indexOf(camiloPic3));
-                        setToggleLightbox(true);
-                      }}
-                    >
-                      <span className="image fit" style={{ textAlign: 'right' }}>
-                        <img src={camiloPic3} alt="" />
-                      </span>
-                    </div>
-                  </div>
-                </div>
-
-                <header>
-                  <h5>{t('history:notable_people.alberto.title')}</h5>
-                  <p>{t('history:notable_people.alberto.subHeading')}</p>
-                </header>
-
-                <>
-                  <span
-                    onClick={() => {
-                      setPhotoIndex(images.indexOf(albertoPic4));
-                      setToggleLightbox(true);
-                    }}
-                    className="image left"
-                    style={{ width: '35vh' }}
-                  >
-                    <img src={albertoPic4} alt="" />
-                    {t('history:notable_people.imagesCaptions.alberto4')}
-                  </span>
-                  <p
-                    dangerouslySetInnerHTML={
-                      { __html: t('history:notable_people.alberto.description1', { interpolation: { escapeValue: false } }) }
-                    }
-                  />
-                </>
-
-                <header>
-                  <h5>{t('history:notable_people.sebastiao.title')}</h5>
-                  <p>{t('history:notable_people.sebastiao.subHeading')}</p>
-                </header>
-
-                <>
-                  <span
-                    onClick={() => {
-                      setPhotoIndex(images.indexOf(sebastiaoPic6));
-                      setToggleLightbox(true);
-                    }}
-                    className="image right"
-                    style={{ width: '25vh' }}
-                  >
-                    <img src={sebastiaoPic6} alt="" />
-                    {t('history:notable_people.imagesCaptions.sebastiao6')}
-                  </span>
-                  <p
-                    dangerouslySetInnerHTML={
-                      { __html: t('history:notable_people.sebastiao.description1', { interpolation: { escapeValue: false } }) }
-                    }
-                  />
-
-                  <h6>{t('history:notable_people.sebastiao.poemTitle')}</h6>
-                  <blockquote style={{ whiteSpace: 'pre-line' }}>{t('history:notable_people.sebastiao.poem')}</blockquote>
-                </>
-              </section>
-
-              <section id="book">
-                <header>
-                  <hr />
-                  <h2>{t('history:book.title')}</h2>
-                  <h4>{t('history:book.subHeading')}</h4>
-                  <h6>{t('history:book.subSubHeading')}</h6>
-                  <p>{t('history:book.subSubSubHeading')}</p>
-                </header>
-                <span
-                  onClick={() => {
-                    setPhotoIndex(images.indexOf(bookPic1));
-                    setToggleLightbox(true);
-                  }}
-                  className="image right"
-                  style={{ width: '30vh' }}
-                >
-                  <img src={bookPic1} alt="" />
-                  {t('history:book.imagesCaptions.book1')}
-                </span>
-                <blockquote>{t('history:book.quote', { interpolation: { escapeValue: false } })}</blockquote>
-                <p style={{ textAlign: 'right' }}>{t('history:book.quoteCitation')}</p>
-                <hr />
-              </section>
             </div>
           </section>
         </article>
