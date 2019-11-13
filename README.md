@@ -67,12 +67,14 @@ git clone https://github.com/LuchoTurtle/landim-website
 npm install
 ```
 
-To run locally:
+3. Run it!
+
+- To run locally:
 ```sh
 gatsby develop
 ```
 
-To deploy the website:
+- To deploy the website:
 ```sh
 gatsby build
 ```
