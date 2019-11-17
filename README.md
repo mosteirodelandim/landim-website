@@ -29,7 +29,7 @@
 
 [![Website Screen Shot][product-screenshot]]()
 
-The previous Mosteiro de Landim website was developed back in 2006 and, as such, as become outdated as time passed. The site was, at the time of writing, unresponsive and used deprecated technologies. This, of course, had an impact on the user experience and on Mosteiro de Landim itself.
+The previous Mosteiro de Landim website was developed back in 2006 and, as such, has become outdated as time passed. The site was, at the time of writing, unresponsive and used deprecated technologies. This, of course, had an impact on the user experience and on Mosteiro de Landim itself.
 
 With this in mind, I set off to develop a website for Mosteiro de Landim that was simple and responsive, meaning it could be used on both mobile and desktop platforms. It was a learning experience, to say the least!
 
