@@ -55,6 +55,8 @@
   span {
     letter-spacing: _size(letter-spacing-alt);
     text-transform: uppercase;
+    font-family: _font(family-title);
+    font-weight: _font(weight-extrabold);
 
     a {
       color: inherit;

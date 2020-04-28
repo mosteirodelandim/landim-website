@@ -23,6 +23,7 @@
     p {
       color: inherit;
       letter-spacing: _size(letter-spacing-alt);
+      font-family: _font(family-title);
       text-transform: uppercase;
       top: 0;
 
@@ -121,7 +122,7 @@
     }
 
     input[type="checkbox"],
-    input[type="radio"], {
+    input[type="radio"] {
       & + label {
         color: _palette($p, fg);
 
@@ -642,7 +643,7 @@
   }
 
   input[type="checkbox"],
-  input[type="radio"], {
+  input[type="radio"] {
     @include vendor('appearance', 'none');
     display: block;
     float: left;

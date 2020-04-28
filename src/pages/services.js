@@ -19,7 +19,7 @@ function ServicesPage() {
       <article id="pageMain">
         <header id="servicesHeader">
           <h2>{t('services:heading')}</h2>
-          <p>{t('services:subHeading')}</p>
+          <p className="subHeadingTilePage">{t('services:subHeading')}</p>
         </header>
         <section className="wrapper style5">
           <div className="inner">

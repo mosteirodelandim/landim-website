@@ -9,7 +9,9 @@ function SideBar({ fullMenu }) {
   return (
     <header id="header" className={`${fullMenu ? '' : 'alt'}`}>
       <h1>
-        <Link to="/">Landim</Link>
+        <Link to="/">
+          <span id="landimLogo">Landim</span>
+        </Link>
       </h1>
       <div className={`${headerOpen ? 'is-menu-visible' : ' '}`}>
         <Nav onMenuToggle={() => toggleHeader(!headerOpen)} />

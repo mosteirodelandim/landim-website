@@ -1,3 +1,13 @@
+// Adding custom fonts --------
+@font-face {
+	font-family: 'merriweatherregular';
+	src: url('../webfonts/merriweather-regular-webfont.woff2') format('woff2'),
+	url('../webfonts/merriweather-regular-webfont.woff') format('woff');
+	font-weight: normal;
+	font-style: normal;
+}
+// -----------------
+
 // Misc.
 	$misc: (
 		max-spotlights:		10,
@@ -24,6 +34,7 @@
 	$font: (
 		family:				('Open Sans', Helvetica, sans-serif),
 		family-fixed:		('Courier New', monospace),
+		family-title:		('merriweatherregular', sans-serif),
 		weight:				400,
 		weight-bold:		600,
 		weight-extrabold:	800
