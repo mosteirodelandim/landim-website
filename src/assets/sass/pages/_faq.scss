@@ -4,6 +4,26 @@
   padding-top: 3em
 }
 
+#faqSectionWeAreHere {
+  padding-top: 3em;
+  background-color: white;
+  > div {
+    > header {
+      > h2, p {
+        color: black;
+      }
+      > hr {
+        border-bottom: solid 2px black;
+      }
+    }
+  }
+}
+
+#faqSectionApps {
+  padding-top: 3em;
+  background-color: #6D6875;
+}
+
 /* Google Maps */
 #markerCenter {
   position: absolute;
@@ -24,5 +44,20 @@
     display: flex;
     justify-content: space-evenly;
     flex-direction: row;
+  }
+}
+
+.features {
+  >li{
+    h3 {
+      letter-spacing: _size(letter-spacing-alt);
+      text-transform: uppercase;
+      font-family: _font(family-title);
+      font-weight: _font(weight-extrabold);
+    }
+
+    p {
+      color: white
+    }
   }
 }
