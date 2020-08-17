@@ -60,7 +60,7 @@ You also need Gatsby installed. Head [here](https://www.gatsbyjs.org/tutorial/pa
 
 1. Clone the repo
 ```sh
-git clone https://github.com/LuchoTurtle/landim-website
+git clone https://github.com/mosteirodelandim/landim-website.git
 ```
 2. Install NPM packages
 ```sh
