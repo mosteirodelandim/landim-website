@@ -1,3 +1,13 @@
+// Adding custom fonts --------
+@font-face {
+	font-family: 'merriweatherregular';
+	src: url('../webfonts/merriweather-regular-webfont.woff2') format('woff2'),
+	url('../webfonts/merriweather-regular-webfont.woff') format('woff');
+	font-weight: normal;
+	font-style: normal;
+}
+// -----------------
+
 // Misc.
 	$misc: (
 		max-spotlights:		10,
@@ -24,6 +34,7 @@
 	$font: (
 		family:				('Open Sans', Helvetica, sans-serif),
 		family-fixed:		('Courier New', monospace),
+		family-title:		('merriweatherregular', sans-serif),
 		weight:				400,
 		weight-bold:		600,
 		weight-extrabold:	800
@@ -40,13 +51,14 @@
 		border2:			#fff,
 		border2-bg:			rgba(144,144,144,0.5),
 
-		service_cloister-bg: #475869,
-		service_garden-bg: 	#024f2c,
-		service_room-bg: 	#bd3c00,
-		service_church-bg: 	#ec8d81,
+		service_cloister-bg: #a3acb4,
+		service_garden-bg: 	#9ab9ab,
+		service_room-bg: 	#E5989B,
+		service_church-bg: 	#d47f74,
 
 		accent1: (
 			bg:				#ec8d81,
+			menu-bg:		#E5989B,
 			fg-bold:		#ffffff,
 			fg:				mix(#ec8d81, #ffffff, 25%),
 			fg-light:		mix(#ec8d81, #ffffff, 40%),
@@ -96,7 +108,9 @@
 		// for icon background
 
 		accent5: (
-			bg:				#ffb073,
+			bg:				#FFB4A2,
+			tile1:			#B5838D,
+			tile2:			#E5989B,
 			fg-bold:		#ffffff,
 			fg:				mix(#ffb073, #ffffff, 25%),
 			fg-light:		mix(#ffb073, #ffffff, 40%),

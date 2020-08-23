@@ -91,7 +91,7 @@ body.is-mobile {
       h2, h3, h4, h5, h6 {
         border-bottom: solid 2px _palette(border);
         display: inline-block;
-        padding-bottom: 1em;
+        //padding-bottom: 1em;
         position: relative;
 
         &:after {
@@ -161,6 +161,9 @@ body.is-mobile {
 
       h3 {
         font-size: 1.75em;
+        text-transform: uppercase;
+        font-family: _font(family-title);
+        font-weight: _font(weight-extrabold);
 
         a {
           &:hover {

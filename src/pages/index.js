@@ -25,7 +25,7 @@ function IndexPage() {
           <h2>{t('landing:heading')}</h2>
           <br />
           <div id="subHeading">
-            <span><strong>{t('landing:subHeading')}</strong></span>
+            <span>{t('landing:subHeading')}</span>
             <Typewriter
               onInit={(typewriter) => {
                 const carouselArray = t('landing:subheadingTextCarousel');
@@ -95,23 +95,6 @@ function IndexPage() {
             </header>
             <Link to="/faq" className="link primary" />
           </article>
-          {/*
-        <article style={{ backgroundImage: `url(${historyTile})` }}>
-          <header className="major">
-            <h3>Consequat</h3>
-            <p>Ipsum dolor sit amet</p>
-          </header>
-          <Link to="/landing" className="link primary" />
-        </article>
-
-        <article style={{ backgroundImage: `url(${historyTile})` }}>
-          <header className="major">
-            <h3>Etiam</h3>
-            <p>Feugiat amet tempus</p>
-          </header>
-          <Link to="/landing" className="link primary" />
-        </article>
-        */}
         </section>
       </div>
     </LandingLayout>

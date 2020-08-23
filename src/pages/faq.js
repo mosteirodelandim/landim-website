@@ -81,7 +81,7 @@ function FaqPage() {
           </div>
         </section>
 
-        <section id="faqSection" className="wrapper style3 special">
+        <section id="faqSectionWeAreHere" className="wrapper special">
           <div id="mapSection" className="inner">
             <header className="major">
               <h2>{t('faq:map_section.title')}</h2>
@@ -107,7 +107,7 @@ function FaqPage() {
           </div>
         </section>
 
-        <section id="faqSection" className="wrapper style3 special">
+        <section id="faqSectionApps" className="wrapper special">
           <div className="inner">
             <section>
               <ul id="mapLogosWrapper" className="actions fit large">

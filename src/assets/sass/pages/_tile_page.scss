@@ -25,6 +25,8 @@
       color: inherit;
       letter-spacing: _size(letter-spacing-alt);
       text-transform: uppercase;
+      font-family: _font(family-title);
+      font-weight: _font(weight);
       top: 0;
 
       a {
@@ -103,7 +105,7 @@
 
     header {
       p {
-        color: _palette($p, fg-light);
+        color: white
       }
 
       &.major {
@@ -113,7 +115,7 @@
         }
 
         p {
-          color: _palette($p, fg);
+          color: white;
           text-align: center;
         }
       }
@@ -468,10 +470,16 @@
       width: 50%;
 
       @for $i from 1 through _misc(max-features) {
-        $j: 0.035 * $i;
+        $j: 0.185 * $i;
 
-        &:nth-child(#{$i}) {
-          background-color: rgba(0,0,0, $j);
+        @if ($i % 2  == 0) {
+          &:nth-child(#{$i}) {
+            background-color: rgba(_palette(accent5, tile1), $j);
+          }
+        } @else {
+          &:nth-child(#{$i}) {
+            background-color: rgba(_palette(accent5, tile2), $j);
+          }
         }
       }
 
@@ -754,6 +762,17 @@
   /* Photogallery */
 
   #photogallery {
+    background-color: white;
+    > div {
+      > header {
+        > h2, p {
+          color: black;
+        }
+
+      }
+    }
+
+
     @include breakpoint('<=xlarge') {
       padding: 4vh 0;
     }

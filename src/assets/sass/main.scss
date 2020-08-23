@@ -181,6 +181,7 @@
 	h2 {
 		font-size: 1.35em;
 		line-height: 1.75em;
+		font-family: _font(family-title);
 
 		@include breakpoint('<=small') {
 			font-size: 1.1em;

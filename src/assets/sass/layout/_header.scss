@@ -11,6 +11,23 @@
   width: 100%;
   z-index: _misc(z-index-base);
 
+  #landimLogo {
+    letter-spacing: _size(letter-spacing-alt);
+    text-transform: uppercase;
+    font-family: _font(family-title);
+    font-weight: _font(weight-extrabold);
+
+    /*
+    border: 2px solid #ffffff;
+    text-align: center;
+    padding: 6px;
+     */
+
+    a {
+      color: inherit;
+    }
+  }
+
   h1 {
     @include vendor('transition', 'opacity #{_duration(transitions)} ease');
     height: inherit;
