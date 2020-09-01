@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
 import { Link } from 'gatsby';
 import PropTypes from 'prop-types';
+import OutsideClickHandler from 'react-outside-click-handler';
+
 import Nav from './Nav';
 
 function SideBar({ fullMenu }) {
@@ -14,7 +16,15 @@ function SideBar({ fullMenu }) {
         </Link>
       </h1>
       <div className={`${headerOpen ? 'is-menu-visible' : ' '}`}>
-        <Nav onMenuToggle={() => toggleHeader(!headerOpen)} />
+        <OutsideClickHandler
+          onOutsideClick={() => {
+            if(headerOpen) {
+              toggleHeader(false)
+            }
+          }}
+        >
+          <Nav onMenuToggle={() => toggleHeader(!headerOpen)} />
+        </OutsideClickHandler>
       </div>
     </header>
   );
