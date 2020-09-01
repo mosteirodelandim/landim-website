@@ -11,9 +11,11 @@ import Scroll from '../components/Scroll';
 
 import scrollAnim from '../assets/images/lottie/scroll_down.json';
 import historyTile from '../assets/images/landing/history_tile.png';
+import photoTile from '../assets/images/landing/photos_tile.jpg';
+import gardenTile from '../assets/images/landing/gardens_tile.jpg';
 import servicesTile from '../assets/images/landing/services_tile.jpg';
-import productsTile from '../assets/images/landing/products_tile.jpg';
-import faqTile from '../assets/images/landing/statue_tile.png';
+import wineTile from '../assets/images/landing/wine_tile.jpg';
+import faqTile from '../assets/images/landing/faq_tile.jpg';
 
 function IndexPage() {
   const { t } = useTranslation();
@@ -62,15 +64,20 @@ function IndexPage() {
       </section>
 
       <div id="landingPageMain">
-        <section id="one" className="tiles">
+        <section id="whoWeAreSection" className="wrapper style5">
+          <div className="inner">
 
-          <article style={{ backgroundImage: `url(${historyTile})` }}>
-            <header className="major">
-              <h3>{t('landing:history.title')}</h3>
-              <p>{t('landing:history.description')}</p>
-            </header>
-            <Link to="/history" className="link primary" />
-          </article>
+            <section id="origin">
+              <header>
+                <h2>{t('landing:weAre.title')}</h2>
+                <p>{t('landing:weAre.description')}</p>
+              </header>
+            </section>
+
+          </div>
+        </section>
+
+        <section id="one" className="tiles">
 
           <article style={{ backgroundImage: `url(${servicesTile})` }}>
             <header className="major">
@@ -80,10 +87,34 @@ function IndexPage() {
             <Link to="/services" className="link primary" />
           </article>
 
-          <article style={{ backgroundImage: `url(${productsTile})` }}>
+          <article style={{ backgroundImage: `url(${photoTile})` }}>
             <header className="major">
-              <h3>{t('landing:wineAndStay.title')}</h3>
-              <p>{t('landing:wineAndStay.description')}</p>
+              <h3>{t('landing:photos.title')}</h3>
+              <p>{t('landing:photos.description')}</p>
+            </header>
+            <Link to="/photo_gallery" className="link primary" />
+          </article>
+
+          <article style={{ backgroundImage: `url(${historyTile})` }}>
+            <header className="major">
+              <h3>{t('landing:history.title')}</h3>
+              <p>{t('landing:history.description')}</p>
+            </header>
+            <Link to="/history" className="link primary" />
+          </article>
+
+          <article style={{ backgroundImage: `url(${gardenTile})` }}>
+            <header className="major">
+              <h3>{t('landing:gardens.title')}</h3>
+              <p>{t('landing:gardens.description')}</p>
+            </header>
+            <Link to="/gardens" className="link primary" />
+          </article>
+
+          <article style={{ backgroundImage: `url(${wineTile})` }}>
+            <header className="major">
+              <h3>{t('landing:vineyards.title')}</h3>
+              <p>{t('landing:vineyards.description')}</p>
             </header>
             <Link to="/wine_stay" className="link primary" />
           </article>
@@ -95,6 +126,7 @@ function IndexPage() {
             </header>
             <Link to="/faq" className="link primary" />
           </article>
+
         </section>
       </div>
     </LandingLayout>

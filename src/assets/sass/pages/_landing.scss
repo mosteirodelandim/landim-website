@@ -39,6 +39,27 @@ body.is-mobile {
 
 /* Main */
 
+#whoWeAreSection {
+  background-color: whitesmoke;
+  text-align: center;
+  > div {
+    > section {
+      > header {
+        > h2 {
+          display: inline-block;
+          color: black;
+          border: 4px solid rgba(0, 0, 0, 0.7);
+          padding: 0.2em 0.3em 0.15em 0.4em;
+        }
+        > p {
+          margin-top: 1.5em;
+          color: black;
+        }
+      }
+    }
+  }
+}
+
 #landingPageMain {
   background-color: _palette(bg-alt);
 
@@ -219,8 +240,8 @@ body.is-mobile {
         opacity: 0.70;
       }
 
-      &:nth-child(4n - 1),
-      &:nth-child(4n - 2) {
+      &:nth-child(4n),
+      &:nth-child(4n - 3) {
         width: 60%;
       }
 

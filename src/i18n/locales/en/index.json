@@ -8,17 +8,29 @@
       "of tradition.",
       "for you."
     ],
+    "weAre": {
+      "title": "Who we are",
+      "description": "With luscious gardens, timeless cloister and carved wooden ceilings, this beautiful and unique 7th c. family-owned monastery is perfect for all types of smile-inducing events. The space available for rent is the cloister area plus adjoining rooms, including one with a very special carved wooden ceiling and the gardens filled with centennial trees and carpeted in pink in the Spring. A warm, spacious and beautiful setting, if we say so ourselves!"
+    },
     "history": {
       "title": "History",
       "description": "From luscious gardens to a timeless cloister, Mosteiro de Landim carries centuries of history and tradition."
+    },
+    "photos": {
+      "title": "Photo Gallery",
+      "description": "Take a look yourself at some of what our history-rich spaces have to offer."
+    },
+    "gardens": {
+      "title": "Gardens",
+      "description": "Our renowned gardens bring life to any wedding and can be visited in tours."
     },
     "services": {
       "title": "Services",
       "description": "Get to know the services we provide for all types of smile-inducing events."
     },
-    "wineAndStay": {
-      "title": "Wine & Stay",
-      "description": "Wander through this family-run historic wine farm and national heritage site with our locally-made white wine."
+    "vineyards": {
+      "title": "Wine and Vineyard",
+      "description": "We carefully harvest and create awarded 'green' wine in our vast vineyards."
     },
     "faq": {
       "title": "FAQ",
