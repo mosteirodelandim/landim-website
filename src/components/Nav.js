@@ -7,6 +7,33 @@ import FlagIcon from './FlagIcon';
 import i18n from '../i18n/i18n';
 import 'react-slidedown/lib/slidedown.css';
 
+function menuFlags() {
+  console.log(location.pathname)
+  if (location.pathname !== '/') {
+    return (
+      <div className="flags">
+        <div onClick={() => {
+          i18n.changeLanguage('pt');
+          window.location.reload();
+        }}
+        >
+          <FlagIcon code="pt"/>
+        </div>
+        <div onClick={() => {
+          i18n.changeLanguage('en');
+          window.location.reload();
+        }}
+        >
+          <FlagIcon code="gb"/>
+        </div>
+      </div>
+    )
+  } else {
+      return
+    }
+  
+}
+
 function historyTab(t, historyOpen, setToggleHistory) {
   return (
     <>
@@ -70,22 +97,7 @@ function Nav({ onMenuToggle = () => {} }) {
           <div id="menu">
             <ul>
               <li>
-                <div className="flags">
-                  <div onClick={() => {
-                    i18n.changeLanguage('pt');
-                    window.location.reload();
-                  }}
-                  >
-                    <FlagIcon code="pt" />
-                  </div>
-                  <div onClick={() => {
-                    i18n.changeLanguage('en');
-                    window.location.reload();
-                  }}
-                  >
-                    <FlagIcon code="gb" />
-                  </div>
-                </div>
+                {menuFlags()}
               </li>
 
               <li>
