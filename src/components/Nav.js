@@ -92,14 +92,18 @@ function Nav({ onMenuToggle = () => {} }) {
                 <Link to="/">{t('sidebar:landing')}</Link>
               </li>
 
-              {historyTab(t, historyOpen, setToggleHistory)}
-
               <li>
                 <Link to="/services">{t('sidebar:services')}</Link>
               </li>
 
               <li>
-                <Link to="/services#photogallery">{t('sidebar:photos')}</Link>
+                <Link to="/photo_gallery">{t('sidebar:photos')}</Link>
+              </li>
+
+              {historyTab(t, historyOpen, setToggleHistory)}
+
+              <li>
+                <Link to="/gardens">{t('sidebar:gardens')}</Link>
               </li>
 
               <li>

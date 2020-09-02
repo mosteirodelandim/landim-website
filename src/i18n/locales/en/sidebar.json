@@ -3,7 +3,7 @@
     "label": "Menu",
     "landing": "Home",
     "services": "Services",
-    "photos": "Photos",
+    "photos": "Photo Gallery",
     "history": {
       "main": "History",
       "origins": "Origins and Architecture",
@@ -13,6 +13,7 @@
       "notable": "Notable people",
       "book": "Book"
     },
+    "gardens": "Gardens",
     "wine_stay": "Wine & Stay",
     "faq": "FAQ"
   }
