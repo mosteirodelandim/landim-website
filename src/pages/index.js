@@ -16,6 +16,8 @@ import gardenTile from '../assets/images/landing/gardens_tile.jpg';
 import servicesTile from '../assets/images/landing/services_tile.jpg';
 import wineTile from '../assets/images/landing/wine_tile.jpg';
 import faqTile from '../assets/images/landing/faq_tile.jpg';
+import i18n from '../i18n/i18n';
+import FlagIcon from '../components/FlagIcon';
 
 function IndexPage() {
   const { t } = useTranslation();
@@ -23,6 +25,25 @@ function IndexPage() {
   return (
     <LandingLayout fullMenu={false}>
       <section id="banner">
+        <div className="flag-container">
+          <div id="bannerFlags" className="flags">
+            <div onClick={() => {
+              i18n.changeLanguage('pt');
+              window.location.reload();
+            }}
+            >
+              <FlagIcon code="pt" />
+            </div>
+            <div onClick={() => {
+              i18n.changeLanguage('en');
+              window.location.reload();
+            }}
+            >
+              <FlagIcon code="gb" />
+            </div>
+          </div>
+        </div>
+
         <div>
           <h2>{t('landing:heading')}</h2>
           <br />
@@ -50,8 +71,8 @@ function IndexPage() {
           </div>
         </div>
 
-        <Scroll type="id" element="one">
-          <a href="#one" className="more">
+        <Scroll type="id" element="whoWeAreSection">
+          <a href="#whoWeAreSection" className="more">
             <Lottie
               options={{
                 animationData: scrollAnim,
@@ -64,6 +85,7 @@ function IndexPage() {
       </section>
 
       <div id="landingPageMain">
+
         <section id="whoWeAreSection" className="wrapper style5">
           <div className="inner">
 

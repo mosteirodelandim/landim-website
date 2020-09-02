@@ -338,3 +338,28 @@ body.is-mobile {
     z-index: _misc(z-index-base) + 1;
   }
 }
+
+#bannerFlags {
+  margin-left: 0.4em;
+  flex-direction: row;
+  display: flex;
+  justify-content: space-between;
+}
+
+.flag-container {
+  position: absolute;
+  top: 0;
+  left: 0;
+  cursor: pointer;
+  z-index: 10;
+
+}
+
+.flags {
+  div {
+    margin: 5px;
+    cursor: pointer;
+    text-align: center;
+    display: inline-block;
+  }
+}
