@@ -118,7 +118,7 @@ function FaqPage() {
                 </li>
                 <li>
                   <a onClick={() => window.open(config.googleMaps)} className="button large fit icon solid fa-map-marked ">
-                    Google Maps
+                    Google
                   </a>
                 </li>
               </ul>
