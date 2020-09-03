@@ -8,7 +8,7 @@ import i18n from '../i18n/i18n';
 import 'react-slidedown/lib/slidedown.css';
 
 function menuFlags() {
-  console.log(location.pathname)
+  // Only show flags when the user is not on the landing page
   if (location.pathname !== '/') {
     return (
       <div className="flags">

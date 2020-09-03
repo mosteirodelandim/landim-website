@@ -1,7 +1,6 @@
 import React from 'react';
 import { useTranslation } from 'react-i18next';
 import Lottie from 'lottie-react-web';
-import { isMobile } from 'react-device-detect';
 import LandingLayout from '../components/LandingLayout';
 
 import winePic1 from '../assets/images/wine_stay/wine1.jpg';
@@ -77,14 +76,11 @@ function WineStayPage() {
                   {t('cta:buttons.email')}
                 </a>
               </li>
-              {isMobile
-              && (
-                <li>
-                  <a href={`tel:${config.phoneContact}`} className="button fit">
-                    {t('cta:buttons.call')}
-                  </a>
-                </li>
-              )}
+              <li>
+                <a href={`tel:${config.phoneContact}`} className="button fit">
+                  {t('cta:buttons.call')}
+                </a>
+              </li>
             </ul>
           </div>
         </section>

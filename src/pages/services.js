@@ -1,6 +1,5 @@
 import React from 'react';
 import { useTranslation } from 'react-i18next';
-import { isMobile } from 'react-device-detect';
 import PhotoGallery from '../components/Photogallery';
 import config from '../../config';
 
@@ -94,14 +93,11 @@ function ServicesPage() {
                   {t('cta:buttons.email')}
                 </a>
               </li>
-              {isMobile
-              && (
               <li>
                 <a href={`tel:${config.phoneContact}`} className="button fit">
                   {t('cta:buttons.call')}
                 </a>
               </li>
-              )}
             </ul>
           </div>
         </section>
