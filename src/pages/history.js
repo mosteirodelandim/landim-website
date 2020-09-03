@@ -2,7 +2,8 @@ import React, { useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import Lightbox from 'react-image-lightbox';
 import LandingLayout from '../components/LandingLayout';
-import 'react-image-lightbox/style.css'; // This only needs to be imported once in your app
+import ScrollUpButton from "react-scroll-up-button";
+import 'react-image-lightbox/style.css';
 
 /* Origin and Architecture */
 import originPic1 from '../assets/images/history/origins_architecture/pic1.jpg';
@@ -53,6 +54,7 @@ import sebastiaoPic6 from '../assets/images/history/notable_people/sebastiao1.jp
 
 /* Book */
 import bookPic1 from '../assets/images/history/book/book1.jpg';
+import Scroll from '../components/Scroll';
 
 
 const images = [originPic1, originPic2, originPic3, originPic4, originPic5, originPic6,
@@ -515,7 +517,8 @@ function HistoryPage() {
     .concat(Object.values(t('history:book.imagesCaptions'))); // book
 
   return (
-    <>
+    <div>
+      <ScrollUpButton />
       <LandingLayout fullMenu>
         <article id="historyMain">
           <header id="historyHeader">
@@ -524,6 +527,20 @@ function HistoryPage() {
           </header>
           <section className="wrapper style5">
             <div className="inner">
+              <p style={{fontSize: "small"}}>
+                  <Scroll type="id" element="origins"><a href="#origins" className="more">ORIGENS E ARQUITECTURA</a></Scroll>
+                  <br/>
+                  <Scroll type="id" element="priests"><a href="#priests" className="more">PRIORES E COMENDATÁRIOS</a></Scroll>
+                  <br/>
+                  <Scroll type="id" element="extinction"><a href="#extinction" className="more">EXTINÇÃO DO MOSTEIRO</a></Scroll>
+                  <br/>
+                  <Scroll type="id" element="sale"><a href="#sale" className="more">VENDA E PROPRIEDADE FAMILIAR</a></Scroll>
+                  <br/>
+                  <Scroll type="id" element="notable"><a href="#notable" className="more">FIGURAS DE RELEVO</a></Scroll>
+                  <br/>
+                  <Scroll type="id" element="book"><a href="#book" className="more">LIVRO</a></Scroll>
+              </p>
+
 
               {originsSection(t, setPhotoIndex, setToggleLightbox)}
               {priestsSection(t, setPhotoIndex, setToggleLightbox)}
@@ -548,7 +565,7 @@ function HistoryPage() {
           imageCaption={`(${photoIndex + 1}/${images.length}) ${captions[photoIndex]}`}
         />
       )}
-    </>
+    </div>
   );
 }
 
