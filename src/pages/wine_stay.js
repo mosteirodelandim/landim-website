@@ -6,6 +6,7 @@ import LandingLayout from '../components/LandingLayout';
 import winePic1 from '../assets/images/wine_stay/wine1.jpg';
 import lottieAnim from '../assets/images/lottie/sleeping';
 import config from '../../config';
+import Obfuscate from 'react-obfuscate';
 
 function WineStayPage() {
   const { t } = useTranslation();
@@ -72,9 +73,11 @@ function WineStayPage() {
             </header>
             <ul className="actions stacked">
               <li>
-                <a href={`mailto:${config.emailContact}`} className="button fit primary">
-                  {t('cta:buttons.email')}
-                </a>
+                <Obfuscate email={`${config.emailContact}`} className={`icon`}>
+                  <a className="button fit primary">
+                    {t('cta:buttons.email')}
+                  </a>
+                </Obfuscate>
               </li>
               <li>
                 <a href={`tel:${config.phoneContact}`} className="button fit">

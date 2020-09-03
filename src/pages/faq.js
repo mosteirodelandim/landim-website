@@ -6,6 +6,7 @@ import LandingLayout from '../components/LandingLayout';
 import config from '../../config';
 
 import lottieAnim from '../assets/images/lottie/pulsing';
+import Obfuscate from 'react-obfuscate';
 
 const Marker = () => (
   <div
@@ -134,9 +135,11 @@ function FaqPage() {
             </header>
             <ul className="actions stacked">
               <li>
-                <a href={`mailto:${config.emailContact}`} className="button fit primary">
-                  {t('cta:buttons.email')}
-                </a>
+                <Obfuscate email={`${config.emailContact}`} className={`icon`}>
+                  <a className="button fit primary">
+                    {t('cta:buttons.email')}
+                  </a>
+                </Obfuscate>
               </li>
             </ul>
           </div>

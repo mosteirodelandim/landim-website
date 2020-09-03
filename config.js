@@ -43,29 +43,31 @@ module.exports = {
       style: 'brands',
       icon: 'fa-facebook',
       name: 'Facebook',
-      url: 'https://www.facebook.com/mosteirodelandim',
       urlApp: 'https://www.facebook.com/mosteirodelandim',
     },
     {
       style: 'brands',
       icon: 'fa-instagram',
       name: 'Instagram',
-      url: 'https://www.instagram.com/mosteirodelandim',
       urlApp: 'https://www.instagram.com/_u/mosteirodelandim',
     },
     {
       style: 'brands',
       icon: 'fa-twitter',
       name: 'Twitter',
-      url: 'https://twitter.com/mosteirolandim',
       urlApp: 'https://twitter.com/mosteirolandim',
     },
     {
       style: 'brands',
       icon: 'fa-pinterest',
       name: 'Pinterest',
-      url: 'https://www.pinterest.com/mosteirolandim/',
       urlApp: 'https://www.pinterest.com/mosteirolandim/',
     },
+    {
+      style: 'solid',
+      icon: 'fa-envelope',
+      name: 'Email',
+      urlApp: 'info@mosteirodelandim.com',
+    }
   ],
 };

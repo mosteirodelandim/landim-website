@@ -9,6 +9,7 @@ import cloisterPic from '../assets/images/services/cloister.jpg';
 import gardenPic from '../assets/images/services/garden.jpg';
 import roomPic from '../assets/images/services/rooms.jpg';
 import churchPic from '../assets/images/services/church.jpg';
+import Obfuscate from 'react-obfuscate';
 
 function ServicesPage() {
   const { t } = useTranslation();
@@ -89,9 +90,11 @@ function ServicesPage() {
             </header>
             <ul className="actions stacked">
               <li>
-                <a href={`mailto:${config.emailContact}`} className="button fit primary">
-                  {t('cta:buttons.email')}
-                </a>
+                <Obfuscate email={`${config.emailContact}`} className={`icon`}>
+                  <a className="button fit primary">
+                    {t('cta:buttons.email')}
+                  </a>
+                </Obfuscate>
               </li>
               <li>
                 <a href={`tel:${config.phoneContact}`} className="button fit">
