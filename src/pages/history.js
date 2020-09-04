@@ -525,7 +525,7 @@ function HistoryPage() {
             <h2>{t('history:title')}</h2>
             <p>{t('history:subHeading')}</p>
           </header>
-          <section className="wrapper style5">
+          <section className="wrapper style5" style={{paddingTop: "2em"}}>
             <div className="inner">
               <p style={{fontSize: "small"}}>
                   <Scroll type="id" element="origins"><a href="#origins" className="more">ORIGENS E ARQUITECTURA</a></Scroll>
