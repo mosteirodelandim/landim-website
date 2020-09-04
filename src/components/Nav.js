@@ -8,8 +8,9 @@ import i18n from '../i18n/i18n';
 import 'react-slidedown/lib/slidedown.css';
 
 function menuFlags() {
+  // Checking if location is undefined because browser globals are undefined before Gatsby building
   // Only show flags when the user is not on the landing page
-  if (location.pathname !== '/') {
+  if (typeof location !== `undefined` && location.pathname !== '/') {
     return (
       <div className="flags">
         <div onClick={() => {
@@ -28,10 +29,7 @@ function menuFlags() {
         </div>
       </div>
     )
-  } else {
-      return
-    }
-  
+  }
 }
 
 function historyTab(t, historyOpen, setToggleHistory) {
