@@ -18,6 +18,8 @@ import wineStayEN from './locales/en/wine_stay.json';
 import wineStayPT from './locales/pt/wine_stay.json';
 import faqEN from './locales/en/faq.json';
 import faqPT from './locales/pt/faq.json';
+import aboutUsEN from './locales/en/about_us.json';
+import aboutUsPT from './locales/pt/about_us.json';
 
 
 const resources = {
@@ -30,6 +32,7 @@ const resources = {
     history: historyPT.pt,
     wine_stay: wineStayPT.pt,
     faq: faqPT.pt,
+    about_us: aboutUsPT.pt,
   },
   en: {
     landing: landingEN.en,
@@ -40,6 +43,7 @@ const resources = {
     history: historyEN.en,
     wine_stay: wineStayEN.en,
     faq: faqEN.en,
+    about_us: aboutUsEN.en,
   },
 };
 
@@ -58,7 +62,7 @@ i18n
     detection,
     fallbackLng: 'en',
 
-    ns: ['landing', 'cta', 'notFound', 'sidebar', 'services', 'history', 'wine_stay', 'faq'],
+    ns: ['landing', 'cta', 'notFound', 'sidebar', 'services', 'history', 'wine_stay', 'faq', 'about_us'],
     defaultNS: 'landing',
 
     returnObjects: true, // to return objects (in case of arrays, e.g.)
