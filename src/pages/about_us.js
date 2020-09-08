@@ -13,10 +13,11 @@ function AboutUsPage() {
 
   return (
     <LandingLayout fullMenu>
-      <article id="pageMain">
+      <article id="aboutUsMain">
         <header id="aboutUsHeader">
           <h2>{t('about_us:heading')}</h2>
           <p style={{ margin: '0 2em 2em 2em' }}>{t('about_us:subHeading')}</p>
+
         </header>
         <section className="wrapper style5">
           <div className="inner">

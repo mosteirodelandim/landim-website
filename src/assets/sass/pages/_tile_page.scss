@@ -56,10 +56,6 @@
     }
   }
 
-  #aboutUsHeader {
-    @include vendor('background-image', ('linear-gradient(to top, rgba(0,0,0,0.5), rgba(0,0,0,0.5))', 'url("../images/about_us/banner.jpg")'));
-  }
-
   #servicesHeader {
     @include vendor('background-image', ('linear-gradient(to top, rgba(0,0,0,0.5), rgba(0,0,0,0.5))', 'url("../images/services/services_banner.jpg")'));
   }
