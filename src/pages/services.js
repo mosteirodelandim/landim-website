@@ -97,9 +97,9 @@ function ServicesPage() {
                 </Obfuscate>
               </li>
               <li>
-                <a href={`tel:${config.phoneContact}`} className="button fit">
+                <Obfuscate tel={`${config.phoneContact}`} className="button fit">
                   {t('cta:buttons.call')}
-                </a>
+                </Obfuscate>
               </li>
             </ul>
           </div>

@@ -20,7 +20,6 @@
     p {
       color: black;
       letter-spacing: _size(letter-spacing-alt);
-      text-transform: uppercase;
       font-family: _font(family-title);
       font-weight: _font(weight);
       top: 0;
@@ -53,7 +52,7 @@
   }
 
   #aboutUsHeader {
-    @include vendor('background-image', ('linear-gradient(to top, rgba(0,0,0,0), rgba(0,0,0,0))', 'url("../images/about_us/banner3.jpg")'));
+    @include vendor('background-image', ('linear-gradient(to top, rgba(0,0,0,0), rgba(0,0,0,0))', 'url("../images/about_us/banner.jpg")'));
   }
 
   /* Wrapper */
@@ -254,13 +253,6 @@
   >.wrapper {
     @include padding(6em, 0);
 
-    #mapSection {
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
-    }
-
     > .inner {
       width: 60em;
       margin: 0 auto;
@@ -304,6 +296,71 @@
 
     @include breakpoint('<=small') {
       @include padding(3em, 2em);
+    }
+  }
+
+  >.wrapper-carousel {
+
+    > .inner-carousel {
+      margin: 0 auto;
+      height: 30em;
+
+      @include breakpoint('<=xlarge') {
+        height: 30em;
+      }
+
+      @include breakpoint('<=large') {
+        height: 30em;
+      }
+
+      @include breakpoint('<=medium') {
+        height: 25em;
+      }
+
+      @include breakpoint('<=small') {
+        height: 20em;
+      }
+    }
+
+    > .inner {
+      width: 60em;
+      margin: 0 auto;
+
+      @include breakpoint('<=large') {
+        width: 90%;
+      }
+
+      @include breakpoint('<=medium') {
+        width: 100%;
+      }
+    }
+
+    &.alt {
+      padding: 0;
+    }
+
+    &.style1 {
+      @include wrapper(accent1);
+    }
+
+    &.style2 {
+      background-color: _palette(bg);
+    }
+
+    &.style3 {
+      @include wrapper(accent5);
+    }
+
+    &.style4 {
+      background-color: transparent;
+    }
+
+    &.style5 {
+      @include wrapper(accent7);
+    }
+
+    @include breakpoint('<=small') {
+      @include padding(3em, 0);
     }
   }
 

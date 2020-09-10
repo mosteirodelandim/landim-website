@@ -1,12 +1,19 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import Lottie from 'lottie-react-web';
-import LandingLayout from '../components/LandingLayout';
+import Obfuscate from 'react-obfuscate';
+import Carousel from 're-carousel'
 
 import winePic1 from '../assets/images/wine_stay/wine1.jpg';
 import lottieAnim from '../assets/images/lottie/sleeping';
+
 import config from '../../config';
-import Obfuscate from 'react-obfuscate';
+import LandingLayout from '../components/LandingLayout';
+import IndicatorDots from '../components/CarouselDots'
+
+import history1 from "../assets/images/about_us/history1.jpg"
+import history2 from "../assets/images/about_us/history2.jpg"
+import history3 from "../assets/images/about_us/history3.jpg"
 
 function AboutUsPage() {
   const { t } = useTranslation();
@@ -19,6 +26,27 @@ function AboutUsPage() {
           <p style={{ margin: '0 2em 2em 2em' }}>{t('about_us:subHeading')}</p>
 
         </header>
+
+        <section className="wrapper style5">
+          <div className="inner">
+            <h3>{t('about_us:history.title')}</h3>
+            <p>{t('about_us:history.description1')}</p>
+            <p>{t('about_us:history.description2')}</p>
+            <hr />
+            <p>{t('about_us:history.description3')}</p>
+          </div>
+        </section>
+
+        <section className="wrapper-carousel style5">
+          <div className="inner-carousel">
+            <Carousel loop widgets={[IndicatorDots]}>
+              <div style={{ backgroundImage:`url(${history1})`}} className="carousel-image"/>
+              <div style={{ backgroundImage:`url(${history2})`}} className="carousel-image"/>
+              <div style={{ backgroundImage:`url(${history3})`}} className="carousel-image"/>
+            </Carousel>
+          </div>
+        </section>
+
         <section className="wrapper style5">
           <div className="inner">
             <h3>{t('wine_stay:wine.title')}</h3>
