@@ -25,6 +25,7 @@
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
     "react-flag-icon-css": "^1.0.25",
+    "react-grid-system": "^7.1.0",
     "react-helmet": "^6.1.0",
     "react-i18next": "^10.13.1",
     "react-image-gallery": "^0.9.1",

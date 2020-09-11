@@ -3,6 +3,7 @@
 /* Changing the header for the About Us page */
 
 #aboutUsMain{
+
   > header {
     padding: 8em 10em 38em 10em;
     background-attachment: local;
@@ -88,7 +89,7 @@
 
     header {
       p {
-        color: white
+        color: darkgray;
       }
 
       &.major {
@@ -360,15 +361,19 @@
     }
 
     @include breakpoint('<=small') {
-      @include padding(3em, 0);
+      padding: 3em 0 0 0;
     }
   }
 
   /* Spotlight */
 
   .spotlight {
-    @include vendor('align-items', 'center');
-    @include vendor('display', 'flex');
+    background-color: white;
+    display: flex;
+    flex: 1;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
 
     .image {
       @include vendor('order', '1');
@@ -378,6 +383,18 @@
       img {
         border-radius: 0;
         width: 100%;
+      }
+    }
+
+    .spotlight-container {
+      display: flex;
+      flex-direction: row;
+
+      > * {
+        display: flex;
+        flex-direction: column;
+        flex: 1;
+        justify-content: center;
       }
     }
 
@@ -394,22 +411,6 @@
 
     &:nth-child(2n) {
       @include vendor('flex-direction', 'row-reverse');
-    }
-
-    &:nth-child(1) {
-      background-color: _palette(service_cloister-bg);
-    }
-
-    &:nth-child(2) {
-      background-color: _palette(service_garden-bg);
-    }
-
-    &:nth-child(3) {
-      background-color: _palette(service_room-bg);
-    }
-
-    &:nth-child(4) {
-      background-color: _palette(service_church-bg);
     }
 
     @include breakpoint('<=large') {
@@ -828,5 +829,16 @@
     }
   }
 
+  .aboutUsTitle {
+    margin-bottom: 0.2em;
+  }
+
+  #historySpotlight {
+    background-color: _palette(accentTile4);
+  }
+
+  #winesSpotlight {
+    background-color: _palette(accentTile6);
+  }
 }
 

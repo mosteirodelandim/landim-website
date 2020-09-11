@@ -9,7 +9,7 @@
   position: fixed;
   top: 0;
   width: 100%;
-  z-index: _misc(z-index-base);
+  z-index: 100;
 
   #landimLogo {
     letter-spacing: _size(letter-spacing-alt);
