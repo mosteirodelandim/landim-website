@@ -16,6 +16,7 @@ import gardenTile from '../assets/images/landing/gardens_tile.jpg';
 import servicesTile from '../assets/images/landing/services_tile.jpg';
 import wineTile from '../assets/images/landing/wine_tile.jpg';
 import faqTile from '../assets/images/landing/faq_tile.jpg';
+import aboutUsTile from '../assets/images/landing/about_us_tile.jpg';
 import i18n from '../i18n/i18n';
 import FlagIcon from '../components/FlagIcon';
 
@@ -71,8 +72,8 @@ function IndexPage() {
           </div>
         </div>
 
-        <Scroll type="id" element="whoWeAreSection">
-          <a href="#whoWeAreSection" className="more">
+        <Scroll type="id" element="landingPageMain">
+          <a href="#landingPageMain" className="more">
             <Lottie
               options={{
                 animationData: scrollAnim,
@@ -86,20 +87,15 @@ function IndexPage() {
 
       <div id="landingPageMain">
 
-        <section id="whoWeAreSection" className="wrapper style5">
-          <div className="inner">
-
-            <section id="origin">
-              <header>
-                <h2>{t('landing:weAre.title')}</h2>
-                <p>{t('landing:weAre.description')}</p>
-              </header>
-            </section>
-
-          </div>
-        </section>
-
         <section id="one" className="tiles">
+
+          <article style={{ backgroundImage: `url(${aboutUsTile})` }}>
+            <header className="major">
+              <h3>{t('landing:weAre.title')}</h3>
+              <p>{t('landing:weAre.description')}</p>
+            </header>
+            <Link to="/about_us" className="link primary" />
+          </article>
 
           <article style={{ backgroundImage: `url(${servicesTile})` }}>
             <header className="major">

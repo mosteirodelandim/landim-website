@@ -293,6 +293,13 @@
 	}
 }
 
+.carousel-image {
+	background-repeat: no-repeat;
+	background-size: cover;
+	height: 100%;
+	background-position: center;
+}
+
 // Components
 	@import 'components/icon';
 	@import 'components/icons';
@@ -311,6 +318,7 @@
 	@import 'pages/tile_page';
 	@import 'pages/history';
 	@import 'pages/faq';
+	@import 'pages/about_us';
 
 
 
