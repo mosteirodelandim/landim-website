@@ -34,9 +34,44 @@
       "description2": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
       "lottie": {
         "title": "Vinho",
-        "description": "As vinhas do Mosteiro de Landim já foram galardoadas e premiadas, e o nosso vinho também. Para sabe rmais sobre a história, os nossos métodos e o nosso vinho, pode fazê-lo ",
+        "description": "As vinhas do Mosteiro de Landim já foram galardoadas e premiadas, bem como o nosso vinho também. Para saber mais sobre a história, os nossos métodos e o nosso vinho, pode fazê-lo ",
         "hyperlink": "aqui"
       }
+    },
+
+    "services_spaces": {
+      "title": "Serviços e Espaços",
+      "subtitle": "A variedade de espaços que oferecemos faz com que Landim seja perfeito para qualquer evento...",
+      "description1": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
+      "description2": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
+      "description3": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
+
+      "images": {
+        "image1": {
+          "title": "Claustro",
+          "subtitle": "Séculos de história. O coração de cada festa."
+        },
+        "image2": {
+          "title": "Salas",
+          "subtitle": "Salas espaçosas e históricas para qualquer fim."
+        },
+        "image3": {
+          "title": "Jardins",
+          "subtitle": "Galardoados, humildes e belos são os nossos jardins. Mais informação ",
+          "hyperlink": "aqui"
+        },
+        "image4": {
+          "title": "Igreja",
+          "subtitle": "Para dar o nó, mesmo ao lado."
+        }
+      },
+
+      "lottie": {
+        "title": "Serviços",
+        "description": "O Mosteiro de Landim oferece um leque variado de eventos personalizados a seu gosto. Para mais informação, clique ",
+        "hyperlink": "aqui"
+      }
+
     }
   }
 }

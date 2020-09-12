@@ -8,6 +8,7 @@ import { Container, Row, Col } from 'react-grid-system';
 
 import bookAnim from '../assets/images/lottie/book';
 import wineAnim from '../assets/images/lottie/wines';
+import servicesAnim from '../assets/images/lottie/services';
 
 import config from '../../config';
 import LandingLayout from '../components/LandingLayout';
@@ -17,6 +18,10 @@ import history1 from "../assets/images/about_us/history1.jpg"
 import history2 from "../assets/images/about_us/history2.jpg"
 import wine1 from "../assets/images/about_us/wines1.jpg"
 import wine2 from "../assets/images/about_us/wines2.jpg"
+import spaces1 from "../assets/images/about_us/spaces1.jpg"
+import spaces2 from "../assets/images/about_us/spaces2.jpg"
+import spaces3 from "../assets/images/about_us/spaces3.jpg"
+import spaces4 from "../assets/images/about_us/spaces4.png"
 
 import family1 from "../assets/images/about_us/family1.jpg"
 import { Link } from 'gatsby';
@@ -94,9 +99,9 @@ function AboutUsPage() {
                   options={{
                     animationData: bookAnim,
                   }}
-                  width="100%"
-                  height="100%"
-                  style={{marginBottom: "-60px", marginTop: "-60px"}}
+                  width="45%"
+                  height="101%"
+                  style={{marginBottom: "2vh", marginLeft: "18vw"}}
                 />
               </div>
               <div className="content">
@@ -140,9 +145,9 @@ function AboutUsPage() {
                   options={{
                     animationData: wineAnim,
                   }}
-                  width="70%"
-                  height="100%"
-                  style={{marginLeft: "10vw", marginBottom: "3vh"}}
+                  width="98%"
+                  height="53%"
+                  style={{marginLeft: "3vw", marginBottom: "6vh"}}
                 />
               </div>
               <div className="content">
@@ -153,6 +158,94 @@ function AboutUsPage() {
           </section>
         </section>
 
+
+
+
+        <section className="wrapper style5">
+          <div className="inner">
+            <header>
+              <h3 className="aboutUsTitle">{t('about_us:services_spaces.title')}</h3>
+              <p>{t('about_us:services_spaces.subtitle')}</p>
+            </header>
+
+            <p>{t('about_us:services_spaces.description1')}</p>
+            <p>{t('about_us:services_spaces.description2')}</p>
+            <hr />
+            <p>{t('about_us:services_spaces.description3')}</p>
+          </div>
+
+          <Container>
+            <Row>
+              <Col lg={3} md={6}>
+                <span className="image fit hover-container">
+                  <img src={spaces1} alt="" />
+                  <div className="overlay">
+                    <div className="text">
+                      <h2>{t('about_us:services_spaces.images.image1.title')}</h2>
+                      <span>{t('about_us:services_spaces.images.image1.subtitle')}</span>
+                    </div>
+                  </div>
+                </span>
+              </Col>
+              <Col lg={3} md={6}>
+                <span className="image fit hover-container">
+                  <img src={spaces2} alt="" />
+                  <div className="overlay">
+                    <div className="text">
+                      <h2>{t('about_us:services_spaces.images.image2.title')}</h2>
+                      <span>{t('about_us:services_spaces.images.image2.subtitle')}</span>
+                    </div>
+                  </div>
+                </span>
+              </Col>
+              <Col lg={3} md={6}>
+                <span className="image fit hover-container">
+                  <img src={spaces3} alt="" />
+                  <div className="overlay">
+                    <div className="text">
+                      <h2>{t('about_us:services_spaces.images.image3.title')}</h2>
+                      <span>{t('about_us:services_spaces.images.image3.subtitle')}
+                        <Link to="/gardens">{t('about_us:services_spaces.images.image3.hyperlink')}</Link>.
+                      </span>
+                    </div>
+                  </div>
+                </span>
+              </Col>
+              <Col lg={3} md={6}>
+                <span className="image fit hover-container">
+                  <img src={spaces4} alt="" />
+                  <div className="overlay">
+                    <div className="text">
+                      <h2>{t('about_us:services_spaces.images.image4.title')}</h2>
+                      <span>{t('about_us:services_spaces.images.image4.subtitle')}</span>
+                    </div>
+                  </div>
+                </span>
+              </Col>
+            </Row>
+          </Container>
+        </section>
+
+        <section id="two" className="wrapper alt style2">
+          <section id="servicesSpacesSpotlight" className="spotlight">
+            <div className="spotlight-container">
+              <div>
+                <Lottie
+                  options={{
+                    animationData: servicesAnim,
+                  }}
+                  width="58%"
+                  height="90%"
+                  style={{marginBottom: "-2vh", marginTop: "-2vh", marginLeft: "17vw"}}
+                />
+              </div>
+              <div className="content">
+                <h2>{t('about_us:services_spaces.lottie.title')}</h2>
+                <p>{t('about_us:services_spaces.lottie.description')}<Link to="/services">{t('about_us:services_spaces.lottie.hyperlink')}</Link>.</p>
+              </div>
+            </div>
+          </section>
+        </section>
 
 
 

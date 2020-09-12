@@ -833,12 +833,46 @@
     margin-bottom: 0.2em;
   }
 
+  /* Hover overlay on images */
+  .overlay {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 100%;
+    width: 100%;
+    opacity: 0;
+    transition: .5s ease;
+    background-color: _palette(accentTile1);
+  }
+
+  .hover-container:hover .overlay {
+    opacity: 0.98;
+  }
+
+  .text {
+    text-align: center;
+    font-size: 20px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+  }
+
+  /* Spotlights background colors */
+
   #historySpotlight {
     background-color: _palette(accentTile4);
   }
 
   #winesSpotlight {
     background-color: _palette(accentTile6);
+  }
+
+  #servicesSpacesSpotlight {
+    background-color: _palette(accentTile2);
   }
 }
 
