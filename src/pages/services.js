@@ -82,29 +82,6 @@ function ServicesPage() {
           </div>
         </section>
 
-        <section id="cta" className="wrapper style4">
-          <div className="inner">
-            <header>
-              <h2>{t('cta:title')}</h2>
-              <p>{t('cta:description')}</p>
-            </header>
-            <ul className="actions stacked">
-              <li>
-                <Obfuscate email={`${config.emailContact}`} className={`icon`}>
-                  <a className="button fit primary">
-                    {t('cta:buttons.email')}
-                  </a>
-                </Obfuscate>
-              </li>
-              <li>
-                <Obfuscate tel={`${config.phoneContact}`} className="button fit">
-                  {t('cta:buttons.call')}
-                </Obfuscate>
-              </li>
-            </ul>
-          </div>
-        </section>
-
       </article>
     </LandingLayout>
   );

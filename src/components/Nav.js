@@ -127,6 +127,10 @@ function Nav({ onMenuToggle = () => {} }) {
               <li>
                 <Link to="/faq">{t('sidebar:faq')}</Link>
               </li>
+
+              <li>
+                <Link to="/faq#faqSectionWeAreHere">{t('sidebar:contact')}</Link>
+              </li>
             </ul>
 
             <a

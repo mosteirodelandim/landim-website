@@ -1,11 +1,12 @@
 /* FAQ Page details */
 
+/* Sections details */
+
 #faqSection {
   padding-top: 3em
 }
 
 #faqSectionWeAreHere {
-  padding-top: 3em;
   background-color: white;
   > div {
     > header {
@@ -19,26 +20,19 @@
   }
 }
 
-#faqSectionApps {
-  padding-top: 3em;
-  background-color: #6D6875;
+/* Google Maps */
+#mapSection {
+  background-color: #2E3842 !important;
 }
 
-/* Google Maps */
 #markerCenter {
   position: absolute;
   transform: translate(-50%, -50%);
 }
 
 #mapLogosWrapper {
-  margin-bottom: 5vh;
   display: flex;
   justify-content: space-evenly;
-
-  >div {
-    font-size: 10vh;
-    cursor: pointer;
-  }
 
   @include breakpoint('<=small') {
     display: flex;
@@ -60,4 +54,44 @@
       color: white
     }
   }
+}
+
+.information {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  @include breakpoint('<=medium') {
+    margin-top: 5vh;
+    margin-bottom: 5vh;
+  }
+
+  > .wrapper {
+
+    > .center {
+      justify-content: center;
+      flex-direction: column;
+      align-items: center;
+
+      > header {
+        padding: 0 !important;
+        text-align: center;
+      }
+
+      > ul {
+        width: 40% !important;
+      }
+    }
+
+  }
+}
+
+/* For grid-system */
+.p-0 {
+  padding: 0 !important;
+}
+
+.m-0 {
+  margin: 0 !important;
 }

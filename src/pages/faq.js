@@ -2,6 +2,9 @@ import React from 'react';
 import { useTranslation } from 'react-i18next';
 import GoogleMapReact from 'google-map-react';
 import Lottie from 'lottie-react-web';
+import { Container, Row, Col } from 'react-grid-system';
+
+
 import LandingLayout from '../components/LandingLayout';
 import config from '../../config';
 
@@ -82,66 +85,71 @@ function FaqPage() {
           </div>
         </section>
 
-        <section id="faqSectionWeAreHere" className="wrapper special">
+        <section id="faqSectionWeAreHere">
           <div id="mapSection" className="inner">
-            <header className="major">
-              <h2>{t('faq:map_section.title')}</h2>
-              <hr />
-            </header>
-            <ul
-              className="features"
-              style={{
-                width: '100%', height: '80vh', border: 'solid 1em', borderColor: 'brown',
-              }}
-            >
-              <GoogleMapReact
-                bootstrapURLKeys={{ key: config.apiKey }}
-                defaultCenter={config.mapLocation.center}
-                defaultZoom={config.mapLocation.zoom}
-              >
-                <Marker
-                  lat={config.mapLocation.center.lat}
-                  lng={config.mapLocation.center.lng}
-                />
-              </GoogleMapReact>
-            </ul>
-          </div>
-        </section>
+            <Row className="m-0">
+              <Col className="p-0 m-0" lg={6} style={{overflow: "hidden"}}>
+                <Row className="p-0 m-0" lg={10}>
+                  <ul
+                    className="features"
+                    style={{
+                      width: '100%', height: '50vh'
+                    }}
+                  >
+                    <GoogleMapReact
+                      bootstrapURLKeys={{ key: config.apiKey }}
+                      defaultCenter={config.mapLocation.center}
+                      defaultZoom={config.mapLocation.zoom}
+                    >
+                      <Marker
+                        lat={config.mapLocation.center.lat}
+                        lng={config.mapLocation.center.lng}
+                      />
+                    </GoogleMapReact>
+                  </ul>
+                </Row>
+                <Row className="p-0 m-0" lg={10}>
+                  <ul id="mapLogosWrapper" className="actions fit large">
+                    <li>
+                      <a onClick={() => window.open(config.waze)} className="button primary large fit icon brands fa-waze">
+                        Waze
+                      </a>
+                    </li>
+                    <li>
+                      <a onClick={() => window.open(config.googleMaps)} className="button primary large fit icon solid fa-map-marked ">
+                        Google
+                      </a>
+                    </li>
+                  </ul>
+                </Row>
+              </Col>
+              <Col className="p-0 information" lg={6}>
+                <section id="cta" className="wrapper style4">
+                  <div className="inner center">
+                    <header>
+                      <h2>{t('cta:title')}</h2>
+                      <p>{t('cta:description')}</p>
+                    </header>
+                    <ul className="actions stacked">
+                      <li>
+                        <Obfuscate email={`${config.emailContact}`} className={`icon`}>
+                          <a className="button fit primary">
+                            {t('cta:buttons.email')}
+                          </a>
+                        </Obfuscate>
+                      </li>
+                      <li>
+                        <Obfuscate tel={`${config.phoneContact}`} className="button fit">
+                          {t('cta:buttons.call')}
+                        </Obfuscate>
+                      </li>
+                    </ul>
+                  </div>
+                </section>
 
-        <section id="faqSectionApps" className="wrapper special">
-          <div className="inner">
-            <section>
-              <ul id="mapLogosWrapper" className="actions fit large">
-                <li>
-                  <a onClick={() => window.open(config.waze)} className="button large fit icon brands fa-waze">
-                    Waze
-                  </a>
-                </li>
-                <li>
-                  <a onClick={() => window.open(config.googleMaps)} className="button large fit icon solid fa-map-marked ">
-                    Google
-                  </a>
-                </li>
-              </ul>
-            </section>
-          </div>
-        </section>
 
-        <section id="cta" className="wrapper style4">
-          <div className="inner">
-            <header>
-              <h2>{t('cta:mapsTitle')}</h2>
-              <p>{t('cta:description')}</p>
-            </header>
-            <ul className="actions stacked">
-              <li>
-                <Obfuscate email={`${config.emailContact}`} className={`icon`}>
-                  <a className="button fit primary">
-                    {t('cta:buttons.email')}
-                  </a>
-                </Obfuscate>
-              </li>
-            </ul>
+              </Col>
+            </Row>
           </div>
         </section>
 
