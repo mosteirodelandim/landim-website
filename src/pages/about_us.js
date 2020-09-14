@@ -3,7 +3,7 @@ import { useTranslation } from 'react-i18next';
 import Lottie from 'lottie-react-web';
 import Obfuscate from 'react-obfuscate';
 import Carousel from 're-carousel'
-import { Container, Row, Col } from 'react-grid-system';
+import { Grid, Row, Col } from 'react-flexbox-grid';
 
 
 import bookAnim from '../assets/images/lottie/book';
@@ -51,7 +51,7 @@ function AboutUsPage() {
             <p>{t('about_us:history.description3')}</p>
           </div>
 
-          <Container>
+          <Grid>
             <Row>
               <Col sm={6}>
                 <span className="image fit"><img src={history1} alt="" /></span>
@@ -60,7 +60,7 @@ function AboutUsPage() {
                 <span className="image fit"><img src={history2} alt="" /></span>
               </Col>
             </Row>
-          </Container>
+          </Grid>
 
         </section>
 
@@ -174,7 +174,7 @@ function AboutUsPage() {
             <p>{t('about_us:services_spaces.description3')}</p>
           </div>
 
-          <Container>
+          <Grid>
             <Row>
               <Col lg={3} md={6}>
                 <span className="image fit hover-container">
@@ -223,7 +223,7 @@ function AboutUsPage() {
                 </span>
               </Col>
             </Row>
-          </Container>
+          </Grid>
         </section>
 
         <section id="two" className="wrapper alt style2">

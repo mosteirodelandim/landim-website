@@ -2,7 +2,7 @@ import React from 'react';
 import { useTranslation } from 'react-i18next';
 import GoogleMapReact from 'google-map-react';
 import Lottie from 'lottie-react-web';
-import { Container, Row, Col } from 'react-grid-system';
+import { Grid, Row, Col } from 'react-flexbox-grid';
 
 
 import LandingLayout from '../components/LandingLayout';
