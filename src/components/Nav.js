@@ -121,7 +121,7 @@ function Nav({ onMenuToggle = () => {} }) {
               </li>
 
               <li>
-                <Link to="/wine_stay">{t('sidebar:wine_stay')}</Link>
+                <Link to="/wine_vineyards">{t('sidebar:wine_vineyards')}</Link>
               </li>
 
               <li>

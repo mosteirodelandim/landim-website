@@ -152,7 +152,7 @@ function AboutUsPage() {
               </div>
               <div className="content">
                 <h2>{t('about_us:wines.lottie.title')}</h2>
-                <p>{t('about_us:wines.lottie.description')}<Link to="/wine_stay">{t('about_us:wines.lottie.hyperlink')}</Link>.</p>
+                <p>{t('about_us:wines.lottie.description')}<Link to="/wine_vineyards">{t('about_us:wines.lottie.hyperlink')}</Link>.</p>
               </div>
             </div>
           </section>

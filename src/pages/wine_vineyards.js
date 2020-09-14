@@ -3,7 +3,7 @@ import { useTranslation } from 'react-i18next';
 import Lottie from 'lottie-react-web';
 import LandingLayout from '../components/LandingLayout';
 
-import winePic1 from '../assets/images/wine_stay/wine1.jpg';
+import winePic1 from '../assets/images/wine_vineyards/wine1.jpg';
 import lottieAnim from '../assets/images/lottie/sleeping';
 import config from '../../config';
 import Obfuscate from 'react-obfuscate';
@@ -15,12 +15,12 @@ function WineStayPage() {
     <LandingLayout fullMenu>
       <article id="pageMain">
         <header id="winestayHeader">
-          <h2>{t('wine_stay:title')}</h2>
-          <p style={{ margin: '0 2em 2em 2em' }}>{t('wine_stay:subHeading')}</p>
+          <h2>{t('wine_vineyards:title')}</h2>
+          <p style={{ margin: '0 2em 2em 2em' }}>{t('wine_vineyards:subHeading')}</p>
         </header>
         <section className="wrapper style5">
           <div className="inner">
-            <h3>{t('wine_stay:wine.title')}</h3>
+            <h3>{t('wine_vineyards:wine.title')}</h3>
 
             <>
               <span
@@ -30,19 +30,19 @@ function WineStayPage() {
                 }}
               >
                 <img src={winePic1} alt="" />
-                {t('wine_stay:imageCaptions.wine')}
+                {t('wine_vineyards:imageCaptions.wine')}
               </span>
-              <p>{t('wine_stay:wine.description1')}</p>
-              <p>{t('wine_stay:wine.description2')}</p>
+              <p>{t('wine_vineyards:wine.description1')}</p>
+              <p>{t('wine_vineyards:wine.description2')}</p>
             </>
 
-            <h5>{t('wine_stay:wine.quote1Title')}</h5>
-            <blockquote>{t('wine_stay:wine.quote1')}</blockquote>
-            <p style={{ textAlign: 'right' }}>{t('wine_stay:wine.quote1Author')}</p>
+            <h5>{t('wine_vineyards:wine.quote1Title')}</h5>
+            <blockquote>{t('wine_vineyards:wine.quote1')}</blockquote>
+            <p style={{ textAlign: 'right' }}>{t('wine_vineyards:wine.quote1Author')}</p>
 
-            <h5>{t('wine_stay:wine.quote2Title')}</h5>
-            <blockquote>{t('wine_stay:wine.quote2')}</blockquote>
-            <p style={{ textAlign: 'right' }}>{t('wine_stay:wine.quote2Author')}</p>
+            <h5>{t('wine_vineyards:wine.quote2Title')}</h5>
+            <blockquote>{t('wine_vineyards:wine.quote2')}</blockquote>
+            <p style={{ textAlign: 'right' }}>{t('wine_vineyards:wine.quote2Author')}</p>
 
           </div>
         </section>
@@ -59,8 +59,8 @@ function WineStayPage() {
               />
             </div>
             <div className="content">
-              <h2>{t('wine_stay:stay.title')}</h2>
-              <p>{t('wine_stay:stay.description1')}</p>
+              <h2>{t('wine_vineyards:stay.title')}</h2>
+              <p>{t('wine_vineyards:stay.description1')}</p>
             </div>
           </section>
         </section>

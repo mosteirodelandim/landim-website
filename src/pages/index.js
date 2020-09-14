@@ -134,7 +134,7 @@ function IndexPage() {
               <h3>{t('landing:vineyards.title')}</h3>
               <p>{t('landing:vineyards.description')}</p>
             </header>
-            <Link to="/wine_stay" className="link primary" />
+            <Link to="/wine_vineyards" className="link primary" />
           </article>
 
           <article style={{ backgroundImage: `url(${faqTile})` }}>
