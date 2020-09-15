@@ -10,6 +10,8 @@ import config from '../../config';
 
 import lottieAnim from '../assets/images/lottie/pulsing';
 import Obfuscate from 'react-obfuscate';
+import Scroll from '../components/Scroll';
+import scrollAnim from '../assets/images/lottie/scroll_down';
 
 const Marker = () => (
   <div
@@ -40,15 +42,11 @@ function FaqPage() {
 
         <section id="faqSection" className="wrapper style3 special">
           <div className="inner">
-            <header className="major">
-              <p>{t('faq:description1')}</p>
-              <hr />
-            </header>
             <ul className="features">
-              <li className="icon solid fa-church">
-                <h3>{t('faq:church.title')}</h3>
+              <li className="icon fa-calendar-check">
+                <h3>{t('faq:per_weekend.title')}</h3>
                 <p>
-                  {t('faq:church.description')}
+                  {t('faq:per_weekend.description')}
                 </p>
               </li>
               <li className="icon solid fa-list-ul">
@@ -63,22 +61,32 @@ function FaqPage() {
                   {t('faq:time_limit.description')}
                 </p>
               </li>
+              <li className="icon solid fa-church">
+                <h3>{t('faq:church.title')}</h3>
+                <p>
+                  {t('faq:church.description')}
+                </p>
+              </li>
               <li className="icon solid fa-route">
                 <h3>{t('faq:travel.title')}</h3>
                 <p>
                   {t('faq:travel.description')}
-                </p>
-              </li>
-              <li className="icon fa-calendar-check">
-                <h3>{t('faq:per_weekend.title')}</h3>
-                <p>
-                  {t('faq:per_weekend.description')}
+                  <Scroll type="id" element="faqSectionWeAreHere">
+                    <a href="#faqSectionWeAreHere" className="more">
+                      {t('faq:travel.hyperlink')}
+                    </a>
+                  </Scroll>
+                  .
                 </p>
               </li>
               <li className="icon solid fa-question-circle">
                 <h3>{t('faq:more.title')}</h3>
                 <p>
                   {t('faq:more.description')}
+                  <Obfuscate email={`${config.emailContact}`}>
+                    {t('faq:more.hyperlink')}
+                  </Obfuscate>
+                  .
                 </p>
               </li>
             </ul>

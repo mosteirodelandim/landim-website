@@ -1,18 +1,16 @@
 {
   "en": {
-    "heading": "FAQ and Contact",
-    "subHeading": "Answering some of the most frequented asked questions and ways to reach out to us.",
-    "title": "FAQ",
-    "description1": "After going through to what Mosteiro de Landim has to offer, it's completely normal to have some questions. We've compiled some that are most frequently asked.",
+    "heading": "FAQ",
+    "subHeading": "Frequently asked questions and contacts.",
 
     "church": {
-      "title": "Can we use the church for celebrations?",
-      "description": "You may but according to parish rules - it is mandatory to contact the parish priest in advance."
+      "title": "Can we hold our event's religious ceremony at the church adjacent to the Mosteiro?",
+      "description": "Yes, but you must follow parish rules and you will need to contact the parish priest in advance."
     },
 
     "services": {
       "title": "Is it possible to hand-pick specific services for a specific event?",
-      "description": "Of course! Inclusively, you may only hire catering or decoration, etc."
+      "description": "Of course! We offer a wide range of services but you can choose to take on as many or as few of them as you would like."
     },
 
     "time_limit": {
@@ -21,18 +19,20 @@
     },
 
     "travel": {
-      "title": "Is it easy to go there?",
-      "description": "Mosteiro de Landim boasts a privileged location, as it's just 30 minutes away from Porto. If you want directions, check below!"
+      "title": "Is it easy to get there?",
+      "description": "The Mosteiro de Landim is just 30 minutes away from Porto and 20 minutes from Porto airport. If you need directions, check ",
+      "hyperlink": "below"
     },
 
     "per_weekend": {
       "title": "When are you open for weddings?",
-      "description": "Mosteiro de Landim is open for any kind of event throughout the year! However, when it comes to weddings, we follow a one wedding per weekend schedule to organize everything on time and to ensure everything goes smoothly!"
+      "description": "Mosteiro de Landim is open for any kind of event throughout the year! However, when it comes to weddings, we only hold one wedding per weekend. This ensures the smooth running of your special day and means you never have to feel rushed."
     },
 
     "more": {
       "title": "I still have some questions...",
-      "description": "No problem! Just reach out to us (preferably by e-mail) and we'll help you out!"
+      "description": "No problem! We can surely help you out, preferably by ",
+      "hyperlink": "email"
     },
 
     "map_section": {
