@@ -15,7 +15,11 @@
 
     "time_limit": {
       "title": "Há horas limites para o final do evento?",
-      "description": "Como não existem vizinhos, não se põe o problema de ruídos. No entanto não é aconselhável exceder as 04h00. Caso deseje exceder este limite, é possível fazê-lo mas por uma taxa adicional."
+      "description": "Como não existem vizinhos, não se põe o problema de ruídos. No entanto não é aconselhável exceder as 04h00. Caso deseje exceder este limite, é possível fazê-lo mas por uma taxa adicional.",
+      "covid": {
+        "title": "Nota COVID-19:",
+        "description": "Devido à situação atual da pandemia COVID-19, a legislação atual impõe um limite para eventos até às 02h00."
+      }
     },
 
     "travel": {
@@ -33,10 +37,6 @@
       "title": "Ainda tenho perguntas...",
       "description": "Não há problema! Podemos ajudar se nos contactar preferencialmente por ",
       "hyperlink": "email"
-    },
-
-    "map_section": {
-      "title": "Onde nós estamos"
     }
   }
 }

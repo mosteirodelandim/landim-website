@@ -15,7 +15,11 @@
 
     "time_limit": {
       "title": "Are there any time limits for events?",
-      "description": "As there ar eno nearby neighbors, there shouldn't be a problem related with noise. However, we do impose a limit until 04h00. If you wish to exceed this, extra fees may apply."
+      "description": "As there ar eno nearby neighbors, there shouldn't be a problem related with noise. However, we do impose a limit until 04h00. If you wish to exceed this, extra fees may apply.",
+      "covid": {
+        "title": "COVID-19 update:",
+        "description": "Due to the current COVID-19 situation, local legislation limits events until 02h00."
+      }
     },
 
     "travel": {
@@ -33,10 +37,6 @@
       "title": "I still have some questions...",
       "description": "No problem! We can surely help you out, preferably by ",
       "hyperlink": "email"
-    },
-
-    "map_section": {
-      "title": "Where we are"
     }
   }
 }
