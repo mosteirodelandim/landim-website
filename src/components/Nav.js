@@ -15,14 +15,12 @@ function menuFlags() {
       <div className="flags">
         <div onClick={() => {
           i18n.changeLanguage('pt');
-          window.location.reload();
         }}
         >
           <FlagIcon code="pt"/>
         </div>
         <div onClick={() => {
           i18n.changeLanguage('en');
-          window.location.reload();
         }}
         >
           <FlagIcon code="gb"/>
