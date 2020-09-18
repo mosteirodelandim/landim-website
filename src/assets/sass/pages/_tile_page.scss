@@ -72,6 +72,10 @@
     @include vendor('background-image', ('linear-gradient(to top, rgba(0,0,0,0.5), rgba(0,0,0,0.5))', 'url("../images/faq/banner.jpg")'));
   }
 
+  #gardensHeader {
+    @include vendor('background-image', ('linear-gradient(to top, rgba(0,0,0,0.5), rgba(0,0,0,0.5))', 'url("../images/gardens/banner.jpg")'));
+  }
+
   /* Wrapper */
 
   @mixin wrapper($p) {
