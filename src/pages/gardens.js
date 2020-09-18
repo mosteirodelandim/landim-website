@@ -2,23 +2,24 @@ import React, { useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import Lottie from 'lottie-react-web';
 import LandingLayout from '../components/LandingLayout';
-import Lightbox from 'react-image-lightbox';
 import 'react-image-lightbox/style.css';
 
-import winePic1 from '../assets/images/wine_vineyards/wine1.jpg';
-import lottieAnim from '../assets/images/lottie/sleeping';
-import config from '../../config';
-import Obfuscate from 'react-obfuscate';
-import bookPic1 from '../assets/images/history/book/book1.jpg';
+import Carousel from 're-carousel';
+import IndicatorDots from '../components/CarouselDots';
+import pic1 from '../assets/images/gardens/picture1.jpg';
+import pic2 from '../assets/images/gardens/picture2.jpg';
+import pic3 from '../assets/images/gardens/picture3.jpg';
+import pic4 from '../assets/images/gardens/picture4.jpg';
+import pic5 from '../assets/images/gardens/picture5.jpg';
 
-const images = [winePic1]
+import cameraAnim from '../assets/images/lottie/camera';
+import { Link } from 'gatsby';
+import Obfuscate from 'react-obfuscate';
+import config from '../../config';
+
 
 function GardensPage() {
   const { t } = useTranslation();
-  const [lightboxIsOpen, setToggleLightbox] = useState(false);
-  const [photoIndex, setPhotoIndex] = useState(0);
-
-  const captions = [t('wine_vineyards:imageCaptions.wine')];
 
   return (
     <LandingLayout fullMenu>
@@ -27,52 +28,54 @@ function GardensPage() {
           <h2>{t('gardens:title')}</h2>
           <p style={{ margin: '0 2em 2em 2em' }}>{t('gardens:subHeading')}</p>
         </header>
+
         <section className="wrapper style5">
           <div className="inner">
-            <h3>{t('wine_vineyards:wine.title')}</h3>
-
-            <>
-              <span
-                onClick={() => {
-                  setPhotoIndex(images.indexOf(winePic1));
-                  setToggleLightbox(true);
-                }}
-                className="image right"
-                style={{
-                  width: '80vh', fontSize: '0.8em', color: 'gray', textAlign: 'right',
-                }}
-              >
-                <img src={winePic1} alt="" />
-                {t('wine_vineyards:imageCaptions.wine')}
-              </span>
-              <p>{t('wine_vineyards:wine.description1')}</p>
-              <p>{t('wine_vineyards:wine.description2')}</p>
-            </>
-
-            <h5>{t('wine_vineyards:wine.quote1Title')}</h5>
-            <blockquote>{t('wine_vineyards:wine.quote1')}</blockquote>
-            <p style={{ textAlign: 'right' }}>{t('wine_vineyards:wine.quote1Author')}</p>
-
-            <h5>{t('wine_vineyards:wine.quote2Title')}</h5>
-            <blockquote>{t('wine_vineyards:wine.quote2')}</blockquote>
-            <p style={{ textAlign: 'right' }}>{t('wine_vineyards:wine.quote2Author')}</p>
-
+            <h3>{t('gardens:firstParagraph.title')}</h3>
+            <p>{t('gardens:firstParagraph.description1')}</p>
+            <p>{t('gardens:firstParagraph.description2')}</p>
           </div>
+        </section>
+
+        <section className="wrapper-carousel style5">
+          <div className="inner-carousel">
+            <Carousel loop widgets={[IndicatorDots]}>
+              <div style={{ backgroundImage:`url(${pic1})`}} className="carousel-image"/>
+              <div style={{ backgroundImage:`url(${pic2})`}} className="carousel-image"/>
+              <div style={{ backgroundImage:`url(${pic3})`}} className="carousel-image"/>
+              <div style={{ backgroundImage:`url(${pic4})`}} className="carousel-image"/>
+              <div style={{ backgroundImage:`url(${pic5})`}} className="carousel-image"/>
+            </Carousel>
+          </div>
+        </section>
+
+        <section id="two" className="wrapper alt style2">
+          <section id="winesSpotlight" className="spotlight">
+            <div className="spotlight-container">
+              <div>
+                <Lottie
+                  options={{
+                    animationData: cameraAnim,
+                  }}
+                  width="48%"
+                  height="100%"
+                  style={{marginLeft: "15vw"}}
+                />
+              </div>
+              <div className="content">
+                <h2>{t('gardens:lottie.title')}</h2>
+                <p>{t('gardens:lottie.description')}
+                <Obfuscate email={`${config.emailContact}`}>
+                  {t('gardens:lottie.hyperlink')}
+                </Obfuscate>
+                  .</p>
+              </div>
+            </div>
+          </section>
         </section>
 
       </article>
 
-      {lightboxIsOpen && (
-        <Lightbox
-          mainSrc={images[photoIndex]}
-          nextSrc={images[(photoIndex + 1) % images.length]}
-          prevSrc={images[(photoIndex + images.length - 1) % images.length]}
-          onCloseRequest={() => setToggleLightbox(false)}
-          onMovePrevRequest={() => setPhotoIndex((photoIndex + images.length - 1) % images.length)}
-          onMoveNextRequest={() => setPhotoIndex((photoIndex + 1) % images.length)}
-          imageCaption={`(${photoIndex + 1}/${images.length}) ${captions[photoIndex]}`}
-        />
-      )}
     </LandingLayout>
   );
 }

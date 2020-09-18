@@ -1,6 +1,18 @@
 {
   "en": {
     "title": "Gardens",
-    "subHeading": "Our luscious gardens have years of history and are maintained up until today."
+    "subHeading": "Our luscious gardens have years of history and are maintained up until today.",
+
+    "firstParagraph": {
+      "title": "Timeless gardens",
+      "description1": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
+      "description2": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
+    },
+
+    "lottie": {
+      "title": "Tours",
+      "description": "Mosteiro de Landim offers tours around the historic gardens. To schedule and for more information, contact us by ",
+      "hyperlink": "email"
+    }
   }
 }
