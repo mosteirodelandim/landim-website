@@ -60,24 +60,6 @@ function WineStayPage() {
           </div>
         </section>
 
-        <section id="two" className="wrapper alt style2">
-          <section id="staySpotlight" className="spotlight">
-            <div className="image">
-              <Lottie
-                options={{
-                  animationData: lottieAnim,
-                }}
-                width="100%"
-                height="100%"
-              />
-            </div>
-            <div className="content">
-              <h2>{t('wine_vineyards:stay.title')}</h2>
-              <p>{t('wine_vineyards:stay.description1')}</p>
-            </div>
-          </section>
-        </section>
-
       </article>
 
       {lightboxIsOpen && (
