@@ -351,9 +351,10 @@
       width: 60%;
     }
 
-    &#staySpotlight {
-      background-color: _palette(accentTile2);
+    &#gardensSpotlight {
+      background-color: _palette(accentTile5);
     }
+
 
     &:nth-child(2n) {
       @include vendor('flex-direction', 'row-reverse');

@@ -50,7 +50,7 @@ function GardensPage() {
         </section>
 
         <section id="two" className="wrapper alt style2">
-          <section id="winesSpotlight" className="spotlight">
+          <section id="gardensSpotlight" className="spotlight">
             <div className="spotlight-container">
               <div>
                 <Lottie
