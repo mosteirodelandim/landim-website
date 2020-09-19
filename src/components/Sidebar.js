@@ -5,6 +5,8 @@ import OutsideClickHandler from 'react-outside-click-handler';
 
 import Nav from './Nav';
 
+import logo from '../assets/images/logo.webp';
+
 function SideBar({ fullMenu }) {
   const [headerOpen, toggleHeader] = useState(false);
 
@@ -12,7 +14,7 @@ function SideBar({ fullMenu }) {
     <header id="header" className={`${fullMenu ? '' : 'alt'}`}>
       <h1>
         <Link to="/">
-          <span id="landimLogo">Landim</span>
+          <img src={logo} alt="" style={{maxHeight: "8vh"}}/>
         </Link>
       </h1>
       <div className={`${headerOpen ? 'is-menu-visible' : ' '}`}>

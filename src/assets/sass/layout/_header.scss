@@ -3,7 +3,7 @@
 #header {
   @include vendor('transition', 'background-color #{_duration(transitions)} ease');
   background: _palette(bg);
-  height: 3em;
+  height: 8vh;
   left: 0;
   line-height: 3em;
   position: fixed;
@@ -54,6 +54,7 @@
     position: absolute;
     right: 0;
     top: 0;
+    margin-top: 1vh;  // to center the menu (dependent on the logo)
 
     > ul {
       list-style: none;
