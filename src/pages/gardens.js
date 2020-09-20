@@ -26,7 +26,7 @@ function GardensPage() {
       <article id="pageMain">
         <header id="gardensHeader">
           <h2>{t('gardens:title')}</h2>
-          <p style={{ margin: '0 2em 2em 2em' }}>{t('gardens:subHeading')}</p>
+          <p>{t('gardens:subHeading')}</p>
         </header>
 
         <section className="wrapper style5">

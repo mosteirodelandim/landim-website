@@ -25,7 +25,7 @@ function WineStayPage() {
       <article id="pageMain">
         <header id="winestayHeader">
           <h2>{t('wine_vineyards:title')}</h2>
-          <p style={{ margin: '0 2em 2em 2em' }}>{t('wine_vineyards:subHeading')}</p>
+          <p>{t('wine_vineyards:subHeading')}</p>
         </header>
         <section className="wrapper style5">
           <div className="inner">

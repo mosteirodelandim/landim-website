@@ -1,3 +1,8 @@
+/*
+This file has specific classes that are available throughout the website, including components such as image carousels and spotlights
+It imports a scss file that acts as template for a page (tile_page.scss), components, layouts and page-specific styles (about_us or history, for example)
+*/
+
 @import 'libs/vars';
 @import 'libs/functions';
 @import 'libs/mixins';
@@ -559,7 +564,6 @@
 }
 
 // Spotlight
-/* Spotlight */
 
 .spotlight {
 	background-color: white;

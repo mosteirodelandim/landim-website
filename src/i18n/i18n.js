@@ -22,6 +22,8 @@ import aboutUsEN from './locales/en/about_us.json';
 import aboutUsPT from './locales/pt/about_us.json';
 import gardensEN from './locales/en/gardens.json';
 import gardensPT from './locales/pt/gardens.json';
+import galleryEN from './locales/en/photo_gallery.json';
+import galleryPT from './locales/pt/photo_gallery.json';
 
 
 const resources = {
@@ -36,6 +38,7 @@ const resources = {
     faq: faqPT.pt,
     about_us: aboutUsPT.pt,
     gardens: gardensPT.pt,
+    photo_gallery: galleryPT.pt,
   },
   en: {
     landing: landingEN.en,
@@ -48,6 +51,7 @@ const resources = {
     faq: faqEN.en,
     about_us: aboutUsEN.en,
     gardens: gardensEN.en,
+    photo_gallery: galleryEN.en,
   },
 };
 
@@ -66,7 +70,7 @@ i18n
     detection,
     fallbackLng: 'en',
 
-    ns: ['landing', 'cta', 'notFound', 'sidebar', 'services', 'history', 'wine_vineyards', 'faq', 'about_us', 'gardens'],
+    ns: ['landing', 'cta', 'notFound', 'sidebar', 'services', 'history', 'wine_vineyards', 'faq', 'about_us', 'gardens', 'photo_gallery'],
     defaultNS: 'landing',
 
     returnObjects: true, // to return objects (in case of arrays, e.g.)

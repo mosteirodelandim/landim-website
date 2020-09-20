@@ -1,9 +1,11 @@
 /*
-	Credit to Spectral by HTML5 UP
+	Credit to Spectral by HTML5 UP for all the variations of this file (including pages and main_css)
 	html5up.net | @ajlkn
 */
 
-/* Base SCSS for Services, FAQ, History and Wine and Stay */
+/*
+Base SCSS a page. Pages that different style have their own variations of what's present here.
+*/
 
 @import "~react-image-gallery/styles/scss/image-gallery.scss";
 
@@ -22,6 +24,7 @@
     }
 
     p {
+      margin: 0 2em 2em 2em;
       color: inherit;
       letter-spacing: _size(letter-spacing-alt);
       text-transform: uppercase;
@@ -56,6 +59,8 @@
     }
   }
 
+  /* Header banner of pages */
+
   #servicesHeader {
     @include vendor('background-image', ('linear-gradient(to top, rgba(0,0,0,0.5), rgba(0,0,0,0.5))', 'url("../images/services/services_banner.jpg")'));
   }
@@ -74,6 +79,10 @@
 
   #gardensHeader {
     @include vendor('background-image', ('linear-gradient(to top, rgba(0,0,0,0.5), rgba(0,0,0,0.5))', 'url("../images/gardens/banner.jpg")'));
+  }
+
+  #photoGalleryHeader {
+    @include vendor('background-image', ('linear-gradient(to top, rgba(0,0,0,0.5), rgba(0,0,0,0.5))', 'url("../images/photo-gallery/banner.png")'));
   }
 
   /* Wrapper */

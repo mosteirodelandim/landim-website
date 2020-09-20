@@ -34,7 +34,7 @@ function AboutUsPage() {
       <article id="aboutUsMain">
         <header id="aboutUsHeader">
           <h2>{t('about_us:heading')}</h2>
-          <p style={{ margin: '0 2em 2em 2em' }}>{t('about_us:subHeading')}</p>
+          <p>{t('about_us:subHeading')}</p>
         </header>
 
 
