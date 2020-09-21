@@ -9,12 +9,43 @@ Base SCSS a page. Pages that different style have their own variations of what's
 
 #pageMain{
   > header {
-    @include padding(12em, 0);
+    padding: 12em 0 10em 0;
+
+    @include breakpoint('>=xxxlarge') {
+      padding: 12em 0 10em 0
+    }
+
+    @include breakpoint('<=xxlarge') {
+      padding: 10em 0 8em 0;
+    }
+
+    @include breakpoint('<=xlarge') {
+      padding: 8em 3em 6em 3em;
+    }
+
+    @include breakpoint('<=large') {
+      padding: 10em 3em 8em 3em;
+    }
+
+    @include breakpoint('<=medium') {
+      padding: 8em 3em 3em 3em;
+    }
+
+    @include breakpoint('<=small') {
+      padding: 8em 3em 3em 3em;
+
+      h2 {
+        font-size: 1.25em;
+        margin: 0 0 (_size(element-margin) * 0.5) 0;
+      }
+    }
+
     background-attachment: local;
     background-position: center center;
     background-repeat: no-repeat;
     background-size: cover;
     text-align: center;
+
 
     h2 {
       font-size: 1.75em;
@@ -35,26 +66,6 @@ Base SCSS a page. Pages that different style have their own variations of what's
       }
     }
 
-    @include breakpoint('<=xlarge') {
-      @include padding(10em, 0);
-    }
-
-    @include breakpoint('<=large') {
-      @include padding(8em, 3em);
-    }
-
-    @include breakpoint('<=medium') {
-      @include padding(10em, 3em);
-    }
-
-    @include breakpoint('<=small') {
-      @include padding(5em, 3em);
-
-      h2 {
-        font-size: 1.25em;
-        margin: 0 0 (_size(element-margin) * 0.5) 0;
-      }
-    }
   }
 
   /* Header banner of pages */
@@ -344,6 +355,14 @@ Base SCSS a page. Pages that different style have their own variations of what's
       @include vendor('order', '1');
       border-radius: 0;
       width: 40%;
+
+      @include breakpoint('<=xlarge') {
+        width: 50%;
+      }
+
+      @include breakpoint('>=xxxlarge') {
+        width: 55%;
+      }
 
       img {
         border-radius: 0;

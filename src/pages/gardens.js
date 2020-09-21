@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { useTranslation } from 'react-i18next';
-import Lottie from 'lottie-react-web';
+import Lottie  from 'react-lottie';
 import LandingLayout from '../components/LandingLayout';
 import 'react-image-lightbox/style.css';
 
@@ -16,6 +16,8 @@ import cameraAnim from '../assets/images/lottie/camera';
 import { Link } from 'gatsby';
 import Obfuscate from 'react-obfuscate';
 import config from '../../config';
+import { Col, Grid, Row } from 'react-flexbox-grid';
+import bookAnim from '../assets/images/lottie/book';
 
 
 function GardensPage() {
@@ -52,24 +54,27 @@ function GardensPage() {
         <section id="two" className="wrapper alt style2">
           <section id="gardensSpotlight" className="spotlight">
             <div className="spotlight-container">
-              <div>
-                <Lottie
-                  options={{
-                    animationData: cameraAnim,
-                  }}
-                  width="48%"
-                  height="100%"
-                  style={{marginLeft: "15vw"}}
-                />
-              </div>
-              <div className="content">
-                <h2>{t('gardens:lottie.title')}</h2>
-                <p>{t('gardens:lottie.description')}
-                <Obfuscate email={`${config.emailContact}`}>
-                  {t('gardens:lottie.hyperlink')}
-                </Obfuscate>
-                  .</p>
-              </div>
+              <Grid>
+                <Row className="center-row">
+                  <Col md={6} className="center-col">
+                    <Lottie
+                      options={{
+                        animationData: cameraAnim,
+                      }}
+                      height={200}
+                      width={200}
+                    />
+                  </Col>
+                  <Col md={6} className="center-col">
+                    <h2>{t('gardens:lottie.title')}</h2>
+                    <p>{t('gardens:lottie.description')}
+                      <Obfuscate email={`${config.emailContact}`}>
+                        {t('gardens:lottie.hyperlink')}
+                      </Obfuscate>
+                      .</p>
+                  </Col>
+                </Row>
+              </Grid>
             </div>
           </section>
         </section>

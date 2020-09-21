@@ -1,7 +1,7 @@
 import React from 'react';
 import { useTranslation } from 'react-i18next';
 import GoogleMapReact from 'google-map-react';
-import Lottie from 'lottie-react-web';
+import Lottie  from 'react-lottie';
 import { Grid, Row, Col } from 'react-flexbox-grid';
 
 
@@ -11,7 +11,6 @@ import config from '../../config';
 import lottieAnim from '../assets/images/lottie/pulsing';
 import Obfuscate from 'react-obfuscate';
 import Scroll from '../components/Scroll';
-import scrollAnim from '../assets/images/lottie/scroll_down';
 
 const Marker = () => (
   <div
@@ -23,8 +22,8 @@ const Marker = () => (
       options={{
         animationData: lottieAnim,
       }}
-      width="10vh"
-      height="10vh"
+      width={50}
+      height={50}
     />
   </div>
 );

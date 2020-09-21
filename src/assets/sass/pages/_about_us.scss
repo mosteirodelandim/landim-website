@@ -30,6 +30,10 @@ About Us page specific styles
       }
     }
 
+    @include breakpoint('>=xxxlarge') {
+      padding: 11em 10em 38em 10em;
+    }
+
     @include breakpoint('<=xlarge') {
       padding: 8em 10em 38em 10em;
     }

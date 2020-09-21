@@ -2,7 +2,7 @@ import React from 'react';
 import '../i18n/i18n';
 
 import Typewriter from 'typewriter-effect';
-import Lottie from 'lottie-react-web';
+import Lottie  from 'react-lottie';
 import { Link } from 'gatsby';
 
 import { useTranslation } from 'react-i18next';

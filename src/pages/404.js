@@ -1,6 +1,6 @@
 import React from 'react';
 import '../assets/sass/pages/_notfound.scss';
-import Lottie from 'lottie-react-web';
+import Lottie  from 'react-lottie';
 import { useTranslation } from 'react-i18next';
 import dogWalking from '../assets/images/lottie/doggie_walking';
 // eslint-disable-next-line no-unused-vars

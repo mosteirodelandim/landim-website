@@ -22,7 +22,7 @@ export default function IndicatorDots (props) {
   const wrapperStyle = {
     position: 'absolute',
     width: '100%',
-    zIndex: '100',
+    zIndex: '98',
     bottom: '0px',
     textAlign: 'center'
   }

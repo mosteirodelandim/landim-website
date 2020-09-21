@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { useTranslation } from 'react-i18next';
-import Lottie from 'lottie-react-web';
+import Lottie  from 'react-lottie';
+
 import Obfuscate from 'react-obfuscate';
 import Carousel from 're-carousel'
 import { Grid, Row, Col } from 'react-flexbox-grid';
@@ -94,20 +95,23 @@ function AboutUsPage() {
         <section id="two" className="wrapper alt style2">
           <section id="historySpotlight" className="spotlight">
             <div className="spotlight-container">
-              <div>
-                <Lottie
-                  options={{
-                    animationData: bookAnim,
-                  }}
-                  width="45%"
-                  height="101%"
-                  style={{marginBottom: "2vh", marginLeft: "18vw"}}
-                />
-              </div>
-              <div className="content">
-                <h2>{t('about_us:history.lottie.title')}</h2>
-                <p>{t('about_us:history.lottie.description')}<Link to="/history">{t('about_us:history.lottie.hyperlink')}</Link>.</p>
-              </div>
+              <Grid>
+                <Row className="center-row">
+                  <Col md={6} className="center-col">
+                    <Lottie
+                      options={{
+                        animationData: bookAnim,
+                      }}
+                      height={200}
+                      width={200}
+                    />
+                  </Col>
+                  <Col md={6} className="center-col">
+                    <h2>{t('about_us:history.lottie.title')}</h2>
+                    <p>{t('about_us:history.lottie.description')}<Link to="/history">{t('about_us:history.lottie.hyperlink')}</Link>.</p>
+                  </Col>
+                </Row>
+              </Grid>
             </div>
           </section>
         </section>
@@ -140,20 +144,23 @@ function AboutUsPage() {
         <section id="two" className="wrapper alt style2">
           <section id="winesSpotlight" className="spotlight">
             <div className="spotlight-container">
-              <div>
-                <Lottie
-                  options={{
-                    animationData: wineAnim,
-                  }}
-                  width="98%"
-                  height="53%"
-                  style={{marginLeft: "3vw", marginBottom: "6vh"}}
-                />
-              </div>
-              <div className="content">
-                <h2>{t('about_us:wines.lottie.title')}</h2>
-                <p>{t('about_us:wines.lottie.description')}<Link to="/wine_vineyards">{t('about_us:wines.lottie.hyperlink')}</Link>.</p>
-              </div>
+              <Grid>
+                <Row className="center-row">
+                  <Col md={6} className="center-col">
+                    <Lottie
+                      options={{
+                        animationData: wineAnim,
+                      }}
+                      height={200}
+                      width={200}
+                    />
+                  </Col>
+                  <Col md={6} className="center-col">
+                    <h2>{t('about_us:wines.lottie.title')}</h2>
+                    <p>{t('about_us:wines.lottie.description')}<Link to="/wine_vineyards">{t('about_us:wines.lottie.hyperlink')}</Link>.</p>
+                  </Col>
+                </Row>
+              </Grid>
             </div>
           </section>
         </section>
@@ -229,20 +236,23 @@ function AboutUsPage() {
         <section id="two" className="wrapper alt style2">
           <section id="servicesSpacesSpotlight" className="spotlight">
             <div className="spotlight-container">
-              <div>
-                <Lottie
-                  options={{
-                    animationData: servicesAnim,
-                  }}
-                  width="58%"
-                  height="90%"
-                  style={{marginBottom: "-2vh", marginTop: "-2vh", marginLeft: "17vw"}}
-                />
-              </div>
-              <div className="content">
-                <h2>{t('about_us:services_spaces.lottie.title')}</h2>
-                <p>{t('about_us:services_spaces.lottie.description')}<Link to="/services">{t('about_us:services_spaces.lottie.hyperlink')}</Link>.</p>
-              </div>
+              <Grid>
+                <Row className="center-row">
+                  <Col md={6} className="center-col">
+                      <Lottie
+                        options={{
+                          animationData: servicesAnim,
+                        }}
+                        height={200}
+                        width={200}
+                      />
+                  </Col>
+                  <Col md={6} className="center-col">
+                      <h2>{t('about_us:services_spaces.lottie.title')}</h2>
+                      <p>{t('about_us:services_spaces.lottie.description')}<Link to="/services">{t('about_us:services_spaces.lottie.hyperlink')}</Link>.</p>
+                  </Col>
+                </Row>
+              </Grid>
             </div>
           </section>
         </section>

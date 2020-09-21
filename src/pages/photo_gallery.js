@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
 import { useTranslation } from 'react-i18next';
-import Lottie from 'lottie-react-web';
 import LandingLayout from '../components/LandingLayout';
 import 'react-image-lightbox/style.css';
 

@@ -1,6 +1,6 @@
 /*
-This file has specific classes that are available throughout the website, including components such as image carousels and spotlights
-It imports a scss file that acts as template for a page (tile_page.scss), components, layouts and page-specific styles (about_us or history, for example)
+This file has specific classes that are available throughout the website, including components such as image carousels and spotlights.
+It imports a scss file that acts as template for a page (tile_page.scss), components, layouts and page-specific styles (about_us or history, for example).
 */
 
 @import 'libs/vars';
@@ -18,11 +18,13 @@ It imports a scss file that acts as template for a page (tile_page.scss), compon
 // Breakpoints.
 
 	@include breakpoints((
-		xlarge:   ( 1281px,  1680px ),
-		large:    ( 981px,   1280px ),
-		medium:   ( 737px,   980px  ),
-		small:    ( 481px,   736px  ),
-		xsmall:   ( null,    480px  ),
+		xxxlarge:   ( 2560px,  2100px ),
+		xxlarge:   ( 1680px,  1900px ),
+		xlarge:    ( 1281px,  1680px ),
+		large:     ( 981px,   1280px ),
+		medium:    ( 737px,   980px  ),
+		small:     ( 481px,   736px  ),
+		xsmall:    ( null,    480px  ),
 	));
 
 // Reset.
@@ -566,7 +568,7 @@ It imports a scss file that acts as template for a page (tile_page.scss), compon
 	background-position: center;
 }
 
-// Spotlight
+// Spotlight sections
 
 .spotlight {
 	background-color: white;
@@ -587,15 +589,36 @@ It imports a scss file that acts as template for a page (tile_page.scss), compon
 		}
 	}
 
+	// This spotlight container is only used for spotlights that use Lottie
 	.spotlight-container {
 		display: flex;
 		flex-direction: row;
+        height: 35vh;
 
-		> * {
+        @include breakpoint('<medium') {
+          height: 46vh;
+        }
+
+		@include breakpoint('>=medium') {
+			height: 34vh;
+		}
+
+		@include breakpoint('>=xxxlarge') {
+			height: 20vh;
+		}
+
+        // Center the text in row and make it fill up the div container
+        .center-row {
+          height: 100%;
+          text-align: center;
+        }
+
+        // To center content in each column
+		.center-col {
+			justify-content: center;
+			align-items: center;
 			display: flex;
 			flex-direction: column;
-			flex: 1;
-			justify-content: center;
 		}
 	}
 
