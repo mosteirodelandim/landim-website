@@ -7,8 +7,6 @@
 Base SCSS a page. Pages that different style have their own variations of what's present here.
 */
 
-@import "~react-image-gallery/styles/scss/image-gallery.scss";
-
 #pageMain{
   > header {
     @include padding(12em, 0);
@@ -788,7 +786,7 @@ Base SCSS a page. Pages that different style have their own variations of what's
 
 
     @include breakpoint('<=xlarge') {
-      padding: 4vh 0;
+      padding: 4vh 4vw;
     }
 
     .image-gallery {
