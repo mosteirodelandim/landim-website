@@ -70,18 +70,6 @@ function ServicesPage() {
           </section>
         </section>
 
-        <section id="photogallery" className="wrapper style3 special">
-          <div className="inner">
-            <header className="major" style={{ alignText: 'center' }}>
-              <h2>{t('services:photogallery.title')}</h2>
-              <p>{t('services:photogallery.description')}</p>
-            </header>
-            <ul className="features">
-              <PhotoGallery />
-            </ul>
-          </div>
-        </section>
-
       </article>
     </LandingLayout>
   );

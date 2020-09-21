@@ -510,7 +510,7 @@ It imports a scss file that acts as template for a page (tile_page.scss), compon
 		}
 
 		@include breakpoint('<=small') {
-			height: 45vh;
+			height: 30vh;
 		}
 	}
 

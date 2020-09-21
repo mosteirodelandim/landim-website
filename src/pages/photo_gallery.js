@@ -6,16 +6,19 @@ import 'react-image-lightbox/style.css';
 
 import Carousel from 're-carousel';
 import IndicatorDots from '../components/CarouselDots';
-import pic1 from '../assets/images/gardens/picture1.jpg';
-import pic2 from '../assets/images/gardens/picture2.jpg';
-import pic3 from '../assets/images/gardens/picture3.jpg';
-import pic4 from '../assets/images/gardens/picture4.jpg';
-import pic5 from '../assets/images/gardens/picture5.jpg';
 
-import cameraAnim from '../assets/images/lottie/camera';
-import { Link } from 'gatsby';
-import Obfuscate from 'react-obfuscate';
-import config from '../../config';
+import church_cloister1 from '../assets/images/photo-gallery/cloister_church/church_cloister1.jpg';
+import church_cloister2 from '../assets/images/photo-gallery/cloister_church/church_cloister2.jpg';
+import church_cloister3 from '../assets/images/photo-gallery/cloister_church/church_cloister3.jpg';
+import church_cloister4 from '../assets/images/photo-gallery/cloister_church/church_cloister4.jpg';
+import church_cloister5 from '../assets/images/photo-gallery/cloister_church/church_cloister5.jpg';
+
+import gardens_forest1 from '../assets/images/photo-gallery/gardens_forest/gardens_forest1.jpg';
+import gardens_forest2 from '../assets/images/photo-gallery/gardens_forest/gardens_forest2.jpg';
+import gardens_forest3 from '../assets/images/photo-gallery/gardens_forest/gardens_forest3.png';
+import gardens_forest4 from '../assets/images/photo-gallery/gardens_forest/gardens_forest4.jpg';
+import gardens_forest5 from '../assets/images/photo-gallery/gardens_forest/gardens_forest5.jpg';
+import PhotoGallery from '../components/Photogallery';
 
 
 function PhotoGalleryPage() {
@@ -31,48 +34,58 @@ function PhotoGalleryPage() {
 
         <section className="wrapper style5">
           <div className="inner">
-            <h3>{t('gardens:firstParagraph.title')}</h3>
-            <p>{t('gardens:firstParagraph.description1')}</p>
-            <p>{t('gardens:firstParagraph.description2')}</p>
+            <h3>{t('photo_gallery:cloister_church.title')}</h3>
+            <p>{t('photo_gallery:cloister_church.description1')}</p>
+            <p>{t('photo_gallery:cloister_church.description2')}</p>
           </div>
         </section>
 
         <section className="wrapper-carousel style5">
           <div className="inner-carousel">
             <Carousel loop widgets={[IndicatorDots]}>
-              <div style={{ backgroundImage:`url(${pic1})`}} className="carousel-image"/>
-              <div style={{ backgroundImage:`url(${pic2})`}} className="carousel-image"/>
-              <div style={{ backgroundImage:`url(${pic3})`}} className="carousel-image"/>
-              <div style={{ backgroundImage:`url(${pic4})`}} className="carousel-image"/>
-              <div style={{ backgroundImage:`url(${pic5})`}} className="carousel-image"/>
+              <div style={{ backgroundImage:`url(${church_cloister1})`}} className="carousel-image"/>
+              <div style={{ backgroundImage:`url(${church_cloister2})`}} className="carousel-image"/>
+              <div style={{ backgroundImage:`url(${church_cloister3})`}} className="carousel-image"/>
+              <div style={{ backgroundImage:`url(${church_cloister4})`}} className="carousel-image"/>
+              <div style={{ backgroundImage:`url(${church_cloister5})`}} className="carousel-image"/>
             </Carousel>
           </div>
         </section>
 
-        <section id="two" className="wrapper alt style2">
-          <section id="gardensSpotlight" className="spotlight">
-            <div className="spotlight-container">
-              <div>
-                <Lottie
-                  options={{
-                    animationData: cameraAnim,
-                  }}
-                  width="48%"
-                  height="100%"
-                  style={{marginLeft: "15vw"}}
-                />
-              </div>
-              <div className="content">
-                <h2>{t('gardens:lottie.title')}</h2>
-                <p>{t('gardens:lottie.description')}
-                  <Obfuscate email={`${config.emailContact}`}>
-                    {t('gardens:lottie.hyperlink')}
-                  </Obfuscate>
-                  .</p>
-              </div>
-            </div>
-          </section>
+
+
+        <section className="wrapper style5">
+          <div className="inner">
+            <h3>{t('photo_gallery:garden_forest.title')}</h3>
+            <p>{t('photo_gallery:garden_forest.description1')}</p>
+            <p>{t('photo_gallery:garden_forest.description2')}</p>
+          </div>
         </section>
+
+        <section className="wrapper-carousel style5">
+          <div className="inner-carousel">
+            <Carousel loop widgets={[IndicatorDots]}>
+              <div style={{ backgroundImage:`url(${gardens_forest1})`}} className="carousel-image"/>
+              <div style={{ backgroundImage:`url(${gardens_forest2})`}} className="carousel-image"/>
+              <div style={{ backgroundImage:`url(${gardens_forest3})`}} className="carousel-image"/>
+              <div style={{ backgroundImage:`url(${gardens_forest4})`}} className="carousel-image"/>
+              <div style={{ backgroundImage:`url(${gardens_forest5})`}} className="carousel-image"/>
+            </Carousel>
+          </div>
+        </section>
+
+        <section id="photogallery" className="wrapper style3 special">
+          <div className="inner">
+            <header className="major" style={{ alignText: 'center' }}>
+              <h2>{t('photo_gallery:photogallery.title')}</h2>
+              <p>{t('photo_gallery:photogallery.description')}</p>
+            </header>
+            <ul className="features">
+              <PhotoGallery />
+            </ul>
+          </div>
+        </section>
+
 
       </article>
 
