@@ -75,7 +75,7 @@ $ig-transparent: rgba(0, 0, 0, 0) !default;
 .image-gallery-fullscreen-button,
 .image-gallery-play-button {
   bottom: 0;
-  padding: 20px;
+  padding: 1% !important;
 
   .image-gallery-svg {
     height: 36px;

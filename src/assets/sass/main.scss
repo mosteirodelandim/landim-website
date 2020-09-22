@@ -24,7 +24,8 @@ It imports a scss file that acts as template for a page (tile_page.scss), compon
 		large:     ( 981px,   1280px ),
 		medium:    ( 737px,   980px  ),
 		small:     ( 481px,   736px  ),
-		xsmall:    ( null,    480px  ),
+        smaller:   ( 320px,   530px  ),
+        xsmall:    ( null,    480px  ),
 	));
 
 // Reset.

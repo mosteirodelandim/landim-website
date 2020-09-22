@@ -74,7 +74,7 @@ function PhotoGalleryPage() {
         </section>
 
         <section id="photogallery" className="wrapper style3 special">
-          <div className="inner">
+          <div className="inner-gallery">
             <header className="major" style={{ alignText: 'center' }}>
               <h2>{t('photo_gallery:photogallery.title')}</h2>
               <p>{t('photo_gallery:photogallery.description')}</p>

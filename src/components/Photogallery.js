@@ -170,7 +170,8 @@ function PhotoGallery() {
         items={images}
         showFullscreenButton={true}
         showPlayButton={false}
-        showNav={isTabletOrMobileDevice ? false : true}
+        showNav={!isTabletOrMobileDevice}
+        thumbnailPosition={isTabletOrMobileDevice ? "bottom" : "left"}
         infinite
         showIndex
         onErrorImageURL={defaultImage}

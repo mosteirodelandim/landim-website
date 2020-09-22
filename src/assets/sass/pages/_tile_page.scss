@@ -794,18 +794,51 @@ Base SCSS a page. Pages that different style have their own variations of what's
 
   #photogallery {
     background-color: white;
+
+    .inner-gallery {
+      width: 60em;
+      margin: 0 auto;
+
+      @include breakpoint('>=xxxlarge') {
+        width: 120em;
+      }
+
+      @include breakpoint('<xxxlarge') {
+        width: 80em;
+      }
+
+      @include breakpoint('<=xlarge') {
+        width: 70em;
+      }
+
+      @include breakpoint('<=large') {
+        width: 60em;
+      }
+
+      @include breakpoint('<=medium') {
+        width: 35em;
+      }
+
+      @include breakpoint('<=small') {
+        width: 33em;
+      }
+
+      @include breakpoint('<=smaller') {
+        width: 29em;
+      }
+
+      @include breakpoint('<=xsmall') {
+        width: 18em;
+      }
+
+    }
+
     > div {
       > header {
         > h2, p {
           color: black;
         }
-
       }
-    }
-
-
-    @include breakpoint('<=xlarge') {
-      padding: 4vh 4vw;
     }
 
     .image-gallery {
