@@ -6,7 +6,7 @@ History page specific styles
 #historyMain {
   > header {
     @include breakpoint('>=xxxlarge') {
-      padding: 12em 0 10em 0
+      padding: 20em 0 10em 0
     }
 
     @include breakpoint('<=xxlarge') {
@@ -14,7 +14,7 @@ History page specific styles
     }
 
     @include breakpoint('<=xlarge') {
-      padding: 8em 3em 6em 3em;
+      padding: 12em 3em 6em 3em;
     }
 
     @include breakpoint('<=large') {
