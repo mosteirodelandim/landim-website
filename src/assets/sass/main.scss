@@ -12,10 +12,10 @@ It imports a scss file that acts as template for a page (tile_page.scss), compon
 @import 'fontawesome-all.min.css';
 @import url('https://fonts.googleapis.com/css?family=Open+Sans:400,400italic,600,600italic,800,800italic');
 
-@import "~react-image-gallery/styles/scss/image-gallery.scss";
+@import 'components/image-gallery';
 
 
-// Breakpoints.
+// Breakpoint
 
 	@include breakpoints((
 		xxxlarge:   ( 2560px,  2100px ),

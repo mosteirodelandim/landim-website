@@ -1,7 +1,8 @@
 import React from 'react';
 import ImageGallery from 'react-image-gallery';
+import { useMediaQuery } from 'react-responsive'
 
-import defaultImage from '../assets/images/default_image.jpg';
+import defaultImage from '../assets/images/default_image.webp';
 
 // CLOISTER
 import cloister1 from '../assets/images/photo-gallery/full-images/cloister1.png';
@@ -65,52 +66,43 @@ const images = [
   {
     original: cloister1,
     thumbnail: cloister1Thumbnail,
-    description: 'Example description yada yada',
+    //description: 'Example description yada yada',
   },
   {
     original: cloister2,
     thumbnail: cloister2Thumbnail,
-    description: 'Example description yada yada',
   },
   {
     original: cloister3,
     thumbnail: cloister3Thumbnail,
-    description: 'Example description yada yada',
   },
   {
     original: cloister4,
     thumbnail: cloister4Thumbnail,
-    description: 'Example description yada yada',
   },
   {
     original: cloister5,
     thumbnail: cloister5Thumbnail,
-    description: 'Example description yada yada',
   },
   {
     original: garden,
     thumbnail: gardenThumbnail,
-    description: 'Example description yada yada',
   },
   {
     original: garden2,
     thumbnail: gardenThumbnail2,
-    description: 'Example description yada yada',
   },
   {
     original: garden3,
     thumbnail: gardenThumbnail3,
-    description: 'Example description yada yada',
   },
   {
     original: garden4,
     thumbnail: gardenThumbnail4,
-    description: 'Example description yada yada',
   },
   {
     original: garden5,
     thumbnail: gardenThumbnail5,
-    description: 'Example description yada yada',
   },
   {
     original: garden6,
@@ -171,15 +163,19 @@ const images = [
 ];
 
 function PhotoGallery() {
+  const isTabletOrMobileDevice = useMediaQuery({ maxDeviceWidth: 1224 })
+
   return (
-    <ImageGallery
-      items={images}
-      showFullscreenButton={false}
-      showPlayButton={false}
-      infinite
-      showIndex
-      onErrorImage={defaultImage}
-    />
+      <ImageGallery
+        items={images}
+        showFullscreenButton={true}
+        showPlayButton={false}
+        showNav={isTabletOrMobileDevice ? false : true}
+        infinite
+        showIndex
+        onErrorImageURL={defaultImage}
+      />
+
   );
 }
 
