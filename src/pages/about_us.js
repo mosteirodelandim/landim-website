@@ -34,8 +34,9 @@ function AboutUsPage() {
     <LandingLayout fullMenu>
       <article id="aboutUsMain">
         <header id="aboutUsHeader">
-          <h2>{t('about_us:heading')}</h2>
-          <p>{t('about_us:subHeading')}</p>
+          <h2>{t('about_us:heading1')}</h2>
+          <h2>{t('about_us:heading2')}</h2>
+          <h2>{t('about_us:heading3')}</h2>
         </header>
 
 
