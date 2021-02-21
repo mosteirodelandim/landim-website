@@ -67,6 +67,9 @@ function FaqPage() {
                 <h3>{t('faq:church.title')}</h3>
                 <p>
                   {t('faq:church.description')}
+                  <a target="_blank" rel="noopener noreferrer" href="https://www.paroquialandim.com">
+                    {t('faq:church.hyperlink')}
+                  </a>
                 </p>
               </li>
               <li className="icon solid fa-route">
@@ -78,7 +81,7 @@ function FaqPage() {
                       {t('faq:travel.hyperlink')}
                     </a>
                   </Scroll>
-                  .
+                  {t('faq:travel.description2')}
                 </p>
               </li>
               <li className="icon solid fa-question-circle">
@@ -119,14 +122,16 @@ function FaqPage() {
                   </ul>
                 </Row>
                 <Row className="p-0 m-0" lg={10}>
-                  <ul id="mapLogosWrapper" className="actions fit large">
+                  <ul id="mapLogosWrapper" className="actions fit large" style={{marginBottom: "-0.4em"}}>
                     <li>
-                      <a onClick={() => window.open(config.waze)} className="button primary large fit icon brands fa-waze">
+                      <a onClick={() => window.open(config.waze)} className="button primary large fit icon brands fa-waze"
+                         style={{backgroundColor: "#3c67c9"}}>
                         Waze
                       </a>
                     </li>
                     <li>
-                      <a onClick={() => window.open(config.googleMaps)} className="button primary large fit icon solid fa-map-marked ">
+                      <a onClick={() => window.open(config.googleMaps)} className="button primary large fit icon solid fa-map-marked"
+                         style={{backgroundColor: "#c93c3c"}}>
                         Google
                       </a>
                     </li>

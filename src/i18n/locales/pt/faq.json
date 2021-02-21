@@ -4,39 +4,41 @@
     "subHeading": "Perguntas frequentes e contactos.",
 
     "church": {
-      "title": "É possível utilizar a igreja para celebrações?",
-      "description": "Sim, de acordo com as regras da paróquia - é sempre necessário consultar previamente a paroquia."
+      "title": "É possível utilizar a igreja para as celebrações?",
+      "description": "Sim - é  necessário contactar diretamente a ",
+	  "hyperlink": "paróquia."
     },
 
     "services": {
-      "title": "O Mosteiro fornece os serviços necessários para para a realização de um evento?",
-      "description": "Sim! E inclusivamente pode-se contratar só catering, ou só decoração, etc."
+      "title": "O aluguer do Mosteiro inclui todos os serviços necessários para a realização de um evento?",
+      "description": "Alugamos apenas o espaço. No entanto, podemos assegurar todos os outros serviços (catering, decoração, entretenimento, etc.)."
     },
 
     "time_limit": {
-      "title": "Há horas limites para o final do evento?",
-      "description": "Como não existem vizinhos, não se põe o problema de ruídos. No entanto não é aconselhável exceder as 04h00. Caso deseje exceder este limite, é possível fazê-lo mas por uma taxa adicional.",
+      "title": "Há limite de horas na realização de um evento?",
+      "description": "Não! No entanto, após as 04h00 existe uma taxa adicional.",
       "covid": {
         "title": "Nota COVID-19:",
-        "description": "Devido à situação atual da pandemia COVID-19, a legislação atual impõe um limite para eventos até às 02h00."
+        "description": "Devido à pandemia COVID-19, as regras serão ajustadas consoante a legislação em vigor."
       }
     },
 
     "travel": {
       "title": "É fácil chegar ao Mosteiro de Landim?",
-      "description": "O Mosteiro encontra-se numa situação priveligiada, 30 minutos do Porto e a 20 minutos do aeroporto do Porto. Se necessita de direções, verifique ",
-      "hyperlink": "abaixo"
+      "description": "O Mosteiro ",
+      "hyperlink": "encontra-se numa localização privilegiada",
+      "description2": ", a 30 minutos do Porto e 20 minutos do aeroporto do Porto."
     },
 
     "per_weekend": {
-      "title": "Quando é que o Mosteiro está aberto para casamentos?",
-      "description": "O Mosteiro está aberto a qualquer tipo de evento durante todo o ano! No entanto, relativamente a casamentos, nós seguimos uma política de um casamento por fim-de-semana, isto para organizar atempadamente e para termos a certeza que tudo corre bem!"
+      "title": "Quando é que o Mosteiro está aberto para eventos?",
+      "description": "O Mosteiro está aberto a qualquer tipo de evento durante todo o ano! "
     },
 
     "more": {
       "title": "Ainda tenho perguntas...",
-      "description": "Não há problema! Podemos ajudar se nos contactar preferencialmente por ",
-      "hyperlink": "email"
+      "description": "Podemos ajudar se nos contactar, preferencialmente por ",
+      "hyperlink": "e-mail"
     }
   }
 }
