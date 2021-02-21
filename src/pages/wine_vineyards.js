@@ -1,16 +1,22 @@
 import React, { useState } from 'react';
 import { useTranslation } from 'react-i18next';
-import LandingLayout from '../components/LandingLayout';
 import Lightbox from 'react-image-lightbox';
+import { Col, Grid, Row } from 'react-flexbox-grid';
+import { Link } from 'gatsby';
+import Obfuscate from 'react-obfuscate';
+import LandingLayout from '../components/LandingLayout';
 import 'react-image-lightbox/style.css';
 
 import winePic1 from '../assets/images/wine_vineyards/wine1.jpg';
 import lottieAnim from '../assets/images/lottie/sleeping';
 import config from '../../config';
-import Obfuscate from 'react-obfuscate';
 import bookPic1 from '../assets/images/history/book/book1.jpg';
+import spaces1 from '../assets/images/about_us/spaces1.jpg';
+import spaces2 from '../assets/images/about_us/spaces2.jpg';
+import spaces3 from '../assets/images/about_us/spaces3.jpg';
+import spaces4 from '../assets/images/about_us/spaces4.png';
 
-const images = [winePic1]
+const images = [winePic1];
 
 function WineStayPage() {
   const { t } = useTranslation();
@@ -58,6 +64,10 @@ function WineStayPage() {
 
           </div>
         </section>
+
+        {
+          //TODO fazer secção com as três imagens lado a lado e depois um slider de imagens em baixo.
+        }
 
       </article>
 
