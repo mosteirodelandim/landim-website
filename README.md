@@ -108,8 +108,8 @@ module.exports = {
 
   // PAGES ---------------------
 
-  emailContact: 'info@mosteirodelandim.com',
-  phoneContact: '+351939434741',
+  emailContact: '*****',
+  phoneContact: '*****',
 
   // 404
   houseDogs: ['Ringo', 'Spot'],
