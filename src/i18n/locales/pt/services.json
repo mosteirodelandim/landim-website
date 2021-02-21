@@ -1,32 +1,37 @@
 {
   "pt": {
-    "heading": "Serviços",
-    "subHeading": "Oferecemos uma grande variedade de serviços para todo o tipo de evento.",
+    "heading": "Eventos",
+    "subHeading": "Somos uma casa de eventos. Venha conhecer os nossos serviços.",
 
     "firstParagraph": {
       "title": "Um Espaço Versátil",
-      "description1": "Os portões do Mosteiro de Landim abrem sorrisos e momentos inesquecíveis. Em casamentos, aniversários, festas sem nome, batizados, conferências, apresentações de livros e visitas temáticas, os minutos vão-se misturando com as cores dos jardins, a intensidade do claustro, as paredes com história, alegrias e felicidades. Mais do que um espaço, queremos partilhar sensações e memórias.",
-      "description2": "A nossa especialidade é a decoração. Conhecemos os recantos, os ângulos de luz e adoramos os pequenos detalhes que a imaginação traz à realidade. O Mosteiro já se vestiu de todas as cores e estilos - a nossa galeria de imagens tem alguns exemplos das histórias contentes que por aqui passaram.",
-      "description3": "Existem vários espaços acessíveis e disponíveis para o seu próximo evento e memórias. O que seguem são os espaços que estão (omni)presentes em quase todos os eventos que já aqui ocorreram."
+      "description1": "Os portões do Mosteiro de Landim abrem-se para momentos inesquecíveis. Casamentos, aniversários, batizados, festas sem nome, conferências, apresentações de livros e visitas temáticas. Mais do que um espaço, queremos partilhar sensações e memórias.",
+      "description2": "",
+      "description3": "Temos vários espaços e recantos diferentes disponíveis para o seu evento."
     },
 
     "spotlights": {
       "cloister": {
         "title": "O Claustro",
-        "description": "O nosso claustro conta com anos de história que remontam o século XVI. Várias gerações já passaram por aqui e fizeram a sua própria história cá. Ideal como o espaço principal para casamentos."
+        "description": "O nosso claustro conta com anos de história que remontam ao século XVI. Com capacidade para 350 pessoas, é o espaço ideal para mesas de amigos, pistas de dança e encontros de família."
       },
       "gardens": {
         "title": "Os Jardins",
-        "description": "Não é coincidência que os nossos jardins inspiradores já foram visitados por várias entidades e tenha aparecido em reportagens. A beleza que os jardins transpira e a forma como as suas cores mudam ao longo do ano através das japoneiras centenárias fazem este espaço ideal para qualquer ocasião."
+        "description": "Árvores centenárias, cores que mudam com o tempo, diferentes recantos de sol e sombra. Os nossos jardins são o local perfeito para estar e aproveitar aperitivos, concertos e danças."
       },
       "rooms": {
-        "title": "Salas Adjacentes",
-        "description": "Contornando o claustro existem dois salões emblemáticos que, efetivamente, fazem com que o evento seja mais espaçoso. Um dos salões é coberto por um tecto em talha do século XVIII."
+        "title": "As Salas",
+        "description": "Contornando o claustro existem dois salões emblemáticos que aumentam o espaço da festa. O salão principal é coberto por um tecto em talha do século XVIII - uma verdadeira obra de arte."
       },
       "church": {
         "title": "A Igreja",
-        "description": "A igreja da freguesia tem uma belíssima talha setecentista no seu retábulo, sendo o local ideal para a celebração da cerimónia religiosa, dada a proximidade do Mosteiro."
+        "description": "A igreja tem uma belíssima talha setecentista no seu retábulo, sendo um bom local para a celebração da cerimónia religiosa."
       }
+    },
+
+    "secondParagraph": {
+      "title": "Os Serviços",
+      "description": "Alugamos o nosso espaço mas podemos tratar de tudo com os nossos parceiros - desde o planeamento, à decoração, ao catering e entretenimento. Cada aspeto do seu evento pode ser customizado à sua medida de forma a o tornar memorável."
     }
   }
 }
