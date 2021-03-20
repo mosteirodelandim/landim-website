@@ -1,24 +1,25 @@
 {
   "en": {
-    "heading": "The Mosteiro",
-    "subHeading": "is an idyllic, relaxing and faceted place. Mosteiro de Landim is ideal for everything.",
+    "heading1": "Um Mosteiro.",
+    "heading2": "Uma família.",
+    "heading3": "Nove gerações.",
 
     "history": {
-      "title": "Years of history",
-      "subtitle": "Once upon a time there was an old and romantic farm...",
+      "title": "Anos de história",
+      "subtitle": "Era uma vez uma antiga e romântica quinta...",
       "description1": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
       "description2": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
       "description3": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
       "lottie": {
-        "title": "History",
-        "description": "Every corner of Mosteiro de Landim contains pieces of history that are both unique and valuable. If you're curious to discover more, you can do so ",
-        "hyperlink": "here"
+        "title": "História",
+        "description": "Cada recanto do Mosteiro de Landim tem pedaços de história únicos e valiosos. Se tiver curiosidade para descobrir mais, pode encontrar mais informaçõe sobre a história do Mosteiro ",
+        "hyperlink": "aqui"
       }
     },
 
     "family": {
-      "title": "Family-owned for generations",
-      "subtitle": "Longstanding tradition and family generations walked through this farm...",
+      "title": "Gerações de família",
+      "subtitle": "Várias gerações de família já passaram por aqui...",
       "quote1": {
         "quote": "Uma quote toda pipi sobre Landim do Camilo, da Mili ou de qualquer pessoa que achem interessante...",
         "quote_author": "Camilo Castelo Branco, escritor"
@@ -28,49 +29,50 @@
     },
 
     "wines": {
-      "title": "Wine",
-      "subtitle": "An harvesting tradition that has yielded awards...",
+      "title": "Vinho",
+      "subtitle": "Uma tradição de víndima premiada...",
       "description1": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
       "description2": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
       "lottie": {
-        "title": "Wine",
-        "description": "The vineyards of Mosteiro de Landim have been awarded and our wine has too. To know more about the history, our methods and our wine, you can do so ",
-        "hyperlink": "here"
+        "title": "Vinho",
+        "description": "As vinhas do Mosteiro de Landim já foram galardoadas e premiadas, bem como o nosso vinho também. Para saber mais sobre a história, os nossos métodos e o nosso vinho, pode fazê-lo ",
+        "hyperlink": "aqui"
       }
     },
 
     "services_spaces": {
-      "title": "Services and spaces",
-      "subtitle": "Landim's multitude of spaces makes it perfect for any kind of event...",
+      "title": "Serviços e Espaços",
+      "subtitle": "A variedade de espaços que oferecemos faz com que Landim seja perfeito para qualquer evento...",
       "description1": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
       "description2": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
       "description3": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
 
       "images": {
         "image1": {
-          "title": "Cloister",
-          "subtitle": "Centuries old. The heart of any party."
+          "title": "Claustro",
+          "subtitle": "Séculos de história. O coração de cada festa."
         },
         "image2": {
-          "title": "Rooms",
-          "subtitle": "Historic spacious rooms for just about anything."
+          "title": "Salas",
+          "subtitle": "Salas espaçosas e históricas para qualquer fim."
         },
         "image3": {
-          "title": "Gardens",
-          "subtitle": "Beautiful, awarded down-to-earth gardens. Find more about them ",
-          "hyperlink": "here"
+          "title": "Jardins",
+          "subtitle": "Galardoados, humildes e belos são os nossos jardins. Mais informação ",
+          "hyperlink": "aqui"
         },
         "image4": {
-          "title": "Church",
-          "subtitle": "To tie the knot, right next door."
+          "title": "Igreja",
+          "subtitle": "Para dar o nó, mesmo ao lado."
         }
       },
 
       "lottie": {
-        "title": "Services",
-        "description": "Mosteiro de Landim offers a wide variety of personalized events tailored to whatever you want. Find more about this ",
-        "hyperlink": "here"
+        "title": "Serviços",
+        "description": "O Mosteiro de Landim oferece um leque variado de eventos personalizados a seu gosto. Para mais informação, clique ",
+        "hyperlink": "aqui"
       }
+
     }
   }
 }

@@ -1,42 +1,44 @@
 {
   "en": {
     "heading": "FAQ",
-    "subHeading": "Frequently asked questions and contacts.",
+    "subHeading": "Perguntas frequentes e contactos.",
 
     "church": {
-      "title": "Can we hold our event's religious ceremony at the church adjacent to the Mosteiro?",
-      "description": "Yes, but you must follow parish rules and you will need to contact the parish priest in advance."
+      "title": "É possível utilizar a igreja para as celebrações?",
+      "description": "Sim - é  necessário contactar diretamente a ",
+      "hyperlink": "paróquia."
     },
 
     "services": {
-      "title": "Is it possible to hand-pick specific services for a specific event?",
-      "description": "Of course! We offer a wide range of services but you can choose to take on as many or as few of them as you would like."
+      "title": "O aluguer do Mosteiro inclui todos os serviços necessários para a realização de um evento?",
+      "description": "Alugamos apenas o espaço. No entanto, podemos assegurar todos os outros serviços (catering, decoração, entretenimento, etc.)."
     },
 
     "time_limit": {
-      "title": "Are there any time limits for events?",
-      "description": "As there ar eno nearby neighbors, there shouldn't be a problem related with noise. However, we do impose a limit until 04h00. If you wish to exceed this, extra fees may apply.",
+      "title": "Há limite de horas na realização de um evento?",
+      "description": "Não! No entanto, após as 04h00 existe uma taxa adicional.",
       "covid": {
-        "title": "COVID-19 update:",
-        "description": "Due to the current COVID-19 situation, local legislation limits events until 02h00."
+        "title": "Nota COVID-19:",
+        "description": "Devido à pandemia COVID-19, as regras serão ajustadas consoante a legislação em vigor."
       }
     },
 
     "travel": {
-      "title": "Is it easy to get there?",
-      "description": "The Mosteiro de Landim is just 30 minutes away from Porto and 20 minutes from Porto airport. If you need directions, check ",
-      "hyperlink": "below"
+      "title": "É fácil chegar ao Mosteiro de Landim?",
+      "description": "O Mosteiro ",
+      "hyperlink": "encontra-se numa localização privilegiada",
+      "description2": ", a 30 minutos do Porto e 20 minutos do aeroporto do Porto."
     },
 
     "per_weekend": {
-      "title": "When are you open for weddings?",
-      "description": "Mosteiro de Landim is open for any kind of event throughout the year! However, when it comes to weddings, we only hold one wedding per weekend. This ensures the smooth running of your special day and means you never have to feel rushed."
+      "title": "Quando é que o Mosteiro está aberto para eventos?",
+      "description": "O Mosteiro está aberto a qualquer tipo de evento durante todo o ano! "
     },
 
     "more": {
-      "title": "I still have some questions...",
-      "description": "No problem! We can surely help you out, preferably by ",
-      "hyperlink": "email"
+      "title": "Ainda tenho perguntas...",
+      "description": "Podemos ajudar se nos contactar, preferencialmente por ",
+      "hyperlink": "e-mail"
     }
   }
 }
