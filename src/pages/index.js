@@ -1,11 +1,11 @@
 import React from 'react';
-import '../i18n/i18n';
 
 import Typewriter from 'typewriter-effect';
-import Lottie  from 'react-lottie';
+import Lottie from 'react-lottie';
 import { Link } from 'gatsby';
 
 import { useTranslation } from 'react-i18next';
+import i18n from '../i18n/i18n';
 import LandingLayout from '../components/LandingLayout';
 import Scroll from '../components/Scroll';
 
@@ -17,7 +17,7 @@ import servicesTile from '../assets/images/landing/services_tile.jpg';
 import wineTile from '../assets/images/landing/wine_tile.jpg';
 import faqTile from '../assets/images/landing/faq_tile.jpg';
 import aboutUsTile from '../assets/images/landing/about_us_tile.jpg';
-import i18n from '../i18n/i18n';
+
 import FlagIcon from '../components/FlagIcon';
 
 function IndexPage() {
@@ -92,7 +92,6 @@ function IndexPage() {
           <article style={{ backgroundImage: `url(${aboutUsTile})` }}>
             <header className="major">
               <h3>{t('landing:weAre.title')}</h3>
-              <p>{t('landing:weAre.description')}</p>
             </header>
             <Link to="/about_us" className="link primary" />
           </article>
@@ -100,7 +99,6 @@ function IndexPage() {
           <article style={{ backgroundImage: `url(${servicesTile})` }}>
             <header className="major">
               <h3>{t('landing:services.title')}</h3>
-              <p>{t('landing:services.description')}</p>
             </header>
             <Link to="/services" className="link primary" />
           </article>
@@ -108,7 +106,6 @@ function IndexPage() {
           <article style={{ backgroundImage: `url(${photoTile})` }}>
             <header className="major">
               <h3>{t('landing:photos.title')}</h3>
-              <p>{t('landing:photos.description')}</p>
             </header>
             <Link to="/photo_gallery" className="link primary" />
           </article>
@@ -116,7 +113,6 @@ function IndexPage() {
           <article style={{ backgroundImage: `url(${historyTile})` }}>
             <header className="major">
               <h3>{t('landing:history.title')}</h3>
-              <p>{t('landing:history.description')}</p>
             </header>
             <Link to="/history" className="link primary" />
           </article>
@@ -124,7 +120,6 @@ function IndexPage() {
           <article style={{ backgroundImage: `url(${gardenTile})` }}>
             <header className="major">
               <h3>{t('landing:gardens.title')}</h3>
-              <p>{t('landing:gardens.description')}</p>
             </header>
             <Link to="/gardens" className="link primary" />
           </article>
@@ -132,7 +127,6 @@ function IndexPage() {
           <article style={{ backgroundImage: `url(${wineTile})` }}>
             <header className="major">
               <h3>{t('landing:vineyards.title')}</h3>
-              <p>{t('landing:vineyards.description')}</p>
             </header>
             <Link to="/wine_vineyards" className="link primary" />
           </article>
@@ -140,7 +134,6 @@ function IndexPage() {
           <article style={{ backgroundImage: `url(${faqTile})` }}>
             <header className="major">
               <h3>{t('landing:faq.title')}</h3>
-              <p>{t('landing:faq.description')}</p>
             </header>
             <Link to="/faq" className="link primary" />
           </article>

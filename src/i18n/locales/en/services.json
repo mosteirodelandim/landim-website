@@ -1,33 +1,37 @@
 {
   "en": {
-    "heading": "Services",
-    "subHeading": "We provide a myriad of services for a wide variety of events.",
+    "heading": "Eventos",
+    "subHeading": "Somos uma casa de eventos. Venha conhecer os nossos serviços.",
 
     "firstParagraph": {
-      "title": "  A Versatile Space",
-      "description1": "Mosteiro de Landim's gates open up to create unforgettable and smile-inducing memories. As time unfolds in either weddings, birthdays, unnamed parties, christenings, conferences, book presentations or simply visits, the minutes slowly blend with the color patterns found in the garden, the intensity of the cloister, the ancient walls. It's more than a space and we want everyone to experience memories and emotions here.",
-      "description2": "Our specialty is decoration. We know every inch and corner of our loved venue. We are fond of the tiniest of details that imagination brings to reality. Mosteiro de Landim has had countless events, with every type of decoration and pattern imaginable. Our photogallery showcases some examples of the stories that have unfolded here.",
-      "description3": "There are multiple spaces within the premises that one can access and partake in creating new memories. What follows are our most prized spaces that are (omni)present in almost all of the events that have occured."
+      "title": "Um Espaço Versátil",
+      "description1": "Os portões do Mosteiro de Landim abrem-se para momentos inesquecíveis. Casamentos, aniversários, batizados, festas sem nome, conferências, apresentações de livros e visitas temáticas. Mais do que um espaço, queremos partilhar sensações e memórias.",
+      "description2": "",
+      "description3": "Temos vários espaços e recantos diferentes disponíveis para o seu evento."
     },
 
     "spotlights": {
       "cloister": {
-        "title": "The Cloister",
-        "description": "Countless generations have created their own stories within our beloved cloister that dates back to the 16th century. It's ideal as the main space for weddings."
+        "title": "O Claustro",
+        "description": "O nosso claustro conta com anos de história que remontam ao século XVI. Com capacidade para 350 pessoas, é o espaço ideal para mesas de amigos, pistas de dança e encontros de família."
       },
       "gardens": {
-        "title": "Gardens",
-        "description": "It's not for naught that our magnificient gardens were visited by countless entitites, including national broadcasters and making appearances in news reports. The beauty it conveys throuhgout the year with different colours stemming from century-old camellia trees make it ideal for any setting and occasion."
+        "title": "Os Jardins",
+        "description": "Árvores centenárias, cores que mudam com o tempo, diferentes recantos de sol e sombra. Os nossos jardins são o local perfeito para estar e aproveitar aperitivos, concertos e danças."
       },
       "rooms": {
-        "title": "Adjacent Rooms",
-        "description": "Confining the cloister are two emblematic rooms that effectively make the event bigger and more spacious. With a carved ceiling hailing from the 18th century, these rooms make events more glamorous and cosy."
+        "title": "As Salas",
+        "description": "Contornando o claustro existem dois salões emblemáticos que aumentam o espaço da festa. O salão principal é coberto por um tecto em talha do século XVIII - uma verdadeira obra de arte."
       },
       "church": {
-        "title": "Parish Church",
-        "description": "The local church has a beautiful 18th century carving in its altarpiece, being the ideal place for the celebration of the religious ceremony, given the proximity to Mosteiro de Landim."
+        "title": "A Igreja",
+        "description": "A igreja tem uma belíssima talha setecentista no seu retábulo, sendo um bom local para a celebração da cerimónia religiosa."
       }
-    }
+    },
 
+    "secondParagraph": {
+      "title": "Os Serviços",
+      "description": "Alugamos o nosso espaço mas podemos tratar de tudo com os nossos parceiros - desde o planeamento, à decoração, ao catering e entretenimento. Cada aspeto do seu evento pode ser customizado à sua medida de forma a o tornar memorável."
+    }
   }
 }
