@@ -80,8 +80,8 @@ gatsby build
 ```
 This does a production build of the website and outputs the build static files into the ```public``` directory. After this:
 ```sh
-cd build
-gatsby serve
+cd public
+surge
 ```
 
 ### Personalization
