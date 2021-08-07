@@ -5,6 +5,8 @@ History page specific styles
 
 #historyMain {
   > header {
+    padding: 10em 0 10em 0;
+
     @include breakpoint('>=xxxlarge') {
       padding: 20em 0 10em 0
     }
