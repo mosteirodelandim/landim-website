@@ -167,7 +167,7 @@ Base SCSS a page. Pages that different style have their own variations of what's
     }
 
     input[type="checkbox"],
-    input[type="radio"], {
+    input[type="radio"] {
       & + label {
         color: _palette($p, fg);
 

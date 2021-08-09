@@ -14,7 +14,7 @@ function SideBar({ fullMenu }) {
     <header id="header" className={`${fullMenu ? '' : 'alt'}`}>
       <h1>
         <Link to="/">
-          <img src={logo} alt="" style={{maxHeight: "8vh"}}/>
+          <img id="logo" src={logo} alt=""/>
         </Link>
       </h1>
       <div className={`${headerOpen ? 'is-menu-visible' : ' '}`}>

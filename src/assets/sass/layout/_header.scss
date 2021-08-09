@@ -3,13 +3,42 @@
 #header {
   @include vendor('transition', 'background-color #{_duration(transitions)} ease');
   background: _palette(bg);
-  height: 8vh;
   left: 0;
   line-height: 3em;
   position: fixed;
   top: 0;
   width: 100%;
   z-index: 100;
+
+  @include breakpoint('>xxlarge') {
+    height: 70px;
+  }
+
+  @include breakpoint('>small') {
+    height: 50px;
+  }
+
+  @include breakpoint('<=small') {
+    height: 45px;
+  }
+
+  #logo{
+    @include breakpoint('>xxlarge') {
+      height: 70px;
+    }
+
+    @include breakpoint('>small') {
+      height: 50px;
+    }
+
+    @include breakpoint('<=small') {
+      height: 45px;
+    }
+
+  }
+
+
+
 
   #landimLogo {
     letter-spacing: _size(letter-spacing-alt);
@@ -54,34 +83,6 @@
     position: absolute;
     right: 0;
     top: 0;
-    margin-top: 2.5vh;  // to center the menu (dependent on the logo)
-
-    @include breakpoint('>=xxxlarge') {
-      margin-top: 2.1vh;
-    }
-
-    @include breakpoint('<=xxxlarge') {
-      margin-top: 2.5vh;
-    }
-
-
-    @include breakpoint('<=xxlarge') {
-      margin-top: 2vh;
-    }
-
-
-    @include breakpoint('<=xlarge') {
-      margin-top: 0.4vh;
-    }
-
-
-    @include breakpoint('<=large') {
-      margin-top: 0.5vh;
-    }
-
-    @include breakpoint('<=medium') {
-      margin-top: 0.2vh;
-    }
 
     > ul {
       list-style: none;
