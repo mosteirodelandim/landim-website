@@ -10,12 +10,16 @@
   width: 100%;
   z-index: 100;
 
-  @include breakpoint('>xxlarge') {
-    height: 70px;
-  }
-
   @include breakpoint('>small') {
     height: 50px;
+  }
+
+  @include breakpoint('>large') {
+    height: 52px;
+  }
+
+  @include breakpoint('>xxlarge') {
+    height: 58px;
   }
 
   @include breakpoint('<=small') {
@@ -23,12 +27,16 @@
   }
 
   #logo{
-    @include breakpoint('>xxlarge') {
-      height: 70px;
-    }
-
     @include breakpoint('>small') {
       height: 50px;
+    }
+
+    @include breakpoint('>large') {
+      height: 52px;
+    }
+
+    @include breakpoint('>xxlarge') {
+      height: 58px;
     }
 
     @include breakpoint('<=small') {
