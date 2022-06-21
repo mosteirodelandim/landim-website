@@ -28,7 +28,7 @@ class LandingLayout extends Component {
   }
 
   render() {
-    const { children, fullMenu } = this.props;
+    const { children, fullMenu, showMenu } = this.props;
     const { isPreloaded } = this.state;
     return (
       <StaticQuery
@@ -107,8 +107,8 @@ class LandingLayout extends Component {
 
             <div className={isPreloaded ? 'landing main-body is-preload' : 'landing main-body'}>
               <div id="landingPageWrapper">
-                <SideBar fullMenu={fullMenu} />
-                {children}
+                <SideBar fullMenu={fullMenu} showMenu={showMenu} />
+                  {children}
                 <Footer />
               </div>
             </div>
@@ -122,10 +122,12 @@ class LandingLayout extends Component {
 LandingLayout.propTypes = {
   children: PropTypes.node.isRequired,
   fullMenu: PropTypes.bool,
+  showMenu: PropTypes.bool
 };
 
 LandingLayout.defaultProps = {
   fullMenu: false,
+  showMenu: true,
 };
 
 export default LandingLayout;

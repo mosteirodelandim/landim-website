@@ -2,7 +2,6 @@
 
 #header {
   @include vendor('transition', 'background-color #{_duration(transitions)} ease');
-  background: _palette(bg);
   left: 0;
   line-height: 3em;
   position: fixed;
@@ -10,37 +9,21 @@
   width: 100%;
   z-index: 100;
 
-  @include breakpoint('>small') {
-    height: 50px;
-  }
-
-  @include breakpoint('>large') {
-    height: 52px;
-  }
-
-  @include breakpoint('>xxlarge') {
-    height: 58px;
-  }
-
-  @include breakpoint('<=small') {
-    height: 45px;
-  }
-
   #logo{
     @include breakpoint('>small') {
-      height: 50px;
+      height: 54px;
     }
 
     @include breakpoint('>large') {
-      height: 52px;
+      height: 60px;
     }
 
     @include breakpoint('>xxlarge') {
-      height: 58px;
+      height: 70px;
     }
 
     @include breakpoint('<=small') {
-      height: 45px;
+      height: 50px;
     }
 
   }
@@ -67,15 +50,16 @@
 
   h1 {
     @include vendor('transition', 'opacity #{_duration(transitions)} ease');
+    background-color: black;
     height: inherit;
-    left: 1.25em;
+    padding-left: 1em;
+    margin-top: 1em;
     line-height: inherit;
     position: absolute;
-    top: 0;
 
     a {
       border: 0;
-      display: block;
+      display: flex;
       height: inherit;
       line-height: inherit;
 
@@ -99,6 +83,7 @@
       white-space: nowrap;
 
       > li {
+        background-color: _palette(accent1, menu-bg);
         display: inline-block;
         padding: 0;
 
@@ -141,6 +126,7 @@
         }
 
         &:first-child {
+          margin-top: 1em;
           margin-left: 0;
         }
       }

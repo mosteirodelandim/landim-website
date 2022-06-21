@@ -24,7 +24,7 @@ function IndexPage() {
   const { t } = useTranslation();
 
   return (
-    <LandingLayout fullMenu={false}>
+    <LandingLayout fullMenu={false} showMenu={false}>
       <section id="banner">
         <div className="flag-container">
           <div id="bannerFlags" className="flags">

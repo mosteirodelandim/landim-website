@@ -7,8 +7,11 @@ import Nav from './Nav';
 
 import logo from '../assets/images/logo.webp';
 
-function SideBar({ fullMenu }) {
+function SideBar({ fullMenu, showMenu }) {
   const [headerOpen, toggleHeader] = useState(false);
+
+  if(!showMenu)
+    return null
 
   return (
     <header id="header" className={`${fullMenu ? '' : 'alt'}`}>
@@ -34,10 +37,12 @@ function SideBar({ fullMenu }) {
 
 SideBar.propTypes = {
   fullMenu: PropTypes.bool,
+  showMenu: PropTypes.bool
 };
 
 SideBar.defaultProps = {
   fullMenu: false,
+  showMenu: true
 };
 
 export default SideBar;
