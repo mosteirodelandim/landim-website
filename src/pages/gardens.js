@@ -1,27 +1,29 @@
-import React, { useState } from 'react';
+import React from 'react';
+import { graphql } from 'gatsby';
 import { useTranslation } from 'react-i18next';
-import Lottie  from 'react-lottie';
+import Lottie from 'react-lottie';
 import LandingLayout from '../components/LandingLayout';
 import 'react-image-lightbox/style.css';
 
+import { Col, Grid, Row } from 'react-flexbox-grid';
+import Img from "gatsby-image"
+
 import Carousel from 're-carousel';
 import IndicatorDots from '../components/CarouselDots';
-import pic1 from '../assets/images/gardens/picture1.jpg';
 import pic2 from '../assets/images/gardens/picture2.jpg';
 import pic3 from '../assets/images/gardens/picture3.jpg';
 import pic4 from '../assets/images/gardens/picture4.jpg';
 import pic5 from '../assets/images/gardens/picture5.jpg';
 
 import cameraAnim from '../assets/images/lottie/camera';
-import { Link } from 'gatsby';
 import Obfuscate from 'react-obfuscate';
 import config from '../../config';
-import { Col, Grid, Row } from 'react-flexbox-grid';
-import bookAnim from '../assets/images/lottie/book';
 
 
-function GardensPage() {
+
+function GardensPage({data}) {
   const { t } = useTranslation();
+  const pic1 = data.pic1.childImageSharp.fluid.src;
 
   return (
     <LandingLayout fullMenu>
@@ -84,5 +86,17 @@ function GardensPage() {
     </LandingLayout>
   );
 }
+
+export const query = graphql`
+  query {
+    pic1: file(relativePath: {eq: "gardens/picture1.jpg"}) {
+      childImageSharp {
+        fluid(maxWidth: 3000, quality: 100){
+          ...GatsbyImageSharpFluid
+        }
+      }
+    }
+  }
+`;
 
 export default GardensPage;
