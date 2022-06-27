@@ -2,33 +2,32 @@ import React from 'react';
 import { graphql } from 'gatsby';
 import { useTranslation } from 'react-i18next';
 import Lottie from 'react-lottie';
-import LandingLayout from '../components/LandingLayout';
-import 'react-image-lightbox/style.css';
-
-import { Col, Grid, Row } from 'react-flexbox-grid';
-import Img from "gatsby-image"
-
-import Carousel from 're-carousel';
-import IndicatorDots from '../components/CarouselDots';
-import pic2 from '../assets/images/gardens/picture2.jpg';
-import pic3 from '../assets/images/gardens/picture3.jpg';
-import pic4 from '../assets/images/gardens/picture4.jpg';
-import pic5 from '../assets/images/gardens/picture5.jpg';
-
-import cameraAnim from '../assets/images/lottie/camera';
 import Obfuscate from 'react-obfuscate';
+import { Col, Grid, Row } from 'react-flexbox-grid';
+import Carousel from 're-carousel';
+
+import IndicatorDots from '../components/CarouselDots';
+import LandingLayout from '../components/LandingLayout';
+import cameraAnim from '../assets/images/lottie/camera';
 import config from '../../config';
 
+import 'react-image-lightbox/style.css';
 
 
 function GardensPage({data}) {
   const { t } = useTranslation();
-  const pic1 = data.pic1.childImageSharp.fluid.src;
+
+  const banner = data.banner.childImageSharp.fluid.srcWebp;
+  const pic1 = data.pic1.childImageSharp.fluid.srcWebp;
+  const pic2 = data.pic2.childImageSharp.fluid.srcWebp;
+  const pic3 = data.pic3.childImageSharp.fluid.srcWebp;
+  const pic4 = data.pic4.childImageSharp.fluid.srcWebp;
+  const pic5 = data.pic5.childImageSharp.fluid.srcWebp;
 
   return (
     <LandingLayout fullMenu>
       <article id="pageMain">
-        <header id="gardensHeader">
+        <header style={{backgroundImage: `linear-gradient(to top, rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url(${banner})`}}>
           <h2>{t('gardens:title')}</h2>
           <p>{t('gardens:subHeading')}</p>
         </header>
@@ -89,10 +88,45 @@ function GardensPage({data}) {
 
 export const query = graphql`
   query {
+    banner: file(relativePath: {eq: "gardens/banner.jpg"}) {
+      childImageSharp {
+        fluid(maxWidth: 3000, quality: 100) {
+          ...GatsbyImageSharpFluid_withWebp
+        }
+      }
+    },
     pic1: file(relativePath: {eq: "gardens/picture1.jpg"}) {
       childImageSharp {
-        fluid(maxWidth: 3000, quality: 100){
-          ...GatsbyImageSharpFluid
+        fluid(maxWidth: 3000, quality: 100) {
+          ...GatsbyImageSharpFluid_withWebp
+        }
+      }
+    },
+    pic2: file(relativePath: {eq: "gardens/picture2.jpg"}) {
+      childImageSharp {
+        fluid(maxWidth: 3000, quality: 100) {
+          ...GatsbyImageSharpFluid_withWebp
+        }
+      }
+    },
+    pic3: file(relativePath: {eq: "gardens/picture3.jpg"}) {
+      childImageSharp {
+        fluid(maxWidth: 3000, quality: 100) {
+          ...GatsbyImageSharpFluid_withWebp
+        }
+      }
+    },
+    pic4: file(relativePath: {eq: "gardens/picture4.jpg"}) {
+      childImageSharp {
+        fluid(maxWidth: 3000, quality: 100) {
+          ...GatsbyImageSharpFluid_withWebp
+        }
+      }
+    },
+    pic5: file(relativePath: {eq: "gardens/picture5.jpg"}) {
+      childImageSharp {
+        fluid(maxWidth: 3000, quality: 100) {
+          ...GatsbyImageSharpFluid_withWebp
         }
       }
     }
