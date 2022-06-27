@@ -578,6 +578,8 @@ It imports a scss file that acts as template for a page (tile_page.scss), compon
 	flex-direction: row;
 	justify-content: center;
 	align-items: center;
+	padding-top: 30px;
+	padding-bottom: 20px;
 
 	.image {
 		@include vendor('order', '1');
@@ -594,19 +596,6 @@ It imports a scss file that acts as template for a page (tile_page.scss), compon
 	.spotlight-container {
 		display: flex;
 		flex-direction: row;
-        height: 35vh;
-
-        @include breakpoint('<medium') {
-          height: 46vh;
-        }
-
-		@include breakpoint('>=medium') {
-			height: 34vh;
-		}
-
-		@include breakpoint('>=xxxlarge') {
-			height: 20vh;
-		}
 
         // Center the text in row and make it fill up the div container
         .center-row {
