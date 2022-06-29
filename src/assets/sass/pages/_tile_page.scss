@@ -74,10 +74,6 @@ Base SCSS a page. Pages that different style have their own variations of what's
     @include vendor('background-image', ('linear-gradient(to top, rgba(0,0,0,0.5), rgba(0,0,0,0.5))', 'url("../images/services/services_banner.jpg")'));
   }
 
-  #historyHeader {
-    @include vendor('background-image', ('linear-gradient(to top, rgba(0,0,0,0.5), rgba(0,0,0,0.5))', 'url("../images/history/banner.jpg")'));
-  }
-
   #winestayHeader {
     @include vendor('background-image', ('linear-gradient(to top, rgba(0,0,0,0.5), rgba(0,0,0,0.5))', 'url("../images/wine_vineyards/banner.jpg")'));
   }
