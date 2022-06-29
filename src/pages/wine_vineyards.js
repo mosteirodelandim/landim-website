@@ -5,25 +5,30 @@ import { Col, Grid, Row } from 'react-flexbox-grid';
 import LandingLayout from '../components/LandingLayout';
 import 'react-image-lightbox/style.css';
 
-import winePic1 from '../assets/images/wine_vineyards/wine1.jpg';
+import { graphql } from 'gatsby';
 
-import spaces1 from '../assets/images/wine_vineyards/feature_1.jpg';
-import spaces2 from '../assets/images/wine_vineyards/feature_2.jpg';
-import spaces3 from '../assets/images/wine_vineyards/feature_3.jpg';
-
-const images = [winePic1];
-
-function WineStayPage() {
+function WineStayPage({data}) {
   const { t } = useTranslation();
+
   const [lightboxIsOpen, setToggleLightbox] = useState(false);
   const [photoIndex, setPhotoIndex] = useState(0);
 
   const captions = [t('wine_vineyards:imageCaptions.wine')];
 
+
+  const banner = data.banner.childImageSharp.fluid.srcWebp;
+  const winePic1 = data.winePic1.childImageSharp.fluid.srcWebp;
+  const feature1 = data.feature1.childImageSharp.fluid.srcWebp;
+  const feature2 = data.feature2.childImageSharp.fluid.srcWebp;
+  const feature3 = data.feature3.childImageSharp.fluid.srcWebp;
+
+  const images = [winePic1];
+
+
   return (
     <LandingLayout fullMenu>
       <article id="wineMain">
-        <header id="winestayHeader">
+        <header style={{backgroundImage: `linear-gradient(to top, rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url(${banner})`}}>
           <h2>{t('wine_vineyards:title')}</h2>
           <p>{t('wine_vineyards:subHeading')}</p>
         </header>
@@ -73,7 +78,7 @@ function WineStayPage() {
             <Row>
               <Col lg={4} md={6}>
                 <span className="image fit hover-container">
-                  <img src={spaces1} alt="" />
+                  <img src={feature1} alt="" />
                   <div className="overlay">
                     <div className="text">
                       <h2>{t('wine_vineyards:images.image1.title')}</h2>
@@ -84,7 +89,7 @@ function WineStayPage() {
               </Col>
               <Col lg={4} md={6}>
                 <span className="image fit hover-container">
-                  <img src={spaces2} alt="" />
+                  <img src={feature2} alt="" />
                   <div className="overlay">
                     <div className="text">
                       <h2>{t('wine_vineyards:images.image2.title')}</h2>
@@ -95,7 +100,7 @@ function WineStayPage() {
               </Col>
               <Col lg={4} md={6}>
                 <span className="image fit hover-container">
-                  <img src={spaces3} alt="" />
+                  <img src={feature3} alt="" />
                   <div className="overlay">
                     <div className="text">
                       <h2>{t('wine_vineyards:images.image3.title')}</h2>
@@ -107,7 +112,7 @@ function WineStayPage() {
             </Row>
           </Grid>
         </section>
-        
+
       </article>
 
       {lightboxIsOpen && (
@@ -124,5 +129,45 @@ function WineStayPage() {
     </LandingLayout>
   );
 }
+
+export const query = graphql`
+  query {
+    banner: file(relativePath: {eq: "wine_vineyards/banner.jpg"}) {
+      childImageSharp {
+        fluid(maxWidth: 3000, quality: 100) {
+          ...GatsbyImageSharpFluid_withWebp
+        }
+      }
+    },
+    winePic1: file(relativePath: {eq: "wine_vineyards/wine1.jpg"}) {
+      childImageSharp {
+        fluid(maxWidth: 3000, quality: 100) {
+          ...GatsbyImageSharpFluid_withWebp
+        }
+      }
+    },
+    feature1: file(relativePath: {eq: "wine_vineyards/feature_1.jpg"}) {
+      childImageSharp {
+        fluid(maxWidth: 3000, quality: 100) {
+          ...GatsbyImageSharpFluid_withWebp
+        }
+      }
+    },
+    feature2: file(relativePath: {eq: "wine_vineyards/feature_2.jpg"}) {
+      childImageSharp {
+        fluid(maxWidth: 3000, quality: 100) {
+          ...GatsbyImageSharpFluid_withWebp
+        }
+      }
+    },
+    feature3: file(relativePath: {eq: "wine_vineyards/feature_3.jpg"}) {
+      childImageSharp {
+        fluid(maxWidth: 3000, quality: 100) {
+          ...GatsbyImageSharpFluid_withWebp
+        }
+      }
+    }
+  }
+`;
 
 export default WineStayPage;
