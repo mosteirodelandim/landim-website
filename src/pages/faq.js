@@ -11,6 +11,7 @@ import config from '../../config';
 import lottieAnim from '../assets/images/lottie/pulsing';
 import Obfuscate from 'react-obfuscate';
 import Scroll from '../components/Scroll';
+import { graphql } from 'gatsby';
 
 const Marker = () => (
   <div
@@ -28,13 +29,15 @@ const Marker = () => (
   </div>
 );
 
-function FaqPage() {
+function FaqPage({data}) {
   const { t } = useTranslation();
+
+  const banner = data.banner.childImageSharp.fluid.srcWebp;
 
   return (
     <LandingLayout fullMenu>
       <article id="pageMain">
-        <header id="faqHeader">
+        <header style={{backgroundImage: `linear-gradient(to top, rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url(${banner})`}}>
           <h2>{t('faq:heading')}</h2>
           <p>{t('faq:subHeading')}</p>
         </header>
@@ -172,5 +175,17 @@ function FaqPage() {
     </LandingLayout>
   );
 }
+
+export const query = graphql`
+  query {
+    banner: file(relativePath: {eq: "faq/banner.jpg"}) {
+      childImageSharp {
+        fluid(maxWidth: 3000, quality: 100) {
+          ...GatsbyImageSharpFluid_withWebp
+        }
+      }
+    }
+  }
+`;
 
 export default FaqPage;
