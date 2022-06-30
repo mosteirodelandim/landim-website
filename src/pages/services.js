@@ -3,33 +3,35 @@ import { useTranslation } from 'react-i18next';
 import Carousel from 're-carousel';
 
 import LandingLayout from '../components/LandingLayout';
-
-import cloisterPic from '../assets/images/services/cloister.jpg';
-import gardenPic from '../assets/images/services/garden.jpg';
-import roomPic from '../assets/images/services/rooms.jpg';
-import churchPic from '../assets/images/services/church.jpg';
 import IndicatorDots from '../components/CarouselDots';
-
-import church_cloister1 from '../assets/images/photo-gallery/cloister_church/church_cloister1.jpg';
-import church_cloister2 from '../assets/images/photo-gallery/cloister_church/church_cloister2.jpg';
-import church_cloister3 from '../assets/images/photo-gallery/cloister_church/church_cloister3.jpg';
-import church_cloister4 from '../assets/images/photo-gallery/cloister_church/church_cloister4.jpg';
-import church_cloister5 from '../assets/images/photo-gallery/cloister_church/church_cloister5.jpg';
-
-import gardens_forest1 from '../assets/images/photo-gallery/gardens_forest/gardens_forest1.jpg';
-import gardens_forest2 from '../assets/images/photo-gallery/gardens_forest/gardens_forest2.jpg';
-import gardens_forest3 from '../assets/images/photo-gallery/gardens_forest/gardens_forest3.png';
-import gardens_forest4 from '../assets/images/photo-gallery/gardens_forest/gardens_forest4.jpg';
-import gardens_forest5 from '../assets/images/photo-gallery/gardens_forest/gardens_forest5.jpg';
+import { graphql } from 'gatsby';
 
 
-function ServicesPage() {
+function ServicesPage({data}) {
   const { t } = useTranslation();
+
+  const banner = data.banner.childImageSharp.fluid.srcWebp;
+  const cloisterPic = data.cloisterPic.childImageSharp.fluid.srcWebp;
+  const gardenPic = data.gardenPic.childImageSharp.fluid.srcWebp;
+  const roomPic = data.roomPic.childImageSharp.fluid.srcWebp;
+  const churchPic = data.churchPic.childImageSharp.fluid.srcWebp;
+
+  const church_cloister1 = data.church_cloister1.childImageSharp.fluid.srcWebp;
+  const church_cloister2 = data.church_cloister2.childImageSharp.fluid.srcWebp;
+  const church_cloister3 = data.church_cloister3.childImageSharp.fluid.srcWebp;
+  const church_cloister4 = data.church_cloister4.childImageSharp.fluid.srcWebp;
+  const church_cloister5 = data.church_cloister5.childImageSharp.fluid.srcWebp;
+
+  const gardens_forest1 = data.gardens_forest1.childImageSharp.fluid.srcWebp;
+  const gardens_forest2 = data.gardens_forest1.childImageSharp.fluid.srcWebp;
+  const gardens_forest3 = data.gardens_forest1.childImageSharp.fluid.srcWebp;
+  const gardens_forest4 = data.gardens_forest1.childImageSharp.fluid.srcWebp;
+  const gardens_forest5 = data.gardens_forest1.childImageSharp.fluid.srcWebp;
 
   return (
     <LandingLayout fullMenu>
       <article id="pageMain">
-        <header id="servicesHeader">
+        <header style={{backgroundImage: `linear-gradient(to top, rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url(${banner})`}}>
           <h2>{t('services:heading')}</h2>
           <p className="subHeadingTilePage">{t('services:subHeading')}</p>
         </header>
@@ -44,7 +46,7 @@ function ServicesPage() {
         </section>
 
         <section id="spotlights" className="wrapper alt style2">
-          <section className="spotlight">
+          <section className="spotlight no-pad">
             <div className="image">
               <img src={cloisterPic} alt="" />
             </div>
@@ -53,7 +55,7 @@ function ServicesPage() {
               <p>{t('services:spotlights.cloister.description')}</p>
             </div>
           </section>
-          <section className="spotlight">
+          <section className="spotlight no-pad">
             <div className="image">
               <img src={gardenPic} alt="" />
             </div>
@@ -62,7 +64,7 @@ function ServicesPage() {
               <p>{t('services:spotlights.gardens.description')}</p>
             </div>
           </section>
-          <section className="spotlight">
+          <section className="spotlight no-pad">
             <div className="image">
               <img src={roomPic} alt="" />
             </div>
@@ -71,7 +73,7 @@ function ServicesPage() {
               <p>{t('services:spotlights.rooms.description')}</p>
             </div>
           </section>
-          <section className="spotlight">
+          <section className="spotlight no-pad">
             <div className="image">
               <img src={churchPic} alt="" />
             </div>
@@ -110,5 +112,28 @@ function ServicesPage() {
     </LandingLayout>
   );
 }
+
+
+export const query = graphql`
+  query {
+    banner: file(relativePath: {eq: "services/banner.jpg"}) { childImageSharp { fluid(maxWidth: 3000, quality: 100) { ...GatsbyImageSharpFluid_withWebp }}},
+    cloisterPic: file(relativePath: {eq: "services/cloister.jpg"}) { childImageSharp { fluid(maxWidth: 3000, quality: 100) { ...GatsbyImageSharpFluid_withWebp }}},
+    gardenPic: file(relativePath: {eq: "services/garden.jpg"}) { childImageSharp { fluid(maxWidth: 3000, quality: 100) { ...GatsbyImageSharpFluid_withWebp }}},
+    roomPic: file(relativePath: {eq: "services/rooms.jpg"}) { childImageSharp { fluid(maxWidth: 3000, quality: 100) { ...GatsbyImageSharpFluid_withWebp }}},
+    churchPic: file(relativePath: {eq: "services/church.jpg"}) { childImageSharp { fluid(maxWidth: 3000, quality: 100) { ...GatsbyImageSharpFluid_withWebp }}},
+       
+    church_cloister1: file(relativePath: {eq: "photo-gallery/cloister_church/church_cloister1.jpg"}) { childImageSharp { fluid(maxWidth: 3000, quality: 100) { ...GatsbyImageSharpFluid_withWebp }}},
+    church_cloister2: file(relativePath: {eq: "photo-gallery/cloister_church/church_cloister2.jpg"}) { childImageSharp { fluid(maxWidth: 3000, quality: 100) { ...GatsbyImageSharpFluid_withWebp }}},
+    church_cloister3: file(relativePath: {eq: "photo-gallery/cloister_church/church_cloister3.jpg"}) { childImageSharp { fluid(maxWidth: 3000, quality: 100) { ...GatsbyImageSharpFluid_withWebp }}},
+    church_cloister4: file(relativePath: {eq: "photo-gallery/cloister_church/church_cloister4.jpg"}) { childImageSharp { fluid(maxWidth: 3000, quality: 100) { ...GatsbyImageSharpFluid_withWebp }}},
+    church_cloister5: file(relativePath: {eq: "photo-gallery/cloister_church/church_cloister5.jpg"}) { childImageSharp { fluid(maxWidth: 3000, quality: 100) { ...GatsbyImageSharpFluid_withWebp }}},
+    
+    gardens_forest1: file(relativePath: {eq: "photo-gallery/gardens_forest/gardens_forest1.jpg"}) { childImageSharp { fluid(maxWidth: 3000, quality: 100) { ...GatsbyImageSharpFluid_withWebp }}},
+    gardens_forest2: file(relativePath: {eq: "photo-gallery/gardens_forest/gardens_forest2.jpg"}) { childImageSharp { fluid(maxWidth: 3000, quality: 100) { ...GatsbyImageSharpFluid_withWebp }}},
+    gardens_forest3: file(relativePath: {eq: "photo-gallery/gardens_forest/gardens_forest3.png"}) { childImageSharp { fluid(maxWidth: 3000, quality: 100) { ...GatsbyImageSharpFluid_withWebp }}},
+    gardens_forest4: file(relativePath: {eq: "photo-gallery/gardens_forest/gardens_forest4.jpg"}) { childImageSharp { fluid(maxWidth: 3000, quality: 100) { ...GatsbyImageSharpFluid_withWebp }}},
+    gardens_forest5: file(relativePath: {eq: "photo-gallery/gardens_forest/gardens_forest5.jpg"}) { childImageSharp { fluid(maxWidth: 3000, quality: 100) { ...GatsbyImageSharpFluid_withWebp }}},
+  }
+`;
 
 export default ServicesPage;

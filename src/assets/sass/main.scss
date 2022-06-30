@@ -570,6 +570,10 @@ It imports a scss file that acts as template for a page (tile_page.scss), compon
 }
 
 // Spotlight sections
+.no-pad {
+  padding-top: 0 !important;
+  padding-bottom: 0 !important;
+}
 
 .spotlight {
 	background-color: white;
@@ -578,6 +582,7 @@ It imports a scss file that acts as template for a page (tile_page.scss), compon
 	flex-direction: row;
 	justify-content: center;
 	align-items: center;
+
 	padding-top: 30px;
 	padding-bottom: 20px;
 

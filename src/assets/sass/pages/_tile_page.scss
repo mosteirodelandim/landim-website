@@ -70,14 +70,6 @@ Base SCSS a page. Pages that different style have their own variations of what's
 
   /* Header banner of pages */
 
-  #servicesHeader {
-    @include vendor('background-image', ('linear-gradient(to top, rgba(0,0,0,0.5), rgba(0,0,0,0.5))', 'url("../images/services/services_banner.jpg")'));
-  }
-
-  #winestayHeader {
-    @include vendor('background-image', ('linear-gradient(to top, rgba(0,0,0,0.5), rgba(0,0,0,0.5))', 'url("../images/wine_vineyards/banner.jpg")'));
-  }
-
   #photoGalleryHeader {
     @include vendor('background-image', ('linear-gradient(to top, rgba(0,0,0,0.5), rgba(0,0,0,0.5))', 'url("../images/photo-gallery/banner.png")'));
   }
