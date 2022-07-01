@@ -1,44 +1,39 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { useTranslation } from 'react-i18next';
-import Lottie  from 'react-lottie';
-
-import Obfuscate from 'react-obfuscate';
-import Carousel from 're-carousel'
-import { Grid, Row, Col } from 'react-flexbox-grid';
+import Lottie from 'react-lottie';
+import { graphql, Link } from 'gatsby';
+import Carousel from 're-carousel';
+import { Col, Grid, Row } from 'react-flexbox-grid';
 
 
 import bookAnim from '../assets/images/lottie/book';
 import wineAnim from '../assets/images/lottie/wines';
 import servicesAnim from '../assets/images/lottie/services';
-
-import config from '../../config';
 import LandingLayout from '../components/LandingLayout';
-import IndicatorDots from '../components/CarouselDots'
+import IndicatorDots from '../components/CarouselDots';
 
-import history1 from "../assets/images/about_us/history1.jpg"
-import history2 from "../assets/images/about_us/history2.jpg"
-import wine1 from "../assets/images/about_us/wines1.jpg"
-import wine2 from "../assets/images/about_us/wines2.jpg"
-import spaces1 from "../assets/images/about_us/spaces1.jpg"
-import spaces2 from "../assets/images/about_us/spaces2.jpg"
-import spaces3 from "../assets/images/about_us/spaces3.jpg"
-import spaces4 from "../assets/images/about_us/spaces4.png"
-
-import family1 from "../assets/images/about_us/family1.jpg"
-import { Link } from 'gatsby';
-
-function AboutUsPage() {
+function AboutUsPage({data}) {
   const { t } = useTranslation();
+
+  const banner = data.banner.childImageSharp.fluid.srcWebp;
+  const history1 = data.history1.childImageSharp.fluid.srcWebp;
+  const history2 = data.history2.childImageSharp.fluid.srcWebp;
+  const wine1 = data.wine1.childImageSharp.fluid.srcWebp;
+  const wine2 = data.wine2.childImageSharp.fluid.srcWebp;
+  const spaces1 = data.spaces1.childImageSharp.fluid.srcWebp;
+  const spaces2 = data.spaces2.childImageSharp.fluid.srcWebp;
+  const spaces3 = data.spaces3.childImageSharp.fluid.srcWebp;
+  const spaces4 = data.spaces4.childImageSharp.fluid.srcWebp;
+  const family1 = data.family1.childImageSharp.fluid.srcWebp;
 
   return (
     <LandingLayout fullMenu>
       <article id="aboutUsMain">
-        <header id="aboutUsHeader">
+        <header style={{backgroundImage: `linear-gradient(to top, rgba(0,0,0,0), rgba(0,0,0,0)), url(${banner})`}}>
           <h2>{t('about_us:heading1')}</h2>
           <h2>{t('about_us:heading2')}</h2>
           <h2>{t('about_us:heading3')}</h2>
         </header>
-
 
 
         <section className="wrapper style5">
@@ -263,5 +258,24 @@ function AboutUsPage() {
     </LandingLayout>
   );
 }
+
+export const query = graphql`
+  query {
+    banner: file(relativePath: {eq: "about_us/banner.jpg"}) { childImageSharp { fluid(maxWidth: 3000, quality: 100) { ...GatsbyImageSharpFluid_withWebp }}},
+    
+    history1: file(relativePath: {eq: "about_us/history1.jpg"}) { childImageSharp { fluid(maxWidth: 3000, quality: 100) { ...GatsbyImageSharpFluid_withWebp }}},
+    history2: file(relativePath: {eq: "about_us/history2.jpg"}) { childImageSharp { fluid(maxWidth: 3000, quality: 100) { ...GatsbyImageSharpFluid_withWebp }}},
+    
+    wine1: file(relativePath: {eq: "about_us/wines1.jpg"}) { childImageSharp { fluid(maxWidth: 3000, quality: 100) { ...GatsbyImageSharpFluid_withWebp }}},
+    wine2: file(relativePath: {eq: "about_us/wines2.jpg"}) { childImageSharp { fluid(maxWidth: 3000, quality: 100) { ...GatsbyImageSharpFluid_withWebp }}},
+       
+    spaces1: file(relativePath: {eq: "about_us/spaces1.jpg"}) { childImageSharp { fluid(maxWidth: 3000, quality: 100) { ...GatsbyImageSharpFluid_withWebp }}},
+    spaces2: file(relativePath: {eq: "about_us/spaces2.jpg"}) { childImageSharp { fluid(maxWidth: 3000, quality: 100) { ...GatsbyImageSharpFluid_withWebp }}},
+    spaces3: file(relativePath: {eq: "about_us/spaces3.jpg"}) { childImageSharp { fluid(maxWidth: 3000, quality: 100) { ...GatsbyImageSharpFluid_withWebp }}},
+    spaces4: file(relativePath: {eq: "about_us/spaces4.png"}) { childImageSharp { fluid(maxWidth: 3000, quality: 100) { ...GatsbyImageSharpFluid_withWebp }}},
+    
+    family1: file(relativePath: {eq: "about_us/family1.jpg"}) { childImageSharp { fluid(maxWidth: 3000, quality: 100) { ...GatsbyImageSharpFluid_withWebp }}},
+  }
+`;
 
 export default AboutUsPage;

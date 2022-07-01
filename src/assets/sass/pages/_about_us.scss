@@ -56,10 +56,6 @@ About Us page specific styles
     }
   }
 
-  #aboutUsHeader {
-    @include vendor('background-image', ('linear-gradient(to top, rgba(0,0,0,0), rgba(0,0,0,0))', 'url("../images/about_us/banner.jpg")'));
-  }
-
   /* Wrapper */
 
   @mixin wrapper($p) {
