@@ -2,7 +2,10 @@ import React, { useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import Lightbox from 'react-image-lightbox';
 import { Col, Grid, Row } from 'react-flexbox-grid';
+import Img from 'gatsby-image'
+
 import LandingLayout from '../components/LandingLayout';
+
 import 'react-image-lightbox/style.css';
 
 import { graphql } from 'gatsby';
@@ -17,12 +20,12 @@ function WineStayPage({data}) {
 
 
   const banner = data.banner.childImageSharp.fluid.srcWebp;
-  const winePic1 = data.winePic1.childImageSharp.fluid.srcWebp;
-  const feature1 = data.feature1.childImageSharp.fluid.srcWebp;
-  const feature2 = data.feature2.childImageSharp.fluid.srcWebp;
-  const feature3 = data.feature3.childImageSharp.fluid.srcWebp;
+  const winePic1 = data.winePic1.childImageSharp.fluid;
+  const feature1 = data.feature1.childImageSharp.fluid;
+  const feature2 = data.feature2.childImageSharp.fluid;
+  const feature3 = data.feature3.childImageSharp.fluid;
 
-  const images = [winePic1];
+  const images = [winePic1.srcWebp];
 
 
   return (
@@ -39,7 +42,7 @@ function WineStayPage({data}) {
             <>
               <span
                 onClick={() => {
-                  setPhotoIndex(images.indexOf(winePic1));
+                  setPhotoIndex(images.indexOf(winePic1.srcWebp));
                   setToggleLightbox(true);
                 }}
                 className="image right"
@@ -47,7 +50,7 @@ function WineStayPage({data}) {
                   width: '80vh', fontSize: '0.8em', color: 'gray', textAlign: 'right',
                 }}
               >
-                <img src={winePic1} alt="" />
+                <Img fluid={winePic1}/>
                 {t('wine_vineyards:imageCaptions.wine')}
               </span>
               <p>{t('wine_vineyards:wine.description1')}</p>
@@ -78,7 +81,7 @@ function WineStayPage({data}) {
             <Row>
               <Col lg={4} md={6}>
                 <span className="image fit hover-container">
-                  <img src={feature1} alt="" />
+                  <Img fluid={feature1}/>
                   <div className="overlay">
                     <div className="text">
                       <h2>{t('wine_vineyards:images.image1.title')}</h2>
@@ -89,7 +92,7 @@ function WineStayPage({data}) {
               </Col>
               <Col lg={4} md={6}>
                 <span className="image fit hover-container">
-                  <img src={feature2} alt="" />
+                  <Img fluid={feature2}/>
                   <div className="overlay">
                     <div className="text">
                       <h2>{t('wine_vineyards:images.image2.title')}</h2>
@@ -100,7 +103,7 @@ function WineStayPage({data}) {
               </Col>
               <Col lg={4} md={6}>
                 <span className="image fit hover-container">
-                  <img src={feature3} alt="" />
+                  <Img fluid={feature3}/>
                   <div className="overlay">
                     <div className="text">
                       <h2>{t('wine_vineyards:images.image3.title')}</h2>
