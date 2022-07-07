@@ -68,12 +68,6 @@ Base SCSS a page. Pages that different style have their own variations of what's
 
   }
 
-  /* Header banner of pages */
-
-  #photoGalleryHeader {
-    @include vendor('background-image', ('linear-gradient(to top, rgba(0,0,0,0.5), rgba(0,0,0,0.5))', 'url("../images/photo-gallery/banner.png")'));
-  }
-
   /* Wrapper */
 
   @mixin wrapper($p) {
@@ -776,40 +770,8 @@ Base SCSS a page. Pages that different style have their own variations of what's
     background-color: white;
 
     .inner-gallery {
-      width: 60em;
+      width: 100%;
       margin: 0 auto;
-
-      @include breakpoint('>=xxxlarge') {
-        width: 120em;
-      }
-
-      @include breakpoint('<xxxlarge') {
-        width: 80em;
-      }
-
-      @include breakpoint('<=xlarge') {
-        width: 70em;
-      }
-
-      @include breakpoint('<=large') {
-        width: 60em;
-      }
-
-      @include breakpoint('<=medium') {
-        width: 35em;
-      }
-
-      @include breakpoint('<=small') {
-        width: 33em;
-      }
-
-      @include breakpoint('<=smaller') {
-        width: 29em;
-      }
-
-      @include breakpoint('<=xsmall') {
-        width: 18em;
-      }
 
     }
 

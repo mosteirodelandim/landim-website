@@ -23,10 +23,10 @@ function ServicesPage({data}) {
   const church_cloister5 = data.church_cloister5.childImageSharp.fluid.srcWebp;
 
   const gardens_forest1 = data.gardens_forest1.childImageSharp.fluid.srcWebp;
-  const gardens_forest2 = data.gardens_forest1.childImageSharp.fluid.srcWebp;
-  const gardens_forest3 = data.gardens_forest1.childImageSharp.fluid.srcWebp;
-  const gardens_forest4 = data.gardens_forest1.childImageSharp.fluid.srcWebp;
-  const gardens_forest5 = data.gardens_forest1.childImageSharp.fluid.srcWebp;
+  const gardens_forest2 = data.gardens_forest2.childImageSharp.fluid.srcWebp;
+  const gardens_forest3 = data.gardens_forest3.childImageSharp.fluid.srcWebp;
+  const gardens_forest4 = data.gardens_forest4.childImageSharp.fluid.srcWebp;
+  const gardens_forest5 = data.gardens_forest5.childImageSharp.fluid.srcWebp;
 
   return (
     <LandingLayout fullMenu>
@@ -122,17 +122,17 @@ export const query = graphql`
     roomPic: file(relativePath: {eq: "services/rooms.jpg"}) { childImageSharp { fluid(maxWidth: 3000, quality: 100) { ...GatsbyImageSharpFluid_withWebp }}},
     churchPic: file(relativePath: {eq: "services/church.jpg"}) { childImageSharp { fluid(maxWidth: 3000, quality: 100) { ...GatsbyImageSharpFluid_withWebp }}},
        
-    church_cloister1: file(relativePath: {eq: "photo-gallery/cloister_church/church_cloister1.jpg"}) { childImageSharp { fluid(maxWidth: 3000, quality: 100) { ...GatsbyImageSharpFluid_withWebp }}},
-    church_cloister2: file(relativePath: {eq: "photo-gallery/cloister_church/church_cloister2.jpg"}) { childImageSharp { fluid(maxWidth: 3000, quality: 100) { ...GatsbyImageSharpFluid_withWebp }}},
-    church_cloister3: file(relativePath: {eq: "photo-gallery/cloister_church/church_cloister3.jpg"}) { childImageSharp { fluid(maxWidth: 3000, quality: 100) { ...GatsbyImageSharpFluid_withWebp }}},
-    church_cloister4: file(relativePath: {eq: "photo-gallery/cloister_church/church_cloister4.jpg"}) { childImageSharp { fluid(maxWidth: 3000, quality: 100) { ...GatsbyImageSharpFluid_withWebp }}},
-    church_cloister5: file(relativePath: {eq: "photo-gallery/cloister_church/church_cloister5.jpg"}) { childImageSharp { fluid(maxWidth: 3000, quality: 100) { ...GatsbyImageSharpFluid_withWebp }}},
+    church_cloister1: file(relativePath: {eq: "services/cloister_church/church_cloister1.jpg"}) { childImageSharp { fluid(maxWidth: 3000, quality: 100) { ...GatsbyImageSharpFluid_withWebp }}},
+    church_cloister2: file(relativePath: {eq: "services/cloister_church/church_cloister2.jpg"}) { childImageSharp { fluid(maxWidth: 3000, quality: 100) { ...GatsbyImageSharpFluid_withWebp }}},
+    church_cloister3: file(relativePath: {eq: "services/cloister_church/church_cloister3.jpg"}) { childImageSharp { fluid(maxWidth: 3000, quality: 100) { ...GatsbyImageSharpFluid_withWebp }}},
+    church_cloister4: file(relativePath: {eq: "services/cloister_church/church_cloister4.jpg"}) { childImageSharp { fluid(maxWidth: 3000, quality: 100) { ...GatsbyImageSharpFluid_withWebp }}},
+    church_cloister5: file(relativePath: {eq: "services/cloister_church/church_cloister5.jpg"}) { childImageSharp { fluid(maxWidth: 3000, quality: 100) { ...GatsbyImageSharpFluid_withWebp }}},
     
-    gardens_forest1: file(relativePath: {eq: "photo-gallery/gardens_forest/gardens_forest1.jpg"}) { childImageSharp { fluid(maxWidth: 3000, quality: 100) { ...GatsbyImageSharpFluid_withWebp }}},
-    gardens_forest2: file(relativePath: {eq: "photo-gallery/gardens_forest/gardens_forest2.jpg"}) { childImageSharp { fluid(maxWidth: 3000, quality: 100) { ...GatsbyImageSharpFluid_withWebp }}},
-    gardens_forest3: file(relativePath: {eq: "photo-gallery/gardens_forest/gardens_forest3.png"}) { childImageSharp { fluid(maxWidth: 3000, quality: 100) { ...GatsbyImageSharpFluid_withWebp }}},
-    gardens_forest4: file(relativePath: {eq: "photo-gallery/gardens_forest/gardens_forest4.jpg"}) { childImageSharp { fluid(maxWidth: 3000, quality: 100) { ...GatsbyImageSharpFluid_withWebp }}},
-    gardens_forest5: file(relativePath: {eq: "photo-gallery/gardens_forest/gardens_forest5.jpg"}) { childImageSharp { fluid(maxWidth: 3000, quality: 100) { ...GatsbyImageSharpFluid_withWebp }}},
+    gardens_forest1: file(relativePath: {eq: "services/gardens_forest/gardens_forest1.jpg"}) { childImageSharp { fluid(maxWidth: 3000, quality: 100) { ...GatsbyImageSharpFluid_withWebp }}},
+    gardens_forest2: file(relativePath: {eq: "services/gardens_forest/gardens_forest2.jpg"}) { childImageSharp { fluid(maxWidth: 3000, quality: 100) { ...GatsbyImageSharpFluid_withWebp }}},
+    gardens_forest3: file(relativePath: {eq: "services/gardens_forest/gardens_forest3.png"}) { childImageSharp { fluid(maxWidth: 3000, quality: 100) { ...GatsbyImageSharpFluid_withWebp }}},
+    gardens_forest4: file(relativePath: {eq: "services/gardens_forest/gardens_forest4.jpg"}) { childImageSharp { fluid(maxWidth: 3000, quality: 100) { ...GatsbyImageSharpFluid_withWebp }}},
+    gardens_forest5: file(relativePath: {eq: "services/gardens_forest/gardens_forest5.jpg"}) { childImageSharp { fluid(maxWidth: 3000, quality: 100) { ...GatsbyImageSharpFluid_withWebp }}},
   }
 `;
 
