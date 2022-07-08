@@ -63,6 +63,9 @@ body.is-mobile {
   // Section and articles
 
   section, article {
+    :before {
+      background-image: unset !important;
+    }
     &.special {
       text-align: center;
     }

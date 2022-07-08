@@ -10,19 +10,21 @@ import LandingLayout from '../components/LandingLayout';
 import Scroll from '../components/Scroll';
 
 import scrollAnim from '../assets/images/lottie/scroll_down.json';
+import BackgroundImage from 'gatsby-background-image'
 
 import FlagIcon from '../components/FlagIcon';
+import { graphql } from 'gatsby'
 
 function IndexPage({data}) {
   const { t } = useTranslation();
 
-  const historyTile = data.historyTile.childImageSharp.fluid.srcWebp;
-  const photoTile = data.photoTile.childImageSharp.fluid.srcWebp;
-  const gardenTile = data.gardenTile.childImageSharp.fluid.srcWebp;
-  const servicesTile = data.servicesTile.childImageSharp.fluid.srcWebp;
-  const wineTile = data.wineTile.childImageSharp.fluid.srcWebp;
-  const faqTile = data.faqTile.childImageSharp.fluid.srcWebp;
-  const aboutUsTile = data.aboutUsTile.childImageSharp.fluid.srcWebp;
+  const historyTile = data.historyTile.childImageSharp.fluid;
+  const photoTile = data.photoTile.childImageSharp.fluid;
+  const gardenTile = data.gardenTile.childImageSharp.fluid;
+  const servicesTile = data.servicesTile.childImageSharp.fluid;
+  const wineTile = data.wineTile.childImageSharp.fluid;
+  const faqTile = data.faqTile.childImageSharp.fluid;
+  const aboutUsTile = data.aboutUsTile.childImageSharp.fluid;
 
   return (
     <LandingLayout fullMenu={false} showMenu={false}>
@@ -90,54 +92,75 @@ function IndexPage({data}) {
 
         <section id="one" className="tiles">
 
-          <article style={{ backgroundImage: `url(${aboutUsTile})` }}>
+          <BackgroundImage
+            Tag="article"
+            fluid={aboutUsTile}
+          >
             <header className="major">
               <h3>{t('landing:weAre.title')}</h3>
             </header>
             <Link to="/about_us" className="link primary" />
-          </article>
+          </BackgroundImage>
 
-          <article style={{ backgroundImage: `url(${servicesTile})` }}>
+          <BackgroundImage
+            Tag="article"
+            fluid={servicesTile}
+          >
             <header className="major">
               <h3>{t('landing:services.title')}</h3>
             </header>
             <Link to="/services" className="link primary" />
-          </article>
+          </BackgroundImage>
 
-          <article style={{ backgroundImage: `url(${photoTile})` }}>
+          <BackgroundImage
+            Tag="article"
+            fluid={photoTile}
+          >
             <header className="major">
               <h3>{t('landing:photos.title')}</h3>
             </header>
             <Link to="/photo_gallery" className="link primary" />
-          </article>
+          </BackgroundImage>
 
-          <article style={{ backgroundImage: `url(${historyTile})` }}>
+          <BackgroundImage
+            Tag="article"
+            fluid={historyTile}
+          >
             <header className="major">
               <h3>{t('landing:history.title')}</h3>
             </header>
             <Link to="/history" className="link primary" />
-          </article>
+          </BackgroundImage>
 
-          <article style={{ backgroundImage: `url(${gardenTile})` }}>
+          <BackgroundImage
+            Tag="article"
+            fluid={gardenTile}
+          >
             <header className="major">
               <h3>{t('landing:gardens.title')}</h3>
             </header>
             <Link to="/gardens" className="link primary" />
-          </article>
+          </BackgroundImage>
 
-          <article style={{ backgroundImage: `url(${wineTile})` }}>
+          <BackgroundImage
+            Tag="article"
+            fluid={wineTile}
+          >
             <header className="major">
               <h3>{t('landing:vineyards.title')}</h3>
             </header>
             <Link to="/wine_vineyards" className="link primary" />
-          </article>
+          </BackgroundImage>
 
-          <article style={{ backgroundImage: `url(${faqTile})` }}>
+          <BackgroundImage
+            Tag="article"
+            fluid={faqTile}
+          >
             <header className="major">
               <h3>{t('landing:faq.title')}</h3>
             </header>
             <Link to="/faq" className="link primary" />
-          </article>
+          </BackgroundImage>
 
         </section>
       </div>
