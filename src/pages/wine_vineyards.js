@@ -9,6 +9,7 @@ import LandingLayout from '../components/LandingLayout';
 import 'react-image-lightbox/style.css';
 
 import { graphql } from 'gatsby';
+import BackgroundImage from 'gatsby-background-image';
 
 function WineStayPage({data}) {
   const { t } = useTranslation();
@@ -19,7 +20,7 @@ function WineStayPage({data}) {
   const captions = [t('wine_vineyards:imageCaptions.wine')];
 
 
-  const banner = data.banner.childImageSharp.fluid.srcWebp;
+  const banner = data.banner.childImageSharp.fluid;
   const winePic1 = data.winePic1.childImageSharp.fluid;
   const feature1 = data.feature1.childImageSharp.fluid;
   const feature2 = data.feature2.childImageSharp.fluid;
@@ -31,10 +32,13 @@ function WineStayPage({data}) {
   return (
     <LandingLayout fullMenu>
       <article id="wineMain">
-        <header style={{backgroundImage: `linear-gradient(to top, rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url(${banner})`}}>
+        <BackgroundImage
+          Tag="header"
+          fluid={banner}
+        >
           <h2>{t('wine_vineyards:title')}</h2>
           <p>{t('wine_vineyards:subHeading')}</p>
-        </header>
+        </BackgroundImage>
         <section className="wrapper style5">
           <div className="inner">
             <h3>{t('wine_vineyards:wine.title')}</h3>
@@ -145,28 +149,28 @@ export const query = graphql`
     winePic1: file(relativePath: {eq: "wine_vineyards/wine1.jpg"}) {
       childImageSharp {
         fluid(maxWidth: 3000, quality: 100) {
-          ...GatsbyImageSharpFluid_withWebp
+          ...GatsbyImageSharpFluid_withWebp_tracedSVG
         }
       }
     },
     feature1: file(relativePath: {eq: "wine_vineyards/feature_1.jpg"}) {
       childImageSharp {
         fluid(maxWidth: 3000, quality: 100) {
-          ...GatsbyImageSharpFluid_withWebp
+          ...GatsbyImageSharpFluid_withWebp_tracedSVG
         }
       }
     },
     feature2: file(relativePath: {eq: "wine_vineyards/feature_2.jpg"}) {
       childImageSharp {
         fluid(maxWidth: 3000, quality: 100) {
-          ...GatsbyImageSharpFluid_withWebp
+          ...GatsbyImageSharpFluid_withWebp_tracedSVG
         }
       }
     },
     feature3: file(relativePath: {eq: "wine_vineyards/feature_3.jpg"}) {
       childImageSharp {
         fluid(maxWidth: 3000, quality: 100) {
-          ...GatsbyImageSharpFluid_withWebp
+          ...GatsbyImageSharpFluid_withWebp_tracedSVG
         }
       }
     }
