@@ -12,25 +12,29 @@ import cameraAnim from '../assets/images/lottie/camera';
 import config from '../../config';
 
 import 'react-image-lightbox/style.css';
+import BackgroundImage from 'gatsby-background-image';
 
 
 function GardensPage({data}) {
   const { t } = useTranslation();
 
-  const banner = data.banner.childImageSharp.fluid.srcWebp;
-  const pic1 = data.pic1.childImageSharp.fluid.srcWebp;
-  const pic2 = data.pic2.childImageSharp.fluid.srcWebp;
-  const pic3 = data.pic3.childImageSharp.fluid.srcWebp;
-  const pic4 = data.pic4.childImageSharp.fluid.srcWebp;
-  const pic5 = data.pic5.childImageSharp.fluid.srcWebp;
+  const banner = data.banner.childImageSharp.fluid;
+  const pic1 = data.pic1.childImageSharp.fluid;
+  const pic2 = data.pic2.childImageSharp.fluid;
+  const pic3 = data.pic3.childImageSharp.fluid;
+  const pic4 = data.pic4.childImageSharp.fluid;
+  const pic5 = data.pic5.childImageSharp.fluid;
 
   return (
     <LandingLayout fullMenu>
       <article id="pageMain">
-        <header style={{backgroundImage: `linear-gradient(to top, rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url(${banner})`}}>
+        <BackgroundImage
+          Tag="header"
+          fluid={banner}
+        >
           <h2>{t('gardens:title')}</h2>
           <p>{t('gardens:subHeading')}</p>
-        </header>
+        </BackgroundImage>
 
         <section className="wrapper style5">
           <div className="inner">
@@ -43,11 +47,11 @@ function GardensPage({data}) {
         <section className="wrapper-carousel style5">
           <div className="inner-carousel">
             <Carousel loop widgets={[IndicatorDots]}>
-              <div style={{ backgroundImage:`url(${pic1})`}} className="carousel-image"/>
-              <div style={{ backgroundImage:`url(${pic2})`}} className="carousel-image"/>
-              <div style={{ backgroundImage:`url(${pic3})`}} className="carousel-image"/>
-              <div style={{ backgroundImage:`url(${pic4})`}} className="carousel-image"/>
-              <div style={{ backgroundImage:`url(${pic5})`}} className="carousel-image"/>
+              <BackgroundImage Tag="div" className="carousel-image" fluid={pic1}/>
+              <BackgroundImage Tag="div" className="carousel-image" fluid={pic2}/>
+              <BackgroundImage Tag="div" className="carousel-image" fluid={pic3}/>
+              <BackgroundImage Tag="div" className="carousel-image" fluid={pic4}/>
+              <BackgroundImage Tag="div" className="carousel-image" fluid={pic5}/>
             </Carousel>
           </div>
         </section>
