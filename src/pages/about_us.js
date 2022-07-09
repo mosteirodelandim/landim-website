@@ -11,30 +11,35 @@ import wineAnim from '../assets/images/lottie/wines';
 import servicesAnim from '../assets/images/lottie/services';
 import LandingLayout from '../components/LandingLayout';
 import IndicatorDots from '../components/CarouselDots';
+import BackgroundImage from 'gatsby-background-image';
+import Img from 'gatsby-image';
 
 function AboutUsPage({data}) {
   const { t } = useTranslation();
 
-  const banner = data.banner.childImageSharp.fluid.srcWebp;
-  const history1 = data.history1.childImageSharp.fluid.srcWebp;
-  const history2 = data.history2.childImageSharp.fluid.srcWebp;
-  const wine1 = data.wine1.childImageSharp.fluid.srcWebp;
-  const wine2 = data.wine2.childImageSharp.fluid.srcWebp;
-  const spaces1 = data.spaces1.childImageSharp.fluid.srcWebp;
-  const spaces2 = data.spaces2.childImageSharp.fluid.srcWebp;
-  const spaces3 = data.spaces3.childImageSharp.fluid.srcWebp;
-  const spaces4 = data.spaces4.childImageSharp.fluid.srcWebp;
-  const family1 = data.family1.childImageSharp.fluid.srcWebp;
+  const banner = data.banner.childImageSharp.fluid;
+  const history1 = data.history1.childImageSharp.fluid;
+  const history2 = data.history2.childImageSharp.fluid;
+  const wine1 = data.wine1.childImageSharp.fluid;
+  const wine2 = data.wine2.childImageSharp.fluid;
+  const spaces1 = data.spaces1.childImageSharp.fluid;
+  const spaces2 = data.spaces2.childImageSharp.fluid;
+  const spaces3 = data.spaces3.childImageSharp.fluid;
+  const spaces4 = data.spaces4.childImageSharp.fluid;
+  const family1 = data.family1.childImageSharp.fluid;
 
   return (
     <LandingLayout fullMenu>
       <article id="aboutUsMain">
-        <header style={{backgroundImage: `linear-gradient(to top, rgba(0,0,0,0), rgba(0,0,0,0)), url(${banner})`}}>
+
+        <BackgroundImage
+          Tag="header"
+          fluid={banner}
+        >
           <h2>{t('about_us:heading1')}</h2>
           <h2>{t('about_us:heading2')}</h2>
           <h2>{t('about_us:heading3')}</h2>
-        </header>
-
+        </BackgroundImage>
 
         <section className="wrapper style5">
           <div className="inner">
@@ -51,10 +56,14 @@ function AboutUsPage({data}) {
           <Grid>
             <Row>
               <Col sm={6}>
-                <span className="image fit"><img src={history1} alt="" /></span>
+                <span className="image fit">
+                  <Img fluid={history1}/>
+                </span>
               </Col>
               <Col sm={6}>
-                <span className="image fit"><img src={history2} alt="" /></span>
+                <span className="image fit">
+                  <Img fluid={history2}/>
+                </span>
               </Col>
             </Row>
           </Grid>
@@ -79,7 +88,11 @@ function AboutUsPage({data}) {
 
             <div className="box alt">
               <div className="row gtr-50 gtr-uniform">
-                <div className="col-12"><span className="image fit"><img src={family1} alt="" /></span></div>
+                <div className="col-12">
+                  <span className="image fit">
+                    <Img fluid={family1}/>
+                  </span>
+                </div>
               </div>
             </div>
 
@@ -131,8 +144,8 @@ function AboutUsPage({data}) {
         <section className="wrapper-carousel style5">
           <div className="inner-carousel">
             <Carousel loop widgets={[IndicatorDots]}>
-              <div style={{ backgroundImage:`url(${wine1})`}} className="carousel-image"/>
-              <div style={{ backgroundImage:`url(${wine2})`}} className="carousel-image"/>
+              <BackgroundImage Tag="div" className="carousel-image" fluid={wine1}/>
+              <BackgroundImage Tag="div" className="carousel-image" fluid={wine2}/>
             </Carousel>
           </div>
         </section>
@@ -181,7 +194,7 @@ function AboutUsPage({data}) {
             <Row>
               <Col lg={3} md={6}>
                 <span className="image fit hover-container">
-                  <img src={spaces1} alt="" />
+                  <Img fluid={spaces1}/>
                   <div className="overlay">
                     <div className="text">
                       <h2>{t('about_us:services_spaces.images.image1.title')}</h2>
@@ -192,7 +205,7 @@ function AboutUsPage({data}) {
               </Col>
               <Col lg={3} md={6}>
                 <span className="image fit hover-container">
-                  <img src={spaces2} alt="" />
+                  <Img fluid={spaces2}/>
                   <div className="overlay">
                     <div className="text">
                       <h2>{t('about_us:services_spaces.images.image2.title')}</h2>
@@ -203,7 +216,7 @@ function AboutUsPage({data}) {
               </Col>
               <Col lg={3} md={6}>
                 <span className="image fit hover-container">
-                  <img src={spaces3} alt="" />
+                  <Img fluid={spaces3}/>
                   <div className="overlay">
                     <div className="text">
                       <h2>{t('about_us:services_spaces.images.image3.title')}</h2>
@@ -216,7 +229,7 @@ function AboutUsPage({data}) {
               </Col>
               <Col lg={3} md={6}>
                 <span className="image fit hover-container">
-                  <img src={spaces4} alt="" />
+                  <Img fluid={spaces4}/>
                   <div className="overlay">
                     <div className="text">
                       <h2>{t('about_us:services_spaces.images.image4.title')}</h2>
@@ -263,18 +276,18 @@ export const query = graphql`
   query {
     banner: file(relativePath: {eq: "about_us/banner.jpg"}) { childImageSharp { fluid(maxWidth: 3000, quality: 100) { ...GatsbyImageSharpFluid_withWebp }}},
     
-    history1: file(relativePath: {eq: "about_us/history1.jpg"}) { childImageSharp { fluid(maxWidth: 3000, quality: 100) { ...GatsbyImageSharpFluid_withWebp }}},
-    history2: file(relativePath: {eq: "about_us/history2.jpg"}) { childImageSharp { fluid(maxWidth: 3000, quality: 100) { ...GatsbyImageSharpFluid_withWebp }}},
+    history1: file(relativePath: {eq: "about_us/history1.jpg"}) { childImageSharp { fluid(maxWidth: 3000, quality: 100) { ...GatsbyImageSharpFluid_withWebp_tracedSVG }}},
+    history2: file(relativePath: {eq: "about_us/history2.jpg"}) { childImageSharp { fluid(maxWidth: 3000, quality: 100) { ...GatsbyImageSharpFluid_withWebp_tracedSVG }}},
     
     wine1: file(relativePath: {eq: "about_us/wines1.jpg"}) { childImageSharp { fluid(maxWidth: 3000, quality: 100) { ...GatsbyImageSharpFluid_withWebp }}},
     wine2: file(relativePath: {eq: "about_us/wines2.jpg"}) { childImageSharp { fluid(maxWidth: 3000, quality: 100) { ...GatsbyImageSharpFluid_withWebp }}},
        
-    spaces1: file(relativePath: {eq: "about_us/spaces1.jpg"}) { childImageSharp { fluid(maxWidth: 3000, quality: 100) { ...GatsbyImageSharpFluid_withWebp }}},
-    spaces2: file(relativePath: {eq: "about_us/spaces2.jpg"}) { childImageSharp { fluid(maxWidth: 3000, quality: 100) { ...GatsbyImageSharpFluid_withWebp }}},
-    spaces3: file(relativePath: {eq: "about_us/spaces3.jpg"}) { childImageSharp { fluid(maxWidth: 3000, quality: 100) { ...GatsbyImageSharpFluid_withWebp }}},
-    spaces4: file(relativePath: {eq: "about_us/spaces4.png"}) { childImageSharp { fluid(maxWidth: 3000, quality: 100) { ...GatsbyImageSharpFluid_withWebp }}},
+    spaces1: file(relativePath: {eq: "about_us/spaces1.jpg"}) { childImageSharp { fluid(maxWidth: 3000, quality: 100) { ...GatsbyImageSharpFluid_withWebp_tracedSVG }}},
+    spaces2: file(relativePath: {eq: "about_us/spaces2.jpg"}) { childImageSharp { fluid(maxWidth: 3000, quality: 100) { ...GatsbyImageSharpFluid_withWebp_tracedSVG }}},
+    spaces3: file(relativePath: {eq: "about_us/spaces3.jpg"}) { childImageSharp { fluid(maxWidth: 3000, quality: 100) { ...GatsbyImageSharpFluid_withWebp_tracedSVG }}},
+    spaces4: file(relativePath: {eq: "about_us/spaces4.png"}) { childImageSharp { fluid(maxWidth: 3000, quality: 100) { ...GatsbyImageSharpFluid_withWebp_tracedSVG }}},
     
-    family1: file(relativePath: {eq: "about_us/family1.jpg"}) { childImageSharp { fluid(maxWidth: 3000, quality: 100) { ...GatsbyImageSharpFluid_withWebp }}},
+    family1: file(relativePath: {eq: "about_us/family1.jpg"}) { childImageSharp { fluid(maxWidth: 3000, quality: 100) { ...GatsbyImageSharpFluid_withWebp_tracedSVG }}},
   }
 `;
 
