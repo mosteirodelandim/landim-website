@@ -6,6 +6,8 @@ import ScrollUpButton from "react-scroll-up-button";
 import 'react-image-lightbox/style.css';
 import Scroll from '../components/Scroll';
 import { graphql } from 'gatsby';
+import BackgroundImage from 'gatsby-background-image';
+import Img from 'gatsby-image';
 
 
 function HistoryPage({data}) {
@@ -16,57 +18,57 @@ function HistoryPage({data}) {
   const [photoIndex, setPhotoIndex] = useState(0);
 
   // Images
-  const banner = data.banner.childImageSharp.fluid.srcWebp;
+  const banner = data.banner.childImageSharp.fluid;
 
   /* Origin and Architecture */
-  const originPic1 = data.originPic1.childImageSharp.fluid.srcWebp;
-  const originPic2 = data.originPic2.childImageSharp.fluid.srcWebp;
-  const originPic3 = data.originPic3.childImageSharp.fluid.srcWebp;
-  const originPic4 = data.originPic4.childImageSharp.fluid.srcWebp;
-  const originPic5 = data.originPic5.childImageSharp.fluid.srcWebp;
-  const originPic6 = data.originPic6.childImageSharp.fluid.srcWebp;
-  const originPic7 = data.originPic7.childImageSharp.fluid.srcWebp;
-  const originPic8 = data.originPic8.childImageSharp.fluid.srcWebp;
+  const originPic1 = data.originPic1.childImageSharp.fluid;
+  const originPic2 = data.originPic2.childImageSharp.fluid;
+  const originPic3 = data.originPic3.childImageSharp.fluid;
+  const originPic4 = data.originPic4.childImageSharp.fluid;
+  const originPic5 = data.originPic5.childImageSharp.fluid;
+  const originPic6 = data.originPic6.childImageSharp.fluid;
+  const originPic7 = data.originPic7.childImageSharp.fluid;
+  const originPic8 = data.originPic8.childImageSharp.fluid;
 
   /* Priests */
-  const priestPic1 = data.priestPic1.childImageSharp.fluid.srcWebp;
-  const priestPic2 = data.priestPic2.childImageSharp.fluid.srcWebp;
+  const priestPic1 = data.priestPic1.childImageSharp.fluid;
+  const priestPic2 = data.priestPic2.childImageSharp.fluid;
 
   /* Extinction */
-  const brevePic1 = data.brevePic1.childImageSharp.fluid.srcWebp;
-  const brevePic2 = data.brevePic2.childImageSharp.fluid.srcWebp;
-  const brevePic3 = data.brevePic3.childImageSharp.fluid.srcWebp;
-  const brevePic4 = data.brevePic4.childImageSharp.fluid.srcWebp;
-  const brevePic5 = data.brevePic5.childImageSharp.fluid.srcWebp;
-  const brevePic6 = data.brevePic6.childImageSharp.fluid.srcWebp;
-  const brevePic7 = data.brevePic7.childImageSharp.fluid.srcWebp;
-  const brevePic8 = data.brevePic8.childImageSharp.fluid.srcWebp;
-  const brevePic9 = data.brevePic9.childImageSharp.fluid.srcWebp;
-  const brevePic10 = data.brevePic10.childImageSharp.fluid.srcWebp;
-  const brevePic11 = data.brevePic11.childImageSharp.fluid.srcWebp;
-  const brevePic12 = data.brevePic12.childImageSharp.fluid.srcWebp;
-  const brevePic13 = data.brevePic13.childImageSharp.fluid.srcWebp;
-  const brevePic14 = data.brevePic14.childImageSharp.fluid.srcWebp;
-  const receitaPic1 = data.receitaPic1.childImageSharp.fluid.srcWebp;
-  const receitaPic2 = data.receitaPic2.childImageSharp.fluid.srcWebp;
-  const receitaPic3 = data.receitaPic3.childImageSharp.fluid.srcWebp;
-  const receitaPic4 = data.receitaPic4.childImageSharp.fluid.srcWebp;
-  const receitaPic5 = data.receitaPic5.childImageSharp.fluid.srcWebp;
+  const brevePic1 = data.brevePic1.childImageSharp.fluid;
+  const brevePic2 = data.brevePic2.childImageSharp.fluid;
+  const brevePic3 = data.brevePic3.childImageSharp.fluid;
+  const brevePic4 = data.brevePic4.childImageSharp.fluid;
+  const brevePic5 = data.brevePic5.childImageSharp.fluid;
+  const brevePic6 = data.brevePic6.childImageSharp.fluid;
+  const brevePic7 = data.brevePic7.childImageSharp.fluid;
+  const brevePic8 = data.brevePic8.childImageSharp.fluid;
+  const brevePic9 = data.brevePic9.childImageSharp.fluid;
+  const brevePic10 = data.brevePic10.childImageSharp.fluid;
+  const brevePic11 = data.brevePic11.childImageSharp.fluid;
+  const brevePic12 = data.brevePic12.childImageSharp.fluid;
+  const brevePic13 = data.brevePic13.childImageSharp.fluid;
+  const brevePic14 = data.brevePic14.childImageSharp.fluid;
+  const receitaPic1 = data.receitaPic1.childImageSharp.fluid;
+  const receitaPic2 = data.receitaPic2.childImageSharp.fluid;
+  const receitaPic3 = data.receitaPic3.childImageSharp.fluid;
+  const receitaPic4 = data.receitaPic4.childImageSharp.fluid;
+  const receitaPic5 = data.receitaPic5.childImageSharp.fluid;
 
   /* Sale */
-  const salePic1 = data.salePic1.childImageSharp.fluid.srcWebp;
-  const salePic2 = data.salePic2.childImageSharp.fluid.srcWebp;
+  const salePic1 = data.salePic1.childImageSharp.fluid;
+  const salePic2 = data.salePic2.childImageSharp.fluid;
 
   /* Notable people */
-  const camiloPic1 = data.camiloPic1.childImageSharp.fluid.srcWebp;
-  const camiloPic2 = data.camiloPic2.childImageSharp.fluid.srcWebp;
-  const camiloPic3 = data.camiloPic3.childImageSharp.fluid.srcWebp;
-  const albertoPic4 = data.albertoPic4.childImageSharp.fluid.srcWebp;
-  const albertoPic5 = data.albertoPic5.childImageSharp.fluid.srcWebp;
-  const sebastiaoPic6 = data.sebastiaoPic6.childImageSharp.fluid.srcWebp;
+  const camiloPic1 = data.camiloPic1.childImageSharp.fluid;
+  const camiloPic2 = data.camiloPic2.childImageSharp.fluid;
+  const camiloPic3 = data.camiloPic3.childImageSharp.fluid;
+  const albertoPic4 = data.albertoPic4.childImageSharp.fluid;
+  const albertoPic5 = data.albertoPic5.childImageSharp.fluid;
+  const sebastiaoPic6 = data.sebastiaoPic6.childImageSharp.fluid;
 
   /* Book */
-  const bookPic1 = data.bookPic1.childImageSharp.fluid.srcWebp;
+  const bookPic1 = data.bookPic1.childImageSharp.fluid;
 
   // Image and caption array
   const images = [originPic1, originPic2, originPic3, originPic4, originPic5, originPic6,
@@ -107,7 +109,7 @@ function HistoryPage({data}) {
           className="image left"
           style={{ width: '25vh' }}
         >
-          <img src={originPic1} alt="" />
+          <Img fluid={originPic1}/>
           {t('history:origins_architecture.imagesCaptions.picture1')}
         </span>
           <p
@@ -126,7 +128,7 @@ function HistoryPage({data}) {
           className="image right"
           style={{ width: '35vh' }}
         >
-          <img src={originPic2} alt="" />
+          <Img fluid={originPic2}/>
           {t('history:origins_architecture.imagesCaptions.picture2')}
         </span>
           <p
@@ -154,7 +156,7 @@ function HistoryPage({data}) {
               }}
             >
             <span className="image fit">
-              <img src={originPic5} alt="" />
+              <Img fluid={originPic5}/>
               {t('history:origins_architecture.imagesCaptions.picture5')}
             </span>
             </div>
@@ -166,7 +168,7 @@ function HistoryPage({data}) {
               }}
             >
             <span className="image fit" style={{ textAlign: 'right' }}>
-              <img src={originPic6} alt="" />
+              <Img fluid={originPic6}/>
               {t('history:origins_architecture.imagesCaptions.picture6')}
             </span>
             </div>
@@ -195,7 +197,7 @@ function HistoryPage({data}) {
           className="image right"
           style={{ width: '35vh' }}
         >
-          <img src={priestPic1} alt="" />
+          <Img fluid={priestPic1}/>
           {t('history:priests_commissioners.imagesCaptions.picture1')}
         </span>
           <p
@@ -239,7 +241,7 @@ function HistoryPage({data}) {
           className="image left"
           style={{ width: '35vh' }}
         >
-          <img src={priestPic2} alt="" />
+          <Img fluid={priestPic2}/>
           {t('history:priests_commissioners.imagesCaptions.picture2')}
         </span>
           <p
@@ -282,7 +284,7 @@ function HistoryPage({data}) {
           className="image right"
           style={{ width: '30vh' }}
         >
-          <img src={brevePic1} alt="" />
+          <Img fluid={brevePic1}/>
           {t('history:extinction.imagesCaptions.breve1')}
         </span>
           <p
@@ -307,7 +309,7 @@ function HistoryPage({data}) {
           className="image left"
           style={{ width: '23vh' }}
         >
-          <img src={receitaPic1} alt="" />
+          <Img fluid={receitaPic1}/>
           {t('history:extinction.imagesCaptions.receita1')}
         </span>
           <p
@@ -339,7 +341,7 @@ function HistoryPage({data}) {
           className="image right"
           style={{ width: '35vh' }}
         >
-          <img src={salePic1} alt="" />
+          <Img fluid={salePic1}/>
           {t('history:sale.imagesCaptions.picture1')}
         </span>
           <p
@@ -356,7 +358,7 @@ function HistoryPage({data}) {
             className="image left"
             style={{ width: '35vh' }}
           >
-          <img src={salePic2} alt="" />
+            <Img fluid={salePic2}/>
             {t('history:sale.imagesCaptions.picture2')}
         </span>
           <p
@@ -399,7 +401,7 @@ function HistoryPage({data}) {
           className="image right"
           style={{ width: '30vh' }}
         >
-          <img src={camiloPic1} alt="" />
+          <Img fluid={camiloPic1}/>
           {t('history:notable_people.imagesCaptions.camilo1')}
         </span>
           <p
@@ -425,7 +427,7 @@ function HistoryPage({data}) {
               }}
             >
             <span className="image fit">
-              <img src={camiloPic2} alt="" />
+              <Img fluid={camiloPic2}/>
               {t('history:notable_people.camilo.lettersCaption')}
             </span>
             </div>
@@ -437,7 +439,7 @@ function HistoryPage({data}) {
               }}
             >
             <span className="image fit" style={{ textAlign: 'right' }}>
-              <img src={camiloPic3} alt="" />
+              <Img fluid={camiloPic3}/>
             </span>
             </div>
           </div>
@@ -457,7 +459,7 @@ function HistoryPage({data}) {
           className="image left"
           style={{ width: '35vh' }}
         >
-          <img src={albertoPic4} alt="" />
+          <Img fluid={albertoPic4}/>
           {t('history:notable_people.imagesCaptions.alberto4')}
         </span>
           <p
@@ -481,7 +483,7 @@ function HistoryPage({data}) {
           className="image right"
           style={{ width: '25vh' }}
         >
-          <img src={sebastiaoPic6} alt="" />
+          <Img fluid={sebastiaoPic6}/>
           {t('history:notable_people.imagesCaptions.sebastiao6')}
         </span>
           <p
@@ -515,7 +517,7 @@ function HistoryPage({data}) {
           className="image right"
           style={{ width: '30vh' }}
         >
-        <img src={bookPic1} alt="" />
+          <Img fluid={bookPic1}/>
           {t('history:book.imagesCaptions.book1')}
       </span>
         <blockquote>{t('history:book.quote', { interpolation: { escapeValue: false } })}</blockquote>
@@ -530,10 +532,13 @@ function HistoryPage({data}) {
       <ScrollUpButton />
       <LandingLayout fullMenu>
         <article id="historyMain">
-          <header style={{backgroundImage: `linear-gradient(to top, rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url(${banner})`}}>
+          <BackgroundImage
+            Tag="header"
+            fluid={banner}
+          >
             <h2>{t('history:title')}</h2>
             <p>{t('history:subHeading')}</p>
-          </header>
+          </BackgroundImage>
           <section className="wrapper style5" style={{paddingTop: "2em"}}>
             <div className="inner">
               <p style={{fontSize: "small"}}>
@@ -565,9 +570,9 @@ function HistoryPage({data}) {
 
       {lightboxIsOpen && (
         <Lightbox
-          mainSrc={images[photoIndex]}
-          nextSrc={images[(photoIndex + 1) % images.length]}
-          prevSrc={images[(photoIndex + images.length - 1) % images.length]}
+          mainSrc={images[photoIndex].srcWebp}
+          nextSrc={images[(photoIndex + 1) % images.length].srcWebp}
+          prevSrc={images[(photoIndex + images.length - 1) % images.length].srcWebp}
           onCloseRequest={() => setToggleLightbox(false)}
           onMovePrevRequest={() => setPhotoIndex((photoIndex + images.length - 1) % images.length)}
           onMoveNextRequest={() => setPhotoIndex((photoIndex + 1) % images.length)}
@@ -582,49 +587,49 @@ function HistoryPage({data}) {
 export const query = graphql`
   query {
     banner: file(relativePath: {eq: "history/banner.jpg"}) { childImageSharp { fluid(maxWidth: 3000, quality: 100) { ...GatsbyImageSharpFluid_withWebp }}},
-    originPic1: file(relativePath: {eq: "history/origins_architecture/pic1.jpg"}) { childImageSharp { fluid(maxWidth: 3000, quality: 100) { ...GatsbyImageSharpFluid_withWebp }}},
-    originPic2: file(relativePath: {eq: "history/origins_architecture/pic2.jpg"}) { childImageSharp { fluid(maxWidth: 3000, quality: 100) { ...GatsbyImageSharpFluid_withWebp }}},
-    originPic3: file(relativePath: {eq: "history/origins_architecture/pic3.jpg"}) { childImageSharp { fluid(maxWidth: 3000, quality: 100) { ...GatsbyImageSharpFluid_withWebp }}},
-    originPic4: file(relativePath: {eq: "history/origins_architecture/pic4.jpg"}) { childImageSharp { fluid(maxWidth: 3000, quality: 100) { ...GatsbyImageSharpFluid_withWebp }}},
-    originPic5: file(relativePath: {eq: "history/origins_architecture/pic5.jpg"}) { childImageSharp { fluid(maxWidth: 3000, quality: 100) { ...GatsbyImageSharpFluid_withWebp }}},
-    originPic6: file(relativePath: {eq: "history/origins_architecture/pic6.jpg"}) { childImageSharp { fluid(maxWidth: 3000, quality: 100) { ...GatsbyImageSharpFluid_withWebp }}},
-    originPic7: file(relativePath: {eq: "history/origins_architecture/pic7.jpg"}) { childImageSharp { fluid(maxWidth: 3000, quality: 100) { ...GatsbyImageSharpFluid_withWebp }}},
-    originPic8: file(relativePath: {eq: "history/origins_architecture/pic8.jpg"}) { childImageSharp { fluid(maxWidth: 3000, quality: 100) { ...GatsbyImageSharpFluid_withWebp }}},
+    originPic1: file(relativePath: {eq: "history/origins_architecture/pic1.jpg"}) { childImageSharp { fluid(maxWidth: 3000, quality: 100) { ...GatsbyImageSharpFluid_withWebp_tracedSVG }}},
+    originPic2: file(relativePath: {eq: "history/origins_architecture/pic2.jpg"}) { childImageSharp { fluid(maxWidth: 3000, quality: 100) { ...GatsbyImageSharpFluid_withWebp_tracedSVG }}},
+    originPic3: file(relativePath: {eq: "history/origins_architecture/pic3.jpg"}) { childImageSharp { fluid(maxWidth: 3000, quality: 100) { ...GatsbyImageSharpFluid_withWebp_tracedSVG }}},
+    originPic4: file(relativePath: {eq: "history/origins_architecture/pic4.jpg"}) { childImageSharp { fluid(maxWidth: 3000, quality: 100) { ...GatsbyImageSharpFluid_withWebp_tracedSVG }}},
+    originPic5: file(relativePath: {eq: "history/origins_architecture/pic5.jpg"}) { childImageSharp { fluid(maxWidth: 3000, quality: 100) { ...GatsbyImageSharpFluid_withWebp_tracedSVG }}},
+    originPic6: file(relativePath: {eq: "history/origins_architecture/pic6.jpg"}) { childImageSharp { fluid(maxWidth: 3000, quality: 100) { ...GatsbyImageSharpFluid_withWebp_tracedSVG }}},
+    originPic7: file(relativePath: {eq: "history/origins_architecture/pic7.jpg"}) { childImageSharp { fluid(maxWidth: 3000, quality: 100) { ...GatsbyImageSharpFluid_withWebp_tracedSVG }}},
+    originPic8: file(relativePath: {eq: "history/origins_architecture/pic8.jpg"}) { childImageSharp { fluid(maxWidth: 3000, quality: 100) { ...GatsbyImageSharpFluid_withWebp_tracedSVG }}},
     
-    priestPic1: file(relativePath: {eq: "history/priests/pic1.jpg"}) { childImageSharp { fluid(maxWidth: 3000, quality: 100) { ...GatsbyImageSharpFluid_withWebp }}},
-    priestPic2: file(relativePath: {eq: "history/priests/pic2.jpg"}) { childImageSharp { fluid(maxWidth: 3000, quality: 100) { ...GatsbyImageSharpFluid_withWebp }}},
+    priestPic1: file(relativePath: {eq: "history/priests/pic1.jpg"}) { childImageSharp { fluid(maxWidth: 3000, quality: 100) { ...GatsbyImageSharpFluid_withWebp_tracedSVG }}},
+    priestPic2: file(relativePath: {eq: "history/priests/pic2.jpg"}) { childImageSharp { fluid(maxWidth: 3000, quality: 100) { ...GatsbyImageSharpFluid_withWebp_tracedSVG }}},
     
-    brevePic1 : file(relativePath: {eq: "history/extinction/Breve1.jpg"}) { childImageSharp { fluid(maxWidth: 3000, quality: 100) { ...GatsbyImageSharpFluid_withWebp }}},
-    brevePic2 : file(relativePath: {eq: "history/extinction/Breve2.jpg"}) { childImageSharp { fluid(maxWidth: 3000, quality: 100) { ...GatsbyImageSharpFluid_withWebp }}},
-    brevePic3 : file(relativePath: {eq: "history/extinction/Breve3.jpg"}) { childImageSharp { fluid(maxWidth: 3000, quality: 100) { ...GatsbyImageSharpFluid_withWebp }}},
-    brevePic4 : file(relativePath: {eq: "history/extinction/Breve4.jpg"}) { childImageSharp { fluid(maxWidth: 3000, quality: 100) { ...GatsbyImageSharpFluid_withWebp }}},
-    brevePic5 : file(relativePath: {eq: "history/extinction/Breve5.jpg"}) { childImageSharp { fluid(maxWidth: 3000, quality: 100) { ...GatsbyImageSharpFluid_withWebp }}},
-    brevePic6 : file(relativePath: {eq: "history/extinction/Breve6.jpg"}) { childImageSharp { fluid(maxWidth: 3000, quality: 100) { ...GatsbyImageSharpFluid_withWebp }}},
-    brevePic7 : file(relativePath: {eq: "history/extinction/Breve7.jpg"}) { childImageSharp { fluid(maxWidth: 3000, quality: 100) { ...GatsbyImageSharpFluid_withWebp }}},
-    brevePic8 : file(relativePath: {eq: "history/extinction/Breve8.jpg"}) { childImageSharp { fluid(maxWidth: 3000, quality: 100) { ...GatsbyImageSharpFluid_withWebp }}},
-    brevePic9 : file(relativePath: {eq: "history/extinction/Breve9.jpg"}) { childImageSharp { fluid(maxWidth: 3000, quality: 100) { ...GatsbyImageSharpFluid_withWebp }}},
-    brevePic10: file(relativePath: {eq: "history/extinction/Breve10.jpg"}) { childImageSharp { fluid(maxWidth: 3000, quality: 100) { ...GatsbyImageSharpFluid_withWebp }}},
-    brevePic11: file(relativePath: {eq: "history/extinction/Breve11.jpg"}) { childImageSharp { fluid(maxWidth: 3000, quality: 100) { ...GatsbyImageSharpFluid_withWebp }}},
-    brevePic12: file(relativePath: {eq: "history/extinction/Breve12.jpg"}) { childImageSharp { fluid(maxWidth: 3000, quality: 100) { ...GatsbyImageSharpFluid_withWebp }}},
-    brevePic13: file(relativePath: {eq: "history/extinction/Breve13.jpg"}) { childImageSharp { fluid(maxWidth: 3000, quality: 100) { ...GatsbyImageSharpFluid_withWebp }}},
-    brevePic14: file(relativePath: {eq: "history/extinction/Breve14.jpg"}) { childImageSharp { fluid(maxWidth: 3000, quality: 100) { ...GatsbyImageSharpFluid_withWebp }}},
-    receitaPic1: file(relativePath: {eq: "history/extinction/Receita1.jpg"}) { childImageSharp { fluid(maxWidth: 3000, quality: 100) { ...GatsbyImageSharpFluid_withWebp }}},
-    receitaPic2: file(relativePath: {eq: "history/extinction/Receita2.jpg"}) { childImageSharp { fluid(maxWidth: 3000, quality: 100) { ...GatsbyImageSharpFluid_withWebp }}},
-    receitaPic3: file(relativePath: {eq: "history/extinction/Receita3.jpg"}) { childImageSharp { fluid(maxWidth: 3000, quality: 100) { ...GatsbyImageSharpFluid_withWebp }}},
-    receitaPic4: file(relativePath: {eq: "history/extinction/Receita4.jpg"}) { childImageSharp { fluid(maxWidth: 3000, quality: 100) { ...GatsbyImageSharpFluid_withWebp }}},
-    receitaPic5: file(relativePath: {eq: "history/extinction/Receita5.jpg"}) { childImageSharp { fluid(maxWidth: 3000, quality: 100) { ...GatsbyImageSharpFluid_withWebp }}},
+    brevePic1 : file(relativePath: {eq: "history/extinction/Breve1.jpg"}) { childImageSharp { fluid(maxWidth: 3000, quality: 100) { ...GatsbyImageSharpFluid_withWebp_tracedSVG }}},
+    brevePic2 : file(relativePath: {eq: "history/extinction/Breve2.jpg"}) { childImageSharp { fluid(maxWidth: 3000, quality: 100) { ...GatsbyImageSharpFluid_withWebp_tracedSVG }}},
+    brevePic3 : file(relativePath: {eq: "history/extinction/Breve3.jpg"}) { childImageSharp { fluid(maxWidth: 3000, quality: 100) { ...GatsbyImageSharpFluid_withWebp_tracedSVG }}},
+    brevePic4 : file(relativePath: {eq: "history/extinction/Breve4.jpg"}) { childImageSharp { fluid(maxWidth: 3000, quality: 100) { ...GatsbyImageSharpFluid_withWebp_tracedSVG }}},
+    brevePic5 : file(relativePath: {eq: "history/extinction/Breve5.jpg"}) { childImageSharp { fluid(maxWidth: 3000, quality: 100) { ...GatsbyImageSharpFluid_withWebp_tracedSVG }}},
+    brevePic6 : file(relativePath: {eq: "history/extinction/Breve6.jpg"}) { childImageSharp { fluid(maxWidth: 3000, quality: 100) { ...GatsbyImageSharpFluid_withWebp_tracedSVG }}},
+    brevePic7 : file(relativePath: {eq: "history/extinction/Breve7.jpg"}) { childImageSharp { fluid(maxWidth: 3000, quality: 100) { ...GatsbyImageSharpFluid_withWebp_tracedSVG }}},
+    brevePic8 : file(relativePath: {eq: "history/extinction/Breve8.jpg"}) { childImageSharp { fluid(maxWidth: 3000, quality: 100) { ...GatsbyImageSharpFluid_withWebp_tracedSVG }}},
+    brevePic9 : file(relativePath: {eq: "history/extinction/Breve9.jpg"}) { childImageSharp { fluid(maxWidth: 3000, quality: 100) { ...GatsbyImageSharpFluid_withWebp_tracedSVG }}},
+    brevePic10: file(relativePath: {eq: "history/extinction/Breve10.jpg"}) { childImageSharp { fluid(maxWidth: 3000, quality: 100) { ...GatsbyImageSharpFluid_withWebp_tracedSVG }}},
+    brevePic11: file(relativePath: {eq: "history/extinction/Breve11.jpg"}) { childImageSharp { fluid(maxWidth: 3000, quality: 100) { ...GatsbyImageSharpFluid_withWebp_tracedSVG }}},
+    brevePic12: file(relativePath: {eq: "history/extinction/Breve12.jpg"}) { childImageSharp { fluid(maxWidth: 3000, quality: 100) { ...GatsbyImageSharpFluid_withWebp_tracedSVG }}},
+    brevePic13: file(relativePath: {eq: "history/extinction/Breve13.jpg"}) { childImageSharp { fluid(maxWidth: 3000, quality: 100) { ...GatsbyImageSharpFluid_withWebp_tracedSVG }}},
+    brevePic14: file(relativePath: {eq: "history/extinction/Breve14.jpg"}) { childImageSharp { fluid(maxWidth: 3000, quality: 100) { ...GatsbyImageSharpFluid_withWebp_tracedSVG }}},
+    receitaPic1: file(relativePath: {eq: "history/extinction/Receita1.jpg"}) { childImageSharp { fluid(maxWidth: 3000, quality: 100) { ...GatsbyImageSharpFluid_withWebp_tracedSVG }}},
+    receitaPic2: file(relativePath: {eq: "history/extinction/Receita2.jpg"}) { childImageSharp { fluid(maxWidth: 3000, quality: 100) { ...GatsbyImageSharpFluid_withWebp_tracedSVG }}},
+    receitaPic3: file(relativePath: {eq: "history/extinction/Receita3.jpg"}) { childImageSharp { fluid(maxWidth: 3000, quality: 100) { ...GatsbyImageSharpFluid_withWebp_tracedSVG }}},
+    receitaPic4: file(relativePath: {eq: "history/extinction/Receita4.jpg"}) { childImageSharp { fluid(maxWidth: 3000, quality: 100) { ...GatsbyImageSharpFluid_withWebp_tracedSVG }}},
+    receitaPic5: file(relativePath: {eq: "history/extinction/Receita5.jpg"}) { childImageSharp { fluid(maxWidth: 3000, quality: 100) { ...GatsbyImageSharpFluid_withWebp_tracedSVG }}},
     
-    salePic1: file(relativePath: {eq: "history/sale/picture1.jpg"}) { childImageSharp { fluid(maxWidth: 3000, quality: 100) { ...GatsbyImageSharpFluid_withWebp }}},
-    salePic2: file(relativePath: {eq: "history/sale/picture2.jpg"}) { childImageSharp { fluid(maxWidth: 3000, quality: 100) { ...GatsbyImageSharpFluid_withWebp }}},
+    salePic1: file(relativePath: {eq: "history/sale/picture1.jpg"}) { childImageSharp { fluid(maxWidth: 3000, quality: 100) { ...GatsbyImageSharpFluid_withWebp_tracedSVG }}},
+    salePic2: file(relativePath: {eq: "history/sale/picture2.jpg"}) { childImageSharp { fluid(maxWidth: 3000, quality: 100) { ...GatsbyImageSharpFluid_withWebp_tracedSVG }}},
     
-    camiloPic1: file(relativePath: {eq: "history/notable_people/camilo.jpg"}) { childImageSharp { fluid(maxWidth: 3000, quality: 100) { ...GatsbyImageSharpFluid_withWebp }}},
-    camiloPic2: file(relativePath: {eq: "history/notable_people/camilo2.jpg"}) { childImageSharp { fluid(maxWidth: 3000, quality: 100) { ...GatsbyImageSharpFluid_withWebp }}},
-    camiloPic3: file(relativePath: {eq: "history/notable_people/camilo3.jpg"}) { childImageSharp { fluid(maxWidth: 3000, quality: 100) { ...GatsbyImageSharpFluid_withWebp }}},
-    albertoPic4: file(relativePath: {eq: "history/notable_people/alberto1.jpg"}) { childImageSharp { fluid(maxWidth: 3000, quality: 100) { ...GatsbyImageSharpFluid_withWebp }}},
-    albertoPic5: file(relativePath: {eq: "history/notable_people/alberto2.jpg"}) { childImageSharp { fluid(maxWidth: 3000, quality: 100) { ...GatsbyImageSharpFluid_withWebp }}},
-    sebastiaoPic6: file(relativePath: {eq: "history/notable_people/sebastiao1.jpg"}) { childImageSharp { fluid(maxWidth: 3000, quality: 100) { ...GatsbyImageSharpFluid_withWebp }}},
+    camiloPic1: file(relativePath: {eq: "history/notable_people/camilo.jpg"}) { childImageSharp { fluid(maxWidth: 3000, quality: 100) { ...GatsbyImageSharpFluid_withWebp_tracedSVG }}},
+    camiloPic2: file(relativePath: {eq: "history/notable_people/camilo2.jpg"}) { childImageSharp { fluid(maxWidth: 3000, quality: 100) { ...GatsbyImageSharpFluid_withWebp_tracedSVG }}},
+    camiloPic3: file(relativePath: {eq: "history/notable_people/camilo3.jpg"}) { childImageSharp { fluid(maxWidth: 3000, quality: 100) { ...GatsbyImageSharpFluid_withWebp_tracedSVG }}},
+    albertoPic4: file(relativePath: {eq: "history/notable_people/alberto1.jpg"}) { childImageSharp { fluid(maxWidth: 3000, quality: 100) { ...GatsbyImageSharpFluid_withWebp_tracedSVG }}},
+    albertoPic5: file(relativePath: {eq: "history/notable_people/alberto2.jpg"}) { childImageSharp { fluid(maxWidth: 3000, quality: 100) { ...GatsbyImageSharpFluid_withWebp_tracedSVG }}},
+    sebastiaoPic6: file(relativePath: {eq: "history/notable_people/sebastiao1.jpg"}) { childImageSharp { fluid(maxWidth: 3000, quality: 100) { ...GatsbyImageSharpFluid_withWebp_tracedSVG }}},
     
-    bookPic1: file(relativePath: {eq: "history/book/book1.jpg"}) { childImageSharp { fluid(maxWidth: 3000, quality: 100) { ...GatsbyImageSharpFluid_withWebp }}}
+    bookPic1: file(relativePath: {eq: "history/book/book1.jpg"}) { childImageSharp { fluid(maxWidth: 3000, quality: 100) { ...GatsbyImageSharpFluid_withWebp_tracedSVG }}}
   }
 `;
 
