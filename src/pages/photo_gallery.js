@@ -7,6 +7,7 @@ import LandingLayout from '../components/LandingLayout';
 
 import 'react-image-lightbox/style.css';
 import Lightbox from 'react-image-lightbox';
+import BackgroundImage from 'gatsby-background-image';
 
 function ImageGallery({images, onImageClick}) {
   return images.map(img => (
@@ -23,7 +24,7 @@ function PhotoGalleryPage({ data }) {
   const [lightboxIsOpen, setToggleLightbox] = useState(false);
   const [photoIndex, setPhotoIndex] = useState(0);
 
-  const banner = data.banner.childImageSharp.fluid.srcWebp;
+  const banner = data.banner.childImageSharp.fluid;
   const garden = data.garden.edges;
   const cloister = data.cloister.edges;
   const rooms = data.rooms.edges;
@@ -40,10 +41,14 @@ function PhotoGalleryPage({ data }) {
   return (
     <LandingLayout fullMenu>
       <article id="pageMain">
-        <header style={{backgroundImage: `linear-gradient(to top, rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url(${banner})`}}>
+        <BackgroundImage
+          Tag="header"
+          fluid={banner}
+        >
           <h2>{t('photo_gallery:title')}</h2>
           <p>{t('photo_gallery:subHeading')}</p>
-        </header>
+        </BackgroundImage>
+
 
         <section className="wrapper style5">
           <div className="inner">
@@ -154,34 +159,34 @@ export const query = graphql`
 query ImagesForGallery {
   church: allFile(filter: {relativeDirectory: {eq: "photo-gallery/church"}}) { edges { node { childImageSharp {
             thumb: fluid(maxWidth: 270, maxHeight: 270, cropFocus: CENTER, fit: COVER, quality: 40) {
-              ...GatsbyImageSharpFluid_withWebp
+              ...GatsbyImageSharpFluid_withWebp_tracedSVG
             }
             full: fluid(quality:100) {
-              ...GatsbyImageSharpFluid_withWebp
+              ...GatsbyImageSharpFluid_withWebp_tracedSVG
    } } } }
   },
   cloister: allFile(filter: {relativeDirectory: {eq: "photo-gallery/cloister"}}) { edges { node { childImageSharp {
             thumb: fluid(maxWidth: 270, maxHeight: 270, cropFocus: CENTER, fit: COVER, quality: 40) {
-              ...GatsbyImageSharpFluid_withWebp
+              ...GatsbyImageSharpFluid_withWebp_tracedSVG
             }
             full: fluid(quality:100) {
-              ...GatsbyImageSharpFluid_withWebp
+              ...GatsbyImageSharpFluid_withWebp_tracedSVG
    } } } }
   },
   garden: allFile(filter: {relativeDirectory: {eq: "photo-gallery/garden"}}) { edges { node { childImageSharp {
             thumb: fluid(maxWidth: 270, maxHeight: 270, cropFocus: CENTER, fit: COVER, quality: 40) {
-              ...GatsbyImageSharpFluid_withWebp
+              ...GatsbyImageSharpFluid_withWebp_tracedSVG
             }
             full: fluid(quality:100) {
-              ...GatsbyImageSharpFluid_withWebp
+              ...GatsbyImageSharpFluid_withWebp_tracedSVG
    } } } }
   },
   rooms: allFile(filter: {relativeDirectory: {eq: "photo-gallery/rooms"}}) { edges { node { childImageSharp {
             thumb: fluid(maxWidth: 270, maxHeight: 270, cropFocus: CENTER, fit: COVER, quality: 40) {
-              ...GatsbyImageSharpFluid_withWebp
+              ...GatsbyImageSharpFluid_withWebp_tracedSVG
             }
             full: fluid(quality:100) {
-              ...GatsbyImageSharpFluid_withWebp
+              ...GatsbyImageSharpFluid_withWebp_tracedSVG
    } } } }
   },
   banner: file(relativePath: {eq: "photo-gallery/banner.png"}) { childImageSharp { fluid(maxWidth: 3000, quality: 100) { ...GatsbyImageSharpFluid_withWebp }}},
