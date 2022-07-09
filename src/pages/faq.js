@@ -12,6 +12,7 @@ import lottieAnim from '../assets/images/lottie/pulsing';
 import Obfuscate from 'react-obfuscate';
 import Scroll from '../components/Scroll';
 import { graphql } from 'gatsby';
+import BackgroundImage from 'gatsby-background-image';
 
 const Marker = () => (
   <div
@@ -32,15 +33,17 @@ const Marker = () => (
 function FaqPage({data}) {
   const { t } = useTranslation();
 
-  const banner = data.banner.childImageSharp.fluid.srcWebp;
+  const banner = data.banner.childImageSharp.fluid;
 
   return (
     <LandingLayout fullMenu>
       <article id="pageMain">
-        <header style={{backgroundImage: `linear-gradient(to top, rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url(${banner})`}}>
-          <h2>{t('faq:heading')}</h2>
+        <BackgroundImage
+          Tag="header"
+          fluid={banner}
+        >          <h2>{t('faq:heading')}</h2>
           <p>{t('faq:subHeading')}</p>
-        </header>
+        </BackgroundImage>
 
         <section id="faqSection" className="wrapper style3 special">
           <div className="inner">
