@@ -12,7 +12,7 @@ It imports a scss file that acts as template for a page (tile_page.scss), compon
 @import 'fontawesome-all.min.css';
 @import url('https://fonts.googleapis.com/css?family=Open+Sans:400,400italic,600,600italic,800,800italic');
 
-@import 'components/image-gallery';
+//@import 'components/image-gallery';
 
 
 // Breakpoint
@@ -570,6 +570,10 @@ It imports a scss file that acts as template for a page (tile_page.scss), compon
 }
 
 // Spotlight sections
+.no-pad {
+  padding-top: 0 !important;
+  padding-bottom: 0 !important;
+}
 
 .spotlight {
 	background-color: white;
@@ -578,6 +582,9 @@ It imports a scss file that acts as template for a page (tile_page.scss), compon
 	flex-direction: row;
 	justify-content: center;
 	align-items: center;
+
+	padding-top: 30px;
+	padding-bottom: 20px;
 
 	.image {
 		@include vendor('order', '1');
@@ -594,19 +601,6 @@ It imports a scss file that acts as template for a page (tile_page.scss), compon
 	.spotlight-container {
 		display: flex;
 		flex-direction: row;
-        height: 35vh;
-
-        @include breakpoint('<medium') {
-          height: 46vh;
-        }
-
-		@include breakpoint('>=medium') {
-			height: 34vh;
-		}
-
-		@include breakpoint('>=xxxlarge') {
-			height: 20vh;
-		}
 
         // Center the text in row and make it fill up the div container
         .center-row {
@@ -694,6 +688,7 @@ It imports a scss file that acts as template for a page (tile_page.scss), compon
 	@import 'pages/faq';
 	@import 'pages/about_us';
 	@import 'pages/wine';
+	@import 'pages/photo-gallery';
 
 
 

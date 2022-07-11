@@ -10,18 +10,21 @@ import LandingLayout from '../components/LandingLayout';
 import Scroll from '../components/Scroll';
 
 import scrollAnim from '../assets/images/lottie/scroll_down.json';
-import historyTile from '../assets/images/landing/history_tile.png';
-import photoTile from '../assets/images/landing/photos_tile.jpg';
-import gardenTile from '../assets/images/landing/gardens_tile.jpg';
-import servicesTile from '../assets/images/landing/services_tile.jpg';
-import wineTile from '../assets/images/landing/wine_tile.jpg';
-import faqTile from '../assets/images/landing/faq_tile.jpg';
-import aboutUsTile from '../assets/images/landing/about_us_tile.jpg';
+import BackgroundImage from 'gatsby-background-image'
 
 import FlagIcon from '../components/FlagIcon';
+import { graphql } from 'gatsby'
 
-function IndexPage() {
+function IndexPage({data}) {
   const { t } = useTranslation();
+
+  const historyTile = data.historyTile.childImageSharp.fluid;
+  const photoTile = data.photoTile.childImageSharp.fluid;
+  const gardenTile = data.gardenTile.childImageSharp.fluid;
+  const servicesTile = data.servicesTile.childImageSharp.fluid;
+  const wineTile = data.wineTile.childImageSharp.fluid;
+  const faqTile = data.faqTile.childImageSharp.fluid;
+  const aboutUsTile = data.aboutUsTile.childImageSharp.fluid;
 
   return (
     <LandingLayout fullMenu={false} showMenu={false}>
@@ -89,59 +92,92 @@ function IndexPage() {
 
         <section id="one" className="tiles">
 
-          <article style={{ backgroundImage: `url(${aboutUsTile})` }}>
+          <BackgroundImage
+            Tag="article"
+            fluid={aboutUsTile}
+          >
             <header className="major">
               <h3>{t('landing:weAre.title')}</h3>
             </header>
             <Link to="/about_us" className="link primary" />
-          </article>
+          </BackgroundImage>
 
-          <article style={{ backgroundImage: `url(${servicesTile})` }}>
+          <BackgroundImage
+            Tag="article"
+            fluid={servicesTile}
+          >
             <header className="major">
               <h3>{t('landing:services.title')}</h3>
             </header>
             <Link to="/services" className="link primary" />
-          </article>
+          </BackgroundImage>
 
-          <article style={{ backgroundImage: `url(${photoTile})` }}>
+          <BackgroundImage
+            Tag="article"
+            fluid={photoTile}
+          >
             <header className="major">
               <h3>{t('landing:photos.title')}</h3>
             </header>
             <Link to="/photo_gallery" className="link primary" />
-          </article>
+          </BackgroundImage>
 
-          <article style={{ backgroundImage: `url(${historyTile})` }}>
+          <BackgroundImage
+            Tag="article"
+            fluid={historyTile}
+          >
             <header className="major">
               <h3>{t('landing:history.title')}</h3>
             </header>
             <Link to="/history" className="link primary" />
-          </article>
+          </BackgroundImage>
 
-          <article style={{ backgroundImage: `url(${gardenTile})` }}>
+          <BackgroundImage
+            Tag="article"
+            fluid={gardenTile}
+          >
             <header className="major">
               <h3>{t('landing:gardens.title')}</h3>
             </header>
             <Link to="/gardens" className="link primary" />
-          </article>
+          </BackgroundImage>
 
-          <article style={{ backgroundImage: `url(${wineTile})` }}>
+          <BackgroundImage
+            Tag="article"
+            fluid={wineTile}
+          >
             <header className="major">
               <h3>{t('landing:vineyards.title')}</h3>
             </header>
             <Link to="/wine_vineyards" className="link primary" />
-          </article>
+          </BackgroundImage>
 
-          <article style={{ backgroundImage: `url(${faqTile})` }}>
+          <BackgroundImage
+            Tag="article"
+            fluid={faqTile}
+          >
             <header className="major">
               <h3>{t('landing:faq.title')}</h3>
             </header>
             <Link to="/faq" className="link primary" />
-          </article>
+          </BackgroundImage>
 
         </section>
       </div>
     </LandingLayout>
   );
 }
+
+export const query = graphql`
+  query {   
+    historyTile: file(relativePath: {eq: "landing/history_tile.png"}) { childImageSharp { fluid(maxWidth: 3000, quality: 100) { ...GatsbyImageSharpFluid_withWebp }}},
+    photoTile: file(relativePath: {eq: "landing/photos_tile.jpg"}) { childImageSharp { fluid(maxWidth: 3000, quality: 100) { ...GatsbyImageSharpFluid_withWebp }}},
+    gardenTile: file(relativePath: {eq: "landing/gardens_tile.jpg"}) { childImageSharp { fluid(maxWidth: 3000, quality: 100) { ...GatsbyImageSharpFluid_withWebp }}},
+    servicesTile: file(relativePath: {eq: "landing/services_tile.jpg"}) { childImageSharp { fluid(maxWidth: 3000, quality: 100) { ...GatsbyImageSharpFluid_withWebp }}},
+    wineTile: file(relativePath: {eq: "landing/wine_tile.jpg"}) { childImageSharp { fluid(maxWidth: 3000, quality: 100) { ...GatsbyImageSharpFluid_withWebp }}},
+    faqTile: file(relativePath: {eq: "landing/faq_tile.jpg"}) { childImageSharp { fluid(maxWidth: 3000, quality: 100) { ...GatsbyImageSharpFluid_withWebp }}},
+    aboutUsTile: file(relativePath: {eq: "landing/about_us_tile.jpg"}) { childImageSharp { fluid(maxWidth: 3000, quality: 100) { ...GatsbyImageSharpFluid_withWebp }}},
+  }
+`;
 
 export default IndexPage;

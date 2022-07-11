@@ -1,7 +1,21 @@
 {
   "pt": {
-    "title": "Galeria de Fotografia",
-    "subHeading": "Dias de festa, jardins, a vinha e a família. Momentos que marcam o nosso caminho."
+    "title": "Galeria de Fotografias",
+    "subHeading": "Dias de festa, jardins, a vinha e a família. Momentos que marcam o nosso caminho.",
+
+    "quote": "\"Uma imagem vale mais que mil palavras.\"",
+    "quoteAuthor": "Frederick R. Barnard",
+
+    "paragraph": {
+      "description1": "A velha adage manteve-se fiel à sua verdade ao longo dos anos e nós não conseguiríamos concordar mais.",
+      "description2": "Nós temos o privilégio de receber visitantes de todos os cantos do mundo a querer saciar a sua curiosidade e deslumbrarem-se nos recantos históricos do Mosteiro. Querendo partilhar o nosso cantinho ao mundo, esta galeria foi selecionada cuidadosamente de modo a conseguir espreitar e experienciar a nossa realidade. Explore a nossa galeria para ficar a conhecer os espaços exteriores e interiores e ver o nosso cuidado que empreendemos a manter o nosso espaço e nos pormenores dos eventos que organizamos.",
+      "description3": "Uma fotografia não é igual a estar cá fisicamente, mas é o melhor que conseguimos colocar nesta página."
+    },
+
+    "gardenTitle": "Jardins",
+    "cloisterTitle": "Claustro",
+    "roomsTitle": "Salas",
+    "churchTitle": "Igreja"
 
   }
 }

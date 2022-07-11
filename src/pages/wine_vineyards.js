@@ -2,31 +2,43 @@ import React, { useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import Lightbox from 'react-image-lightbox';
 import { Col, Grid, Row } from 'react-flexbox-grid';
+import Img from 'gatsby-image'
+
 import LandingLayout from '../components/LandingLayout';
+
 import 'react-image-lightbox/style.css';
 
-import winePic1 from '../assets/images/wine_vineyards/wine1.jpg';
+import { graphql } from 'gatsby';
+import BackgroundImage from 'gatsby-background-image';
 
-import spaces1 from '../assets/images/wine_vineyards/feature_1.jpg';
-import spaces2 from '../assets/images/wine_vineyards/feature_2.jpg';
-import spaces3 from '../assets/images/wine_vineyards/feature_3.jpg';
-
-const images = [winePic1];
-
-function WineStayPage() {
+function WineStayPage({data}) {
   const { t } = useTranslation();
+
   const [lightboxIsOpen, setToggleLightbox] = useState(false);
   const [photoIndex, setPhotoIndex] = useState(0);
 
   const captions = [t('wine_vineyards:imageCaptions.wine')];
 
+
+  const banner = data.banner.childImageSharp.fluid;
+  const winePic1 = data.winePic1.childImageSharp.fluid;
+  const feature1 = data.feature1.childImageSharp.fluid;
+  const feature2 = data.feature2.childImageSharp.fluid;
+  const feature3 = data.feature3.childImageSharp.fluid;
+
+  const images = [winePic1.srcWebp];
+
+
   return (
     <LandingLayout fullMenu>
       <article id="wineMain">
-        <header id="winestayHeader">
+        <BackgroundImage
+          Tag="header"
+          fluid={banner}
+        >
           <h2>{t('wine_vineyards:title')}</h2>
           <p>{t('wine_vineyards:subHeading')}</p>
-        </header>
+        </BackgroundImage>
         <section className="wrapper style5">
           <div className="inner">
             <h3>{t('wine_vineyards:wine.title')}</h3>
@@ -34,7 +46,7 @@ function WineStayPage() {
             <>
               <span
                 onClick={() => {
-                  setPhotoIndex(images.indexOf(winePic1));
+                  setPhotoIndex(images.indexOf(winePic1.srcWebp));
                   setToggleLightbox(true);
                 }}
                 className="image right"
@@ -42,7 +54,7 @@ function WineStayPage() {
                   width: '80vh', fontSize: '0.8em', color: 'gray', textAlign: 'right',
                 }}
               >
-                <img src={winePic1} alt="" />
+                <Img fluid={winePic1}/>
                 {t('wine_vineyards:imageCaptions.wine')}
               </span>
               <p>{t('wine_vineyards:wine.description1')}</p>
@@ -73,7 +85,7 @@ function WineStayPage() {
             <Row>
               <Col lg={4} md={6}>
                 <span className="image fit hover-container">
-                  <img src={spaces1} alt="" />
+                  <Img fluid={feature1}/>
                   <div className="overlay">
                     <div className="text">
                       <h2>{t('wine_vineyards:images.image1.title')}</h2>
@@ -84,7 +96,7 @@ function WineStayPage() {
               </Col>
               <Col lg={4} md={6}>
                 <span className="image fit hover-container">
-                  <img src={spaces2} alt="" />
+                  <Img fluid={feature2}/>
                   <div className="overlay">
                     <div className="text">
                       <h2>{t('wine_vineyards:images.image2.title')}</h2>
@@ -95,7 +107,7 @@ function WineStayPage() {
               </Col>
               <Col lg={4} md={6}>
                 <span className="image fit hover-container">
-                  <img src={spaces3} alt="" />
+                  <Img fluid={feature3}/>
                   <div className="overlay">
                     <div className="text">
                       <h2>{t('wine_vineyards:images.image3.title')}</h2>
@@ -107,7 +119,7 @@ function WineStayPage() {
             </Row>
           </Grid>
         </section>
-        
+
       </article>
 
       {lightboxIsOpen && (
@@ -124,5 +136,45 @@ function WineStayPage() {
     </LandingLayout>
   );
 }
+
+export const query = graphql`
+  query {
+    banner: file(relativePath: {eq: "wine_vineyards/banner.jpg"}) {
+      childImageSharp {
+        fluid(maxWidth: 3000, quality: 100) {
+          ...GatsbyImageSharpFluid_withWebp
+        }
+      }
+    },
+    winePic1: file(relativePath: {eq: "wine_vineyards/wine1.jpg"}) {
+      childImageSharp {
+        fluid(maxWidth: 3000, quality: 100) {
+          ...GatsbyImageSharpFluid_withWebp_tracedSVG
+        }
+      }
+    },
+    feature1: file(relativePath: {eq: "wine_vineyards/feature_1.jpg"}) {
+      childImageSharp {
+        fluid(maxWidth: 3000, quality: 100) {
+          ...GatsbyImageSharpFluid_withWebp_tracedSVG
+        }
+      }
+    },
+    feature2: file(relativePath: {eq: "wine_vineyards/feature_2.jpg"}) {
+      childImageSharp {
+        fluid(maxWidth: 3000, quality: 100) {
+          ...GatsbyImageSharpFluid_withWebp_tracedSVG
+        }
+      }
+    },
+    feature3: file(relativePath: {eq: "wine_vineyards/feature_3.jpg"}) {
+      childImageSharp {
+        fluid(maxWidth: 3000, quality: 100) {
+          ...GatsbyImageSharpFluid_withWebp_tracedSVG
+        }
+      }
+    }
+  }
+`;
 
 export default WineStayPage;

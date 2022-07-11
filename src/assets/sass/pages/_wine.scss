@@ -64,11 +64,6 @@ Wine page specific styles
 
   }
 
-  /* Header banner of pages */
-
-  #winestayHeader {
-    @include vendor('background-image', ('linear-gradient(to top, rgba(0,0,0,0.5), rgba(0,0,0,0.5))', 'url("../images/wine_vineyards/banner.jpg")'));
-  }
 
   /* Wrapper */
 
@@ -325,6 +320,7 @@ Wine page specific styles
     img {
       border-radius: 3px;
       display: block;
+      cursor: pointer;
     }
 
     &.left {
