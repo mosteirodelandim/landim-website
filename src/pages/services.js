@@ -28,17 +28,14 @@ function ServicesPage({data}) {
   const space1 = data.space1.childImageSharp.fluid;
   const space2 = data.space2.childImageSharp.fluid;
 
-  const church_cloister1 = data.church_cloister1.childImageSharp.fluid;
-  const church_cloister2 = data.church_cloister2.childImageSharp.fluid;
-  const church_cloister3 = data.church_cloister3.childImageSharp.fluid;
-  const church_cloister4 = data.church_cloister4.childImageSharp.fluid;
-  const church_cloister5 = data.church_cloister5.childImageSharp.fluid;
-
-  const gardens_forest1 = data.gardens_forest1.childImageSharp.fluid;
-  const gardens_forest2 = data.gardens_forest2.childImageSharp.fluid;
-  const gardens_forest3 = data.gardens_forest3.childImageSharp.fluid;
-  const gardens_forest4 = data.gardens_forest4.childImageSharp.fluid;
-  const gardens_forest5 = data.gardens_forest5.childImageSharp.fluid;
+  const carousel1 = data.carousel1.childImageSharp.fluid;
+  const carousel2 = data.carousel2.childImageSharp.fluid;
+  const carousel3 = data.carousel3.childImageSharp.fluid;
+  const carousel4 = data.carousel4.childImageSharp.fluid;
+  const carousel5 = data.carousel5.childImageSharp.fluid;
+  const carousel6 = data.carousel6.childImageSharp.fluid;
+  const carousel7 = data.carousel7.childImageSharp.fluid;
+  const carousel8 = data.carousel8.childImageSharp.fluid;
 
   const images = [space1, space2]
 
@@ -163,17 +160,14 @@ function ServicesPage({data}) {
         <section className="wrapper-carousel style5">
           <div className="inner-carousel">
             <Carousel loop widgets={[IndicatorDots]}>
-              <BackgroundImage Tag="div" className="carousel-image" fluid={church_cloister1}/>
-              <BackgroundImage Tag="div" className="carousel-image" fluid={church_cloister2}/>
-              <BackgroundImage Tag="div" className="carousel-image" fluid={church_cloister3}/>
-              <BackgroundImage Tag="div" className="carousel-image" fluid={church_cloister4}/>
-              <BackgroundImage Tag="div" className="carousel-image" fluid={church_cloister5}/>
-
-              <BackgroundImage Tag="div" className="carousel-image" fluid={gardens_forest1}/>
-              <BackgroundImage Tag="div" className="carousel-image" fluid={gardens_forest2}/>
-              <BackgroundImage Tag="div" className="carousel-image" fluid={gardens_forest3}/>
-              <BackgroundImage Tag="div" className="carousel-image" fluid={gardens_forest4}/>
-              <BackgroundImage Tag="div" className="carousel-image" fluid={gardens_forest5}/>
+              <BackgroundImage Tag="div" className="carousel-image" fluid={carousel1}/>
+              <BackgroundImage Tag="div" className="carousel-image" fluid={carousel2}/>
+              <BackgroundImage Tag="div" className="carousel-image" fluid={carousel3}/>
+              <BackgroundImage Tag="div" className="carousel-image" fluid={carousel4}/>
+              <BackgroundImage Tag="div" className="carousel-image" fluid={carousel5}/>
+              <BackgroundImage Tag="div" className="carousel-image" fluid={carousel6}/>
+              <BackgroundImage Tag="div" className="carousel-image" fluid={carousel7}/>
+              <BackgroundImage Tag="div" className="carousel-image" fluid={carousel8}/>
             </Carousel>
           </div>
         </section>
@@ -206,17 +200,14 @@ export const query = graphql`
     space1: file(relativePath: {eq: "services/space1.jpg"}) { childImageSharp { fluid(maxWidth: 3000, quality: 100) { ...GatsbyImageSharpFluid_withWebp_tracedSVG }}},
     space2: file(relativePath: {eq: "services/space2.jpg"}) { childImageSharp { fluid(maxWidth: 3000, quality: 100) { ...GatsbyImageSharpFluid_withWebp_tracedSVG }}},
 
-    church_cloister1: file(relativePath: {eq: "services/cloister_church/church_cloister1.jpg"}) { childImageSharp { fluid(maxWidth: 3000, quality: 100) { ...GatsbyImageSharpFluid_withWebp }}},
-    church_cloister2: file(relativePath: {eq: "services/cloister_church/church_cloister2.jpg"}) { childImageSharp { fluid(maxWidth: 3000, quality: 100) { ...GatsbyImageSharpFluid_withWebp }}},
-    church_cloister3: file(relativePath: {eq: "services/cloister_church/church_cloister3.jpg"}) { childImageSharp { fluid(maxWidth: 3000, quality: 100) { ...GatsbyImageSharpFluid_withWebp }}},
-    church_cloister4: file(relativePath: {eq: "services/cloister_church/church_cloister4.jpg"}) { childImageSharp { fluid(maxWidth: 3000, quality: 100) { ...GatsbyImageSharpFluid_withWebp }}},
-    church_cloister5: file(relativePath: {eq: "services/cloister_church/church_cloister5.jpg"}) { childImageSharp { fluid(maxWidth: 3000, quality: 100) { ...GatsbyImageSharpFluid_withWebp }}},
-
-    gardens_forest1: file(relativePath: {eq: "services/gardens_forest/gardens_forest1.jpg"}) { childImageSharp { fluid(maxWidth: 3000, quality: 100) { ...GatsbyImageSharpFluid_withWebp }}},
-    gardens_forest2: file(relativePath: {eq: "services/gardens_forest/gardens_forest2.jpg"}) { childImageSharp { fluid(maxWidth: 3000, quality: 100) { ...GatsbyImageSharpFluid_withWebp }}},
-    gardens_forest3: file(relativePath: {eq: "services/gardens_forest/gardens_forest3.png"}) { childImageSharp { fluid(maxWidth: 3000, quality: 100) { ...GatsbyImageSharpFluid_withWebp }}},
-    gardens_forest4: file(relativePath: {eq: "services/gardens_forest/gardens_forest4.jpg"}) { childImageSharp { fluid(maxWidth: 3000, quality: 100) { ...GatsbyImageSharpFluid_withWebp }}},
-    gardens_forest5: file(relativePath: {eq: "services/gardens_forest/gardens_forest5.jpg"}) { childImageSharp { fluid(maxWidth: 3000, quality: 100) { ...GatsbyImageSharpFluid_withWebp }}},
+    carousel1: file(relativePath: {eq: "services/carousel/1.jpg"}) { childImageSharp { fluid(maxWidth: 3000, quality: 100) { ...GatsbyImageSharpFluid_withWebp }}},
+    carousel2: file(relativePath: {eq: "services/carousel/2.jpg"}) { childImageSharp { fluid(maxWidth: 3000, quality: 100) { ...GatsbyImageSharpFluid_withWebp }}},
+    carousel3: file(relativePath: {eq: "services/carousel/3.jpg"}) { childImageSharp { fluid(maxWidth: 3000, quality: 100) { ...GatsbyImageSharpFluid_withWebp }}},
+    carousel4: file(relativePath: {eq: "services/carousel/4.jpg"}) { childImageSharp { fluid(maxWidth: 3000, quality: 100) { ...GatsbyImageSharpFluid_withWebp }}},
+    carousel5: file(relativePath: {eq: "services/carousel/5.jpeg"}) { childImageSharp { fluid(maxWidth: 3000, quality: 100) { ...GatsbyImageSharpFluid_withWebp }}},
+    carousel6: file(relativePath: {eq: "services/carousel/6.jpg"}) { childImageSharp { fluid(maxWidth: 3000, quality: 100) { ...GatsbyImageSharpFluid_withWebp }}},
+    carousel7: file(relativePath: {eq: "services/carousel/7.jpg"}) { childImageSharp { fluid(maxWidth: 3000, quality: 100) { ...GatsbyImageSharpFluid_withWebp }}},
+    carousel8: file(relativePath: {eq: "services/carousel/8.jpg"}) { childImageSharp { fluid(maxWidth: 3000, quality: 100) { ...GatsbyImageSharpFluid_withWebp }}},
   }
 `;
 
