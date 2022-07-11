@@ -3,7 +3,7 @@ module.exports = {
   siteTitle: 'Mosteiro de Landim',
   siteDescription: 'Quinta idílica para eventos e património nacional. A quinta do Mosteiro de Landim é mantida pela sua própria família e encontra-se a apenas 30 minutos do Porto.',
   siteKeywords: ['mosteiro', 'quinta', 'casamento', 'eventos'],
-  siteOGPThumbnail: 'https://cidadehoje.pt/wp-content/uploads/2017/08/Mosteiro-de-Landim.jpg',
+  siteOGPThumbnail: 'https://famalicaoid.org/inweb/multimediaNET/FAMALICAO/2021/11/web/171790.jpg',
 
   manifestName: 'Mosteiro de Santa Maria de Landim',
   manifestShortName: 'Mosteiro de Landim',
@@ -14,13 +14,17 @@ module.exports = {
   manifestIcon: 'src/assets/images/common/website-icon.png',
   pathPrefix: '',
 
+  // PRICES --------------------
+  spacePrice: "€3200 + IVA",
+  roofPrice: "€1800 + IVA",
+
   // PAGES ---------------------
 
   emailContact: 'info@mosteirodelandim.com',
   phoneContact: '+351939434741',
 
   // 404
-  houseDogs: ['Ringo', 'Spot'],
+  houseDogs: ['Ringo', 'Spot', 'Dingo', 'Rex'],
 
   // Maps
   apiKey: 'AIzaSyDpAcr1YDNQ9mVIZ-i20rwoWIttsg7rmZw',

@@ -10,7 +10,7 @@ import Img from 'gatsby-image';
 import Lightbox from 'react-image-lightbox';
 
 import americo_menu from '../assets/luis_americo_22.pdf'
-
+import config from '../../config';
 
 function ServicesPage({data}) {
   const { t } = useTranslation();
@@ -103,9 +103,9 @@ function ServicesPage({data}) {
             <p>{t('services:secondParagraph.description1')}</p>
             <hr/>
             <h5>{t('services:secondParagraph.spaces.title')}</h5>
-            <p>{t('services:secondParagraph.spaces.description1.phrase1')}<strong>{t('services:secondParagraph.spaces.description1.priceBold')}</strong>{t('services:secondParagraph.spaces.description1.phrase2')}</p>
+            <p>{t('services:secondParagraph.spaces.description1.phrase1')}<strong>{config.spacePrice}</strong>{t('services:secondParagraph.spaces.description1.phrase2')}</p>
             <p>{t('services:secondParagraph.spaces.description2')}</p>
-            <p>{t('services:secondParagraph.spaces.description3.phrase1')}<strong>{t('services:secondParagraph.spaces.description3.priceBold')}</strong>.</p>
+            <p>{t('services:secondParagraph.spaces.description3.phrase1')}<strong>{config.roofPrice}</strong>.</p>
           </div>
         </section>
 
