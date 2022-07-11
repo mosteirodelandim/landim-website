@@ -9,6 +9,8 @@ import BackgroundImage from 'gatsby-background-image';
 import Img from 'gatsby-image';
 import Lightbox from 'react-image-lightbox';
 
+import americo_menu from '../assets/luis_americo_22.pdf'
+
 
 function ServicesPage({data}) {
   const { t } = useTranslation();
@@ -145,7 +147,18 @@ function ServicesPage({data}) {
           </div>
         </section>
 
-
+        <section className="wrapper style5 no-top">
+          <div className="inner">
+            <h5>{t('services:secondParagraph.decor.title')}</h5>
+            <p>{t('services:secondParagraph.decor.description1')}</p>
+            <p>
+              <a href="https://saiotes.pt/" rel="noopener noreferrer" target="_blank">Saiotes</a>{t('services:secondParagraph.decor.description2')}
+            </p>
+            <p>
+              <a href={americo_menu} download>Luís Américo</a>{t('services:secondParagraph.decor.description3')}
+            </p>
+          </div>
+        </section>
 
         <section className="wrapper-carousel style5">
           <div className="inner-carousel">
