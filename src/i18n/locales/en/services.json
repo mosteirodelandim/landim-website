@@ -1,37 +1,53 @@
 {
   "en": {
     "heading": "Eventos",
-    "subHeading": "Somos uma casa de eventos. Venha conhecer os nossos serviços.",
+    "subHeading": "Um espaço único. Venha conhecer os nossos serviços.",
 
     "firstParagraph": {
       "title": "Um Espaço Versátil",
       "description1": "Os portões do Mosteiro de Landim abrem-se para momentos inesquecíveis. Casamentos, aniversários, batizados, festas sem nome, conferências, apresentações de livros e visitas temáticas. Mais do que um espaço, queremos partilhar sensações e memórias.",
-      "description2": "",
-      "description3": "Temos vários espaços e recantos diferentes disponíveis para o seu evento."
+      "description2": "Dispomos de um fastuoso conjunto de espaços para qualquer tipo de festa e ambientes para um leque diversificado de formato de eventos. Qualquer seja a sua escolha, garantimos flexibilidade em criar cenários para tornar o seu evento memorável.",
+      "description3": "Temos vários espaços e recantos diferentes disponíveis para o seu evento. Para qualquer tipo de eventos, disponibilizamos salões e um claustro fechados com capacidade conjunta até 450 convidados. Se preza contacto direto com a natureza, à capacidade destas salas extende-se um jardim exterior centenário, perfeito para a realização de receções e cerimónias."
     },
 
     "spotlights": {
       "cloister": {
         "title": "O Claustro",
-        "description": "O nosso claustro conta com anos de história que remontam ao século XVI. Com capacidade para 350 pessoas, é o espaço ideal para mesas de amigos, pistas de dança e encontros de família."
+        "description": "O nosso claustro conta com anos de história que remontam ao século XVI. É o espaço ideal para mesas de amigos, pistas de dança e encontros de família."
       },
       "gardens": {
         "title": "Os Jardins",
-        "description": "Árvores centenárias, cores que mudam com o tempo, diferentes recantos de sol e sombra. Os nossos jardins são o local perfeito para estar e aproveitar aperitivos, concertos e danças."
+        "description": "Árvores centenárias, cores que mudam com o tempo, diferentes recantos de sol e sombra. Os nossos jardins são o local perfeito para estar e conviver, disfrutar de música  e dança."
       },
       "rooms": {
         "title": "As Salas",
-        "description": "Contornando o claustro existem dois salões emblemáticos que aumentam o espaço da festa. O salão principal é coberto por um tecto em talha do século XVIII - uma verdadeira obra de arte."
+        "description": "Contornando o claustro existem dois salões emblemáticos que ampliam o espaço da festa. O salão principal é coberto por um tecto em talha do século XVIII - uma verdadeira obra de arte."
       },
       "church": {
         "title": "A Igreja",
-        "description": "A igreja tem uma belíssima talha setecentista no seu retábulo, sendo um bom local para a celebração da cerimónia religiosa."
+        "description": "Igreja paroquial de Santa Maria de Landim, românica na sua origem e restaurada em 2007, é o local ideal para a celebração de uma cerimónia religiosa."
       }
     },
 
     "secondParagraph": {
-      "title": "Os Serviços",
-      "description": "Alugamos o nosso espaço mas podemos tratar de tudo com os nossos parceiros - desde o planeamento, à decoração, ao catering e entretenimento. Cada aspeto do seu evento pode ser customizado à sua medida de forma a o tornar memorável."
+      "title": "Os nossos serviços",
+      "description1": "Alugamos o nosso espaço e, com os nossos parceiros, podemos também tratar de toda a organização do evento - planeamento,  decoração, catering e entretenimento. Cada aspeto do seu evento pode ser personalizado à sua medida de forma torná-lo memorável. Estamos equipados em ajudá-lo na seleção de todos os elementos para o evento, e facilitar a organização do evento e garantir que todos os seus desejos se tornem realidade. Aproveite a festa, deixe o resto connosco.",
+
+      "spaces": {
+        "title": "Espaço",
+        "image1Caption": "Montagem da tenda translúcida.",
+        "image2Caption": "Tenda pode ser usada para decoração do seu evento.",
+        "description1": {
+          "phrase1": "O preço de aluguer do Mosteiro com todos os seus espaços (todos os jardins, espaços de fotografia, claustro e salões adjacentes) é ",
+          "priceBold": "€3200 + IVA",
+          "phrase2": ". Este é o preço referente ao ano de 2023. Se pretende obter informações para anos posteriores, por favor contacte-nos, pois este valor é apenas indicativo e é passível de mudança no futuro."
+        },
+        "description2": "Neste valor inclui um dia para montagens antes do evento, o dia do evento em si, e um dia para a desmontagem. De forma a manter os nossos índices de qualidade, apenas realizamos um evento por cada fim-de-semana.",
+        "description3": {
+          "phrase1": "Opcionalmente, nós disponibilizamos o transporte e instalação de uma tenda que cobre o claustro. Tanto pode servir como coberto contra situações climatéricas adversas como também para potenciar a decoração do claustro. O preço do aluguer e montagem da cobertura é de ",
+          "priceBold": "€1800 + IVA"
+        }
+      }
     }
   }
 }

@@ -341,6 +341,7 @@ Base SCSS a page. Pages that different style have their own variations of what's
       img {
         border-radius: 0;
         width: 100%;
+        cursor: default;
       }
     }
 
@@ -361,18 +362,25 @@ Base SCSS a page. Pages that different style have their own variations of what's
     }
 
     &:nth-child(1) {
+      border: 3px solid darken(_palette(service_cloister-bg), 15%);
       background-color: _palette(service_cloister-bg);
     }
 
     &:nth-child(2) {
+      border: 3px solid darken(_palette(service_garden-bg), 15%);
+      border-top: 0;
       background-color: _palette(service_garden-bg);
     }
 
     &:nth-child(3) {
+      border: 3px solid darken(_palette(service_room-bg), 15%);
+      border-top: 0;
       background-color: _palette(service_room-bg);
     }
 
     &:nth-child(4) {
+      border: 3px solid darken(_palette(service_church-bg), 15%);
+      border-top: 0;
       background-color: _palette(service_church-bg);
     }
 
