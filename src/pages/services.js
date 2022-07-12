@@ -38,7 +38,7 @@ function ServicesPage({data}) {
   const carousel8 = data.carousel8.childImageSharp.fluid;
   const carousel9 = data.carousel9.childImageSharp.fluid;
 
-  const images = [space1, space2]
+  const images = [space1, space2];
 
   return (
     <LandingLayout id="servicesPage" fullMenu>
@@ -104,7 +104,13 @@ function ServicesPage({data}) {
             <p>{t('services:secondParagraph.description1')}</p>
             <hr/>
             <h5>{t('services:secondParagraph.spaces.title')}</h5>
-            <p>{t('services:secondParagraph.spaces.description1.phrase1')}<strong>{config.spacePrice}</strong>{t('services:secondParagraph.spaces.description1.phrase2')}</p>
+            <p>
+              {t('services:secondParagraph.spaces.description1.phrase1')}
+              <strong>{config.spacePrice}</strong>
+              {t('services:secondParagraph.spaces.description1.phrase1Price')}
+              <strong>{config.year}</strong>.
+              {t('services:secondParagraph.spaces.description1.phrase2')}
+            </p>
             <p>{t('services:secondParagraph.spaces.description2')}</p>
             <p>{t('services:secondParagraph.spaces.description3.phrase1')}<strong>{config.roofPrice}</strong>.</p>
           </div>

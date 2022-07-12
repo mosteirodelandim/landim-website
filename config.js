@@ -15,6 +15,7 @@ module.exports = {
   pathPrefix: '',
 
   // PRICES --------------------
+  year: "2023",
   spacePrice: "€3200 + IVA",
   roofPrice: "€1800 + IVA",
 
