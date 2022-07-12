@@ -41,6 +41,7 @@ function GardensPage({data}) {
             <h3>{t('gardens:firstParagraph.title')}</h3>
             <p>{t('gardens:firstParagraph.description1')}</p>
             <p>{t('gardens:firstParagraph.description2')}</p>
+            <p>{t('gardens:firstParagraph.description3')}</p>
           </div>
         </section>
 
@@ -53,6 +54,14 @@ function GardensPage({data}) {
               <BackgroundImage Tag="div" className="carousel-image" fluid={pic4}/>
               <BackgroundImage Tag="div" className="carousel-image" fluid={pic5}/>
             </Carousel>
+          </div>
+        </section>
+
+        <section className="wrapper style5">
+          <div className="inner">
+            <h3>{t('gardens:secondParagraph.title')}</h3>
+            <p>{t('gardens:secondParagraph.description1')}</p>
+            <p>{t('gardens:secondParagraph.description2')}</p>
           </div>
         </section>
 
