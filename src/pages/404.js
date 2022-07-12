@@ -25,7 +25,7 @@ function IndexPage() {
           <div className="h1_notfound">{t('notFound:heading')}</div>
           <div className="h3_notfound">{t('notFound:subHeading')}</div>
           <div className="p_notfound">{t('notFound:subSubHeading1')}
-            <a onClick={() => history.back()}>{t('notFound:subSubHeadingLink')}</a> {t('notFound:subSubHeading2')} {randomDog()}{t('notFound:subSubHeading3')}
+            <a onClick={() => window.location.assign(window.location.origin)}>{t('notFound:subSubHeadingLink')}</a> {t('notFound:subSubHeading2')} {randomDog()}{t('notFound:subSubHeading3')}
           </div>
         </div>
         <Lottie
