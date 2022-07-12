@@ -522,7 +522,6 @@ function HistoryPage({data}) {
       </span>
         <blockquote>{t('history:book.quote', { interpolation: { escapeValue: false } })}</blockquote>
         <p style={{ textAlign: 'right' }}>{t('history:book.quoteCitation')}</p>
-        <hr />
       </section>
     );
   }
