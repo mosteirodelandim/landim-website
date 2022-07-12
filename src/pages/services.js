@@ -36,6 +36,7 @@ function ServicesPage({data}) {
   const carousel6 = data.carousel6.childImageSharp.fluid;
   const carousel7 = data.carousel7.childImageSharp.fluid;
   const carousel8 = data.carousel8.childImageSharp.fluid;
+  const carousel9 = data.carousel9.childImageSharp.fluid;
 
   const images = [space1, space2]
 
@@ -168,6 +169,7 @@ function ServicesPage({data}) {
               <BackgroundImage Tag="div" className="carousel-image" fluid={carousel6}/>
               <BackgroundImage Tag="div" className="carousel-image" fluid={carousel7}/>
               <BackgroundImage Tag="div" className="carousel-image" fluid={carousel8}/>
+              <BackgroundImage Tag="div" className="carousel-image" fluid={carousel9}/>
             </Carousel>
           </div>
         </section>
@@ -208,6 +210,7 @@ export const query = graphql`
     carousel6: file(relativePath: {eq: "services/carousel/6.jpg"}) { childImageSharp { fluid(maxWidth: 3000, quality: 100) { ...GatsbyImageSharpFluid_withWebp }}},
     carousel7: file(relativePath: {eq: "services/carousel/7.jpg"}) { childImageSharp { fluid(maxWidth: 3000, quality: 100) { ...GatsbyImageSharpFluid_withWebp }}},
     carousel8: file(relativePath: {eq: "services/carousel/8.jpg"}) { childImageSharp { fluid(maxWidth: 3000, quality: 100) { ...GatsbyImageSharpFluid_withWebp }}},
+    carousel9: file(relativePath: {eq: "services/carousel/9.jpg"}) { childImageSharp { fluid(maxWidth: 3000, quality: 100) { ...GatsbyImageSharpFluid_withWebp }}},
   }
 `;
 
