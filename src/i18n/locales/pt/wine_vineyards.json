@@ -40,6 +40,20 @@
       }
     },
 
+    "airbnb": {
+      "title": "Estadia",
+      "description1": "A nossa herança existe desde os tempos primórdios da conceção de Portugal e é, por isso, um dos locais mais antigos do Norte de Portugal. Este recanto rústico torna-se num espaço privilegiado de estadia no Turismo Rural, e dada a sua posição privilegiada a apenas 30 minutos do Porto, é uma ótima referência para itinerários turísticos nortenhos.",
+      "description2": "O Mosteiro abre, então, as suas portas a visitantes que queiram pernoitar e experienciar tudo o que temos a oferecer ao seu próprio ritmo. O nosso alojamento local acolhedor com capacidade para três hóspedes é perfeito para recuperar energias num local histórico e encontra-se a uma distância a pé do centro de Landim.",
+      "description3": "Durante a sua estadia, é permitido o acesso a todas os espaços exteriores do Mosteiro. Inspire fundo e relaxe no nosso cantinho minhoto.",
+
+      "spotlight": {
+        "title": "Airbnb",
+        "phrase1": "Consulte a nossa página ",
+        "phraseAirbnbUrl": "Airbnb",
+        "phrase2": " para mais informações e disponibilidade. Para um custo reduzido, contacte-nos diretamente por e-mail."
+      }
+    },
+
     "imageCaptions": {
       "wine": "Rótulo e contra-rótulo do vinho Camélia."
     }
