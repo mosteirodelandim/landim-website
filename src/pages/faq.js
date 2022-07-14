@@ -64,9 +64,6 @@ function FaqPage({data}) {
                 <h3>{t('faq:time_limit.title')}</h3>
                 <p>
                   {t('faq:time_limit.description')}
-                 <hr/>
-                  <b>{t('faq:time_limit.covid.title')}  </b>
-                  {t('faq:time_limit.covid.description')}
                 </p>
               </li>
               <li className="icon solid fa-church">

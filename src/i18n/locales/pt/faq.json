@@ -16,11 +16,7 @@
 
     "time_limit": {
       "title": "Há limite de horas na realização de um evento?",
-      "description": "Não! No entanto, após as 04h00 acresce uma taxa de €250 + IVA por cada hora transata.",
-      "covid": {
-        "title": "Nota COVID-19:",
-        "description": "Devido à pandemia COVID-19, as regras serão ajustadas consoante a legislação em vigor."
-      }
+      "description": "Não! No entanto, após as 04h00 acresce uma taxa de €250 + IVA por cada hora transata."
     },
 
     "travel": {

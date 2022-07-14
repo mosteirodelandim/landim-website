@@ -4,7 +4,11 @@ FAQ page specific styles
 
 
 #faqSection {
-  padding-top: 3em
+  padding: 0 !important;
+
+  > .inner {
+    width: 100% !important;
+  }
 }
 
 #faqSectionWeAreHere {

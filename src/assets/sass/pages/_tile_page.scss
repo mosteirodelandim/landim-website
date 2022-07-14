@@ -483,16 +483,27 @@ Base SCSS a page. Pages that different style have their own variations of what's
       text-align: left;
       width: 50%;
 
-      @for $i from 1 through _misc(max-features) {
-        $j: 0.185 * $i;
 
+      @for $i from 1 through _misc(max-features) {
         @if ($i % 2  == 0) {
-          &:nth-child(#{$i}) {
-            background-color: rgba(_palette(accent5, tile1), $j);
+          @if ($i % 4 == 0) {
+            &:nth-child(#{$i}) {
+              background-color: rgba(_palette(accent5, tile1), 0.65);
+            }
+          } @else {
+            &:nth-child(#{$i}) {
+              background-color: rgba(_palette(accent5, tile1), 1);
+            }
           }
         } @else {
-          &:nth-child(#{$i}) {
-            background-color: rgba(_palette(accent5, tile2), $j);
+          @if ($i % 3 == 0) {
+            &:nth-child(#{$i}) {
+              background-color: rgba(_palette(accent5, tile2), 0.65);
+            }
+          } @else {
+            &:nth-child(#{$i}) {
+              background-color: rgba(_palette(accent5, tile2), 1);
+            }
           }
         }
       }
@@ -535,7 +546,7 @@ Base SCSS a page. Pages that different style have their own variations of what's
       }
 
       @include breakpoint('<=small') {
-        @include padding(3em, 0);
+        @include padding(3em, 1em);
         background-color: transparent !important;
         border-top: solid 2px _palette(border);
         width: 100%;
