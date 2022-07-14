@@ -46,6 +46,21 @@ FAQ page specific styles
   }
 }
 
+.hide-map-premier-buttons {
+  width: 100%;
+  height: 100%;
+
+  // Premier buttons
+  >div >div > div >div >div:last-child >div {
+    display: none !important;
+  }
+
+  // Google logo
+  >div >div > div >div >div:nth-child(15) >div {
+    display: none !important;
+  }
+}
+
 .features {
   >li{
     h3 {
