@@ -5,10 +5,10 @@
     "heading3": "Nove gerações.",
 
     "history": {
-      "title": "Anos de história",
+      "title": "A quinta",
       "subtitle": "Era uma vez uma antiga e romântica quinta...",
-      "description1": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
-      "description2": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
+      "description1": "Quem somos? Uma quinta que conta com séculos de história – antigo Mosteiro de frades transformado, desde o séc. XVIII, em casa particular. Desde então, geração após geração, mantém-se na mesma família, preservando tradições, valorizando o património, e guardando momentos e memórias.",
+      "description2": "Dos nossos pais, António Vicente de Sequeira Leal Sampaio da Nóvoa e Maria Rosa Dourado Eusébio Sampaio da Nóvoa, herdamos esta responsabilidade e aos nosso filhos passamos este desejo de inovação e crescimento. E a história continua...",
       "description3": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
       "lottie": {
         "title": "História",
@@ -30,12 +30,12 @@
 
     "wines": {
       "title": "Vinho",
-      "subtitle": "Uma tradição de víndima premiada...",
+      "subtitle": "Uma tradição de vindima premiada...",
       "description1": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
       "description2": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
       "lottie": {
         "title": "Vinho",
-        "description": "As vinhas do Mosteiro de Landim já foram galardoadas e premiadas, bem como o nosso vinho também. Para saber mais sobre a história, os nossos métodos e o nosso vinho, pode fazê-lo ",
+        "description": "As vinhas do Mosteiro de Landim já foram galardoadas e premiadas, bem como o nosso vinho. Para saber mais sobre a história, os nossos métodos e o nosso vinho, pode fazê-lo ",
         "hyperlink": "aqui"
       }
     },

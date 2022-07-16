@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import Lottie from 'react-lottie';
 import { graphql, Link } from 'gatsby';
@@ -13,20 +13,27 @@ import LandingLayout from '../components/LandingLayout';
 import IndicatorDots from '../components/CarouselDots';
 import BackgroundImage from 'gatsby-background-image';
 import Img from 'gatsby-image';
+import Lightbox from 'react-image-lightbox';
 
 function AboutUsPage({data}) {
   const { t } = useTranslation();
+
+  // Local state
+  const [lightboxIsOpen, setToggleLightbox] = useState(false);
+  const [photoIndex, setPhotoIndex] = useState(0);
 
   const banner = data.banner.childImageSharp.fluid;
   const history1 = data.history1.childImageSharp.fluid;
   const history2 = data.history2.childImageSharp.fluid;
   const wine1 = data.wine1.childImageSharp.fluid;
   const wine2 = data.wine2.childImageSharp.fluid;
+  const wine3 = data.wine3.childImageSharp.fluid;
   const spaces1 = data.spaces1.childImageSharp.fluid;
   const spaces2 = data.spaces2.childImageSharp.fluid;
   const spaces3 = data.spaces3.childImageSharp.fluid;
   const spaces4 = data.spaces4.childImageSharp.fluid;
-  const family1 = data.family1.childImageSharp.fluid;
+
+  const images = [history1, history2];
 
   return (
     <LandingLayout fullMenu>
@@ -49,20 +56,33 @@ function AboutUsPage({data}) {
             </header>
             <p>{t('about_us:history.description1')}</p>
             <p>{t('about_us:history.description2')}</p>
-            <hr />
-            <p>{t('about_us:history.description3')}</p>
+            <br/>
+            <blockquote>"Nunca se perde tempo com aquilo que amamos."</blockquote>
+            <p style={{ textAlign: 'right', opacity: .5 }}>Alberto Sampaio</p>
+            <p>Amamos a herança que nos foi deixada e estamos dedicados a mantê-la intacta para futuras gerações. Regemo-nos pelas palavras dos nossos antepassados para inspirar futuras gerações e convidados na nossa quinta.</p>
           </div>
 
           <Grid>
-            <Row>
+            <Row style={{paddingTop: "4em"}}>
               <Col sm={6}>
-                <span className="image fit">
+                <span className="image fit"
+                      onClick={() => {
+                        setPhotoIndex(images.indexOf(history1));
+                        setToggleLightbox(true);
+                      }}
+                      style={{ cursor: "pointer" }}>
                   <Img fluid={history1}/>
                 </span>
               </Col>
               <Col sm={6}>
-                <span className="image fit">
+                <span className="image fit"
+                      onClick={() => {
+                        setPhotoIndex(images.indexOf(history2));
+                        setToggleLightbox(true);
+                      }}
+                      style={{ textAlign: 'right', cursor: "pointer" }}>
                   <Img fluid={history2}/>
+                  Fotos históricas do claustro e Sala de Capítulo antigas.
                 </span>
               </Col>
             </Row>
@@ -74,29 +94,25 @@ function AboutUsPage({data}) {
 
 
 
-        <section className="wrapper style5">
+        <section className="wrapper style5 no-top">
           <div className="inner">
             <header>
               <h3 className="aboutUsTitle">{t('about_us:family.title')}</h3>
               <p>{t('about_us:family.subtitle')}</p>
             </header>
 
-            <p>{t('about_us:family.description1')}</p>
 
-            <blockquote>{t('about_us:family.quote1.quote')}</blockquote>
-            <p style={{ textAlign: 'right' }}>{t('about_us:family.quote1.quote_author')}</p>
+            <blockquote>
+              <p>É sagrada a nossa casa, protectora como aza</p>
+              <p>Guarda e cobre o nosso lar, dentro dela com carinho</p>
+              <p>O coração tem o seu ninho</p>
+              <p>Tem o amor em seu altar</p>
+            </blockquote>
+            <p style={{ textAlign: 'right' }}>poema de Sebastião de Carvalho</p>
 
-            <div className="box alt">
-              <div className="row gtr-50 gtr-uniform">
-                <div className="col-12">
-                  <span className="image fit">
-                    <Img fluid={family1}/>
-                  </span>
-                </div>
-              </div>
-            </div>
+            <p>Este poema escrito pelo já falecido Sebastião de Carvalho, amigo de longa data e parte da família, que bem representa os valores incutidos de forma generacional na família. Estes quatro versos, representados a azulejo na varanda do Mosteiro, são repetidos ano a ano e celebrados pelos membros familiares.</p>
+            <p>A família da propriedade do Mosteiro de Landim já conta na sua nona geração, com a décima já à porta. E todas as gerações desta família tem as suas raízes e mantêm uma relação íntima com a cidade famalicense.</p>
 
-            <p>{t('about_us:family.description2')}</p>
 
           </div>
         </section>
@@ -136,16 +152,18 @@ function AboutUsPage({data}) {
               <p>{t('about_us:wines.subtitle')}</p>
             </header>
 
-            <p>{t('about_us:wines.description1')}</p>
-            <p>{t('about_us:wines.description2')}</p>
+            <p>Os terrenos do Mosteiro de Landim extendem-se por vários hectares. Ao longo destas terras agriculturadas, nasceu uma tradição de vinicultura que persiste até aos dias de hoje. Todos os anos, em Setembro, a família e amigos da família e de Landim juntam-se para manter este legado e participam nas vindimas. </p>
+            <p>O produto deste esforço conjunto culmina num delicioso vinho verde Camélia, tão nosso como as nossas japoneiras. Este vinho já premiado em múltiplas ocasiões é exclusivo à região minhota é frutado, com aroma de média exuberância e é refrescante no paladar.</p>
           </div>
         </section>
+
 
         <section className="wrapper-carousel style5">
           <div className="inner-carousel">
             <Carousel loop widgets={[IndicatorDots]}>
               <BackgroundImage Tag="div" className="carousel-image" fluid={wine1}/>
               <BackgroundImage Tag="div" className="carousel-image" fluid={wine2}/>
+              <BackgroundImage Tag="div" className="carousel-image" fluid={wine3}/>
             </Carousel>
           </div>
         </section>
@@ -174,9 +192,6 @@ function AboutUsPage({data}) {
           </section>
         </section>
 
-
-
-
         <section className="wrapper style5">
           <div className="inner">
             <header>
@@ -184,10 +199,10 @@ function AboutUsPage({data}) {
               <p>{t('about_us:services_spaces.subtitle')}</p>
             </header>
 
-            <p>{t('about_us:services_spaces.description1')}</p>
-            <p>{t('about_us:services_spaces.description2')}</p>
+            <p>O valor que se dá a uma festa não se limita apenas à ocasião, mas também ao que a rodeia. O Mosteiro de Landim não vale apenas pelo espaço que tem, mas também pela aura que a circunda e o ambiente que nela se vive. Basta entrar pelos portões do Mosteiro que irá logo perceber que encontrou o sítio e espaços ideais para reunir a sua família e amigos e e partilhar momentos em harmonia.</p>
+            <p>Seja um simples almoço, uma festa de família, uma cerimónia religiosa, bodas de ouro ou um casamento, o Mosteiro acrescenta de variados espaços - o claustro, os jardins, a igreja e as salas centenárias. Cada uma adapta-se às necessidades do seu evento, oferecendo não só flexibilidade mas capacidade para eventos de qualquer número de pessoas.</p>
             <hr />
-            <p>{t('about_us:services_spaces.description3')}</p>
+            <p>Paralelamente, o Mosteiro disponibiliza serviços de catering, decoração e organização de eventos através de parceiros privilegiados, que já conhecem os recantos da quinta e de todas as qualidades que a caracteriza. Somos flexíveis e deixamos os nossos convidados a escolher os seus próprios serviços, caso o desejam.</p>
           </div>
 
           <Grid>
@@ -265,9 +280,19 @@ function AboutUsPage({data}) {
             </div>
           </section>
         </section>
-
-
       </article>
+
+      {lightboxIsOpen && (
+        <Lightbox
+          mainSrc={images[photoIndex].srcWebp}
+          nextSrc={images[(photoIndex + 1) % images.length].srcWebp}
+          prevSrc={images[(photoIndex + images.length - 1) % images.length].srcWebp}
+          onCloseRequest={() => setToggleLightbox(false)}
+          onMovePrevRequest={() => setPhotoIndex((photoIndex + images.length - 1) % images.length)}
+          onMoveNextRequest={() => setPhotoIndex((photoIndex + 1) % images.length)}
+        />
+      )}
+
     </LandingLayout>
   );
 }
@@ -276,18 +301,18 @@ export const query = graphql`
   query {
     banner: file(relativePath: {eq: "about_us/banner.jpg"}) { childImageSharp { fluid(maxWidth: 3000, quality: 100) { ...GatsbyImageSharpFluid_withWebp }}},
     
-    history1: file(relativePath: {eq: "about_us/history1.jpg"}) { childImageSharp { fluid(maxWidth: 3000, quality: 100) { ...GatsbyImageSharpFluid_withWebp_tracedSVG }}},
-    history2: file(relativePath: {eq: "about_us/history2.jpg"}) { childImageSharp { fluid(maxWidth: 3000, quality: 100) { ...GatsbyImageSharpFluid_withWebp_tracedSVG }}},
+    history1: file(relativePath: {eq: "about_us/old1.jpg"}) { childImageSharp { fluid(maxWidth: 3000, quality: 100) { ...GatsbyImageSharpFluid_withWebp_tracedSVG }}},
+    history2: file(relativePath: {eq: "about_us/old2.jpg"}) { childImageSharp { fluid(maxWidth: 3000, quality: 100) { ...GatsbyImageSharpFluid_withWebp_tracedSVG }}},
     
     wine1: file(relativePath: {eq: "about_us/wines1.jpg"}) { childImageSharp { fluid(maxWidth: 3000, quality: 100) { ...GatsbyImageSharpFluid_withWebp }}},
     wine2: file(relativePath: {eq: "about_us/wines2.jpg"}) { childImageSharp { fluid(maxWidth: 3000, quality: 100) { ...GatsbyImageSharpFluid_withWebp }}},
+    wine3: file(relativePath: {eq: "about_us/wines3.jpg"}) { childImageSharp { fluid(maxWidth: 3000, quality: 100) { ...GatsbyImageSharpFluid_withWebp }}},
        
     spaces1: file(relativePath: {eq: "about_us/spaces1.jpg"}) { childImageSharp { fluid(maxWidth: 3000, quality: 100) { ...GatsbyImageSharpFluid_withWebp_tracedSVG }}},
-    spaces2: file(relativePath: {eq: "about_us/spaces2.jpg"}) { childImageSharp { fluid(maxWidth: 3000, quality: 100) { ...GatsbyImageSharpFluid_withWebp_tracedSVG }}},
+    spaces2: file(relativePath: {eq: "about_us/spaces2.png"}) { childImageSharp { fluid(maxWidth: 3000, quality: 100) { ...GatsbyImageSharpFluid_withWebp_tracedSVG }}},
     spaces3: file(relativePath: {eq: "about_us/spaces3.jpg"}) { childImageSharp { fluid(maxWidth: 3000, quality: 100) { ...GatsbyImageSharpFluid_withWebp_tracedSVG }}},
     spaces4: file(relativePath: {eq: "about_us/spaces4.png"}) { childImageSharp { fluid(maxWidth: 3000, quality: 100) { ...GatsbyImageSharpFluid_withWebp_tracedSVG }}},
-    
-    family1: file(relativePath: {eq: "about_us/family1.jpg"}) { childImageSharp { fluid(maxWidth: 3000, quality: 100) { ...GatsbyImageSharpFluid_withWebp_tracedSVG }}},
+   
   }
 `;
 
