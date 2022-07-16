@@ -193,23 +193,4 @@ query ImagesForGallery {
 }
 `;
 
-/*
-query ImagesForGallery {
-    allFile(filter: {relativeDirectory: {eq: "photo-gallery/full-images"}}) {
-      edges {
-        node {
-          childImageSharp {
-            thumb: fluid(maxWidth: 270, maxHeight: 270, quality: 100) {
-              ...GatsbyImageSharpFixed
-            }
-            full: fluid(maxWidth: 1024) {
-              ...GatsbyImageSharpFluid
-            }
-          }
-        }
-      }
-    }
-  }
-  */
-
 export default PhotoGalleryPage;

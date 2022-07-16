@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import Lottie from 'react-lottie';
 import { graphql, Link } from 'gatsby';
@@ -13,20 +13,27 @@ import LandingLayout from '../components/LandingLayout';
 import IndicatorDots from '../components/CarouselDots';
 import BackgroundImage from 'gatsby-background-image';
 import Img from 'gatsby-image';
+import Lightbox from 'react-image-lightbox';
 
 function AboutUsPage({data}) {
   const { t } = useTranslation();
+
+  // Local state
+  const [lightboxIsOpen, setToggleLightbox] = useState(false);
+  const [photoIndex, setPhotoIndex] = useState(0);
 
   const banner = data.banner.childImageSharp.fluid;
   const history1 = data.history1.childImageSharp.fluid;
   const history2 = data.history2.childImageSharp.fluid;
   const wine1 = data.wine1.childImageSharp.fluid;
   const wine2 = data.wine2.childImageSharp.fluid;
+  const wine3 = data.wine3.childImageSharp.fluid;
   const spaces1 = data.spaces1.childImageSharp.fluid;
   const spaces2 = data.spaces2.childImageSharp.fluid;
   const spaces3 = data.spaces3.childImageSharp.fluid;
   const spaces4 = data.spaces4.childImageSharp.fluid;
-  const family1 = data.family1.childImageSharp.fluid;
+
+  const images = [history1, history2];
 
   return (
     <LandingLayout fullMenu>
@@ -49,20 +56,33 @@ function AboutUsPage({data}) {
             </header>
             <p>{t('about_us:history.description1')}</p>
             <p>{t('about_us:history.description2')}</p>
-            <hr />
+            <br/>
+            <blockquote>{t('about_us:history.quote')}</blockquote>
+            <p style={{ textAlign: 'right', opacity: .5 }}>{t('about_us:history.quoteAuthor')}</p>
             <p>{t('about_us:history.description3')}</p>
           </div>
 
           <Grid>
-            <Row>
+            <Row style={{paddingTop: "4em"}}>
               <Col sm={6}>
-                <span className="image fit">
+                <span className="image fit"
+                      onClick={() => {
+                        setPhotoIndex(images.indexOf(history1));
+                        setToggleLightbox(true);
+                      }}
+                      style={{ cursor: "pointer" }}>
                   <Img fluid={history1}/>
                 </span>
               </Col>
               <Col sm={6}>
-                <span className="image fit">
+                <span className="image fit"
+                      onClick={() => {
+                        setPhotoIndex(images.indexOf(history2));
+                        setToggleLightbox(true);
+                      }}
+                      style={{ textAlign: 'right', cursor: "pointer" }}>
                   <Img fluid={history2}/>
+                  {t('about_us:history.imagesCaption')}
                 </span>
               </Col>
             </Row>
@@ -74,30 +94,24 @@ function AboutUsPage({data}) {
 
 
 
-        <section className="wrapper style5">
+        <section className="wrapper style5 no-top">
           <div className="inner">
             <header>
               <h3 className="aboutUsTitle">{t('about_us:family.title')}</h3>
               <p>{t('about_us:family.subtitle')}</p>
             </header>
 
+
+            <blockquote>
+              <p>{t('about_us:family.poem.verse1')}</p>
+              <p>{t('about_us:family.poem.verse2')}</p>
+              <p>{t('about_us:family.poem.verse3')}</p>
+              <p>{t('about_us:family.poem.verse4')}</p>
+            </blockquote>
+            <p style={{ textAlign: 'right', opacity: .5 }}>{t('about_us:family.poem.author')}</p>
+
             <p>{t('about_us:family.description1')}</p>
-
-            <blockquote>{t('about_us:family.quote1.quote')}</blockquote>
-            <p style={{ textAlign: 'right' }}>{t('about_us:family.quote1.quote_author')}</p>
-
-            <div className="box alt">
-              <div className="row gtr-50 gtr-uniform">
-                <div className="col-12">
-                  <span className="image fit">
-                    <Img fluid={family1}/>
-                  </span>
-                </div>
-              </div>
-            </div>
-
             <p>{t('about_us:family.description2')}</p>
-
           </div>
         </section>
 
@@ -141,11 +155,13 @@ function AboutUsPage({data}) {
           </div>
         </section>
 
+
         <section className="wrapper-carousel style5">
           <div className="inner-carousel">
             <Carousel loop widgets={[IndicatorDots]}>
               <BackgroundImage Tag="div" className="carousel-image" fluid={wine1}/>
               <BackgroundImage Tag="div" className="carousel-image" fluid={wine2}/>
+              <BackgroundImage Tag="div" className="carousel-image" fluid={wine3}/>
             </Carousel>
           </div>
         </section>
@@ -173,9 +189,6 @@ function AboutUsPage({data}) {
             </div>
           </section>
         </section>
-
-
-
 
         <section className="wrapper style5">
           <div className="inner">
@@ -265,9 +278,19 @@ function AboutUsPage({data}) {
             </div>
           </section>
         </section>
-
-
       </article>
+
+      {lightboxIsOpen && (
+        <Lightbox
+          mainSrc={images[photoIndex].srcWebp}
+          nextSrc={images[(photoIndex + 1) % images.length].srcWebp}
+          prevSrc={images[(photoIndex + images.length - 1) % images.length].srcWebp}
+          onCloseRequest={() => setToggleLightbox(false)}
+          onMovePrevRequest={() => setPhotoIndex((photoIndex + images.length - 1) % images.length)}
+          onMoveNextRequest={() => setPhotoIndex((photoIndex + 1) % images.length)}
+        />
+      )}
+
     </LandingLayout>
   );
 }
@@ -276,18 +299,18 @@ export const query = graphql`
   query {
     banner: file(relativePath: {eq: "about_us/banner.jpg"}) { childImageSharp { fluid(maxWidth: 3000, quality: 100) { ...GatsbyImageSharpFluid_withWebp }}},
     
-    history1: file(relativePath: {eq: "about_us/history1.jpg"}) { childImageSharp { fluid(maxWidth: 3000, quality: 100) { ...GatsbyImageSharpFluid_withWebp_tracedSVG }}},
-    history2: file(relativePath: {eq: "about_us/history2.jpg"}) { childImageSharp { fluid(maxWidth: 3000, quality: 100) { ...GatsbyImageSharpFluid_withWebp_tracedSVG }}},
+    history1: file(relativePath: {eq: "about_us/old1.jpg"}) { childImageSharp { fluid(maxWidth: 3000, quality: 100) { ...GatsbyImageSharpFluid_withWebp_tracedSVG }}},
+    history2: file(relativePath: {eq: "about_us/old2.jpg"}) { childImageSharp { fluid(maxWidth: 3000, quality: 100) { ...GatsbyImageSharpFluid_withWebp_tracedSVG }}},
     
     wine1: file(relativePath: {eq: "about_us/wines1.jpg"}) { childImageSharp { fluid(maxWidth: 3000, quality: 100) { ...GatsbyImageSharpFluid_withWebp }}},
     wine2: file(relativePath: {eq: "about_us/wines2.jpg"}) { childImageSharp { fluid(maxWidth: 3000, quality: 100) { ...GatsbyImageSharpFluid_withWebp }}},
+    wine3: file(relativePath: {eq: "about_us/wines3.jpg"}) { childImageSharp { fluid(maxWidth: 3000, quality: 100) { ...GatsbyImageSharpFluid_withWebp }}},
        
     spaces1: file(relativePath: {eq: "about_us/spaces1.jpg"}) { childImageSharp { fluid(maxWidth: 3000, quality: 100) { ...GatsbyImageSharpFluid_withWebp_tracedSVG }}},
-    spaces2: file(relativePath: {eq: "about_us/spaces2.jpg"}) { childImageSharp { fluid(maxWidth: 3000, quality: 100) { ...GatsbyImageSharpFluid_withWebp_tracedSVG }}},
+    spaces2: file(relativePath: {eq: "about_us/spaces2.png"}) { childImageSharp { fluid(maxWidth: 3000, quality: 100) { ...GatsbyImageSharpFluid_withWebp_tracedSVG }}},
     spaces3: file(relativePath: {eq: "about_us/spaces3.jpg"}) { childImageSharp { fluid(maxWidth: 3000, quality: 100) { ...GatsbyImageSharpFluid_withWebp_tracedSVG }}},
     spaces4: file(relativePath: {eq: "about_us/spaces4.png"}) { childImageSharp { fluid(maxWidth: 3000, quality: 100) { ...GatsbyImageSharpFluid_withWebp_tracedSVG }}},
-    
-    family1: file(relativePath: {eq: "about_us/family1.jpg"}) { childImageSharp { fluid(maxWidth: 3000, quality: 100) { ...GatsbyImageSharpFluid_withWebp_tracedSVG }}},
+   
   }
 `;
 

@@ -1,12 +1,20 @@
 {
   "en": {
-    "title": "Gardens",
-    "subHeading": "Our luscious gardens have years of history and are maintained up until today.",
+    "title": "Gardens & Tours",
+    "subHeading": "Our story told between japoneiras, rhododendrons and century-old azalias.",
 
     "firstParagraph": {
       "title": "Timeless gardens",
-      "description1": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
-      "description2": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
+      "description1": "Ao longo do ano, os nossos galardoados jardins recebem visitas de pessoas de variados recantos do mundo. Assumimos uma responsabilidade familiar e histórica em manter os nossos jardins centários, que são cuidados diariamente.",
+      "description2": "Fazendo parte da rota de Jardins Históricos do Baixo Minho delineado pela Associação Portuguesa de Jardins Históricos, o acesso aos jardins do Mosteiro faz-se por um portão que introduz um pátio ajardinado com canteiros de camélias talhadas, ricas de histórica, circundando uma fonte central decorada com o busto de Vénus. Adossada com uma parede revestida a azulejos e fontes de tempos passados, este é apenas o início de uma experiência rodeada de história, com caminhos cobertos por ramadas, proporcionam sombra, frescura e um ambiente mágico.",
+      "description3": "Subindo por estes caminhos, rodeados de pomares e vinhas, chegamos à antiga cerca do Mosteiro, com uma mata imensa, rica em exemplares de eucaliptos, austrálias, carvalhos e pinheiros. Aqui, existe um recinto do jogo da Pela e ao fundo a Casa do Paço, com uma sala única com amplas janelas e painéis de azulejos setecentistas, representando cenas de vidas de santos.",
+      "description4": "Confira algumas imagens do que compõe os nossos jardins que se revestem de variadas cores ao longo do ano."
+    },
+
+    "secondParagraph": {
+      "title": "Tours",
+      "description1": "Em tempos outrora, frades percorriam estes terrenos. Acreditamos que a História não deve ser apenas mantida mas também partilhada, sendo que abrimos os nossos jardins a visitas quem quer reviver um pedaço da extensa História de Portugal.",
+      "description2": "As nossas visitas não se limitam apenas aos nossos jardins. Convidamos a explorar o resto do conjunto monástico, que se estende por consideráveis terras agriculturadas e de vinicultura, no prolongamento de uma magnífica mata composta por carvalhos e medronheiros. Desde as nossas salas e interior do Mosteiro que remontam tempos de D. Afonso Henriques até às vinhas e vastos campos cuidados, o Mosteiro apresenta-se como uma oportunidade de usufruir uma experiência única."
     },
 
     "lottie": {

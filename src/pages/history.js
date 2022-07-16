@@ -149,7 +149,7 @@ function HistoryPage({data}) {
         <div className="box alt">
           <div className="row gtr-50 gtr-uniform">
             <div
-              className="col-6"
+              className="col-md-6"
               onClick={() => {
                 setPhotoIndex(images.indexOf(originPic5));
                 setToggleLightbox(true);
@@ -161,7 +161,7 @@ function HistoryPage({data}) {
             </span>
             </div>
             <div
-              className="col-6"
+              className="col-md-6"
               onClick={() => {
                 setPhotoIndex(images.indexOf(originPic6));
                 setToggleLightbox(true);
@@ -522,7 +522,6 @@ function HistoryPage({data}) {
       </span>
         <blockquote>{t('history:book.quote', { interpolation: { escapeValue: false } })}</blockquote>
         <p style={{ textAlign: 'right' }}>{t('history:book.quoteCitation')}</p>
-        <hr />
       </section>
     );
   }

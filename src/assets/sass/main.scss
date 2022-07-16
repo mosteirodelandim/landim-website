@@ -669,6 +669,7 @@ It imports a scss file that acts as template for a page (tile_page.scss), compon
 }
 
 // Components
+
 	@import 'components/icon';
 	@import 'components/icons';
 
@@ -689,6 +690,7 @@ It imports a scss file that acts as template for a page (tile_page.scss), compon
 	@import 'pages/about_us';
 	@import 'pages/wine';
 	@import 'pages/photo-gallery';
+	@import 'pages/services';
 
 
 

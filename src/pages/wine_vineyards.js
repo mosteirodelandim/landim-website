@@ -6,10 +6,17 @@ import Img from 'gatsby-image'
 
 import LandingLayout from '../components/LandingLayout';
 
+
+import { graphql, Link } from 'gatsby';
+import BackgroundImage from 'gatsby-background-image';
+import Carousel from 're-carousel';
+import IndicatorDots from '../components/CarouselDots';
+import Lottie from 'react-lottie';
+
+import airbnbAnim from '../assets/images/lottie/airbnb';
+
 import 'react-image-lightbox/style.css';
 
-import { graphql } from 'gatsby';
-import BackgroundImage from 'gatsby-background-image';
 
 function WineStayPage({data}) {
   const { t } = useTranslation();
@@ -25,6 +32,12 @@ function WineStayPage({data}) {
   const feature1 = data.feature1.childImageSharp.fluid;
   const feature2 = data.feature2.childImageSharp.fluid;
   const feature3 = data.feature3.childImageSharp.fluid;
+
+  const picture1 = data.picture1.childImageSharp.fluid;
+  const picture2 = data.picture2.childImageSharp.fluid;
+  const picture3 = data.picture3.childImageSharp.fluid;
+  const picture4 = data.picture4.childImageSharp.fluid;
+  const picture5 = data.picture5.childImageSharp.fluid;
 
   const images = [winePic1.srcWebp];
 
@@ -63,11 +76,11 @@ function WineStayPage({data}) {
 
             <h5>{t('wine_vineyards:wine.quote1Title')}</h5>
             <blockquote>{t('wine_vineyards:wine.quote1')}</blockquote>
-            <p style={{ textAlign: 'right' }}>{t('wine_vineyards:wine.quote1Author')}</p>
+            <p style={{ textAlign: 'right', color: "#b4aeb8" }}>{t('wine_vineyards:wine.quote1Author')}</p>
 
             <h5>{t('wine_vineyards:wine.quote2Title')}</h5>
             <blockquote>{t('wine_vineyards:wine.quote2')}</blockquote>
-            <p style={{ textAlign: 'right' }}>{t('wine_vineyards:wine.quote2Author')}</p>
+            <p style={{ textAlign: 'right', color: "#b4aeb8" }}>{t('wine_vineyards:wine.quote2Author')}</p>
 
           </div>
         </section>
@@ -118,6 +131,58 @@ function WineStayPage({data}) {
               </Col>
             </Row>
           </Grid>
+        </section>
+
+        <section className="wrapper style5">
+          <div className="inner">
+            <header>
+              <h3>{t('wine_vineyards:airbnb.title')}</h3>
+            </header>
+
+            <p>{t('wine_vineyards:airbnb.description1')}</p>
+            <p>{t('wine_vineyards:airbnb.description2')}</p>
+            <p>{t('wine_vineyards:airbnb.description3')}</p>
+          </div>
+        </section>
+
+        <section className="wrapper-carousel style5">
+          <div className="inner-carousel">
+            <Carousel loop widgets={[IndicatorDots]}>
+              <BackgroundImage Tag="div" className="carousel-image" fluid={picture1}/>
+              <BackgroundImage Tag="div" className="carousel-image" fluid={picture2}/>
+              <BackgroundImage Tag="div" className="carousel-image" fluid={picture3}/>
+              <BackgroundImage Tag="div" className="carousel-image" fluid={picture4}/>
+              <BackgroundImage Tag="div" className="carousel-image" fluid={picture5}/>
+            </Carousel>
+          </div>
+        </section>
+
+        <section id="two" className="wrapper alt style2">
+          <section id="airbnbSpotlight" className="spotlight">
+            <div className="spotlight-container">
+              <Grid>
+                <Row className="center-row">
+                  <Col md={6} className="center-col">
+                    <Lottie
+                      options={{
+                        animationData: airbnbAnim,
+                      }}
+                      height={200}
+                      width={200}
+                    />
+                  </Col>
+                  <Col md={6} className="center-col">
+                    <h2>{t('wine_vineyards:airbnb.spotlight.title')}</h2>
+                    <p>
+                      {t('wine_vineyards:airbnb.spotlight.phrase1')}
+                      <a target="_blank" rel="noopener noreferrer" href={"https://www.airbnb.pt/rooms/11984291"}>{t('wine_vineyards:airbnb.spotlight.phraseAirbnbUrl')}</a>
+                      {t('wine_vineyards:airbnb.spotlight.phrase2')}
+                    </p>
+                  </Col>
+                </Row>
+              </Grid>
+            </div>
+          </section>
         </section>
 
       </article>
@@ -173,7 +238,13 @@ export const query = graphql`
           ...GatsbyImageSharpFluid_withWebp_tracedSVG
         }
       }
-    }
+    },
+    picture1: file(relativePath: {eq: "wine_vineyards/airbnb/picture1.png"}) { childImageSharp { fluid(maxWidth: 3000, quality: 100) { ...GatsbyImageSharpFluid_withWebp }}},
+    picture2: file(relativePath: {eq: "wine_vineyards/airbnb/picture2.png"}) { childImageSharp { fluid(maxWidth: 3000, quality: 100) { ...GatsbyImageSharpFluid_withWebp }}},
+    picture3: file(relativePath: {eq: "wine_vineyards/airbnb/picture3.png"}) { childImageSharp { fluid(maxWidth: 3000, quality: 100) { ...GatsbyImageSharpFluid_withWebp }}},
+    picture4: file(relativePath: {eq: "wine_vineyards/airbnb/picture4.png"}) { childImageSharp { fluid(maxWidth: 3000, quality: 100) { ...GatsbyImageSharpFluid_withWebp }}},
+    picture5: file(relativePath: {eq: "wine_vineyards/airbnb/picture5.png"}) { childImageSharp { fluid(maxWidth: 3000, quality: 100) { ...GatsbyImageSharpFluid_withWebp }}},
+
   }
 `;
 

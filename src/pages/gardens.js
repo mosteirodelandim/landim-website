@@ -24,6 +24,8 @@ function GardensPage({data}) {
   const pic3 = data.pic3.childImageSharp.fluid;
   const pic4 = data.pic4.childImageSharp.fluid;
   const pic5 = data.pic5.childImageSharp.fluid;
+  const pic6 = data.pic6.childImageSharp.fluid;
+  const pic7 = data.pic7.childImageSharp.fluid;
 
   return (
     <LandingLayout fullMenu>
@@ -41,6 +43,8 @@ function GardensPage({data}) {
             <h3>{t('gardens:firstParagraph.title')}</h3>
             <p>{t('gardens:firstParagraph.description1')}</p>
             <p>{t('gardens:firstParagraph.description2')}</p>
+            <p>{t('gardens:firstParagraph.description3')}</p>
+            <p>{t('gardens:firstParagraph.description4')}</p>
           </div>
         </section>
 
@@ -52,7 +56,17 @@ function GardensPage({data}) {
               <BackgroundImage Tag="div" className="carousel-image" fluid={pic3}/>
               <BackgroundImage Tag="div" className="carousel-image" fluid={pic4}/>
               <BackgroundImage Tag="div" className="carousel-image" fluid={pic5}/>
+              <BackgroundImage Tag="div" className="carousel-image" fluid={pic6}/>
+              <BackgroundImage Tag="div" className="carousel-image" fluid={pic7}/>
             </Carousel>
+          </div>
+        </section>
+
+        <section className="wrapper style5">
+          <div className="inner">
+            <h3>{t('gardens:secondParagraph.title')}</h3>
+            <p>{t('gardens:secondParagraph.description1')}</p>
+            <p>{t('gardens:secondParagraph.description2')}</p>
           </div>
         </section>
 
@@ -128,6 +142,20 @@ export const query = graphql`
       }
     },
     pic5: file(relativePath: {eq: "gardens/picture5.jpg"}) {
+      childImageSharp {
+        fluid(maxWidth: 3000, quality: 100) {
+          ...GatsbyImageSharpFluid_withWebp
+        }
+      }
+    },
+    pic6: file(relativePath: {eq: "gardens/picture6.jpg"}) {
+      childImageSharp {
+        fluid(maxWidth: 3000, quality: 100) {
+          ...GatsbyImageSharpFluid_withWebp
+        }
+      }
+    },
+    pic7: file(relativePath: {eq: "gardens/picture7.jpg"}) {
       childImageSharp {
         fluid(maxWidth: 3000, quality: 100) {
           ...GatsbyImageSharpFluid_withWebp

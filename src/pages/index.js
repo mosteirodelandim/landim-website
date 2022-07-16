@@ -14,6 +14,7 @@ import BackgroundImage from 'gatsby-background-image'
 
 import FlagIcon from '../components/FlagIcon';
 import { graphql } from 'gatsby'
+import Img from 'gatsby-image';
 
 function IndexPage({data}) {
   const { t } = useTranslation();
@@ -92,75 +93,75 @@ function IndexPage({data}) {
 
         <section id="one" className="tiles">
 
-          <BackgroundImage
-            Tag="article"
-            fluid={aboutUsTile}
-          >
+          <article>
             <header className="major">
               <h3>{t('landing:weAre.title')}</h3>
             </header>
             <Link to="/about_us" className="link primary" />
-          </BackgroundImage>
+            <div className="bgImage">
+              <Img className="bgImage" fluid={aboutUsTile} />
+            </div>
+          </article>
 
-          <BackgroundImage
-            Tag="article"
-            fluid={servicesTile}
-          >
+          <article>
             <header className="major">
               <h3>{t('landing:services.title')}</h3>
             </header>
             <Link to="/services" className="link primary" />
-          </BackgroundImage>
+            <div className="bgImage">
+              <Img className="bgImage" fluid={servicesTile} />
+            </div>
+          </article>
 
-          <BackgroundImage
-            Tag="article"
-            fluid={photoTile}
-          >
+          <article>
             <header className="major">
               <h3>{t('landing:photos.title')}</h3>
             </header>
             <Link to="/photo_gallery" className="link primary" />
-          </BackgroundImage>
+            <div className="bgImage">
+              <Img className="bgImage" fluid={photoTile} />
+            </div>
+          </article>
 
-          <BackgroundImage
-            Tag="article"
-            fluid={historyTile}
-          >
+          <article>
             <header className="major">
               <h3>{t('landing:history.title')}</h3>
             </header>
             <Link to="/history" className="link primary" />
-          </BackgroundImage>
+            <div className="bgImage">
+              <Img className="bgImage" fluid={historyTile} />
+            </div>
+          </article>
 
-          <BackgroundImage
-            Tag="article"
-            fluid={gardenTile}
-          >
+          <article>
             <header className="major">
               <h3>{t('landing:gardens.title')}</h3>
             </header>
             <Link to="/gardens" className="link primary" />
-          </BackgroundImage>
+            <div className="bgImage">
+              <Img className="bgImage" fluid={gardenTile} />
+            </div>
+          </article>
 
-          <BackgroundImage
-            Tag="article"
-            fluid={wineTile}
-          >
+          <article>
             <header className="major">
               <h3>{t('landing:vineyards.title')}</h3>
             </header>
             <Link to="/wine_vineyards" className="link primary" />
-          </BackgroundImage>
+            <div className="bgImage">
+              <Img className="bgImage" fluid={wineTile} />
+            </div>
+          </article>
 
-          <BackgroundImage
-            Tag="article"
-            fluid={faqTile}
-          >
+          <article>
             <header className="major">
               <h3>{t('landing:faq.title')}</h3>
             </header>
             <Link to="/faq" className="link primary" />
-          </BackgroundImage>
+            <div className="bgImage">
+              <Img className="bgImage" fluid={faqTile} />
+            </div>
+          </article>
 
         </section>
       </div>
@@ -172,7 +173,7 @@ export const query = graphql`
   query {   
     historyTile: file(relativePath: {eq: "landing/history_tile.png"}) { childImageSharp { fluid(maxWidth: 3000, quality: 100) { ...GatsbyImageSharpFluid_withWebp }}},
     photoTile: file(relativePath: {eq: "landing/photos_tile.jpg"}) { childImageSharp { fluid(maxWidth: 3000, quality: 100) { ...GatsbyImageSharpFluid_withWebp }}},
-    gardenTile: file(relativePath: {eq: "landing/gardens_tile.jpg"}) { childImageSharp { fluid(maxWidth: 3000, quality: 100) { ...GatsbyImageSharpFluid_withWebp }}},
+    gardenTile: file(relativePath: {eq: "landing/gardens_tile.png"}) { childImageSharp { fluid(maxWidth: 3000, quality: 100) { ...GatsbyImageSharpFluid_withWebp }}},
     servicesTile: file(relativePath: {eq: "landing/services_tile.jpg"}) { childImageSharp { fluid(maxWidth: 3000, quality: 100) { ...GatsbyImageSharpFluid_withWebp }}},
     wineTile: file(relativePath: {eq: "landing/wine_tile.jpg"}) { childImageSharp { fluid(maxWidth: 3000, quality: 100) { ...GatsbyImageSharpFluid_withWebp }}},
     faqTile: file(relativePath: {eq: "landing/faq_tile.jpg"}) { childImageSharp { fluid(maxWidth: 3000, quality: 100) { ...GatsbyImageSharpFluid_withWebp }}},

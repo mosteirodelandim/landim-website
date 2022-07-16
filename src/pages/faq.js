@@ -64,9 +64,6 @@ function FaqPage({data}) {
                 <h3>{t('faq:time_limit.title')}</h3>
                 <p>
                   {t('faq:time_limit.description')}
-                 <hr/>
-                  <b>{t('faq:time_limit.covid.title')}  </b>
-                  {t('faq:time_limit.covid.description')}
                 </p>
               </li>
               <li className="icon solid fa-church">
@@ -115,16 +112,18 @@ function FaqPage({data}) {
                       width: '100%', height: '50vh'
                     }}
                   >
-                    <GoogleMapReact
-                      bootstrapURLKeys={{ key: config.apiKey }}
-                      defaultCenter={config.mapLocation.center}
-                      defaultZoom={config.mapLocation.zoom}
-                    >
-                      <Marker
-                        lat={config.mapLocation.center.lat}
-                        lng={config.mapLocation.center.lng}
-                      />
-                    </GoogleMapReact>
+                    <div className="hide-map-premier-buttons">
+                      <GoogleMapReact
+                        bootstrapURLKeys={{ key: config.apiKey }}
+                        defaultCenter={config.mapLocation.center}
+                        defaultZoom={config.mapLocation.zoom}
+                      >
+                        <Marker
+                          lat={config.mapLocation.center.lat}
+                          lng={config.mapLocation.center.lng}
+                        />
+                      </GoogleMapReact>
+                    </div>
                   </ul>
                 </Row>
                 <Row className="p-0 m-0" lg={10}>

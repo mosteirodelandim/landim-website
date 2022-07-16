@@ -35,7 +35,7 @@ History page specific styles
         margin: 0 0 (_size(element-margin) * 0.5) 0;
       }
     }
-    
+
     @include vendor('background-image', ('linear-gradient(to top, rgba(0,0,0,0.5), rgba(0,0,0,0.5))', 'url("../images/history/banner.jpg")'));
     background-attachment: local;
     background-position: center center;
