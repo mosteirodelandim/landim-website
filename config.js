@@ -28,7 +28,7 @@ module.exports = {
   houseDogs: ['Ringo', 'Spot', 'Dingo', 'Rex'],
 
   // Maps
-  apiKey: 'AIzaSyDpAcr1YDNQ9mVIZ-i20rwoWIttsg7rmZw',
+  apiKey: 'XXX',
 
   mapLocation: {
     center: {
