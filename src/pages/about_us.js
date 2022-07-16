@@ -57,9 +57,9 @@ function AboutUsPage({data}) {
             <p>{t('about_us:history.description1')}</p>
             <p>{t('about_us:history.description2')}</p>
             <br/>
-            <blockquote>"Nunca se perde tempo com aquilo que amamos."</blockquote>
-            <p style={{ textAlign: 'right', opacity: .5 }}>Alberto Sampaio</p>
-            <p>Amamos a herança que nos foi deixada e estamos dedicados a mantê-la intacta para futuras gerações. Regemo-nos pelas palavras dos nossos antepassados para inspirar futuras gerações e convidados na nossa quinta.</p>
+            <blockquote>{t('about_us:history.quote')}</blockquote>
+            <p style={{ textAlign: 'right', opacity: .5 }}>{t('about_us:history.quoteAuthor')}</p>
+            <p>{t('about_us:history.description3')}</p>
           </div>
 
           <Grid>
@@ -82,7 +82,7 @@ function AboutUsPage({data}) {
                       }}
                       style={{ textAlign: 'right', cursor: "pointer" }}>
                   <Img fluid={history2}/>
-                  Fotos históricas do claustro e Sala de Capítulo antigas.
+                  {t('about_us:history.imagesCaption')}
                 </span>
               </Col>
             </Row>
@@ -103,17 +103,15 @@ function AboutUsPage({data}) {
 
 
             <blockquote>
-              <p>É sagrada a nossa casa, protectora como aza</p>
-              <p>Guarda e cobre o nosso lar, dentro dela com carinho</p>
-              <p>O coração tem o seu ninho</p>
-              <p>Tem o amor em seu altar</p>
+              <p>{t('about_us:family.poem.verse1')}</p>
+              <p>{t('about_us:family.poem.verse2')}</p>
+              <p>{t('about_us:family.poem.verse3')}</p>
+              <p>{t('about_us:family.poem.verse4')}</p>
             </blockquote>
-            <p style={{ textAlign: 'right' }}>poema de Sebastião de Carvalho</p>
+            <p style={{ textAlign: 'right', opacity: .5 }}>{t('about_us:family.poem.author')}</p>
 
-            <p>Este poema escrito pelo já falecido Sebastião de Carvalho, amigo de longa data e parte da família, que bem representa os valores incutidos de forma generacional na família. Estes quatro versos, representados a azulejo na varanda do Mosteiro, são repetidos ano a ano e celebrados pelos membros familiares.</p>
-            <p>A família da propriedade do Mosteiro de Landim já conta na sua nona geração, com a décima já à porta. E todas as gerações desta família tem as suas raízes e mantêm uma relação íntima com a cidade famalicense.</p>
-
-
+            <p>{t('about_us:family.description1')}</p>
+            <p>{t('about_us:family.description2')}</p>
           </div>
         </section>
 
@@ -152,8 +150,8 @@ function AboutUsPage({data}) {
               <p>{t('about_us:wines.subtitle')}</p>
             </header>
 
-            <p>Os terrenos do Mosteiro de Landim extendem-se por vários hectares. Ao longo destas terras agriculturadas, nasceu uma tradição de vinicultura que persiste até aos dias de hoje. Todos os anos, em Setembro, a família e amigos da família e de Landim juntam-se para manter este legado e participam nas vindimas. </p>
-            <p>O produto deste esforço conjunto culmina num delicioso vinho verde Camélia, tão nosso como as nossas japoneiras. Este vinho já premiado em múltiplas ocasiões é exclusivo à região minhota é frutado, com aroma de média exuberância e é refrescante no paladar.</p>
+            <p>{t('about_us:wines.description1')}</p>
+            <p>{t('about_us:wines.description2')}</p>
           </div>
         </section>
 
@@ -199,10 +197,10 @@ function AboutUsPage({data}) {
               <p>{t('about_us:services_spaces.subtitle')}</p>
             </header>
 
-            <p>O valor que se dá a uma festa não se limita apenas à ocasião, mas também ao que a rodeia. O Mosteiro de Landim não vale apenas pelo espaço que tem, mas também pela aura que a circunda e o ambiente que nela se vive. Basta entrar pelos portões do Mosteiro que irá logo perceber que encontrou o sítio e espaços ideais para reunir a sua família e amigos e e partilhar momentos em harmonia.</p>
-            <p>Seja um simples almoço, uma festa de família, uma cerimónia religiosa, bodas de ouro ou um casamento, o Mosteiro acrescenta de variados espaços - o claustro, os jardins, a igreja e as salas centenárias. Cada uma adapta-se às necessidades do seu evento, oferecendo não só flexibilidade mas capacidade para eventos de qualquer número de pessoas.</p>
+            <p>{t('about_us:services_spaces.description1')}</p>
+            <p>{t('about_us:services_spaces.description2')}</p>
             <hr />
-            <p>Paralelamente, o Mosteiro disponibiliza serviços de catering, decoração e organização de eventos através de parceiros privilegiados, que já conhecem os recantos da quinta e de todas as qualidades que a caracteriza. Somos flexíveis e deixamos os nossos convidados a escolher os seus próprios serviços, caso o desejam.</p>
+            <p>{t('about_us:services_spaces.description3')}</p>
           </div>
 
           <Grid>
