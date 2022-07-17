@@ -130,7 +130,7 @@
 
   @include breakpoint('<=small') {
     @include padding(7em, 3em);
-    height: auto;
+    ///height: auto;
     min-height: 0;
 
     h2 {
