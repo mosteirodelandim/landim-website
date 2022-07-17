@@ -668,6 +668,16 @@ It imports a scss file that acts as template for a page (tile_page.scss), compon
 	}
 }
 
+// Making scrollbar on top
+#___gatsby {
+	> div > div:nth-child(2) {
+		z-index: 1000;
+	}
+	> div > div:nth-child(3) {
+		z-index: 1000;
+	}
+}
+
 // Components
 
 	@import 'components/icon';

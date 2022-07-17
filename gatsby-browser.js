@@ -1,7 +1,11 @@
-/**
- * Implement Gatsby's Browser APIs in this file.
- *
- * See: https://www.gatsbyjs.org/docs/browser-apis/
- */
+import React from 'react';
+import { Scrollbars } from 'react-custom-scrollbars-2';
 
-// You can delete this file if you're not using it
+
+export const wrapRootElement = ({ element }) => {
+  return (
+    <Scrollbars style={{ width: "100vw", height: "100vh"}}>
+      {element}
+    </Scrollbars>
+  );
+}
