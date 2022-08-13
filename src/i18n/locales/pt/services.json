@@ -5,27 +5,27 @@
 
     "firstParagraph": {
       "title": "Um Espaço Versátil",
-      "description1": "Os portões do Mosteiro de Landim abrem-se para momentos inesquecíveis. Casamentos, aniversários, batizados, festas sem nome, conferências, apresentações de livros e visitas temáticas. Mais do que um espaço, queremos partilhar sensações e memórias.",
-      "description2": "Dispomos de um fastuoso conjunto de espaços para qualquer tipo de festa e ambientes para um leque diversificado de formato de eventos. Qualquer seja a sua escolha, garantimos flexibilidade em criar cenários para tornar o seu evento memorável.",
-      "description3": "Temos vários espaços e recantos diferentes disponíveis para o seu evento. Para qualquer tipo de eventos, disponibilizamos salões e um claustro fechados com capacidade conjunta até 450 convidados. Se preza contacto direto com a natureza, à capacidade destas salas extende-se um jardim exterior centenário, perfeito para a realização de receções e cerimónias."
+      "description1": "Os portões do Mosteiro de Landim abrem-se para momentos inesquecíveis. Casamentos, cerimónias civis, aniversários, batizados, festas sem nome, conferências, apresentações de livros e visitas temáticas. Mais do que um espaço, queremos partilhar sensações e memórias.",
+      "description2": "Dispomos de um conjunto de espaços cheios de história para qualquer tipo de festa e ambientes para um leque diversificado de formato de eventos. Qualquer seja a sua escolha, garantimos flexibilidade em criar cenários para tornar o seu evento memorável.",
+      "description3": "Disponibilizamos um jardim exterior centenário, perfeito para a realização de receções e cerimónias. Juntamos aos jardins o nosso fantástico claustro - aberto ou fechado e salões adjacentes com capacidade para acolher até 350 convidados. "
     },
 
     "spotlights": {
       "cloister": {
         "title": "O Claustro",
-        "description": "O nosso claustro conta com anos de história que remontam ao século XVI. É o espaço ideal para mesas de amigos, pistas de dança e encontros de família."
+        "description": "O nosso claustro conta com anos de história que remontam ao século XVI. Coberto ou sem cobertura, é o espaço ideal para mesas de amigos, pistas de dança, grandes jantares e encontros de família."
       },
       "gardens": {
         "title": "Os Jardins",
-        "description": "Árvores centenárias, cores que mudam com o tempo, diferentes recantos de sol e sombra. Os nossos jardins são o local perfeito para estar e conviver, disfrutar de música  e dança."
+        "description": "Árvores centenárias, cores que mudam com o tempo, diferentes recantos de sol e sombra. Os nossos jardins, sempre frescos no calor do Verão e amenos no frio do Inverno, são o local perfeito para estar e conviver, disfrutar de música, comida e bom ambiente."
       },
       "rooms": {
         "title": "As Salas",
-        "description": "Contornando o claustro existem dois salões emblemáticos que ampliam o espaço da festa. O salão principal é coberto por um tecto em talha do século XVIII - uma verdadeira obra de arte."
+        "description": "Contornando o claustro existem dois salões emblemáticos que ampliam o espaço da festa. O salão principal é coberto por um tecto em talha do século XVIII e vestígios dos típicos azulejos da mesma era - uma verdadeira obra de arte."
       },
       "church": {
         "title": "A Igreja",
-        "description": "Igreja paroquial de Santa Maria de Landim, românica na sua origem e restaurada em 2007, é o local ideal para a celebração de uma cerimónia religiosa."
+        "description": "A Igreja paroquial, adjacente ao Mosteiro Santa Maria de Landim, românica na sua origem e restaurada em 2007, é o local ideal para a celebração de uma cerimónia religiosa. Nada mais conveniente para os convidados do que uma cerimónia religiosa mesmo à porta da festa."
       }
     },
 
