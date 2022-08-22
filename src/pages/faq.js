@@ -55,9 +55,9 @@ function FaqPage({data}) {
                 </p>
               </li>
               <li className="icon solid fa-list-ul">
-                <h3>{t('faq:services.title')}</h3>
+                <h3>{t('faq:events.title')}</h3>
                 <p>
-                  {t('faq:services.description')}
+                  {t('faq:events.description')}
                 </p>
               </li>
               <li className="icon solid fa-clock">

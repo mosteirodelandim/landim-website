@@ -10,8 +10,8 @@ import notFoundEN from './locales/en/404.json';
 import notFoundPT from './locales/pt/404.json';
 import sidebarEN from './locales/en/sidebar.json';
 import sidebarPT from './locales/pt/sidebar.json';
-import servicesEN from './locales/en/services.json';
-import servicesPT from './locales/pt/services.json';
+import eventsEN from './locales/en/events.json';
+import eventsPT from './locales/pt/events.json';
 import historyEN from './locales/en/history.json';
 import historyPT from './locales/pt/history.json';
 import wineVinesEN from './locales/en/wine_vineyards.json';
@@ -32,7 +32,7 @@ const resources = {
     cta: ctaPT.pt,
     notFound: notFoundPT.pt,
     sidebar: sidebarPT.pt,
-    services: servicesPT.pt,
+    events: eventsPT.pt,
     history: historyPT.pt,
     wine_vineyards: wineVinesPT.pt,
     faq: faqPT.pt,
@@ -45,7 +45,7 @@ const resources = {
     cta: ctaEN.en,
     notFound: notFoundEN.en,
     sidebar: sidebarEN.en,
-    services: servicesEN.en,
+    events: eventsEN.en,
     history: historyEN.en,
     wine_vineyards: wineVinesEN.en,
     faq: faqEN.en,
@@ -70,7 +70,7 @@ i18n
     detection,
     fallbackLng: 'en',
 
-    ns: ['landing', 'cta', 'notFound', 'sidebar', 'services', 'history', 'wine_vineyards', 'faq', 'about_us', 'gardens', 'photo_gallery'],
+    ns: ['landing', 'cta', 'notFound', 'sidebar', 'events', 'history', 'wine_vineyards', 'faq', 'about_us', 'gardens', 'photo_gallery'],
     defaultNS: 'landing',
 
     returnObjects: true, // to return objects (in case of arrays, e.g.)

@@ -22,7 +22,7 @@ function IndexPage({data}) {
   const historyTile = data.historyTile.childImageSharp.fluid;
   const photoTile = data.photoTile.childImageSharp.fluid;
   const gardenTile = data.gardenTile.childImageSharp.fluid;
-  const servicesTile = data.servicesTile.childImageSharp.fluid;
+  const eventsTile = data.eventsTile.childImageSharp.fluid;
   const wineTile = data.wineTile.childImageSharp.fluid;
   const faqTile = data.faqTile.childImageSharp.fluid;
   const aboutUsTile = data.aboutUsTile.childImageSharp.fluid;
@@ -105,11 +105,11 @@ function IndexPage({data}) {
 
           <article>
             <header className="major">
-              <h3>{t('landing:services.title')}</h3>
+              <h3>{t('landing:events.title')}</h3>
             </header>
-            <Link to="/services" className="link primary" />
+            <Link to="/events" className="link primary" />
             <div className="bgImage">
-              <Img className="bgImage" fluid={servicesTile} />
+              <Img className="bgImage" fluid={eventsTile} />
             </div>
           </article>
 
@@ -174,7 +174,7 @@ export const query = graphql`
     historyTile: file(relativePath: {eq: "landing/history_tile.png"}) { childImageSharp { fluid(maxWidth: 3000, quality: 100) { ...GatsbyImageSharpFluid_withWebp }}},
     photoTile: file(relativePath: {eq: "landing/photos_tile.jpg"}) { childImageSharp { fluid(maxWidth: 3000, quality: 100) { ...GatsbyImageSharpFluid_withWebp }}},
     gardenTile: file(relativePath: {eq: "landing/gardens_tile.png"}) { childImageSharp { fluid(maxWidth: 3000, quality: 100) { ...GatsbyImageSharpFluid_withWebp }}},
-    servicesTile: file(relativePath: {eq: "landing/services_tile.jpg"}) { childImageSharp { fluid(maxWidth: 3000, quality: 100) { ...GatsbyImageSharpFluid_withWebp }}},
+    eventsTile: file(relativePath: {eq: "landing/events_tile.jpg"}) { childImageSharp { fluid(maxWidth: 3000, quality: 100) { ...GatsbyImageSharpFluid_withWebp }}},
     wineTile: file(relativePath: {eq: "landing/wine_tile.jpg"}) { childImageSharp { fluid(maxWidth: 3000, quality: 100) { ...GatsbyImageSharpFluid_withWebp }}},
     faqTile: file(relativePath: {eq: "landing/faq_tile.jpg"}) { childImageSharp { fluid(maxWidth: 3000, quality: 100) { ...GatsbyImageSharpFluid_withWebp }}},
     aboutUsTile: file(relativePath: {eq: "landing/about_us_tile.jpg"}) { childImageSharp { fluid(maxWidth: 3000, quality: 100) { ...GatsbyImageSharpFluid_withWebp }}},

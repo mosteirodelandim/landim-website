@@ -105,7 +105,7 @@ function Nav({ onMenuToggle = () => {} }) {
               </li>
 
               <li>
-                <Link to="/services">{t('sidebar:services')}</Link>
+                <Link to="/events">{t('sidebar:events')}</Link>
               </li>
 
               <li>

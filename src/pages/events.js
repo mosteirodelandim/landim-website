@@ -12,7 +12,7 @@ import Lightbox from 'react-image-lightbox';
 import americo_menu from '../assets/luis_americo_22.pdf'
 import config from '../../config';
 
-function ServicesPage({data}) {
+function EventsPage({data}) {
   const { t } = useTranslation();
 
   // Local state
@@ -41,21 +41,21 @@ function ServicesPage({data}) {
   const images = [space1, space2];
 
   return (
-    <LandingLayout id="servicesPage" fullMenu>
-      <article id="pageMain" className="servicesMain">
+    <LandingLayout id="eventsPage" fullMenu>
+      <article id="pageMain" className="eventsMain">
         <BackgroundImage
           Tag="header"
           fluid={banner}
         >
-          <h2>{t('services:heading')}</h2>
-          <p className="subHeadingTilePage">{t('services:subHeading')}</p>
+          <h2>{t('events:heading')}</h2>
+          <p className="subHeadingTilePage">{t('events:subHeading')}</p>
         </BackgroundImage>
         <section className="wrapper style5">
           <div className="inner">
-            <h3>{t('services:firstParagraph.title')}</h3>
-            <p>{t('services:firstParagraph.description1')}</p>
-            <p>{t('services:firstParagraph.description2')}</p>
-            <p>{t('services:firstParagraph.description3')}</p>
+            <h3>{t('events:firstParagraph.title')}</h3>
+            <p>{t('events:firstParagraph.description1')}</p>
+            <p>{t('events:firstParagraph.description2')}</p>
+            <p>{t('events:firstParagraph.description3')}</p>
           </div>
         </section>
 
@@ -65,8 +65,8 @@ function ServicesPage({data}) {
               <Img fluid={cloisterPic}/>
             </div>
             <div className="content">
-              <h2>{t('services:spotlights.cloister.title')}</h2>
-              <p>{t('services:spotlights.cloister.description')}</p>
+              <h2>{t('events:spotlights.cloister.title')}</h2>
+              <p>{t('events:spotlights.cloister.description')}</p>
             </div>
           </section>
           <section className="spotlight no-pad">
@@ -74,8 +74,8 @@ function ServicesPage({data}) {
               <Img fluid={gardenPic}/>
             </div>
             <div className="content">
-              <h2>{t('services:spotlights.gardens.title')}</h2>
-              <p>{t('services:spotlights.gardens.description')}</p>
+              <h2>{t('events:spotlights.gardens.title')}</h2>
+              <p>{t('events:spotlights.gardens.description')}</p>
             </div>
           </section>
           <section className="spotlight no-pad">
@@ -83,8 +83,8 @@ function ServicesPage({data}) {
               <Img fluid={roomPic}/>
             </div>
             <div className="content">
-              <h2>{t('services:spotlights.rooms.title')}</h2>
-              <p>{t('services:spotlights.rooms.description')}</p>
+              <h2>{t('events:spotlights.rooms.title')}</h2>
+              <p>{t('events:spotlights.rooms.description')}</p>
             </div>
           </section>
           <section className="spotlight no-pad">
@@ -92,27 +92,27 @@ function ServicesPage({data}) {
               <Img fluid={churchPic}/>
             </div>
             <div className="content">
-              <h2>{t('services:spotlights.church.title')}</h2>
-              <p>{t('services:spotlights.church.description')}</p>
+              <h2>{t('events:spotlights.church.title')}</h2>
+              <p>{t('events:spotlights.church.description')}</p>
             </div>
           </section>
         </section>
 
         <section className="wrapper style5">
           <div className="inner">
-            <h3>{t('services:secondParagraph.title')}</h3>
-            <p>{t('services:secondParagraph.description1')}</p>
+            <h3>{t('events:secondParagraph.title')}</h3>
+            <p>{t('events:secondParagraph.description1')}</p>
             <hr/>
-            <h5>{t('services:secondParagraph.spaces.title')}</h5>
+            <h5>{t('events:secondParagraph.spaces.title')}</h5>
             <p>
-              {t('services:secondParagraph.spaces.description1.phrase1')}
+              {t('events:secondParagraph.spaces.description1.phrase1')}
               <strong>{config.spacePrice}</strong>
-              {t('services:secondParagraph.spaces.description1.phrase1Price')}
+              {t('events:secondParagraph.spaces.description1.phrase1Price')}
               <strong>{config.year}</strong>.
-              {t('services:secondParagraph.spaces.description1.phrase2')}
+              {t('events:secondParagraph.spaces.description1.phrase2')}
             </p>
-            <p>{t('services:secondParagraph.spaces.description2')}</p>
-            <p>{t('services:secondParagraph.spaces.description3.phrase1')}<strong>{config.roofPrice}</strong>.</p>
+            <p>{t('events:secondParagraph.spaces.description2')}</p>
+            <p>{t('events:secondParagraph.spaces.description3.phrase1')}<strong>{config.roofPrice}</strong>.</p>
           </div>
         </section>
 
@@ -130,7 +130,7 @@ function ServicesPage({data}) {
                   >
                     <span className="image fit">
                       <Img fluid={space1}/>
-                      {t('services:secondParagraph.spaces.image1Caption')}
+                      {t('events:secondParagraph.spaces.image1Caption')}
                     </span>
                   </div>
                   <div
@@ -142,7 +142,7 @@ function ServicesPage({data}) {
                   >
                     <span className="image fit" style={{ textAlign: 'right' }}>
                       <Img fluid={space2}/>
-                      {t('services:secondParagraph.spaces.image2Caption')}
+                      {t('events:secondParagraph.spaces.image2Caption')}
                     </span>
                   </div>
                 </div>
@@ -153,13 +153,13 @@ function ServicesPage({data}) {
 
         <section className="wrapper style5 no-top">
           <div className="inner">
-            <h5>{t('services:secondParagraph.decor.title')}</h5>
-            <p>{t('services:secondParagraph.decor.description1')}</p>
+            <h5>{t('events:secondParagraph.decor.title')}</h5>
+            <p>{t('events:secondParagraph.decor.description1')}</p>
             <p>
-              <a href="https://saiotes.pt/" rel="noopener noreferrer" target="_blank">Saiotes</a>{t('services:secondParagraph.decor.description2')}
+              <a href="https://saiotes.pt/" rel="noopener noreferrer" target="_blank">Saiotes</a>{t('events:secondParagraph.decor.description2')}
             </p>
             <p>
-              <a href={americo_menu} download>Luís Américo</a>{t('services:secondParagraph.decor.description3')}
+              <a href={americo_menu} download>Luís Américo</a>{t('events:secondParagraph.decor.description3')}
             </p>
           </div>
         </section>
@@ -199,25 +199,25 @@ function ServicesPage({data}) {
 
 export const query = graphql`
   query {
-    banner: file(relativePath: {eq: "services/banner.png"}) { childImageSharp { fluid(maxWidth: 3000, quality: 100) { ...GatsbyImageSharpFluid_withWebp }}},
-    cloisterPic: file(relativePath: {eq: "services/cloister.jpg"}) { childImageSharp { fluid(maxWidth: 3000, quality: 100) { ...GatsbyImageSharpFluid_withWebp_tracedSVG }}},
-    gardenPic: file(relativePath: {eq: "services/garden.jpg"}) { childImageSharp { fluid(maxWidth: 3000, quality: 100) { ...GatsbyImageSharpFluid_withWebp_tracedSVG }}},
-    roomPic: file(relativePath: {eq: "services/rooms.jpg"}) { childImageSharp { fluid(maxWidth: 3000, quality: 100) { ...GatsbyImageSharpFluid_withWebp_tracedSVG }}},
-    churchPic: file(relativePath: {eq: "services/church.png"}) { childImageSharp { fluid(maxWidth: 3000, quality: 100) { ...GatsbyImageSharpFluid_withWebp_tracedSVG }}},
+    banner: file(relativePath: {eq: "events/banner.png"}) { childImageSharp { fluid(maxWidth: 3000, quality: 100) { ...GatsbyImageSharpFluid_withWebp }}},
+    cloisterPic: file(relativePath: {eq: "events/cloister.jpg"}) { childImageSharp { fluid(maxWidth: 3000, quality: 100) { ...GatsbyImageSharpFluid_withWebp_tracedSVG }}},
+    gardenPic: file(relativePath: {eq: "events/garden.jpg"}) { childImageSharp { fluid(maxWidth: 3000, quality: 100) { ...GatsbyImageSharpFluid_withWebp_tracedSVG }}},
+    roomPic: file(relativePath: {eq: "events/rooms.jpg"}) { childImageSharp { fluid(maxWidth: 3000, quality: 100) { ...GatsbyImageSharpFluid_withWebp_tracedSVG }}},
+    churchPic: file(relativePath: {eq: "events/church.png"}) { childImageSharp { fluid(maxWidth: 3000, quality: 100) { ...GatsbyImageSharpFluid_withWebp_tracedSVG }}},
     
-    space1: file(relativePath: {eq: "services/space1.jpg"}) { childImageSharp { fluid(maxWidth: 3000, quality: 100) { ...GatsbyImageSharpFluid_withWebp_tracedSVG }}},
-    space2: file(relativePath: {eq: "services/space2.jpg"}) { childImageSharp { fluid(maxWidth: 3000, quality: 100) { ...GatsbyImageSharpFluid_withWebp_tracedSVG }}},
+    space1: file(relativePath: {eq: "events/space1.jpg"}) { childImageSharp { fluid(maxWidth: 3000, quality: 100) { ...GatsbyImageSharpFluid_withWebp_tracedSVG }}},
+    space2: file(relativePath: {eq: "events/space2.jpg"}) { childImageSharp { fluid(maxWidth: 3000, quality: 100) { ...GatsbyImageSharpFluid_withWebp_tracedSVG }}},
 
-    carousel1: file(relativePath: {eq: "services/carousel/1.jpg"}) { childImageSharp { fluid(maxWidth: 3000, quality: 100) { ...GatsbyImageSharpFluid_withWebp }}},
-    carousel2: file(relativePath: {eq: "services/carousel/2.jpg"}) { childImageSharp { fluid(maxWidth: 3000, quality: 100) { ...GatsbyImageSharpFluid_withWebp }}},
-    carousel3: file(relativePath: {eq: "services/carousel/3.jpg"}) { childImageSharp { fluid(maxWidth: 3000, quality: 100) { ...GatsbyImageSharpFluid_withWebp }}},
-    carousel4: file(relativePath: {eq: "services/carousel/4.jpg"}) { childImageSharp { fluid(maxWidth: 3000, quality: 100) { ...GatsbyImageSharpFluid_withWebp }}},
-    carousel5: file(relativePath: {eq: "services/carousel/5.jpeg"}) { childImageSharp { fluid(maxWidth: 3000, quality: 100) { ...GatsbyImageSharpFluid_withWebp }}},
-    carousel6: file(relativePath: {eq: "services/carousel/6.jpg"}) { childImageSharp { fluid(maxWidth: 3000, quality: 100) { ...GatsbyImageSharpFluid_withWebp }}},
-    carousel7: file(relativePath: {eq: "services/carousel/7.jpg"}) { childImageSharp { fluid(maxWidth: 3000, quality: 100) { ...GatsbyImageSharpFluid_withWebp }}},
-    carousel8: file(relativePath: {eq: "services/carousel/8.jpg"}) { childImageSharp { fluid(maxWidth: 3000, quality: 100) { ...GatsbyImageSharpFluid_withWebp }}},
-    carousel9: file(relativePath: {eq: "services/carousel/9.jpg"}) { childImageSharp { fluid(maxWidth: 3000, quality: 100) { ...GatsbyImageSharpFluid_withWebp }}},
+    carousel1: file(relativePath: {eq: "events/carousel/1.jpg"}) { childImageSharp { fluid(maxWidth: 3000, quality: 100) { ...GatsbyImageSharpFluid_withWebp }}},
+    carousel2: file(relativePath: {eq: "events/carousel/2.jpg"}) { childImageSharp { fluid(maxWidth: 3000, quality: 100) { ...GatsbyImageSharpFluid_withWebp }}},
+    carousel3: file(relativePath: {eq: "events/carousel/3.jpg"}) { childImageSharp { fluid(maxWidth: 3000, quality: 100) { ...GatsbyImageSharpFluid_withWebp }}},
+    carousel4: file(relativePath: {eq: "events/carousel/4.jpg"}) { childImageSharp { fluid(maxWidth: 3000, quality: 100) { ...GatsbyImageSharpFluid_withWebp }}},
+    carousel5: file(relativePath: {eq: "events/carousel/5.jpeg"}) { childImageSharp { fluid(maxWidth: 3000, quality: 100) { ...GatsbyImageSharpFluid_withWebp }}},
+    carousel6: file(relativePath: {eq: "events/carousel/6.jpg"}) { childImageSharp { fluid(maxWidth: 3000, quality: 100) { ...GatsbyImageSharpFluid_withWebp }}},
+    carousel7: file(relativePath: {eq: "events/carousel/7.jpg"}) { childImageSharp { fluid(maxWidth: 3000, quality: 100) { ...GatsbyImageSharpFluid_withWebp }}},
+    carousel8: file(relativePath: {eq: "events/carousel/8.jpg"}) { childImageSharp { fluid(maxWidth: 3000, quality: 100) { ...GatsbyImageSharpFluid_withWebp }}},
+    carousel9: file(relativePath: {eq: "events/carousel/9.jpg"}) { childImageSharp { fluid(maxWidth: 3000, quality: 100) { ...GatsbyImageSharpFluid_withWebp }}},
   }
 `;
 
-export default ServicesPage;
+export default EventsPage;

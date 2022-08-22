@@ -8,7 +8,7 @@ import { Col, Grid, Row } from 'react-flexbox-grid';
 
 import bookAnim from '../assets/images/lottie/book';
 import wineAnim from '../assets/images/lottie/wines';
-import servicesAnim from '../assets/images/lottie/services';
+import eventsAnim from '../assets/images/lottie/events';
 import LandingLayout from '../components/LandingLayout';
 import IndicatorDots from '../components/CarouselDots';
 import BackgroundImage from 'gatsby-background-image';
@@ -193,14 +193,14 @@ function AboutUsPage({data}) {
         <section className="wrapper style5">
           <div className="inner">
             <header>
-              <h3 className="aboutUsTitle">{t('about_us:services_spaces.title')}</h3>
-              <p>{t('about_us:services_spaces.subtitle')}</p>
+              <h3 className="aboutUsTitle">{t('about_us:events_spaces.title')}</h3>
+              <p>{t('about_us:events_spaces.subtitle')}</p>
             </header>
 
-            <p>{t('about_us:services_spaces.description1')}</p>
-            <p>{t('about_us:services_spaces.description2')}</p>
+            <p>{t('about_us:events_spaces.description1')}</p>
+            <p>{t('about_us:events_spaces.description2')}</p>
             <hr />
-            <p>{t('about_us:services_spaces.description3')}</p>
+            <p>{t('about_us:events_spaces.description3')}</p>
           </div>
 
           <Grid>
@@ -210,8 +210,8 @@ function AboutUsPage({data}) {
                   <Img fluid={spaces1}/>
                   <div className="overlay">
                     <div className="text">
-                      <h2>{t('about_us:services_spaces.images.image1.title')}</h2>
-                      <span>{t('about_us:services_spaces.images.image1.subtitle')}</span>
+                      <h2>{t('about_us:events_spaces.images.image1.title')}</h2>
+                      <span>{t('about_us:events_spaces.images.image1.subtitle')}</span>
                     </div>
                   </div>
                 </span>
@@ -221,8 +221,8 @@ function AboutUsPage({data}) {
                   <Img fluid={spaces2}/>
                   <div className="overlay">
                     <div className="text">
-                      <h2>{t('about_us:services_spaces.images.image2.title')}</h2>
-                      <span>{t('about_us:services_spaces.images.image2.subtitle')}</span>
+                      <h2>{t('about_us:events_spaces.images.image2.title')}</h2>
+                      <span>{t('about_us:events_spaces.images.image2.subtitle')}</span>
                     </div>
                   </div>
                 </span>
@@ -232,9 +232,9 @@ function AboutUsPage({data}) {
                   <Img fluid={spaces3}/>
                   <div className="overlay">
                     <div className="text">
-                      <h2>{t('about_us:services_spaces.images.image3.title')}</h2>
-                      <span>{t('about_us:services_spaces.images.image3.subtitle')}
-                        <Link to="/gardens">{t('about_us:services_spaces.images.image3.hyperlink')}</Link>.
+                      <h2>{t('about_us:events_spaces.images.image3.title')}</h2>
+                      <span>{t('about_us:events_spaces.images.image3.subtitle')}
+                        <Link to="/gardens">{t('about_us:events_spaces.images.image3.hyperlink')}</Link>.
                       </span>
                     </div>
                   </div>
@@ -245,8 +245,8 @@ function AboutUsPage({data}) {
                   <Img fluid={spaces4}/>
                   <div className="overlay">
                     <div className="text">
-                      <h2>{t('about_us:services_spaces.images.image4.title')}</h2>
-                      <span>{t('about_us:services_spaces.images.image4.subtitle')}</span>
+                      <h2>{t('about_us:events_spaces.images.image4.title')}</h2>
+                      <span>{t('about_us:events_spaces.images.image4.subtitle')}</span>
                     </div>
                   </div>
                 </span>
@@ -256,22 +256,22 @@ function AboutUsPage({data}) {
         </section>
 
         <section id="two" className="wrapper alt style2">
-          <section id="servicesSpacesSpotlight" className="spotlight">
+          <section id="eventsSpacesSpotlight" className="spotlight">
             <div className="spotlight-container">
               <Grid>
                 <Row className="center-row">
                   <Col md={6} className="center-col">
                       <Lottie
                         options={{
-                          animationData: servicesAnim,
+                          animationData: eventsAnim,
                         }}
                         height={200}
                         width={200}
                       />
                   </Col>
                   <Col md={6} className="center-col">
-                      <h2>{t('about_us:services_spaces.lottie.title')}</h2>
-                      <p>{t('about_us:services_spaces.lottie.description')}<Link to="/services">{t('about_us:services_spaces.lottie.hyperlink')}</Link>.</p>
+                      <h2>{t('about_us:events_spaces.lottie.title')}</h2>
+                      <p>{t('about_us:events_spaces.lottie.description')}<Link to="/events">{t('about_us:events_spaces.lottie.hyperlink')}</Link>.</p>
                   </Col>
                 </Row>
               </Grid>
