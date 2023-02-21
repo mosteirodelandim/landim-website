@@ -53,8 +53,16 @@ This is an example of how you may give instructions on setting up your project l
 To get a local copy up and running follow these simple example steps.
 
 ### Prerequisites
-You need to have npm or yarn installed to run and deploy the website. Make sure to follow [these](https://www.npmjs.com/get-npm) instructions.
-You also need Gatsby installed. Head [here](https://www.gatsbyjs.org/tutorial/part-zero/#using-the-gatsby-cli) and follow the instructions. After these, you should be all set!
+You need to have `npm` or `yarn` installed to run and deploy the website.
+Make sure to follow [these](https://www.npmjs.com/get-npm) instructions.
+You also need `Gatsby` installed. Head [here](https://www.gatsbyjs.org/tutorial/part-zero/#using-the-gatsby-cli) and follow the instructions. 
+
+> **Note**
+>
+> This repo's dependencies are old.
+> You will need to install Node 16 and install `gatsby-cli@3.7.1`, not the latest ones.
+>
+> You will need to have `Python 2.7` installed as well.
 
 ### Installation
 
@@ -66,6 +74,14 @@ git clone https://github.com/mosteirodelandim/landim-website.git
 ```sh
 npm install
 ```
+
+> **Note**
+>
+> If this doesn't work, run `npm install --python=python2.7 -f`.
+> You will need to have `Python 2.7` installed for this to work.
+> If you are on **MacOS** devices, you will probably run into other errors.
+> Check out https://github.com/nuxt/image/issues/204#issue-837103392, as they are the possible cause.
+> You'll have to run 3 commands, as per the aforementioned link.
 
 3. Run it!
 
