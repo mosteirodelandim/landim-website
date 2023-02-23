@@ -90,11 +90,20 @@ npm install
 gatsby develop
 ```
 
+
+> **Note**
+>
+> When running `gatsby develop`, if you run into errors, try hard-refreshing the page. 
+> Find out more in https://stackoverflow.com/questions/52121000/gatsby-cannot-read-property-component-src-pages-index-jsx-of-undefined.
+
+
 - To deploy the website:
 ```sh
 gatsby build
 ```
+
 This does a production build of the website and outputs the build static files into the ```public``` directory. After this:
+
 ```sh
 cd public
 surge
