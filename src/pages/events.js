@@ -4,6 +4,7 @@ import Carousel from 're-carousel';
 
 import LandingLayout from '../components/LandingLayout';
 import IndicatorDots from '../components/CarouselDots';
+import CarouselArrows from '../components/CarouselArrows';
 import { graphql } from 'gatsby';
 import BackgroundImage from 'gatsby-background-image';
 import Img from 'gatsby-image';
@@ -166,7 +167,7 @@ function EventsPage({data}) {
 
         <section className="wrapper-carousel style5">
           <div className="inner-carousel">
-            <Carousel loop widgets={[IndicatorDots]}>
+            <Carousel loop widgets={[IndicatorDots, CarouselArrows]}>
               <BackgroundImage Tag="div" className="carousel-image" fluid={carousel1}/>
               <BackgroundImage Tag="div" className="carousel-image" fluid={carousel2}/>
               <BackgroundImage Tag="div" className="carousel-image" fluid={carousel3}/>
