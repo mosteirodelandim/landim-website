@@ -53,7 +53,7 @@ function PhotoGalleryPage({ data }) {
         <section className="wrapper style5">
           <div className="inner">
             <blockquote>{t('photo_gallery:quote')}</blockquote>
-            <p style={{fontWeight: "bold"}}>{t('photo_gallery:quoteAuthor')}</p>
+            <p style={{textAlign: 'right', opacity: .5 }}>{t('photo_gallery:quoteAuthor')}</p>
 
             <p>{t('photo_gallery:paragraph:description1')}</p>
             <p>{t('photo_gallery:paragraph:description2')}</p>

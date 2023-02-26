@@ -121,7 +121,7 @@ function AboutUsPage({data}) {
             <div className="spotlight-container">
               <Grid>
                 <Row className="center-row">
-                  <Col md={6} className="center-col">
+                  <Col md={6} className="center-col" style={{pointerEvents: "none"}}>
                     <Lottie
                       options={{
                         animationData: bookAnim,
@@ -172,7 +172,7 @@ function AboutUsPage({data}) {
             <div className="spotlight-container">
               <Grid>
                 <Row className="center-row">
-                  <Col md={6} className="center-col">
+                  <Col md={6} className="center-col" style={{pointerEvents: "none"}}>
                     <Lottie
                       options={{
                         animationData: wineAnim,
@@ -261,10 +261,12 @@ function AboutUsPage({data}) {
             <div className="spotlight-container">
               <Grid>
                 <Row className="center-row">
-                  <Col md={6} className="center-col">
+                  <Col md={6} className="center-col" style={{pointerEvents: "none"}}>
                       <Lottie
                         options={{
                           animationData: eventsAnim,
+                          autoplay: true,
+                          loop: true
                         }}
                         height={200}
                         width={200}

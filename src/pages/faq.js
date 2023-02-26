@@ -17,6 +17,7 @@ import BackgroundImage from 'gatsby-background-image';
 const Marker = () => (
   <div
     id="markerCenter"
+    style={{pointerEvents: "none"}}
   >
     <Lottie
       lat={config.mapLocation.center.lat}

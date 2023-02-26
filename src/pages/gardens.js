@@ -77,7 +77,7 @@ function GardensPage({data}) {
             <div className="spotlight-container">
               <Grid>
                 <Row className="center-row">
-                  <Col md={6} className="center-col">
+                  <Col md={6} className="center-col" style={{pointerEvents: "none"}}>
                     <Lottie
                       options={{
                         animationData: cameraAnim,
