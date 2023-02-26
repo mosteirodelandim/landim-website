@@ -11,6 +11,7 @@ import { graphql, Link } from 'gatsby';
 import BackgroundImage from 'gatsby-background-image';
 import Carousel from 're-carousel';
 import IndicatorDots from '../components/CarouselDots';
+import CarouselArrows from '../components/CarouselArrows';
 import Lottie from 'react-lottie';
 
 import airbnbAnim from '../assets/images/lottie/airbnb';
@@ -147,7 +148,7 @@ function WineStayPage({data}) {
 
         <section className="wrapper-carousel style5">
           <div className="inner-carousel">
-            <Carousel loop widgets={[IndicatorDots]}>
+            <Carousel loop widgets={[IndicatorDots, CarouselArrows]}>
               <BackgroundImage Tag="div" className="carousel-image" fluid={picture1}/>
               <BackgroundImage Tag="div" className="carousel-image" fluid={picture2}/>
               <BackgroundImage Tag="div" className="carousel-image" fluid={picture3}/>
