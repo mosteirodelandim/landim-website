@@ -10,7 +10,6 @@ import BackgroundImage from 'gatsby-background-image';
 import Img from 'gatsby-image';
 import Lightbox from 'react-image-lightbox';
 
-import americo_menu from '../assets/luis_americo_22.pdf'
 import config from '../../config';
 
 function EventsPage({data}) {
@@ -160,7 +159,9 @@ function EventsPage({data}) {
               <a href="https://saiotes.pt/" rel="noopener noreferrer" target="_blank">Saiotes</a>{t('events:secondParagraph.decor.description2')}
             </p>
             <p>
-              <a href={americo_menu} download>Luís Américo</a>{t('events:secondParagraph.decor.description3')}
+              <a href="https://eco.sapo.pt/2022/04/19/chefe-cozinheiro-do-ano-esta-de-volta-ja-distinguiu-chefs-como-henrique-sa-pessoa-e-luis-americo/"
+              target="_blank" rel="noopener noreferrer"
+              >Luís Américo</a>{t('events:secondParagraph.decor.description3')}
             </p>
           </div>
         </section>

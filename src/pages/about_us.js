@@ -11,6 +11,7 @@ import wineAnim from '../assets/images/lottie/wines';
 import eventsAnim from '../assets/images/lottie/events';
 import LandingLayout from '../components/LandingLayout';
 import IndicatorDots from '../components/CarouselDots';
+import CarouselArrows from '../components/CarouselArrows';
 import BackgroundImage from 'gatsby-background-image';
 import Img from 'gatsby-image';
 import Lightbox from 'react-image-lightbox';
@@ -158,7 +159,7 @@ function AboutUsPage({data}) {
 
         <section className="wrapper-carousel style5">
           <div className="inner-carousel">
-            <Carousel loop widgets={[IndicatorDots]}>
+            <Carousel loop widgets={[IndicatorDots, CarouselArrows]}>
               <BackgroundImage Tag="div" className="carousel-image" fluid={wine1}/>
               <BackgroundImage Tag="div" className="carousel-image" fluid={wine2}/>
               <BackgroundImage Tag="div" className="carousel-image" fluid={wine3}/>

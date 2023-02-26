@@ -7,6 +7,8 @@ import { Col, Grid, Row } from 'react-flexbox-grid';
 import Carousel from 're-carousel';
 
 import IndicatorDots from '../components/CarouselDots';
+import CarouselArrows from '../components/CarouselArrows';
+
 import LandingLayout from '../components/LandingLayout';
 import cameraAnim from '../assets/images/lottie/camera';
 import config from '../../config';
@@ -50,7 +52,7 @@ function GardensPage({data}) {
 
         <section className="wrapper-carousel style5">
           <div className="inner-carousel">
-            <Carousel loop widgets={[IndicatorDots]}>
+            <Carousel loop widgets={[IndicatorDots, CarouselArrows]}>
               <BackgroundImage Tag="div" className="carousel-image" fluid={pic1}/>
               <BackgroundImage Tag="div" className="carousel-image" fluid={pic2}/>
               <BackgroundImage Tag="div" className="carousel-image" fluid={pic3}/>

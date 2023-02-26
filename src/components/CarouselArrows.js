@@ -31,6 +31,7 @@ export default function CarouselArrows(props) {
   const prevBtnStyle = Object.assign({}, styles.btn, styles.left)
   const nextBtnStyle = Object.assign({}, styles.btn, styles.right)
   const { index, total, loop, prevHandler, nextHandler } = props
+
   return (
     <div style={styles.wrapper}>
       { (loop || index !== 0) && (
