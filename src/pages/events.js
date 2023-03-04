@@ -34,8 +34,8 @@ function EventsPage({data}) {
   const carousel4 = data.carousel4.childImageSharp.fluid;
   const carousel5 = data.carousel5.childImageSharp.fluid;
   const carousel6 = data.carousel6.childImageSharp.fluid;
-  const carousel7 = data.carousel7.childImageSharp.fluid;
-  const carousel8 = data.carousel8.childImageSharp.fluid;
+
+  
   const carousel9 = data.carousel9.childImageSharp.fluid;
 
   const images = [space1, space2];
@@ -170,16 +170,14 @@ function EventsPage({data}) {
         <section className="wrapper-carousel style5">
           <div className="inner-carousel">
             <Carousel loop widgets={[IndicatorDots, CarouselArrows]}>
-              <BackgroundImage Tag="div" className="carousel-image" fluid={carousel1}/>
+              <BackgroundImage Tag="div" className="carousel-image" fluid={carousel1} alt='photocredits to Conta-me Como Foi' title='photocredits to Conta-me Como Foi'/>
 
               <BackgroundImage Tag="div" className="carousel-image" fluid={carousel2}/>
 
-              <BackgroundImage Tag="div" className="carousel-image" fluid={carousel3}/>
-              <BackgroundImage Tag="div" className="carousel-image" fluid={carousel4}/>
-              <BackgroundImage Tag="div" className="carousel-image" fluid={carousel5}/>
-              <BackgroundImage Tag="div" className="carousel-image" fluid={carousel6}/>
-              <BackgroundImage Tag="div" className="carousel-image" fluid={carousel7}/>
-              <BackgroundImage Tag="div" className="carousel-image" fluid={carousel8}/>
+              <BackgroundImage Tag="div" className="carousel-image" fluid={carousel3} alt='photocredits to Saiotes' title='photocredits to Saiotes'/>
+              <BackgroundImage Tag="div" className="carousel-image" fluid={carousel4} alt='photocredits to Madalena Abreu' title='photocredits to Madalena Abreu'/>
+              <BackgroundImage Tag="div" className="carousel-image" fluid={carousel5} alt='photocredits to Pedro Marcelino' title='photocredits to Pedro Marcelino'/>
+              <BackgroundImage Tag="div" className="carousel-image" fluid={carousel6} alt='photocredits to Pedro Marcelino' title='photocredits to Pedro Marcelino'/>
               
               <BackgroundImage Tag="div" className="carousel-image" fluid={carousel9}/>
             </Carousel>
@@ -205,7 +203,7 @@ function EventsPage({data}) {
 
 export const query = graphql`
   query {
-    banner: file(relativePath: {eq: "events/banner.jpeg"}) { childImageSharp { fluid(maxWidth: 3000, quality: 100) { ...GatsbyImageSharpFluid_withWebp }}},
+    banner: file(relativePath: {eq: "events/banner.jpg"}) { childImageSharp { fluid(maxWidth: 3000, quality: 100) { ...GatsbyImageSharpFluid_withWebp }}},
     cloisterPic: file(relativePath: {eq: "events/cloister.jpg"}) { childImageSharp { fluid(maxWidth: 3000, quality: 100) { ...GatsbyImageSharpFluid_withWebp_tracedSVG }}},
     gardenPic: file(relativePath: {eq: "events/garden.jpg"}) { childImageSharp { fluid(maxWidth: 3000, quality: 100) { ...GatsbyImageSharpFluid_withWebp_tracedSVG }}},
     roomPic: file(relativePath: {eq: "events/rooms.jpg"}) { childImageSharp { fluid(maxWidth: 3000, quality: 100) { ...GatsbyImageSharpFluid_withWebp_tracedSVG }}},
@@ -218,10 +216,10 @@ export const query = graphql`
     carousel2: file(relativePath: {eq: "events/carousel/2.jpg"}) { childImageSharp { fluid(maxWidth: 3000, quality: 100) { ...GatsbyImageSharpFluid_withWebp }}},
     carousel3: file(relativePath: {eq: "events/carousel/3.jpg"}) { childImageSharp { fluid(maxWidth: 3000, quality: 100) { ...GatsbyImageSharpFluid_withWebp }}},
     carousel4: file(relativePath: {eq: "events/carousel/4.jpg"}) { childImageSharp { fluid(maxWidth: 3000, quality: 100) { ...GatsbyImageSharpFluid_withWebp }}},
-    carousel5: file(relativePath: {eq: "events/carousel/5.jpeg"}) { childImageSharp { fluid(maxWidth: 3000, quality: 100) { ...GatsbyImageSharpFluid_withWebp }}},
+    carousel5: file(relativePath: {eq: "events/carousel/5.jpg"}) { childImageSharp { fluid(maxWidth: 3000, quality: 100) { ...GatsbyImageSharpFluid_withWebp }}},
     carousel6: file(relativePath: {eq: "events/carousel/6.jpg"}) { childImageSharp { fluid(maxWidth: 3000, quality: 100) { ...GatsbyImageSharpFluid_withWebp }}},
-    carousel7: file(relativePath: {eq: "events/carousel/7.jpg"}) { childImageSharp { fluid(maxWidth: 3000, quality: 100) { ...GatsbyImageSharpFluid_withWebp }}},
-    carousel8: file(relativePath: {eq: "events/carousel/8.jpg"}) { childImageSharp { fluid(maxWidth: 3000, quality: 100) { ...GatsbyImageSharpFluid_withWebp }}},
+
+    
     carousel9: file(relativePath: {eq: "events/carousel/9.jpg"}) { childImageSharp { fluid(maxWidth: 3000, quality: 100) { ...GatsbyImageSharpFluid_withWebp }}},
   }
 `;
