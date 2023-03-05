@@ -105,15 +105,8 @@ function EventsPage({data}) {
             <p>{t('events:secondParagraph.description1')}</p>
             <hr/>
             <h5>{t('events:secondParagraph.spaces.title')}</h5>
-            <p>
-              {t('events:secondParagraph.spaces.description1.phrase1')}
-              <strong>{config.spacePrice}</strong>
-              {t('events:secondParagraph.spaces.description1.phrase1Price')}
-              <strong>{config.year}</strong>.
-              {t('events:secondParagraph.spaces.description1.phrase2')}
-            </p>
+            <p>{t('events:secondParagraph.spaces.description1')}</p>
             <p>{t('events:secondParagraph.spaces.description2')}</p>
-            <p>{t('events:secondParagraph.spaces.description3.phrase1')}<strong>{config.roofPrice}</strong>.</p>
           </div>
         </section>
 
