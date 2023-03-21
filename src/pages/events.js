@@ -63,7 +63,7 @@ function EventsPage({data}) {
         <section id="spotlights" className="wrapper alt style2">
           <section className="spotlight no-pad">
             <div className="image">
-              <Img fluid={cloisterPic}/>
+              <Img fluid={cloisterPic} alt='photocredits to Menino Conhece Menina' title='photocredits to Menino Conhece Menina'/>
             </div>
             <div className="content">
               <h2>{t('events:spotlights.cloister.title')}</h2>
@@ -81,7 +81,7 @@ function EventsPage({data}) {
           </section>
           <section className="spotlight no-pad">
             <div className="image">
-              <Img fluid={roomPic}/>
+              <Img fluid={roomPic} />
             </div>
             <div className="content">
               <h2>{t('events:spotlights.rooms.title')}</h2>
@@ -90,7 +90,7 @@ function EventsPage({data}) {
           </section>
           <section className="spotlight no-pad">
             <div className="image">
-              <Img fluid={churchPic}/>
+              <Img fluid={churchPic} alt='photocredits to Miguel Oliveira' title='photocredits to Miguel Oliveira'/>
             </div>
             <div className="content">
               <h2>{t('events:spotlights.church.title')}</h2>
@@ -165,7 +165,7 @@ function EventsPage({data}) {
             <Carousel loop widgets={[IndicatorDots, CarouselArrows]}>
               <BackgroundImage Tag="div" className="carousel-image" fluid={carousel1} alt='photocredits to Conta-me Como Foi' title='photocredits to Conta-me Como Foi'/>
 
-              <BackgroundImage Tag="div" className="carousel-image" fluid={carousel2}/>
+              <BackgroundImage Tag="div" className="carousel-image" fluid={carousel2} alt='photocredits to João Makes Photos' title='photocredits to João Makes Photos'/>
 
               <BackgroundImage Tag="div" className="carousel-image" fluid={carousel3} alt='photocredits to Saiotes' title='photocredits to Saiotes'/>
               <BackgroundImage Tag="div" className="carousel-image" fluid={carousel4} alt='photocredits to Madalena Abreu' title='photocredits to Madalena Abreu'/>
