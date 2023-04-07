@@ -164,14 +164,11 @@ function EventsPage({data}) {
           <div className="inner-carousel">
             <Carousel loop widgets={[IndicatorDots, CarouselArrows]}>
               <BackgroundImage Tag="div" className="carousel-image" fluid={carousel1} alt='photocredits to Conta-me Como Foi' title='photocredits to Conta-me Como Foi'/>
-
               <BackgroundImage Tag="div" className="carousel-image" fluid={carousel2} alt='photocredits to João Makes Photos' title='photocredits to João Makes Photos'/>
-
               <BackgroundImage Tag="div" className="carousel-image" fluid={carousel3} alt='photocredits to Saiotes' title='photocredits to Saiotes'/>
               <BackgroundImage Tag="div" className="carousel-image" fluid={carousel4} alt='photocredits to Madalena Abreu' title='photocredits to Madalena Abreu'/>
               <BackgroundImage Tag="div" className="carousel-image" fluid={carousel5} alt='photocredits to Pedro Marcelino' title='photocredits to Pedro Marcelino'/>
               <BackgroundImage Tag="div" className="carousel-image" fluid={carousel6} alt='photocredits to Pedro Marcelino' title='photocredits to Pedro Marcelino'/>
-              
               <BackgroundImage Tag="div" className="carousel-image" fluid={carousel9}/>
             </Carousel>
           </div>
@@ -211,8 +208,6 @@ export const query = graphql`
     carousel4: file(relativePath: {eq: "events/carousel/4.jpg"}) { childImageSharp { fluid(maxWidth: 3000, quality: 100) { ...GatsbyImageSharpFluid_withWebp }}},
     carousel5: file(relativePath: {eq: "events/carousel/5.jpg"}) { childImageSharp { fluid(maxWidth: 3000, quality: 100) { ...GatsbyImageSharpFluid_withWebp }}},
     carousel6: file(relativePath: {eq: "events/carousel/6.jpg"}) { childImageSharp { fluid(maxWidth: 3000, quality: 100) { ...GatsbyImageSharpFluid_withWebp }}},
-
-    
     carousel9: file(relativePath: {eq: "events/carousel/9.jpg"}) { childImageSharp { fluid(maxWidth: 3000, quality: 100) { ...GatsbyImageSharpFluid_withWebp }}},
   }
 `;
