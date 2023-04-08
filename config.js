@@ -14,11 +14,6 @@ module.exports = {
   manifestIcon: 'src/assets/images/common/website-icon.png',
   pathPrefix: '',
 
-  // PRICES --------------------
-  year: "2023",
-  spacePrice: "€3200 + IVA",
-  roofPrice: "€1800 + IVA",
-
   // PAGES ---------------------
 
   emailContact: 'info@mosteirodelandim.com',

@@ -34,8 +34,8 @@ function EventsPage({data}) {
   const carousel4 = data.carousel4.childImageSharp.fluid;
   const carousel5 = data.carousel5.childImageSharp.fluid;
   const carousel6 = data.carousel6.childImageSharp.fluid;
-  const carousel7 = data.carousel7.childImageSharp.fluid;
-  const carousel8 = data.carousel8.childImageSharp.fluid;
+
+  
   const carousel9 = data.carousel9.childImageSharp.fluid;
 
   const images = [space1, space2];
@@ -46,6 +46,7 @@ function EventsPage({data}) {
         <BackgroundImage
           Tag="header"
           fluid={banner}
+          alt='photocredits to Bárbara Araújo' title='photocredits to Bárbara Araújo'
         >
           <h2>{t('events:heading')}</h2>
           <p className="subHeadingTilePage">{t('events:subHeading')}</p>
@@ -62,7 +63,7 @@ function EventsPage({data}) {
         <section id="spotlights" className="wrapper alt style2">
           <section className="spotlight no-pad">
             <div className="image">
-              <Img fluid={cloisterPic}/>
+              <Img fluid={cloisterPic} alt='photocredits to Menino Conhece Menina' title='photocredits to Menino Conhece Menina'/>
             </div>
             <div className="content">
               <h2>{t('events:spotlights.cloister.title')}</h2>
@@ -71,7 +72,7 @@ function EventsPage({data}) {
           </section>
           <section className="spotlight no-pad">
             <div className="image">
-              <Img fluid={gardenPic}/>
+              <Img fluid={gardenPic} alt='photocredits to Pedro Marcelino' title='photocredits to Pedro Marcelino'/>
             </div>
             <div className="content">
               <h2>{t('events:spotlights.gardens.title')}</h2>
@@ -80,7 +81,7 @@ function EventsPage({data}) {
           </section>
           <section className="spotlight no-pad">
             <div className="image">
-              <Img fluid={roomPic}/>
+              <Img fluid={roomPic} />
             </div>
             <div className="content">
               <h2>{t('events:spotlights.rooms.title')}</h2>
@@ -89,7 +90,7 @@ function EventsPage({data}) {
           </section>
           <section className="spotlight no-pad">
             <div className="image">
-              <Img fluid={churchPic}/>
+              <Img fluid={churchPic} alt='photocredits to Miguel Oliveira' title='photocredits to Miguel Oliveira'/>
             </div>
             <div className="content">
               <h2>{t('events:spotlights.church.title')}</h2>
@@ -104,15 +105,8 @@ function EventsPage({data}) {
             <p>{t('events:secondParagraph.description1')}</p>
             <hr/>
             <h5>{t('events:secondParagraph.spaces.title')}</h5>
-            <p>
-              {t('events:secondParagraph.spaces.description1.phrase1')}
-              <strong>{config.spacePrice}</strong>
-              {t('events:secondParagraph.spaces.description1.phrase1Price')}
-              <strong>{config.year}</strong>.
-              {t('events:secondParagraph.spaces.description1.phrase2')}
-            </p>
+            <p>{t('events:secondParagraph.spaces.description1')}</p>
             <p>{t('events:secondParagraph.spaces.description2')}</p>
-            <p>{t('events:secondParagraph.spaces.description3.phrase1')}<strong>{config.roofPrice}</strong>.</p>
           </div>
         </section>
 
@@ -129,7 +123,7 @@ function EventsPage({data}) {
                     }}
                   >
                     <span className="image fit">
-                      <Img fluid={space1}/>
+                      <Img fluid={space1} alt='photocredits to Ana Teresa Miranda' title='photocredits to Ana Teresa Miranda'/>
                       {t('events:secondParagraph.spaces.image1Caption')}
                     </span>
                   </div>
@@ -141,7 +135,7 @@ function EventsPage({data}) {
                     }}
                   >
                     <span className="image fit" style={{ textAlign: 'right' }}>
-                      <Img fluid={space2}/>
+                      <Img fluid={space2} alt='photocredits to As Anas' title='photocredits to As Anas'/>
                       {t('events:secondParagraph.spaces.image2Caption')}
                     </span>
                   </div>
@@ -169,14 +163,15 @@ function EventsPage({data}) {
         <section className="wrapper-carousel style5">
           <div className="inner-carousel">
             <Carousel loop widgets={[IndicatorDots, CarouselArrows]}>
-              <BackgroundImage Tag="div" className="carousel-image" fluid={carousel1}/>
-              <BackgroundImage Tag="div" className="carousel-image" fluid={carousel2}/>
-              <BackgroundImage Tag="div" className="carousel-image" fluid={carousel3}/>
-              <BackgroundImage Tag="div" className="carousel-image" fluid={carousel4}/>
-              <BackgroundImage Tag="div" className="carousel-image" fluid={carousel5}/>
-              <BackgroundImage Tag="div" className="carousel-image" fluid={carousel6}/>
-              <BackgroundImage Tag="div" className="carousel-image" fluid={carousel7}/>
-              <BackgroundImage Tag="div" className="carousel-image" fluid={carousel8}/>
+              <BackgroundImage Tag="div" className="carousel-image" fluid={carousel1} alt='photocredits to Conta-me Como Foi' title='photocredits to Conta-me Como Foi'/>
+
+              <BackgroundImage Tag="div" className="carousel-image" fluid={carousel2} alt='photocredits to João Makes Photos' title='photocredits to João Makes Photos'/>
+
+              <BackgroundImage Tag="div" className="carousel-image" fluid={carousel3} alt='photocredits to Saiotes' title='photocredits to Saiotes'/>
+              <BackgroundImage Tag="div" className="carousel-image" fluid={carousel4} alt='photocredits to Madalena Abreu' title='photocredits to Madalena Abreu'/>
+              <BackgroundImage Tag="div" className="carousel-image" fluid={carousel5} alt='photocredits to Pedro Marcelino' title='photocredits to Pedro Marcelino'/>
+              <BackgroundImage Tag="div" className="carousel-image" fluid={carousel6} alt='photocredits to Pedro Marcelino' title='photocredits to Pedro Marcelino'/>
+              
               <BackgroundImage Tag="div" className="carousel-image" fluid={carousel9}/>
             </Carousel>
           </div>
@@ -201,7 +196,7 @@ function EventsPage({data}) {
 
 export const query = graphql`
   query {
-    banner: file(relativePath: {eq: "events/banner.png"}) { childImageSharp { fluid(maxWidth: 3000, quality: 100) { ...GatsbyImageSharpFluid_withWebp }}},
+    banner: file(relativePath: {eq: "events/banner.jpg"}) { childImageSharp { fluid(maxWidth: 3000, quality: 100) { ...GatsbyImageSharpFluid_withWebp }}},
     cloisterPic: file(relativePath: {eq: "events/cloister.jpg"}) { childImageSharp { fluid(maxWidth: 3000, quality: 100) { ...GatsbyImageSharpFluid_withWebp_tracedSVG }}},
     gardenPic: file(relativePath: {eq: "events/garden.jpg"}) { childImageSharp { fluid(maxWidth: 3000, quality: 100) { ...GatsbyImageSharpFluid_withWebp_tracedSVG }}},
     roomPic: file(relativePath: {eq: "events/rooms.jpg"}) { childImageSharp { fluid(maxWidth: 3000, quality: 100) { ...GatsbyImageSharpFluid_withWebp_tracedSVG }}},
@@ -214,10 +209,10 @@ export const query = graphql`
     carousel2: file(relativePath: {eq: "events/carousel/2.jpg"}) { childImageSharp { fluid(maxWidth: 3000, quality: 100) { ...GatsbyImageSharpFluid_withWebp }}},
     carousel3: file(relativePath: {eq: "events/carousel/3.jpg"}) { childImageSharp { fluid(maxWidth: 3000, quality: 100) { ...GatsbyImageSharpFluid_withWebp }}},
     carousel4: file(relativePath: {eq: "events/carousel/4.jpg"}) { childImageSharp { fluid(maxWidth: 3000, quality: 100) { ...GatsbyImageSharpFluid_withWebp }}},
-    carousel5: file(relativePath: {eq: "events/carousel/5.jpeg"}) { childImageSharp { fluid(maxWidth: 3000, quality: 100) { ...GatsbyImageSharpFluid_withWebp }}},
+    carousel5: file(relativePath: {eq: "events/carousel/5.jpg"}) { childImageSharp { fluid(maxWidth: 3000, quality: 100) { ...GatsbyImageSharpFluid_withWebp }}},
     carousel6: file(relativePath: {eq: "events/carousel/6.jpg"}) { childImageSharp { fluid(maxWidth: 3000, quality: 100) { ...GatsbyImageSharpFluid_withWebp }}},
-    carousel7: file(relativePath: {eq: "events/carousel/7.jpg"}) { childImageSharp { fluid(maxWidth: 3000, quality: 100) { ...GatsbyImageSharpFluid_withWebp }}},
-    carousel8: file(relativePath: {eq: "events/carousel/8.jpg"}) { childImageSharp { fluid(maxWidth: 3000, quality: 100) { ...GatsbyImageSharpFluid_withWebp }}},
+
+    
     carousel9: file(relativePath: {eq: "events/carousel/9.jpg"}) { childImageSharp { fluid(maxWidth: 3000, quality: 100) { ...GatsbyImageSharpFluid_withWebp }}},
   }
 `;
