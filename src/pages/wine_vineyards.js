@@ -7,7 +7,7 @@ import Img from 'gatsby-image'
 import LandingLayout from '../components/LandingLayout';
 
 
-import { graphql, Link } from 'gatsby';
+import { graphql } from 'gatsby';
 import BackgroundImage from 'gatsby-background-image';
 import Carousel from 're-carousel';
 import IndicatorDots from '../components/CarouselDots';
