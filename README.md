@@ -77,9 +77,13 @@ npm install
 
 > **Note**
 >
-> If this doesn't work, run `npm install --python=python2.7 -f`.
-> You will need to have `Python 2.7` installed for this to work.
-> If you are on **MacOS** devices, you will probably run into other errors.
+> If you're on a **Windows** device,
+> you will probably get the error in https://stackoverflow.com/questions/74715990/node-gyp-err-invalid-mode-ru-while-trying-to-load-binding-gyp/75260066#75260066.
+> This is related to `node-sass`. Follow the pre-requisites in https://github.com/nodejs/node-gyp#on-windows.
+> 
+> 
+> If you are on a **MacOS** device, follow the instructions in https://github.com/nodejs/node-gyp#on-windows.
+> You might run into other errors.
 > Check out https://github.com/nuxt/image/issues/204#issue-837103392, as they are the possible cause.
 > You'll have to run 3 commands, as per the aforementioned link.
 
