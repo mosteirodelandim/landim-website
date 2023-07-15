@@ -161,7 +161,7 @@ query ImagesForGallery {
             thumb: fluid(maxWidth: 270, maxHeight: 270, cropFocus: CENTER, fit: COVER, quality: 40) {
               ...GatsbyImageSharpFluid_withWebp_tracedSVG
             }
-            full: fluid(quality:100) {
+            full: fluid(maxWidth: 3000, quality: 100) {
               ...GatsbyImageSharpFluid_withWebp_tracedSVG
    } } } }
   },
@@ -169,7 +169,7 @@ query ImagesForGallery {
             thumb: fluid(maxWidth: 270, maxHeight: 270, cropFocus: CENTER, fit: COVER, quality: 40) {
               ...GatsbyImageSharpFluid_withWebp_tracedSVG
             }
-            full: fluid(quality:100) {
+            full: fluid(maxWidth: 3000, quality: 100) {
               ...GatsbyImageSharpFluid_withWebp_tracedSVG
    } } } }
   },
@@ -177,7 +177,7 @@ query ImagesForGallery {
             thumb: fluid(maxWidth: 270, maxHeight: 270, cropFocus: CENTER, fit: COVER, quality: 40) {
               ...GatsbyImageSharpFluid_withWebp_tracedSVG
             }
-            full: fluid(quality:100) {
+            full: fluid(maxWidth: 3000, quality: 100) {
               ...GatsbyImageSharpFluid_withWebp_tracedSVG
    } } } }
   },
@@ -185,7 +185,7 @@ query ImagesForGallery {
             thumb: fluid(maxWidth: 270, maxHeight: 270, cropFocus: CENTER, fit: COVER, quality: 40) {
               ...GatsbyImageSharpFluid_withWebp_tracedSVG
             }
-            full: fluid(quality:100) {
+            full: fluid(maxWidth: 3000, quality: 100) {
               ...GatsbyImageSharpFluid_withWebp_tracedSVG
    } } } }
   },
