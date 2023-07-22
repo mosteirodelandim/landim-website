@@ -8,6 +8,11 @@ import LandingLayout from '../components/LandingLayout';
 import 'react-image-lightbox/style.css';
 import Lightbox from 'react-image-lightbox';
 import BackgroundImage from 'gatsby-background-image';
+import { Col, Grid, Row } from 'react-flexbox-grid';
+import Lottie from 'react-lottie';
+
+import igAnim from '../assets/images/lottie/instagram.json';
+
 
 function ImageGallery({images, onImageClick}) {
   return images.map(img => (
@@ -140,6 +145,31 @@ function PhotoGalleryPage({ data }) {
         </section>
 
       </article>
+
+      <section id="two" className="wrapper alt style2">
+          <section id="photogallerySpotlight" className="spotlight">
+            <div className="spotlight-container">
+              <Grid>
+                <Row className="center-row">
+                  <Col md={6} className="center-col" style={{pointerEvents: "none"}}>
+                    <Lottie
+                      options={{
+                        animationData: igAnim,
+                        loop: false
+                      }}
+                      height={200}
+                      width={200}
+                    />
+                  </Col>
+                  <Col md={6} className="center-col">
+                    <h2>{t('photo_gallery:spotlight.title')}</h2>
+                    <p>{t('photo_gallery:spotlight.description')}</p>
+                  </Col>
+                </Row>
+              </Grid>
+            </div>
+          </section>
+        </section>
 
       {lightboxIsOpen && (
         <Lightbox
