@@ -155,7 +155,8 @@ function PhotoGalleryPage({ data }) {
                     <Lottie
                       options={{
                         animationData: igAnim,
-                        loop: false
+                        loop: false,
+                        autoplay: true
                       }}
                       height={200}
                       width={200}
