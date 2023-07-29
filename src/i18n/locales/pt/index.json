@@ -1,0 +1,41 @@
+{
+  "pt": {
+    "heading": "Mosteiro de Landim",
+    "subHeading": "Um sítio ",
+    "subheadingTextCarousel": [
+      "de família.",
+      "de tradição.",
+      "de festa.",
+      "para si."
+    ],
+    "weAre": {
+      "title": "Sobre Nós",
+      "description": "Um Mosteiro. Uma família. Nove gerações."
+    },
+    "history": {
+      "title": "História",
+      "description": "Desde vastos jardins a um claustro intemporal, o Mosteiro de Landim carrega vários anos de história e tradição."
+    },
+    "photos": {
+      "title": "Fotografias",
+      "description": "Veja o que os nossos espaços repletos de anos de história têm para oferecer."
+    },
+    "gardens": {
+      "title": "Jardins & Tours",
+      "description": "Os nossos jardins condecorados são o centro de casamentos e de visitas especializadas."
+    },
+    "events": {
+      "title": "Eventos",
+      "description": "Somos uma casa de eventos. Venha conhecer os nossos serviços."
+    },
+    "vineyards": {
+      "title": "Vinho & Estadia",
+      "description": "O Mosteiro produz vinho verde premiado através de uma vasta área de vinhas."
+    },
+    "faq": {
+      "title": "FAQ",
+      "description": "Detalhes de como nos contactar e respondendo a algumas perguntas mais frequentes."
+    },
+    "footer": "Direitos reservados"
+  }
+}

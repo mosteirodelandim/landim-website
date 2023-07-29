@@ -1,0 +1,133 @@
+/* Menu */
+
+#menu {
+  @include vendor('transform', 'translateX(20em)');
+  @include vendor('transition', 'transform #{_duration(menu)} ease');
+  -webkit-overflow-scrolling: touch;
+  background: _palette(accent1, menu-bg);
+  color: _palette(accent1, fg-bold);
+  height: 100%;
+  max-width: 80%;
+  overflow-y: auto;
+  padding: 3em 2em;
+  position: fixed;
+  right: 0;
+  top: 0;
+  width: 20em;
+  z-index: _misc(z-index-base) + 150;
+
+  ul {
+    list-style: none;
+    padding: 0;
+
+    > .react-slidedown {
+      a {
+        border: 0;
+        color: inherit;
+        display: block;
+        font-size: 0.8em;
+        letter-spacing: _size(letter-spacing-alt);
+        outline: 0;
+        text-decoration: none;
+        text-transform: uppercase;
+
+        @include breakpoint('<=small') {
+          line-height: 3em;
+        }
+      }
+    }
+
+    > li {
+      border-top: solid 1px _palette(accent1, border);
+      margin: 0.5em 0 0 0;
+      padding: 0.5em 0 0 0;
+
+      &:first-child {
+        border-top: 0 !important;
+        margin-top: 0 !important;
+        padding-top: 0 !important;
+      }
+
+      &:nth-child(2) {
+        border-top: solid 2px #FFFFFF;
+      }
+
+      > a {
+        border: 0;
+        color: inherit;
+        display: block;
+        font-size: 0.8em;
+        letter-spacing: _size(letter-spacing-alt);
+        outline: 0;
+        text-decoration: none;
+        text-transform: uppercase;
+
+        @include breakpoint('<=small') {
+          line-height: 3em;
+        }
+      }
+    }
+
+    #li-submenu {
+      border-top: solid 1px _palette(accent1, border-submenu);
+      text-align: right;
+      font-size: 0.8em;
+    }
+  }
+
+  .close {
+    background-image: url('../images/common/close.webp');
+    background-position: 4.85em 1em;
+    background-repeat: no-repeat;
+    border: 0;
+    cursor: pointer;
+    display: block;
+    height: 3em;
+    position: absolute;
+    right: 0;
+    top: 0;
+    vertical-align: middle;
+    width: 7em;
+  }
+
+  .flags {
+    background-position: .85em 1em;
+    background-repeat: no-repeat;
+    flex-direction: row;
+    border: 0;
+    display: block;
+    height: 3em;
+    position: absolute;
+    left: 0;
+    top: 0;
+    vertical-align: middle;
+    width: 7em;
+    margin-left: 1.7em;
+
+    div {
+      margin: 5px;
+      cursor: pointer;
+      text-align: center;
+      display: inline-block;
+    }
+  }
+
+
+  @include breakpoint('<=small') {
+    padding: 3em 1.5em;
+  }
+}
+
+.is-menu-visible {
+  #landingPageWrapper {
+    opacity: 0.35;
+
+    &:before {
+      display: block;
+    }
+  }
+
+  #menu {
+    @include vendor('transform', 'translateX(0)');
+  }
+}

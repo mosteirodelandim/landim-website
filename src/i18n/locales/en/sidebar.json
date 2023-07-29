@@ -1,0 +1,22 @@
+{
+  "en": {
+    "label": "Menu",
+    "landing": "Home",
+    "aboutUs": "About Us",
+    "events": "events",
+    "photos": "Photo Gallery",
+    "history": {
+      "main": "History",
+      "origins": "Origins and Architecture",
+      "priests": "Priests and Commissioners",
+      "extinction": "Monastery Extinction",
+      "sale": "Sale and family property",
+      "notable": "Notable people",
+      "book": "Book"
+    },
+    "gardens": "Gardens",
+    "wine_vineyards": "Wine & Vineyards",
+    "faq": "FAQ",
+    "contact": "Contact Us"
+  }
+}

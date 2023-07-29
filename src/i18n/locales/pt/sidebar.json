@@ -1,0 +1,22 @@
+{
+  "pt": {
+    "label": "Menu",
+    "landing": "Início",
+    "aboutUs": "Sobre Nós",
+    "events": "Eventos",
+    "photos": "Fotografias",
+    "history": {
+      "main": "História",
+      "origins": "Origens e Arquitectura",
+      "priests": "Priores e Comandários",
+      "extinction": "Extinção do Mosteiro",
+      "sale": "Venda e propriedade familiar",
+      "notable": "Figuras de relevo",
+      "book": "Livro"
+    },
+    "gardens": "Jardins",
+    "wine_vineyards": "Vinho & Vinhas",
+    "faq": "FAQ",
+    "contact": "Contactos"
+  }
+}

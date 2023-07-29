@@ -1,0 +1,144 @@
+/* Header */
+
+#header {
+  @include vendor('transition', 'background-color #{_duration(transitions)} ease');
+  left: 0;
+  line-height: 3em;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 100;
+
+  #logo{
+    @include breakpoint('>small') {
+      height: 54px;
+    }
+
+    @include breakpoint('>large') {
+      height: 60px;
+    }
+
+    @include breakpoint('>xxlarge') {
+      height: 70px;
+    }
+
+    @include breakpoint('<=small') {
+      height: 50px;
+    }
+
+  }
+
+
+
+
+  #landimLogo {
+    letter-spacing: _size(letter-spacing-alt);
+    text-transform: uppercase;
+    font-family: _font(family-title);
+    font-weight: _font(weight-extrabold);
+
+    /*
+    border: 2px solid #ffffff;
+    text-align: center;
+    padding: 6px;
+     */
+
+    a {
+      color: inherit;
+    }
+  }
+
+  h1 {
+    @include vendor('transition', 'opacity #{_duration(transitions)} ease');
+    background-color: black;
+    height: inherit;
+    padding-left: 1em;
+    margin-top: 1em;
+    line-height: inherit;
+    position: absolute;
+
+    a {
+      border: 0;
+      display: flex;
+      height: inherit;
+      line-height: inherit;
+
+      @include breakpoint('<=small') {
+        font-size: 0.8em;
+      }
+    }
+  }
+
+  nav {
+    height: inherit;
+    line-height: inherit;
+    position: absolute;
+    right: 0;
+    top: 0;
+
+    > ul {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+      white-space: nowrap;
+
+      > li {
+        background-color: _palette(accent1, menu-bg);
+        display: inline-block;
+        padding: 0;
+
+        > a {
+          border: 0;
+          color: _palette(fg-bold);
+          display: block;
+          font-size: 0.8em;
+          letter-spacing: _size(letter-spacing-alt);
+          padding: 0 1.5em;
+          text-transform: uppercase;
+
+          &.menuToggle {
+            outline: 0;
+            position: relative;
+
+            &:after {
+              background-image: url('../images/common/bars.webp');
+              background-position: right center;
+              background-repeat: no-repeat;
+              content: '';
+              display: inline-block;
+              height: 3.75em;
+              vertical-align: top;
+              width: 2em;
+            }
+
+            @include breakpoint('<=small') {
+              padding: 0 1.5em;
+
+              span {
+                display: none;
+              }
+            }
+          }
+
+          @include breakpoint('<=small') {
+            padding: 0 0 0 1.5em;
+          }
+        }
+
+        &:first-child {
+          margin-top: 1em;
+          margin-left: 0;
+        }
+      }
+    }
+  }
+
+  &.alt {
+    background: transparent;
+
+    h1 {
+      @include vendor('pointer-events', 'none');
+      opacity: 0;
+    }
+  }
+}

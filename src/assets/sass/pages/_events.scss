@@ -1,0 +1,668 @@
+/*
+History page specific styles
+*/
+
+
+.eventsMain {
+  > header {
+    padding: 10em 0 10em 0;
+
+    @include breakpoint('>=xxxlarge') {
+      padding: 20em 0 10em 0
+    }
+
+    @include breakpoint('<=xxlarge') {
+      padding: 10em 0 8em 0;
+    }
+
+    @include breakpoint('<=xlarge') {
+      padding: 12em 3em 6em 3em;
+    }
+
+    @include breakpoint('<=large') {
+      padding: 10em 3em 8em 3em;
+    }
+
+    @include breakpoint('<=medium') {
+      padding: 8em 3em 3em 3em;
+    }
+
+    @include breakpoint('<=small') {
+      padding: 8em 3em 3em 3em;
+
+      h2 {
+        font-size: 1.25em;
+        margin: 0 0 (_size(element-margin) * 0.5) 0;
+      }
+    }
+
+    @include vendor('background-image', ('linear-gradient(to top, rgba(0,0,0,0.5), rgba(0,0,0,0.5))', 'url("../images/history/banner.jpg")'));
+    background-attachment: local;
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    text-align: center;
+
+    h2 {
+      font-size: 1.75em;
+      margin: 0 0 (_size(element-margin) * 0.25) 0;
+    }
+
+    p {
+      color: inherit;
+      letter-spacing: _size(letter-spacing-alt);
+      font-family: _font(family-title);
+      text-transform: uppercase;
+      top: 0;
+
+      a {
+        color: inherit;
+      }
+    }
+  }
+
+  @mixin wrapper($p) {
+    background-color: _palette($p, bg);
+    color: _palette($p, fg);
+
+    // Basic
+
+    strong, b {
+      color: _palette($p, fg-bold);
+    }
+
+    h2, h3, h4, h5, h6 {
+      color: _palette($p, fg-bold);
+    }
+
+    hr {
+      border-color: _palette($p, border);
+    }
+
+    blockquote {
+      border-color: _palette($p, border);
+    }
+
+    code {
+      background: _palette($p, border-bg);
+    }
+
+    // Section/Article
+
+    header {
+      p {
+        color: _palette($p, fg-light);
+      }
+
+      &.major {
+        h2, h3, h4, h5, h6 {
+          border-color: _palette($p, border);
+        }
+
+        p {
+          color: _palette($p, fg);
+        }
+      }
+    }
+
+    // Form
+
+    label {
+      color: _palette($p, fg-bold);
+    }
+
+    input[type="text"],
+    input[type="password"],
+    input[type="email"],
+    select,
+    textarea {
+      background-color: _palette($p, border-bg);
+    }
+
+    select {
+      background-image: svg-url("<svg xmlns='http://www.w3.org/2000/svg' width='40' height='40' preserveAspectRatio='none' viewBox='0 0 40 40'><path d='M9.4,12.3l10.4,10.4l10.4-10.4c0.2-0.2,0.5-0.4,0.9-0.4c0.3,0,0.6,0.1,0.9,0.4l3.3,3.3c0.2,0.2,0.4,0.5,0.4,0.9 c0,0.4-0.1,0.6-0.4,0.9L20.7,31.9c-0.2,0.2-0.5,0.4-0.9,0.4c-0.3,0-0.6-0.1-0.9-0.4L4.3,17.3c-0.2-0.2-0.4-0.5-0.4-0.9 c0-0.4,0.1-0.6,0.4-0.9l3.3-3.3c0.2-0.2,0.5-0.4,0.9-0.4S9.1,12.1,9.4,12.3z' fill='#{_palette($p, border)}' /></svg>");
+
+      option {
+        color: _palette($p, fg-bold);
+        background: _palette($p, bg);
+      }
+    }
+
+    input[type="checkbox"],
+    input[type="radio"] {
+      & + label {
+        color: _palette($p, fg);
+
+        &:before {
+          background: _palette($p, border-bg);
+        }
+      }
+
+      &:checked + label {
+        &:before {
+          background: _palette($p, fg-bold);
+          color: _palette($p, bg);
+        }
+      }
+    }
+
+    ::-webkit-input-placeholder {
+      color: _palette($p, fg-light) !important;
+    }
+
+    :-moz-placeholder {
+      color: _palette($p, fg-light) !important;
+    }
+
+    ::-moz-placeholder {
+      color: _palette($p, fg-light) !important;
+    }
+
+    :-ms-input-placeholder {
+      color: _palette($p, fg-light) !important;
+    }
+
+    .formerize-placeholder {
+      color: _palette($p, fg-light) !important;
+    }
+
+    // Icon
+
+    .icon {
+      &.major {
+        border-color: _palette($p, border);
+      }
+    }
+
+    // List
+
+    ul {
+      &.alt {
+        li {
+          border-color: _palette($p, border);
+        }
+      }
+    }
+
+    // Table
+
+    table {
+      tbody {
+        tr {
+          border-color: _palette($p, border);
+
+          &:nth-child(2n + 1) {
+            background-color: _palette($p, border-bg);
+          }
+        }
+      }
+
+      th {
+        color: _palette($p, fg-bold);
+      }
+
+      thead {
+        border-color: _palette($p, border);
+      }
+
+      tfoot {
+        border-color: _palette($p, border);
+      }
+
+      &.alt {
+        tbody {
+          tr {
+            td {
+              border-color: _palette($p, border);
+            }
+          }
+        }
+      }
+    }
+
+    // Button
+
+    input[type="submit"],
+    input[type="reset"],
+    input[type="button"],
+    button,
+    .button {
+      box-shadow: inset 0 0 0 2px _palette($p, border);
+      color: _palette($p, fg-bold);
+
+      &:hover {
+        background-color: _palette($p, border-bg);
+      }
+
+      &:active {
+        background-color: _palette($p, border2-bg);
+      }
+    }
+
+    // Features
+
+    .features {
+      li {
+        @include breakpoint('<=small') {
+          border-top-color: _palette($p, border);
+        }
+      }
+    }
+
+  }
+
+  /* Wrapper */
+
+  .wrapper {
+    @include padding(6em, 0);
+
+    > .inner {
+      width: 60em;
+      margin: 0 auto;
+
+      @include breakpoint('<=large') {
+        width: 90%;
+      }
+
+      @include breakpoint('<=medium') {
+        width: 100%;
+      }
+    }
+
+    &.alt {
+      padding: 0;
+    }
+
+    &.style1 {
+      @include wrapper(accent1);
+    }
+
+    &.style2 {
+      background-color: _palette(bg);
+    }
+
+    &.style3 {
+      @include wrapper(accent5);
+    }
+
+    &.style4 {
+      background-color: transparent;
+    }
+
+    &.style5 {
+      @include wrapper(accent7);
+    }
+
+    @include breakpoint('<=medium') {
+      @include padding(4em, 3em);
+    }
+
+    @include breakpoint('<=small') {
+      @include padding(3em, 2em);
+    }
+  }
+
+  /* ELEMENTS */
+  /* Basic */
+
+  @-ms-viewport {
+    width: device-width;
+  }
+
+  // Set box model to border-box.
+  // Based on css-tricks.com/inheriting-box-sizing-probably-slightly-better-best-practice
+  html {
+    box-sizing: border-box;
+  }
+
+  *, *:before, *:after {
+    box-sizing: inherit;
+  }
+
+  body, .main-body {
+    background: _palette(bg);
+
+    // Stops initial animations until page loads.
+    &.is-preload {
+      *, *:before, *:after {
+        @include vendor('animation', 'none !important');
+        @include vendor('transition', 'none !important');
+      }
+    }
+
+  }
+
+  body, input, select, textarea {
+    color: _palette(fg);
+    font-family: _font(family);
+    font-size: 15pt;
+    font-weight: _font(weight);
+    letter-spacing: _size(letter-spacing);
+    line-height: 1.65em;
+
+    @include breakpoint('<=xlarge') {
+      font-size: 13pt;
+    }
+
+    @include breakpoint('<=large') {
+      font-size: 12pt;
+    }
+
+    @include breakpoint('<=small') {
+      font-size: 11pt;
+      letter-spacing: _size(letter-spacing) * 0.5;
+    }
+  }
+
+  a {
+    @include vendor('transition', ('color #{_duration(transitions)} ease', 'border-bottom-color #{_duration(transitions)} ease'));
+    border-bottom: dotted 1px;
+    color: inherit;
+    text-decoration: none;
+
+    &:hover {
+      border-bottom-color: transparent;
+    }
+  }
+
+  strong, b {
+    color: _palette(fg-bold);
+    font-weight: _font(weight-bold);
+  }
+
+  em, i {
+    font-style: italic;
+  }
+
+  p {
+    margin: 0 0 _size(element-margin) 0;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    color: _palette(fg-bold);
+    font-weight: _font(weight-extrabold);
+    letter-spacing: _size(letter-spacing-alt);
+    line-height: 1em;
+    margin: 0 0 (_size(element-margin) * 0.5) 0;
+    text-transform: uppercase;
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+  }
+
+  h2 {
+    font-size: 1.35em;
+    line-height: 1.75em;
+
+    @include breakpoint('<=small') {
+      font-size: 1.1em;
+      line-height: 1.65em;
+    }
+  }
+
+  h3 {
+    font-size: 1.15em;
+    line-height: 1.75em;
+
+    @include breakpoint('<=small') {
+      font-size: 1em;
+      line-height: 1.65em;
+    }
+  }
+
+  h4 {
+    font-size: 1em;
+    line-height: 1.5em;
+  }
+
+  h5 {
+    font-size: 0.8em;
+    line-height: 1.5em;
+  }
+
+  h6 {
+    font-size: 0.7em;
+    line-height: 1.5em;
+  }
+
+  sub {
+    font-size: 0.8em;
+    position: relative;
+    top: 0.5em;
+  }
+
+  sup {
+    font-size: 0.8em;
+    position: relative;
+    top: -0.5em;
+  }
+
+  hr {
+    border: 0;
+    border-bottom: solid 2px _palette(border);
+    margin: (_size(element-margin) * 1.5) 0;
+
+    &.major {
+      margin: (_size(element-margin) * 2.25) 0;
+    }
+  }
+
+  blockquote {
+    border-left: solid 4px _palette(border);
+    font-style: italic;
+    margin: 0 0 _size(element-margin) 0;
+    padding: 0.5em 0 0.5em 2em;
+  }
+
+  code {
+    background: _palette(border-bg);
+    border-radius: 3px;
+    font-family: _font(family-fixed);
+    font-size: 0.9em;
+    letter-spacing: 0;
+    margin: 0 0.25em;
+    padding: 0.25em 0.65em;
+  }
+
+  pre {
+    -webkit-overflow-scrolling: touch;
+    font-family: _font(family-fixed);
+    font-size: 0.9em;
+    margin: 0 0 _size(element-margin) 0;
+
+    code {
+      display: block;
+      line-height: 1.75em;
+      padding: 1em 1.5em;
+      overflow-x: auto;
+    }
+  }
+
+  .align-left {
+    text-align: left;
+  }
+
+  .align-center {
+    text-align: center;
+  }
+
+  .align-right {
+    text-align: right;
+  }
+
+  /* Row */
+
+  .row {
+
+    @include html-grid(1.5em);
+
+    @include breakpoint('<=xlarge') {
+      @include html-grid(1.5em, 'xlarge');
+    }
+
+    @include breakpoint('<=large') {
+      @include html-grid(1.5em, 'large');
+    }
+
+    @include breakpoint('<=medium') {
+      @include html-grid(1.5em, 'medium');
+    }
+
+    @include breakpoint('<=small') {
+      @include html-grid(1.5em, 'small');
+    }
+
+    @include breakpoint('<=xsmall') {
+      @include html-grid(1.5em, 'xsmall');
+    }
+  }
+
+  /* Section/Article */
+
+  section, article {
+    &.special {
+      text-align: center;
+    }
+  }
+
+  header {
+    p {
+      color: _palette(fg);
+      position: relative;
+      top: -0.25em;
+    }
+
+    h2 + p {
+    }
+
+    h3 + p {
+      font-size: 1.1em;
+    }
+
+    h4 + p,
+    h5 + p,
+    h6 + p {
+      font-size: 0.9em;
+    }
+
+    &.major {
+      margin: 0 0 (_size(element-margin) * 1.75) 0;
+
+      h2, h3, h4, h5, h6 {
+        border-bottom: solid 2px _palette(border);
+        display: inline-block;
+        padding-bottom: 1em;
+        position: relative;
+
+        &:after {
+          content: '';
+          display: block;
+          height: 1px;
+        }
+      }
+
+      p {
+        color: _palette(fg);
+        top: 0;
+      }
+
+      @include breakpoint('<=small') {
+        margin: 0 0 _size(element-margin) 0;
+      }
+    }
+
+    @include breakpoint('<=medium') {
+      br {
+        display: none;
+      }
+    }
+  }
+
+  /* Box */
+
+  .box {
+    border-radius: 3px;
+    border: solid 2px _palette(border);
+    margin-bottom: _size(element-margin);
+    padding: 1.5em;
+
+    > :last-child,
+    > :last-child > :last-child,
+    > :last-child > :last-child > :last-child {
+      margin-bottom: 0;
+    }
+
+    &.alt {
+      border: 0;
+      border-radius: 0;
+      padding: 0;
+    }
+
+    // to center images vertically
+    >.row {
+      /*
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      */
+    }
+  }
+
+
+  /* Image */
+
+  span {
+    font-size: .8em;
+    color: gray;
+  }
+
+
+  .image {
+    border-radius: 3px;
+    border: 0;
+    display: inline-block;
+    position: relative;
+
+    img {
+      border-radius: 3px;
+      display: block;
+      cursor: pointer;
+    }
+
+    &.left {
+      float: left;
+      margin: 0 2em 2em 0;
+      top: 0.25em;
+      text-align: left;
+    }
+
+    &.right {
+      float: right;
+      margin: 0 0 2em 2em;
+      top: 0.25em;
+      text-align: right;
+    }
+
+    &.left,
+    &.right {
+      max-width: 40%;
+
+      img {
+        width: 100%;
+      }
+    }
+
+    &.fit {
+      display: block;
+      margin: 0 0 _size(element-margin) 0;
+      width: 100%;
+
+      img {
+        width: 100%;
+      }
+    }
+  }
+
+}
