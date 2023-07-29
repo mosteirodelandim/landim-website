@@ -1,7 +1,13 @@
+# Project dependencies
+.cache
+node_modules
+yarn-error.log
+package-lock.json
+yarn.lock
 
-# Ignore everything
-*
+# Build directory
+/public
+.DS_Store
 
-# Except the public folder
-!public
-!README
+# IntelliJ
+.idea
