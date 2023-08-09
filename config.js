@@ -41,21 +41,15 @@ module.exports = {
   socialLinks: [
     {
       style: 'brands',
-      icon: 'fa-facebook',
-      name: 'Facebook',
-      urlApp: 'https://www.facebook.com/mosteirodelandim',
-    },
-    {
-      style: 'brands',
       icon: 'fa-instagram',
       name: 'Instagram',
       urlApp: 'https://www.instagram.com/_u/mosteirodelandim',
     },
     {
       style: 'brands',
-      icon: 'fa-twitter',
-      name: 'Twitter',
-      urlApp: 'https://twitter.com/mosteirolandim',
+      icon: 'fa-facebook',
+      name: 'Facebook',
+      urlApp: 'https://www.facebook.com/mosteirodelandim',
     },
     {
       style: 'brands',
