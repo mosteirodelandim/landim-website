@@ -27,7 +27,6 @@ function GardensPage({data}) {
   const pic4 = data.pic4.childImageSharp.fluid;
   const pic5 = data.pic5.childImageSharp.fluid;
   const pic6 = data.pic6.childImageSharp.fluid;
-  const pic7 = data.pic7.childImageSharp.fluid;
 
   return (
     <LandingLayout fullMenu>
@@ -59,7 +58,6 @@ function GardensPage({data}) {
               <BackgroundImage Tag="div" className="carousel-image" fluid={pic4}/>
               <BackgroundImage Tag="div" className="carousel-image" fluid={pic5}/>
               <BackgroundImage Tag="div" className="carousel-image" fluid={pic6}/>
-              <BackgroundImage Tag="div" className="carousel-image" fluid={pic7}/>
             </Carousel>
           </div>
         </section>
@@ -151,13 +149,6 @@ export const query = graphql`
       }
     },
     pic6: file(relativePath: {eq: "gardens/picture6.jpg"}) {
-      childImageSharp {
-        fluid(maxWidth: 3000, quality: 100) {
-          ...GatsbyImageSharpFluid_withWebp
-        }
-      }
-    },
-    pic7: file(relativePath: {eq: "gardens/picture7.jpg"}) {
       childImageSharp {
         fluid(maxWidth: 3000, quality: 100) {
           ...GatsbyImageSharpFluid_withWebp
