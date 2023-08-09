@@ -146,18 +146,6 @@ function WineStayPage({data}) {
           </div>
         </section>
 
-        <section className="wrapper-carousel style5">
-          <div className="inner-carousel">
-            <Carousel loop widgets={[IndicatorDots, CarouselArrows]}>
-              <BackgroundImage Tag="div" className="carousel-image" fluid={picture1}/>
-              <BackgroundImage Tag="div" className="carousel-image" fluid={picture2}/>
-              <BackgroundImage Tag="div" className="carousel-image" fluid={picture3}/>
-              <BackgroundImage Tag="div" className="carousel-image" fluid={picture4}/>
-              <BackgroundImage Tag="div" className="carousel-image" fluid={picture5}/>
-            </Carousel>
-          </div>
-        </section>
-
         <section id="two" className="wrapper alt style2">
           <section id="airbnbSpotlight" className="spotlight">
             <div className="spotlight-container">
@@ -184,6 +172,18 @@ function WineStayPage({data}) {
               </Grid>
             </div>
           </section>
+        </section>
+
+        <section className="wrapper-carousel style5">
+          <div className="inner-carousel">
+            <Carousel loop widgets={[IndicatorDots, CarouselArrows]}>
+              <BackgroundImage Tag="div" className="carousel-image" fluid={picture1}/>
+              <BackgroundImage Tag="div" className="carousel-image" fluid={picture2}/>
+              <BackgroundImage Tag="div" className="carousel-image" fluid={picture3}/>
+              <BackgroundImage Tag="div" className="carousel-image" fluid={picture4}/>
+              <BackgroundImage Tag="div" className="carousel-image" fluid={picture5}/>
+            </Carousel>
+          </div>
         </section>
 
       </article>
