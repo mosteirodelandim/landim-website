@@ -15,7 +15,12 @@
     "gardenTitle": "Jardins",
     "cloisterTitle": "Claustro",
     "roomsTitle": "Salas",
-    "churchTitle": "Igreja"
+    "churchTitle": "Igreja",
+
+    "spotlight": {
+      "title": "Instagram",
+      "description": "A nossa página de Instagram é o sítio perfeito para conhecer ainda mais o nosso espaço."
+    }
 
   }
 }

@@ -57,6 +57,8 @@ You need to have `npm` or `yarn` installed to run and deploy the website.
 Make sure to follow [these](https://www.npmjs.com/get-npm) instructions.
 You also need `Gatsby` installed. Head [here](https://www.gatsbyjs.org/tutorial/part-zero/#using-the-gatsby-cli) and follow the instructions. 
 
+This project is only compatible with Node up to `v16`. So if you're using a higher version, you'll need to downgrade.
+
 > **Note**
 >
 > This repo's dependencies are old.

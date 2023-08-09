@@ -628,6 +628,15 @@ It imports a scss file that acts as template for a page (tile_page.scss), compon
 		background-color: _palette(accentTile2);
 	}
 
+	&#photogallerySpotlight {
+		border: none;
+		background-color: #e9f8ff;
+
+		h2,p {
+			color: #2d2d2d;
+		}
+	}
+
 	&:nth-child(2n) {
 		@include vendor('flex-direction', 'row-reverse');
 	}
