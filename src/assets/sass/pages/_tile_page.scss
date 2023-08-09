@@ -786,9 +786,7 @@ Base SCSS a page. Pages that different style have their own variations of what's
 
   /* Photogallery */
 
-  #photogallery {
-    background-color: white;
-
+  .photogallery {
     .inner-gallery {
       width: 100%;
       margin: 0 auto;
@@ -811,6 +809,22 @@ Base SCSS a page. Pages that different style have their own variations of what's
     .image-gallery-slide {
       background-color: rgba(0,0,0,0);
     }
+  }
+  
+  .garden_bg {
+    background-color: #fff2e7 !important;
+  }
+
+  .cloister_bg {
+    background-color: #fff4f8 !important;
+  }
+
+  .room_bg {
+    background-color: #fff2e7 !important;
+  }
+
+  .church_bg {
+    background-color: #fff4f8 !important;
   }
 
 }

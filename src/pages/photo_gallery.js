@@ -62,13 +62,14 @@ function PhotoGalleryPage({ data }) {
           </div>
         </section>
 
-        <section className="wrapper style5 no-top">
+        <section className="wrapper style5 garden_bg">
           <div className="inner">
             <h2 align="center">{t('photo_gallery:gardenTitle')}</h2>
+            <p align="center">Colocar texto aqui. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."</p>
           </div>
         </section>
 
-        <section id="photogallery" className="wrapper style3 special no-top">
+        <section className="wrapper style3 special no-top photogallery garden_bg">
           <div className="inner-gallery">
             <ul className="features">
               <div id="photo-gallery" className="container">
@@ -81,13 +82,14 @@ function PhotoGalleryPage({ data }) {
         </section>
 
 
-        <section className="wrapper style5">
+        <section className="wrapper style5 cloister_bg">
           <div className="inner">
             <h2 align="center">{t('photo_gallery:cloisterTitle')}</h2>
+            <p align="center">Colocar texto aqui. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."</p>
           </div>
         </section>
 
-        <section id="photogallery" className="wrapper style3 special no-top">
+        <section className="wrapper style3 special no-top photogallery cloister_bg">
           <div className="inner-gallery">
             <ul className="features">
               <div id="photo-gallery" className="container">
@@ -101,13 +103,14 @@ function PhotoGalleryPage({ data }) {
 
 
 
-        <section className="wrapper style5">
+        <section className="wrapper style5 room_bg">
           <div className="inner">
             <h2 align="center">{t('photo_gallery:roomsTitle')}</h2>
+            <p align="center">Colocar texto aqui. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."</p>
           </div>
         </section>
 
-        <section id="photogallery" className="wrapper style3 special no-top">
+        <section className="wrapper style3 special no-top photogallery room_bg">
           <div className="inner-gallery">
             <ul className="features">
               <div id="photo-gallery" className="container">
@@ -121,13 +124,14 @@ function PhotoGalleryPage({ data }) {
 
 
 
-        <section className="wrapper style5">
+        <section className="wrapper style5 church_bg">
           <div className="inner">
             <h2 align="center">{t('photo_gallery:churchTitle')}</h2>
+            <p align="center">Colocar texto aqui. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."</p>
           </div>
         </section>
 
-        <section id="photogallery" className="wrapper style3 special no-top">
+        <section className="wrapper style3 special no-top photogallery church_bg">
           <div className="inner-gallery">
             <ul className="features">
               <div id="photo-gallery" className="container">
