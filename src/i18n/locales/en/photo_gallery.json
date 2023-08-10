@@ -13,9 +13,13 @@
     },
 
     "gardenTitle": "Gardens",
+    "gardenDescription": "Os nossos jardins mágicos dão as boas vindas aos vossos convidados - locais perfeitos para o início da festa, hora do cocktail, festas de sunset e momentos especiais, como o cortar o bolo ou até um jantar sentado.",
     "cloisterTitle": "Cloister",
+    "cloisterDescription": "Com capacidade de cerca de 350 convidados sentados, o claustro é o ponto fulcral do Mosteiro. As colunas dóricas recheadas de história e recantos fazem do claustro um espaço acolhedor para o seu evento, seja ele de 50 ou de 350 convidados.",
     "roomsTitle": "Rooms",
+    "roomsDescription": "As três salas adjacentes ao claustro podem ser abertas aos convidados ou completamente fechadas, tornando-as um bom “plano-B” caso o tempo esteja menos simpático.",
     "churchTitle": "Church",
+    "churchDescription": "A igreja pertencente à Paróquia de Landim encontra-se já ao lado, a segundos da festa.",
 
     "spotlight": {
       "title": "Instagram",
