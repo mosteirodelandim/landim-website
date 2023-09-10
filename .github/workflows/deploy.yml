@@ -21,5 +21,8 @@ jobs:
         # Install v3.7.1 of gatsby-cli
       - run: npm install -g gatsby-cli@3.7.1
 
-      - run: npm -v
-      - run: gatsby --version
+        # Install project dependencies
+      - run: npm install
+
+        # Run gatsby build
+      - run: gatsby build
