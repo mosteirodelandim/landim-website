@@ -1,0 +1,25 @@
+name: Deploy to Netlify
+
+on:
+  push:
+    branches:
+      - master
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+
+        # Checkout the code
+      - uses: actions/checkout@v3
+
+        # Install proper version of node
+      - uses: actions/setup-node@v3
+        with:
+          node-version: '16.x'
+
+        # Install v3.7.1 of gatsby-cli
+      - run: npm install -g gatsby-cli@3.7.1
+
+      - run: npm -v
+      - run: gatsby --version
