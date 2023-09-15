@@ -31,7 +31,8 @@ function IndexPage({data}) {
     <LandingLayout fullMenu={false} showMenu={false}>
       <section id="banner">
         <div className="flag-container">
-          <div id="bannerFlags" className="flags">
+          {/*
+            <div id="bannerFlags" className="flags">
             <div onClick={() => {
               i18n.changeLanguage('pt');
               window.location.reload();
@@ -47,6 +48,7 @@ function IndexPage({data}) {
               <FlagIcon code="gb" />
             </div>
           </div>
+          */}
         </div>
 
         <div>
