@@ -1,22 +1,22 @@
 {
   "en": {
     "label": "Menu",
-    "landing": "Home",
-    "aboutUs": "About Us",
-    "events": "events",
-    "photos": "Photo Gallery",
+    "landing": "Início",
+    "aboutUs": "Sobre Nós",
+    "events": "Eventos",
+    "photos": "Fotografias",
     "history": {
-      "main": "History",
-      "origins": "Origins and Architecture",
-      "priests": "Priests and Commissioners",
-      "extinction": "Monastery Extinction",
-      "sale": "Sale and family property",
-      "notable": "Notable people",
-      "book": "Book"
+      "main": "História",
+      "origins": "Origens e Arquitectura",
+      "priests": "Priores e Comandários",
+      "extinction": "Extinção do Mosteiro",
+      "sale": "Venda e propriedade familiar",
+      "notable": "Figuras de relevo",
+      "book": "Livro"
     },
-    "gardens": "Gardens",
-    "wine_vineyards": "Wine & Vineyards",
+    "gardens": "Jardins",
+    "wine_vineyards": "Vinho & Vinhas",
     "faq": "FAQ",
-    "contact": "Contact Us"
+    "contact": "Contactos"
   }
 }

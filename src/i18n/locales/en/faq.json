@@ -1,12 +1,12 @@
 {
-  "en": {
+  "pten": {
     "heading": "FAQ",
     "subHeading": "Perguntas frequentes e contactos.",
 
     "church": {
       "title": "É possível utilizar a igreja para as celebrações?",
       "description": "Sim - é  necessário contactar diretamente a ",
-      "hyperlink": "paróquia."
+	  "hyperlink": "paróquia."
     },
 
     "events": {
