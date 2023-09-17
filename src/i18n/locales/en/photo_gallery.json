@@ -1,7 +1,7 @@
 {
   "en": {
-    "title": "Photo Gallery",
-    "subHeading": "Take a gander throughout our spaces and past events to get a glimpse at what you can experience here at Mosteiro.",
+    "title": "Galeria de Fotografias",
+    "subHeading": "Dias de festa, jardins, a vinha e a família. Momentos que marcam o nosso caminho.",
 
     "quote": "\"Uma imagem vale mais que mil palavras.\"",
     "quoteAuthor": "Frederick R. Barnard",
@@ -23,7 +23,8 @@
 
     "spotlight": {
       "title": "Instagram",
-      "description": "Our Instagram page is perfect to know even more about our venue. Give it a look!"
+      "description": "A nossa página de Instagram é o sítio perfeito para conhecer ainda mais o nosso espaço."
     }
+
   }
 }

@@ -1,12 +1,12 @@
 {
   "en": {
-    "title": "Wine & Stay",
+    "title": "Vinho & Estadia",
     "subHeading": "Da vinha ao vinho. Os nossos 10 hectares de Vinho Verde.",
     "wine": {
       "title": "O nosso vinho",
       "description1": "Camélia. Evocando o nome desta flor oriunda do Japão queremos proporcionar-lhe, através do aroma elegante e fresco deste vinho, uma viagem pelos jardins do séc. XIX do Mosteiro de Landim. O vinho foi criado pelo conhecido enólogo Anselmo Mendes com uvas seleccionadas da casta Loureiro.",
       "description2": "O vinho Camélia de 2005 ganhou os prémios da Revista de Vinhos para o Melhor da Região e para a Melhor Compra. Em 2007 a Revista de Vinhos já o classificou com dezasseis valores na revista de Junho, tendo já sido considerado como uma das Melhores Compras. ",
-      "description3": "Em 2013 fizemos uma pausa. Estamos em (re)construção e voltaremos em breve, com a elegância e frescura que nos carateriza. Até lá, aproveitem os bons vinhos que a região dos Vinhos Verdes proporciona!",
+	  "description3": "Em 2013 fizemos uma pausa. Estamos em (re)construção e voltaremos em breve, com a elegância e frescura que nos carateriza. Até lá, aproveitem os bons vinhos que a região dos Vinhos Verdes proporciona!",
       "quote1Title": "Camélia Loureiro 2008 | 15",
       "quote1": "Um só vinho, mas suficientemente original e entusiástico para encher a alma. Acima de tudo, é um vinho alegre e descomplexado, divertido como todos os vinhos deveriam ser. Uma belíssima aposta para os meses de estio. \n\nCor amarelo-palha muito ténue, quase incolor. O registo floral é efusivo, quase desbragado, repleto de ervas aromáticas, folha de louro, aniz, funcho e um leve final citrino. Fresco e vibrante, tenso e nervoso, é um branco mordaz, acídulo qb, companhia perfeita para o Verão. Original e agradável.",
       "quote1Author": "Rui Falcão \"Guia de Vinhos 2010\" Oficina do Livro, 2009",
@@ -20,7 +20,7 @@
       "description1": "O Mosteiro de Landim não é só para eventos. Temos planos em ter um espaço para quem estiver interessado em pernoitar e explorar o Mosteiro de Landim ao seu próprio ritmo. Afinal, há muito para ver e aprender! No entanto, ainda estamos a aperfeiçoar esta experiência. Quando estiver pronta, avisaremos toda a gente!"
     },
 
-    "vines": {
+	"vines": {
       "title": "Vinhas",
       "description1": "Temos 10 hectares de vinha, predominantemente da casta Loureiro, que vão sendo cuidados e transformados desde 1985. O esforço de todo o ano culmina na vindima, um momento importante de reunião e trabalho de equipa."
     },
@@ -48,7 +48,7 @@
 
       "spotlight": {
         "title": "Alojamento local",
-        "phrase1": "Neste momento,",
+        "phrase1": "Atualmente,",
         "phraseAirbnbUrl": "",
         "phrase2": " o nosso alojamento local encontra-se temporariamente fechado."
       }

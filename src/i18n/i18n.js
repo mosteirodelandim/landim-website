@@ -69,7 +69,6 @@ i18n
     resources,
     detection,
     fallbackLng: 'pt',
-
     ns: ['landing', 'cta', 'notFound', 'sidebar', 'events', 'history', 'wine_vineyards', 'faq', 'about_us', 'gardens', 'photo_gallery'],
     defaultNS: 'landing',
 
