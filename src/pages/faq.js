@@ -118,6 +118,15 @@ function FaqPage({data}) {
                         bootstrapURLKeys={{ key: config.apiKey }}
                         defaultCenter={config.mapLocation.center}
                         defaultZoom={config.mapLocation.zoom}
+                        options={{
+                          zoomControl: true,
+                          disableDefaultUI: false,
+                          draggable: true, 
+                          zoomControlOptions: { position: 9 },
+                          keyboardShortcuts: false, 
+                          scaleControl: true, 
+                          scrollwheel: true,
+                        }}
                       >
                         <Marker
                           lat={config.mapLocation.center.lat}
