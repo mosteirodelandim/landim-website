@@ -23,7 +23,7 @@ module.exports = {
   houseDogs: ['Ringo', 'Spot', 'Dingo', 'Rex'],
 
   // Maps
-  apiKey: process.env.MAP_GOOGLE_API_KEY,
+  apiKey: process.env.GATSBY_MAP_GOOGLE_API_KEY,
 
   mapLocation: {
     center: {
