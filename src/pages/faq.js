@@ -126,6 +126,7 @@ function FaqPage({data}) {
                           keyboardShortcuts: false, 
                           scaleControl: true, 
                           scrollwheel: true,
+                          streetViewControl: true
                         }}
                       >
                         <Marker
