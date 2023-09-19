@@ -29,6 +29,11 @@ jobs:
         env: 
           MAP_GOOGLE_API_KEY: ${{ secrets.MAP_GOOGLE_API_KEY }}
 
+      # check env variable
+      - run: echo $MAP_GOOGLE_API_KEY
+        env: 
+          MAP_GOOGLE_API_KEY: ${{ secrets.MAP_GOOGLE_API_KEY }}
+
       - name: Deploy to Netlify
         uses: nwtgck/actions-netlify@v2.0
         with:
