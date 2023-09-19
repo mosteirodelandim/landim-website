@@ -68,8 +68,7 @@ i18n
   .init({
     resources,
     detection,
-    fallbackLng: 'en',
-
+    fallbackLng: 'pt',
     ns: ['landing', 'cta', 'notFound', 'sidebar', 'events', 'history', 'wine_vineyards', 'faq', 'about_us', 'gardens', 'photo_gallery'],
     defaultNS: 'landing',
 

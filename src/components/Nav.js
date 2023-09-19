@@ -11,7 +11,9 @@ function menuFlags() {
   // Checking if location is undefined because browser globals are undefined before Gatsby building
   // Only show flags when the user is not on the landing page
   if (typeof location !== `undefined` && location.pathname !== '/') {
+    return null
     return (
+      {/*
       <div className="flags">
         <div onClick={() => {
           i18n.changeLanguage('pt');
@@ -26,6 +28,7 @@ function menuFlags() {
           <FlagIcon code="gb"/>
         </div>
       </div>
+       */}
     )
   }
 }
