@@ -26,6 +26,8 @@ jobs:
 
         # Run gatsby build
       - run: gatsby build
+        env: 
+          MAP_GOOGLE_API_KEY: ${{ secrets.MAP_GOOGLE_API_KEY }}
 
       - name: Deploy to Netlify
         uses: nwtgck/actions-netlify@v2.0
