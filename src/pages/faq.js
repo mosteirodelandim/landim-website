@@ -170,8 +170,9 @@ function FaqPage({data}) {
                         </Obfuscate>
                       </li>
                       <li>
-                        <Obfuscate tel={`${config.phoneContact}`} className="button fit">
-                          {t('cta:buttons.call')}
+                        <Obfuscate tel={`${config.phoneContact}`} style={{height: "auto"}} className="button fit">
+                          <p style={{margin: 0}}>{t('cta:buttons.call')}</p>
+                          <p style={{margin: 0, opacity: .5, marginTop: "-15px"}}>{config.phoneContact.toString()}</p>
                         </Obfuscate>
                       </li>
                     </ul>
