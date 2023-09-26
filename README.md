@@ -18,8 +18,6 @@
 
   <p align="center">
     The repo where Mosteiro de Landim's new website was developed.
-    <br />
-    <a href="https://github.com/LuchoTurtle/landim-website#Personalization"><strong>Configure the website »</strong></a>
   </p>
 </p>
 
@@ -29,18 +27,18 @@
 
 [![Website Screen Shot][product-screenshot]]()
 
-The previous Mosteiro de Landim website was developed back in 2006 and, as such, has become outdated as time passed. The site was, at the time of writing, unresponsive and used deprecated technologies. This, of course, had an impact on the user experience and on Mosteiro de Landim itself.
+The previous Mosteiro de Landim website was developed back in 2006 and, as such, has become outdated as time passes. The site was, at the time of writing, unresponsive and used deprecated technologies. This, of course, had an impact on the user experience and on Mosteiro de Landim itself.
 
 With this in mind, I set off to develop a website for Mosteiro de Landim that was simple and responsive, meaning it could be used on both mobile and desktop platforms. It was a learning experience, to say the least!
 
 Some objectives that I set out include:
 * Website should be easy to use, lightweight and compatible with IE.
-* Keep the same information that was in the previous website and expand upon it.
+* Keep the same information that was on the previous website and expand upon it.
 * Make it easily customizable for anyone who wants to change the information that resides within.
 
 Of course, these are a rough draft. You may also suggest changes by forking this repo and creating a pull request or opening an issue.
 
-A list of commonly used resources that I found helpful are listed in the acknowledgements.
+A list of commonly used resources that I found helpful is listed in the acknowledgements.
 
 ### Built With
 * [Gatsby](https://www.gatsbyjs.org/)
@@ -103,17 +101,12 @@ gatsby develop
 > Find out more in https://stackoverflow.com/questions/52121000/gatsby-cannot-read-property-component-src-pages-index-jsx-of-undefined.
 
 
-- To deploy the website:
+- To create a production build, simply run:
 ```sh
 gatsby build
 ```
 
-This does a production build of the website and outputs the build static files into the ```public``` directory. After this:
-
-```sh
-cd public
-surge
-```
+This does a production build of the website and outputs the build static files into the ```public``` directory.
 
 ### Personalization
 
