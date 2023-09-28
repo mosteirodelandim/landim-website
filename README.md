@@ -1,12 +1,3 @@
-<!-- PROJECT SHIELDS -->
-<!--
-*** I'm using markdown "reference style" links for readability.
-*** Reference links are enclosed in brackets [ ] instead of parentheses ( ).
-*** See the bottom of this document for the declaration of the reference variables
-*** for contributors-url, forks-url, etc. This is an optional, concise syntax you may use.
-*** https://www.markdownguide.org/basic-syntax/#reference-style-links
--->
-
 <!-- PROJECT LOGO -->
 <br />
 <p align="center">
@@ -17,7 +8,7 @@
   <h3 align="center">Mosteiro de Landim's Website</h3>
 
   <p align="center">
-    The repo where Mosteiro de Landim's new website was developed.
+    The repo where Mosteiro de Landim's new website is developed.
   </p>
 </p>
 
@@ -162,16 +153,6 @@ module.exports = {
 [![Open Source Love](https://badges.frapsoft.com/os/mit/mit.svg?v=102)](LICENSE)
 
 Distributed under the MIT License.
-
-
-
-<!-- ACKNOWLEDGEMENTS -->
-## Acknowledgements
-* [Lottie](https://github.com/felippenardi/lottie-react-web)
-* [I18next](https://github.com/i18next/react-i18next)
-* [React Image Gallery](https://github.com/xiaolin/react-image-gallery)
-* [React Image Lightbox](https://github.com/frontend-collective/react-image-lightbox)
-* [Typewriter Effect](https://www.npmjs.com/package/typewriter-effect)
 
 
 <!-- MARKDOWN LINKS & IMAGES -->
