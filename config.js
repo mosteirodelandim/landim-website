@@ -17,7 +17,7 @@ module.exports = {
   // PAGES ---------------------
 
   emailContact: 'info@mosteirodelandim.com',
-  phoneContact: '+351939434741',
+  phoneContact: '+351 939 434 741',
 
   // 404
   houseDogs: ['Ringo', 'Spot', 'Dingo', 'Rex'],

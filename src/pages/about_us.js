@@ -108,6 +108,8 @@ function AboutUsPage({data}) {
               <p>{t('about_us:family.poem.verse2')}</p>
               <p>{t('about_us:family.poem.verse3')}</p>
               <p>{t('about_us:family.poem.verse4')}</p>
+              <p>{t('about_us:family.poem.verse5')}</p>
+              <p>{t('about_us:family.poem.verse6')}</p>
             </blockquote>
             <p style={{ textAlign: 'right', opacity: .5 }}>{t('about_us:family.poem.author')}</p>
 
