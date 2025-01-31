@@ -1,22 +1,22 @@
 {
-  "pten": {
+  "en": {
     "heading": "FAQ",
     "subHeading": "Perguntas frequentes e contactos.",
 
     "church": {
-      "title": "É possível utilizar a igreja para as celebrações?",
+      "title": "É possível utilizar a igreja para celebrações?",
       "description": "Sim - é  necessário contactar diretamente a ",
 	  "hyperlink": "paróquia."
     },
 
     "events": {
-      "title": "O aluguer do Mosteiro inclui todos os serviços necessários para a realização de um evento?",
-      "description": "Alugamos apenas o espaço. No entanto, podemos assegurar todos os outros serviços (catering, decoração, entretenimento, etc.)."
+      "title": "O valor do aluguer do Mosteiro inclui todos os serviços necessários para a realização de um evento?",
+      "description": "Este valor inclui apenas o espaço. No entanto, o Mosteiro assegura todos os outros serviços necessários para a realização do seu evento (catering, decoração, entretenimento, etc.)."
     },
 
     "time_limit": {
       "title": "Há limite de horas na realização de um evento?",
-      "description": "Não! No entanto, após as 04h00 acresce uma taxa de €250 + IVA por cada hora transata."
+      "description": "Sim. Os eventos têm a duração de 12 horas com o final previsto até às 04h00, com possibilidade de extensão de uma hora adicional."
     },
 
     "travel": {
@@ -28,7 +28,7 @@
 
     "per_weekend": {
       "title": "Quando é que o Mosteiro está aberto para eventos?",
-      "description": "O Mosteiro está aberto a qualquer tipo de evento durante todo o ano! "
+      "description": "O Mosteiro está aberto a qualquer tipo de evento durante todo o ano."
     },
 
     "more": {
