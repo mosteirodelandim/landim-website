@@ -142,7 +142,6 @@ function WineStayPage({data}) {
 
             <p>{t('wine_vineyards:airbnb.description1')}</p>
             <p>{t('wine_vineyards:airbnb.description2')}</p>
-            <p>{t('wine_vineyards:airbnb.description3')}</p>
           </div>
         </section>
 
