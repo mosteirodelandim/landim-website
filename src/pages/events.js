@@ -149,14 +149,6 @@ function EventsPage({data}) {
           <div className="inner">
             <h5>{t('events:secondParagraph.decor.title')}</h5>
             <p>{t('events:secondParagraph.decor.description1')}</p>
-            <p>
-              <a href="https://saiotes.pt/" rel="noopener noreferrer" target="_blank">Saiotes</a>{t('events:secondParagraph.decor.description2')}
-            </p>
-            <p>
-              <a href="https://eco.sapo.pt/2022/04/19/chefe-cozinheiro-do-ano-esta-de-volta-ja-distinguiu-chefs-como-henrique-sa-pessoa-e-luis-americo/"
-              target="_blank" rel="noopener noreferrer"
-              >Luís Américo</a>{t('events:secondParagraph.decor.description3')}
-            </p>
           </div>
         </section>
 
