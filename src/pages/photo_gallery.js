@@ -61,8 +61,6 @@ function PhotoGalleryPage({ data }) {
             <p style={{textAlign: 'right', opacity: .5 }}>{t('photo_gallery:quoteAuthor')}</p>
 
             <p>{t('photo_gallery:paragraph:description1')}</p>
-            <p>{t('photo_gallery:paragraph:description2')}</p>
-            <p>{t('photo_gallery:paragraph:description3')}</p>
 
           </div>
         </section>
