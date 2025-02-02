@@ -5,8 +5,7 @@
     "wine": {
       "title": "O nosso vinho",
       "description1": "Camélia. Evocando o nome desta flor oriunda do Japão queremos proporcionar-lhe, através do aroma elegante e fresco deste vinho, uma viagem pelos jardins do séc. XIX do Mosteiro de Landim. O vinho foi criado pelo conhecido enólogo Anselmo Mendes com uvas seleccionadas da casta Loureiro.",
-      "description2": "O vinho Camélia de 2005 ganhou os prémios da Revista de Vinhos para o Melhor da Região e para a Melhor Compra. Em 2007 a Revista de Vinhos já o classificou com dezasseis valores na revista de Junho, tendo já sido considerado como uma das Melhores Compras. ",
-	  "description3": "Em 2013 fizemos uma pausa. Estamos em (re)construção e voltaremos em breve, com a elegância e frescura que nos carateriza. Até lá, aproveitem os bons vinhos que a região dos Vinhos Verdes proporciona!",
+      "description2": "O vinho Camélia de 2005 ganhou os prémios da Revista de Vinhos para o Melhor da Região e para a Melhor Compra. Em 2007 a Revista de Vinhos já o classificou com dezasseis valores na revista de Junho, tendo já sido considerado como uma das Melhores Compras.",
       "quote1Title": "Camélia Loureiro 2008 | 15",
       "quote1": "Um só vinho, mas suficientemente original e entusiástico para encher a alma. Acima de tudo, é um vinho alegre e descomplexado, divertido como todos os vinhos deveriam ser. Uma belíssima aposta para os meses de estio. \n\nCor amarelo-palha muito ténue, quase incolor. O registo floral é efusivo, quase desbragado, repleto de ervas aromáticas, folha de louro, aniz, funcho e um leve final citrino. Fresco e vibrante, tenso e nervoso, é um branco mordaz, acídulo qb, companhia perfeita para o Verão. Original e agradável.",
       "quote1Author": "Rui Falcão \"Guia de Vinhos 2010\" Oficina do Livro, 2009",
@@ -15,14 +14,9 @@
       "quote2Author": "Rui Falcão \"Guia de Vinhos 2008\" Oficina do Livro, 2007"
     },
 
-    "stay": {
-      "title": "Estadia",
-      "description1": "O Mosteiro de Landim não é só para eventos. Temos planos em ter um espaço para quem estiver interessado em pernoitar e explorar o Mosteiro de Landim ao seu próprio ritmo. Afinal, há muito para ver e aprender! No entanto, ainda estamos a aperfeiçoar esta experiência. Quando estiver pronta, avisaremos toda a gente!"
-    },
-
 	"vines": {
       "title": "Vinhas",
-      "description1": "Temos 10 hectares de vinha, predominantemente da casta Loureiro, que vão sendo cuidados e transformados desde 1985. O esforço de todo o ano culmina na vindima, um momento importante de reunião e trabalho de equipa."
+      "description1": "Temos cerca de 10 hectares de vinha, predominantemente da casta Loureiro, que vão sendo cuidados e transformados desde 1983. O esforço de todo o ano culmina na vindima, um momento importante de reunião e trabalho de equipa."
     },
 
     "images": {
@@ -42,15 +36,14 @@
 
     "airbnb": {
       "title": "Estadia",
-      "description1": "A nossa herança existe desde os tempos primórdios da conceção de Portugal e é, por isso, um dos locais mais antigos do Norte de Portugal. Este recanto rústico torna-se num espaço privilegiado de estadia no Turismo Rural, e dada a sua posição privilegiada a apenas 30 minutos do Porto, é uma ótima referência para itinerários turísticos nortenhos.",
-      "description2": "O Mosteiro abre, então, as suas portas a visitantes que queiram pernoitar e experienciar tudo o que temos a oferecer ao seu próprio ritmo. O nosso alojamento local acolhedor com capacidade para três hóspedes é perfeito para recuperar energias num local histórico e encontra-se a uma distância a pé do centro de Landim.",
-      "description3": "Durante a sua estadia, é permitido o acesso a todas os espaços exteriores do Mosteiro. Inspire fundo e relaxe no nosso cantinho minhoto.",
+      "description1": "Dentro da propriedade do Mosteiro, encontra-se alojamento local pequeno e acolhedor com capacidade para três hóspedes, perfeito para recuperar energias num local histórico a uma distância a pé do centro de Landim.",
+      "description2": "Dada a sua posição privilegiada a apenas 25 minutos do Porto, é uma ótima referência para itinerários turísticos nortenhos. Durante a sua estadia, é permitido o acesso a todas os espaços exteriores do Mosteiro. Inspire fundo e relaxe no nosso cantinho minhoto.",
 
       "spotlight": {
         "title": "Alojamento local",
-        "phrase1": "Atualmente,",
+        "phrase1": "",
         "phraseAirbnbUrl": "",
-        "phrase2": " o nosso alojamento local encontra-se temporariamente fechado."
+        "phrase2": "O nosso alojamento local encontra-se temporariamente fechado."
       }
     },
 

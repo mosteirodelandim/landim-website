@@ -42,7 +42,7 @@ function GardensPage({data}) {
         <section className="wrapper style5">
           <div className="inner">
             <h3>{t('gardens:firstParagraph.title')}</h3>
-            <p>{t('gardens:firstParagraph.description1')}</p>
+            <p>{t('gardens:firstParagraph.description1.text')}<a href="https://jardinshistoricos.pt/route/view/7">{t('gardens:firstParagraph.description1.hyperlink')}</a>.</p>
             <p>{t('gardens:firstParagraph.description2')}</p>
             <p>{t('gardens:firstParagraph.description3')}</p>
             <p>{t('gardens:firstParagraph.description4')}</p>

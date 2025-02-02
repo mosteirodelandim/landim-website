@@ -83,7 +83,7 @@ function AboutUsPage({data}) {
                       }}
                       style={{ textAlign: 'right', cursor: "pointer" }}>
                   <Img fluid={history2}/>
-                  {t('about_us:history.imagesCaption')}
+                  { /* t('about_us:history.imagesCaption') */ }
                 </span>
               </Col>
             </Row>

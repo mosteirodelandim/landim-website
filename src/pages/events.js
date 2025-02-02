@@ -124,7 +124,7 @@ function EventsPage({data}) {
                   >
                     <span className="image fit">
                       <Img fluid={space1} alt='photocredits to Ana Teresa Miranda' title='photocredits to Ana Teresa Miranda'/>
-                      {t('events:secondParagraph.spaces.image1Caption')}
+                      { /* t('events:secondParagraph.spaces.image1Caption') */}
                     </span>
                   </div>
                   <div
@@ -136,7 +136,7 @@ function EventsPage({data}) {
                   >
                     <span className="image fit" style={{ textAlign: 'right' }}>
                       <Img fluid={space2} alt='photocredits to As Anas' title='photocredits to As Anas'/>
-                      {t('events:secondParagraph.spaces.image2Caption')}
+                      { /* t('events:secondParagraph.spaces.image2Caption') */ }
                     </span>
                   </div>
                 </div>
@@ -149,14 +149,6 @@ function EventsPage({data}) {
           <div className="inner">
             <h5>{t('events:secondParagraph.decor.title')}</h5>
             <p>{t('events:secondParagraph.decor.description1')}</p>
-            <p>
-              <a href="https://saiotes.pt/" rel="noopener noreferrer" target="_blank">Saiotes</a>{t('events:secondParagraph.decor.description2')}
-            </p>
-            <p>
-              <a href="https://eco.sapo.pt/2022/04/19/chefe-cozinheiro-do-ano-esta-de-volta-ja-distinguiu-chefs-como-henrique-sa-pessoa-e-luis-americo/"
-              target="_blank" rel="noopener noreferrer"
-              >Luís Américo</a>{t('events:secondParagraph.decor.description3')}
-            </p>
           </div>
         </section>
 
