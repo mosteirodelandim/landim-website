@@ -521,7 +521,6 @@ function HistoryPage({data}) {
           {t('history:book.imagesCaptions.book1')}
       </span>
         <blockquote>{t('history:book.quote', { interpolation: { escapeValue: false } })}</blockquote>
-        <p style={{ textAlign: 'right' }}>{t('history:book.quoteCitation')}</p>
       </section>
     );
   }
