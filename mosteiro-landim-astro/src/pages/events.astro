@@ -71,27 +71,29 @@ const decorItems = [decor1, decor2, decor3, decor4, decor5, decor6, decor9].map(
 
   <!-- ============ SPOTLIGHTS ============ -->
   <section class="section section--flush">
-    <div class="container">
+    <div class="container spot-list">
       {
         spotlights.map((s, i) => (
           <article class:list={["spot-row", { "spot-row--flip": i % 2 === 1 }]}>
             <div class="spot-media" data-reveal="mask">
-              <SmartImage
-                src={s.img}
-                alt={s.alt}
-                sizes="(min-width: 64rem) 44rem, 92vw"
-                widths={[480, 800, 1200, 1600]}
-                aspect="3 / 2"
-              />
+              <div class="spot-media-inner" data-reveal="parallax" data-parallax="5">
+                <SmartImage
+                  src={s.img}
+                  alt={s.alt}
+                  sizes="(min-width: 64rem) 44rem, 92vw"
+                  widths={[480, 800, 1200, 1600]}
+                  aspect="3 / 2"
+                />
+              </div>
             </div>
             <div class="spot-text">
-              <p class="label spot-num" data-reveal="fade-up">
+              <span class="spot-num serif-italic" aria-hidden="true">
                 {String(i + 1).padStart(2, "0")}
-              </p>
-              <h3 class="spot-title" data-reveal="fade-up">
+              </span>
+              <h3 class="spot-title serif-italic" data-reveal="fade-up">
                 {s.title}
               </h3>
-              <p class="spot-desc" data-reveal="fade-up">
+              <p class="spot-desc" data-reveal="fade-up" data-reveal-delay="0.08">
                 {s.description}
               </p>
             </div>
@@ -188,32 +190,56 @@ const decorItems = [decor1, decor2, decor3, decor4, decor5, decor6, decor9].map(
   .spot-row {
     display: grid;
     grid-template-columns: minmax(0, 7fr) minmax(0, 5fr);
-    gap: var(--space-lg);
+    gap: clamp(1.5rem, 4vw, var(--space-xl));
     align-items: center;
-    padding-block: var(--space-md);
+    padding-block: clamp(var(--space-md), 5vw, var(--space-xl));
+    border-top: 1px solid var(--hairline);
+  }
+
+  .spot-list .spot-row:first-child {
+    border-top: 0;
   }
 
   .spot-row--flip .spot-media {
     order: 2;
   }
 
+  .spot-media {
+    overflow: hidden;
+    border-radius: var(--radius-sm);
+  }
+
+  .spot-media-inner :global(.smart-image) {
+    border-radius: var(--radius-sm);
+    transform: scale(1.12);
+  }
+
   .spot-num {
+    display: block;
+    font-family: var(--font-display);
+    font-style: italic;
+    font-size: clamp(2.6rem, 6vw, 4.2rem);
+    line-height: 1;
     color: var(--gold-ink);
-    margin-bottom: 0.6rem;
+    opacity: 0.5;
+    margin-bottom: var(--space-xs);
   }
 
   .spot-title {
-    font-size: var(--text-xl);
-    font-weight: 420;
-    margin-bottom: var(--space-xs);
+    font-family: var(--font-display);
+    font-style: italic;
+    font-weight: 400;
+    font-size: clamp(1.8rem, 3.6vw, 2.7rem);
+    line-height: 1.08;
+    letter-spacing: -0.015em;
+    color: var(--clay-deep);
+    margin-bottom: var(--space-sm);
   }
 
   .spot-desc {
     color: var(--fg-soft);
-  }
-
-  .spot-media :global(.smart-image) {
-    border-radius: var(--radius-sm);
+    line-height: 1.65;
+    max-width: 40ch;
   }
 
   .services-block {

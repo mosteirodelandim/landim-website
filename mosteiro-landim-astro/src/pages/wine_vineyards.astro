@@ -63,7 +63,6 @@ const stayImages = [airbnb1, airbnb2, airbnb3, airbnb4, airbnb5].map((src, i) =>
             alt={c.imageCaptions.wine}
             sizes="(min-width: 64rem) 26rem, 80vw"
             widths={[400, 700, 1100]}
-            aspect="3 / 4"
           />
         </a>
         <figcaption class="caption serif-italic">{c.imageCaptions.wine}</figcaption>
@@ -129,7 +128,7 @@ const stayImages = [airbnb1, airbnb2, airbnb3, airbnb4, airbnb5].map((src, i) =>
   <SpotlightLink
     label={c.airbnb.spotlight.title}
     text={c.airbnb.spotlight.phrase2}
-    linkText="Contacte-nos para mais informações"
+    cta="Como chegar"
     href="/faq#location"
     icon="stay"
   />

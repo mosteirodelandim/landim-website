@@ -16,13 +16,25 @@ type SpotlightIcon =
 interface Props {
   label: string;
   text: string;
-  linkText: string;
+  /** Retained for caller compatibility; no longer rendered inline. */
+  linkText?: string;
+  /** Button label. */
+  cta?: string;
   href: string;
   external?: boolean;
   icon?: SpotlightIcon;
+  class?: string;
 }
 
-const { label, text, linkText, href, external = false, icon = "star" } = Astro.props;
+const {
+  label,
+  text,
+  cta = "Saber mais",
+  href,
+  external = false,
+  icon = "star",
+  class: className = "",
+} = Astro.props;
 
 // Central glyphs — drawn in the same line-art style, centred on (44,44).
 const glyphs: Record<SpotlightIcon, string> = {
@@ -38,34 +50,23 @@ const glyphs: Record<SpotlightIcon, string> = {
 const glyph = glyphs[icon];
 ---
 
-<aside class="spotlight" data-reveal="fade-up">
-  <div class="container spotlight-inner">
-    <!-- Decorative SVG ornament (shared frame + per-use central glyph) -->
-    <div class="spotlight-ornament" aria-hidden="true">
-      <svg viewBox="0 0 88 88" fill="none" xmlns="http://www.w3.org/2000/svg">
-        <!-- Outer dashed ring -->
-        <circle cx="44" cy="44" r="40" stroke="currentColor" stroke-width="0.7" stroke-dasharray="3 6" opacity="0.3"/>
-        <!-- Cardinal rays -->
-        <path d="M44 4 L44 0 M44 88 L44 84 M4 44 L0 44 M88 44 L84 44" stroke="currentColor" stroke-width="0.8" opacity="0.45"/>
-        <!-- Central glyph -->
-        <g set:html={glyph} />
-        <!-- Tiny accent dots at 45° -->
-        <circle cx="72.5" cy="15.5" r="1.6" fill="currentColor" opacity="0.4"/>
-        <circle cx="15.5" cy="72.5" r="1.6" fill="currentColor" opacity="0.4"/>
-      </svg>
-    </div>
+<aside class:list={["spotlight", className]} data-reveal="fade-up">
+  <!-- Oversized decorative SVG ornament bleeding off the left edge -->
+  <div class="spotlight-bg" aria-hidden="true">
+    <svg viewBox="0 0 88 88" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <circle cx="44" cy="44" r="40" stroke="currentColor" stroke-width="0.7" stroke-dasharray="3 6" opacity="0.5"/>
+      <circle cx="44" cy="44" r="30" stroke="currentColor" stroke-width="0.5" opacity="0.35"/>
+      <path d="M44 4 L44 0 M44 88 L44 84 M4 44 L0 44 M88 44 L84 44" stroke="currentColor" stroke-width="0.8" opacity="0.6"/>
+      <g set:html={glyph} />
+      <circle cx="72.5" cy="15.5" r="1.6" fill="currentColor" opacity="0.5"/>
+      <circle cx="15.5" cy="72.5" r="1.6" fill="currentColor" opacity="0.5"/>
+    </svg>
+  </div>
 
+  <div class="container spotlight-inner">
     <div class="spotlight-content">
       <h2 class="spotlight-title serif-italic">{label}</h2>
-      <p class="spotlight-text">
-        {text}
-        <a
-          class="spotlight-link serif-italic"
-          href={href}
-          target={external ? "_blank" : undefined}
-          rel={external ? "noopener noreferrer" : undefined}>{linkText}</a
-        >.
-      </p>
+      <p class="spotlight-text">{text}</p>
     </div>
 
     <a
@@ -73,10 +74,9 @@ const glyph = glyphs[icon];
       href={href}
       target={external ? "_blank" : undefined}
       rel={external ? "noopener noreferrer" : undefined}
-      aria-hidden="true"
-      tabindex="-1"
     >
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2" aria-hidden="true">
+      <span>{cta}</span>
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" aria-hidden="true">
         <path d="M4 12h14M12 5l7 7-7 7"/>
       </svg>
     </a>
@@ -85,100 +85,138 @@ const glyph = glyphs[icon];
 
 <style>
   .spotlight {
+    position: relative;
     border-block: 1px solid var(--hairline);
     background: var(--bg-alt);
-    padding-block: var(--space-lg);
+    padding-block: var(--space-xl);
     margin-block: var(--space-lg);
     overflow: clip;
   }
 
-  .spotlight-inner {
-    display: grid;
-    grid-template-columns: 5.5rem 1fr 3.2rem;
-    gap: var(--space-md);
-    align-items: center;
+  /* Merge seamlessly with the section directly above (same bg) */
+  .spotlight--flush {
+    border-block-start: 0;
+    margin-block-start: 0;
+    padding-block-start: 0;
   }
 
-  .spotlight-ornament {
+  /* No trailing gap before the footer */
+  .spotlight:last-of-type {
+    margin-block-end: 0;
+  }
+
+  /* Oversized ornament bleeding off the left edge as a backdrop */
+  .spotlight-bg {
+    position: absolute;
+    top: 50%;
+    left: 0;
+    width: clamp(20rem, 38vw, 34rem);
+    aspect-ratio: 1;
+    transform: translate(-32%, -50%);
     color: var(--clay);
-    width: 5.5rem;
-    height: 5.5rem;
-    flex-shrink: 0;
+    opacity: 0.16;
+    pointer-events: none;
+    z-index: 0;
+  }
+
+  .spotlight-bg svg {
+    width: 100%;
+    height: 100%;
+    transform-origin: 50% 50%;
     transition: transform 0.9s var(--ease-out);
   }
 
-  .spotlight:hover .spotlight-ornament {
+  .spotlight:hover .spotlight-bg svg {
     transform: rotate(30deg);
+  }
+
+  .spotlight-inner {
+    position: relative;
+    z-index: 1;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    gap: var(--space-md);
+  }
+
+  .spotlight-content {
+    flex: 1 1 26rem;
+    padding-left: clamp(0rem, 6vw, 5rem);
   }
 
   .spotlight-title {
     font-family: var(--font-display);
     font-style: italic;
-    font-size: clamp(1.6rem, 3.5vw, 2.6rem);
+    font-size: clamp(1.9rem, 4vw, 3rem);
     font-weight: 400;
     color: var(--clay-deep);
-    line-height: 1;
-    margin-bottom: 0.55rem;
+    line-height: 1.05;
+    margin-bottom: 0.7rem;
     letter-spacing: -0.015em;
   }
 
   .spotlight-text {
     font-size: var(--text-md);
     color: var(--fg-soft);
-    max-width: 58ch;
+    max-width: 54ch;
     line-height: 1.6;
   }
 
-  .spotlight-link {
-    color: var(--clay-deep);
-    text-decoration-color: color-mix(in srgb, var(--clay) 55%, transparent);
-    transition: color var(--dur-fast) var(--ease-out);
-  }
-
-  .spotlight-link:hover {
-    color: var(--clay);
-  }
-
   .spotlight-cta {
-    display: grid;
-    place-items: center;
-    width: 3.2rem;
-    height: 3.2rem;
-    border-radius: 50%;
-    border: 1px solid var(--hairline);
-    color: var(--clay);
+    flex-shrink: 0;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.7rem;
+    padding: 0.95rem 1.7rem;
+    border-radius: 999px;
+    border: 1px solid var(--clay);
+    background: transparent;
+    color: var(--clay-deep);
+    font-size: var(--text-sm);
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
     text-decoration: none;
     transition:
       background var(--dur-base) var(--ease-out),
-      transform var(--dur-base) var(--ease-out),
-      border-color var(--dur-base) var(--ease-out);
+      color var(--dur-base) var(--ease-out),
+      transform var(--dur-base) var(--ease-out);
   }
 
   .spotlight-cta svg {
-    width: 1.2rem;
-    height: 1.2rem;
+    width: 1.15rem;
+    height: 1.15rem;
+    transition: transform var(--dur-base) var(--ease-out);
   }
 
-  .spotlight:hover .spotlight-cta {
+  .spotlight-cta:hover {
     background: var(--clay);
-    border-color: var(--clay);
     color: var(--linen);
+  }
+
+  .spotlight-cta:hover svg {
     transform: translateX(0.3rem);
   }
 
+  @media (prefers-reduced-motion: reduce) {
+    .spotlight:hover .spotlight-bg svg {
+      transform: none;
+    }
+  }
+
   @media (max-width: 48rem) {
-    .spotlight-inner {
-      grid-template-columns: 1fr;
-      gap: var(--space-sm);
+    .spotlight {
+      padding-block: var(--space-lg);
     }
 
-    .spotlight-ornament {
-      width: 4rem;
-      height: 4rem;
+    .spotlight-content {
+      padding-left: 0;
     }
 
-    .spotlight-cta {
-      display: none;
+    .spotlight-bg {
+      width: 22rem;
+      transform: translate(-42%, -50%);
+      opacity: 0.1;
     }
   }
 </style>

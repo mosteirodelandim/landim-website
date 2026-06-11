@@ -188,7 +188,9 @@ const galleryIcons: Record<string, string> = {
         chapters.map((ch) => (
           <li>
             <a href={`#${ch.id}`} class="gallery-float-link" data-float-link={ch.id}>
-              <span class="gallery-float-icon" aria-hidden="true" set:html={galleryIcons[ch.id] ?? ""} />
+              <span class="gallery-float-icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" set:html={galleryIcons[ch.id] ?? ""} />
+              </span>
               <span class="gallery-float-name serif-italic">{ch.title}</span>
             </a>
           </li>
@@ -200,7 +202,7 @@ const galleryIcons: Record<string, string> = {
   <SpotlightLink
     label={c.spotlight.title}
     text={c.spotlight.description}
-    linkText="@mosteirodelandim"
+    cta="Seguir no Instagram"
     href={config.socialLinks[0].url}
     external
     icon="social"

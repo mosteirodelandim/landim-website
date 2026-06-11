@@ -207,7 +207,7 @@ function initSpacesPreview(): void {
 }
 
 /* ------------------------------------------------------------------ */
-/* Manifesto section — celestial ornament float & twinkle             */
+/* Manifesto section — celestial ornament, scroll-driven parallax      */
 /* ------------------------------------------------------------------ */
 
 function initManifestoOrnament(): void {
@@ -216,157 +216,117 @@ function initManifestoOrnament(): void {
 
   ctx ??= gsap.context(() => {});
   ctx.add(() => {
-    // Moon — slow drift + gentle bob (wider amplitude = floatier)
-    const moon = ornament.querySelector(".orn-moon");
-    if (moon) {
-      gsap.to(moon, { y: -26, x: 10, duration: 6, ease: "sine.inOut", yoyo: true, repeat: -1 });
-      gsap.to(moon, { rotation: 8, duration: 9, ease: "sine.inOut", yoyo: true, repeat: -1, transformOrigin: "50% 50%" });
-    }
-
-    // Stars — twinkle (scale+opacity pulse) + roomier drift
-    ornament.querySelectorAll<SVGElement>(".orn-star").forEach((star, i) => {
-      gsap.to(star, {
-        opacity: 0.06, scale: 0.65, duration: 2.2 + i * 0.6,
-        ease: "sine.inOut", yoyo: true, repeat: -1, delay: i * 0.5,
+    // Whole ornament drifts + rotates as the section passes through the viewport.
+    gsap.fromTo(
+      ornament,
+      { yPercent: 9, rotation: -3 },
+      {
+        yPercent: -9,
+        rotation: 3,
+        ease: "none",
         transformOrigin: "50% 50%",
-      });
-      gsap.to(star, {
-        y: -18 + i * 6, x: 8 - i * 3, duration: 5 + i * 1.2,
-        ease: "sine.inOut", yoyo: true, repeat: -1, delay: i * 0.35,
-      });
-    });
-
-    // Dots — floatier bob with horizontal sway
-    ornament.querySelectorAll<SVGElement>(".orn-dot").forEach((dot, i) => {
-      gsap.to(dot, {
-        y: -12 + (i % 2) * 6, x: (i % 2 ? 6 : -6), duration: 3.4 + i * 0.55,
-        ease: "sine.inOut", yoyo: true, repeat: -1, delay: i * 0.4,
-      });
-    });
-
-    // Rings — very slow counter-rotation
-    const ringOuter = ornament.querySelector(".orn-ring");
-    const ringInner = ornament.querySelector(".orn-ring-inner");
-    if (ringOuter) gsap.to(ringOuter, { rotation: 360, duration: 90, ease: "none", repeat: -1, transformOrigin: "50% 50%" });
-    if (ringInner) gsap.to(ringInner, { rotation: -360, duration: 70, ease: "none", repeat: -1, transformOrigin: "50% 50%" });
-
-    // Scroll-driven: ornament drifts + rotates, elements separate by depth
-    if (tier() === "full") {
-      gsap.to(ornament, {
-        yPercent: -14, rotation: 6,
-        ease: "none", transformOrigin: "50% 50%",
         scrollTrigger: {
           trigger: ".manifesto",
           start: "top bottom",
           end: "bottom top",
-          scrub: 1.5,
+          scrub: 1.2,
         },
-      });
+      },
+    );
 
-      // Parallax depth: each layer reacts to scroll at its own rate
-      const layer = (sel: string, y: number, r = 0) => {
-        const el = ornament.querySelector(sel);
-        if (!el) return;
-        gsap.fromTo(
-          el,
-          { yPercent: 0 },
-          {
-            yPercent: y, rotation: r, ease: "none", transformOrigin: "50% 50%",
-            scrollTrigger: {
-              trigger: ".manifesto",
-              start: "top bottom",
-              end: "bottom top",
-              scrub: 2,
-            },
-          },
-        );
-      };
-      layer(".orn-moon", -40, 12);
-      layer(".orn-ring", 24, -18);
-      layer(".orn-ring-inner", -28, 22);
-      ornament.querySelectorAll<SVGElement>(".orn-star").forEach((star, i) => {
-        gsap.fromTo(
-          star,
-          { yPercent: 0 },
-          {
-            yPercent: -30 - i * 14, ease: "none",
-            scrollTrigger: {
-              trigger: ".manifesto",
-              start: "top bottom",
-              end: "bottom top",
-              scrub: 1 + i * 0.4,
-            },
-          },
-        );
+    // Per-element gentle, continuous float (independent of scroll) — adds life.
+    const float = (
+      sel: string,
+      ampY: number,
+      ampR: number,
+      dur: number,
+    ): void => {
+      ornament.querySelectorAll<SVGElement>(sel).forEach((el, i) => {
+        gsap.to(el, {
+          yPercent: ampY,
+          rotation: ampR,
+          duration: dur,
+          ease: "sine.inOut",
+          repeat: -1,
+          yoyo: true,
+          delay: i * 0.4,
+          transformOrigin: "50% 50%",
+        });
       });
-    }
+    };
+
+    float(".orn-moon", -7, 6, 6.5);
+    float(".orn-ring", 4, -5, 9);
+    float(".orn-ring-inner", -5, 6, 7.5);
+    float(".orn-star", -9, 0, 5);
+    float(".orn-dot", -6, 0, 4.2);
   });
 }
 
 /* ------------------------------------------------------------------ */
-/* Events feature — floating celebratory ornament                      */
+/* Events feature — floating ornament + media, all scroll-driven       */
 /* ------------------------------------------------------------------ */
 
 function initFeatureOrnament(): void {
   const ornament = document.querySelector<SVGElement>(".feature-ornament");
-  if (!ornament || tier() === "min") return;
+  const section = document.querySelector<HTMLElement>(".feature");
+  if (!section || tier() === "min") return;
 
   ctx ??= gsap.context(() => {});
   ctx.add(() => {
-    // Rings — slow counter-rotation
-    const ring = ornament.querySelector(".fo-ring");
-    const ringInner = ornament.querySelector(".fo-ring-inner");
-    if (ring) gsap.to(ring, { rotation: 360, duration: 110, ease: "none", repeat: -1, transformOrigin: "50% 50%" });
-    if (ringInner) gsap.to(ringInner, { rotation: -360, duration: 80, ease: "none", repeat: -1, transformOrigin: "50% 50%" });
-
-    // Champagne flutes — gentle clink sway
-    ornament.querySelectorAll<SVGElement>(".fo-flute").forEach((flute, i) => {
-      gsap.to(flute, {
-        rotation: i === 0 ? 8 : -8, y: -10, x: i === 0 ? -5 : 5,
-        duration: 4.5 + i, ease: "sine.inOut", yoyo: true, repeat: -1, delay: i * 0.6,
-        transformOrigin: "50% 0%",
-      });
+    const st = (scrub: number) => ({
+      trigger: ".feature",
+      start: "top bottom",
+      end: "bottom top",
+      scrub,
     });
 
-    // Sparks — twinkle + drift
-    ornament.querySelectorAll<SVGElement>(".fo-spark").forEach((spark, i) => {
-      gsap.to(spark, {
-        opacity: 0.15, scale: 0.6, duration: 1.8 + i * 0.5,
-        ease: "sine.inOut", yoyo: true, repeat: -1, delay: i * 0.4,
-        transformOrigin: "50% 50%",
-      });
-      gsap.to(spark, {
-        y: -20 - i * 6, x: i % 2 ? 10 : -10, rotation: i % 2 ? 30 : -30,
-        duration: 6 + i * 1.4, ease: "sine.inOut", yoyo: true, repeat: -1, delay: i * 0.3,
-        transformOrigin: "50% 50%",
-      });
-    });
+    if (ornament) {
+      // Whole ornament drifts + rotates with scroll.
+      gsap.fromTo(
+        ornament,
+        { yPercent: 8, rotation: 5 },
+        { yPercent: -10, rotation: -5, ease: "none", transformOrigin: "50% 50%", scrollTrigger: st(1.4) },
+      );
 
-    // Dots — buoyant float
-    ornament.querySelectorAll<SVGElement>(".fo-dot").forEach((dot, i) => {
-      gsap.to(dot, {
-        y: -16 + (i % 2) * 8, x: i % 2 ? 8 : -8,
-        duration: 3.6 + i * 0.7, ease: "sine.inOut", yoyo: true, repeat: -1, delay: i * 0.5,
-      });
-    });
+      const layer = (sel: string, fromY: number, toY: number, fromR = 0, toR = 0, scrub = 1.4): void => {
+        ornament.querySelectorAll<SVGElement>(sel).forEach((el, i) => {
+          gsap.fromTo(
+            el,
+            { yPercent: fromY, rotation: fromR },
+            {
+              yPercent: toY - i * 10,
+              rotation: toR,
+              ease: "none",
+              transformOrigin: "50% 50%",
+              scrollTrigger: st(scrub + i * 0.35),
+            },
+          );
+        });
+      };
 
-    // Scroll-driven drift + depth separation
-    if (tier() === "full") {
-      gsap.to(ornament, {
-        yPercent: -12, rotation: -8, ease: "none", transformOrigin: "50% 50%",
-        scrollTrigger: { trigger: ".feature", start: "top bottom", end: "bottom top", scrub: 1.6 },
-      });
-      ornament.querySelectorAll<SVGElement>(".fo-spark").forEach((spark, i) => {
-        gsap.fromTo(
-          spark,
-          { yPercent: 0 },
-          {
-            yPercent: -40 - i * 18, ease: "none",
-            scrollTrigger: { trigger: ".feature", start: "top bottom", end: "bottom top", scrub: 1 + i * 0.5 },
-          },
-        );
-      });
+      layer(".fo-ring", -20, 26, 14, -16, 2);
+      layer(".fo-ring-inner", 22, -28, -16, 20, 2.2);
+      layer(".fo-flute", 30, -46, -6, 8, 1.6);
+      layer(".fo-spark", 46, -70, -20, 24, 1.1);
+      layer(".fo-dot", 26, -40, 0, 0, 1);
     }
+
+    // Feature images float at different scroll rates (parallax depth).
+    const media = [
+      { sel: ".feature-media-a", from: 14, to: -14 },
+      { sel: ".feature-media-b", from: 26, to: -26 },
+      { sel: ".feature-media-c", from: 8, to: -20 },
+    ];
+    media.forEach(({ sel, from, to }, i) => {
+      const el = section.querySelector<HTMLElement>(sel);
+      if (!el) return;
+      gsap.fromTo(
+        el,
+        { yPercent: from },
+        { yPercent: to, ease: "none", scrollTrigger: st(1 + i * 0.4) },
+      );
+    });
   });
 }
 

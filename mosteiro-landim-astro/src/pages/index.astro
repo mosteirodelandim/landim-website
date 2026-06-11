@@ -18,6 +18,7 @@ import faqTile from "@/assets/images/landing/faq_tile.jpg";
 import manifestoImg from "@/assets/images/about_us/spaces1.jpg";
 import featureCloister from "@/assets/images/events/cloister.jpg";
 import featureGarden from "@/assets/images/events/garden.jpg";
+import featureRooms from "@/assets/images/events/rooms.jpg";
 import momento1 from "@/assets/images/photo-gallery/garden/2.jpg";
 import momento2 from "@/assets/images/photo-gallery/cloister/5.jpg";
 import momento3 from "@/assets/images/photo-gallery/garden/14.jpg";
@@ -290,6 +291,15 @@ const timeline = [
           sizes="(min-width: 64rem) 24rem, 70vw"
           widths={[400, 700, 1000]}
           aspect="3 / 4"
+        />
+      </div>
+      <div class="feature-media-c" data-reveal="mask">
+        <SmartImage
+          src={featureRooms}
+          alt="Salão histórico preparado para um banquete"
+          sizes="(min-width: 64rem) 20rem, 60vw"
+          widths={[400, 700, 1000]}
+          aspect="5 / 4"
         />
       </div>
       <div class="feature-text">
@@ -639,6 +649,7 @@ const timeline = [
     width: 124%;
     height: auto;
     pointer-events: none;
+    overflow: visible;
     z-index: 2;
   }
 
@@ -785,12 +796,14 @@ const timeline = [
     color: var(--clay-deep);
     opacity: 0.16;
     pointer-events: none;
+    overflow: visible;
     z-index: 0;
   }
 
   .feature-grid {
     display: grid;
     grid-template-columns: repeat(12, minmax(0, 1fr));
+    grid-auto-rows: auto;
     gap: var(--space-md);
     align-items: center;
     position: relative;
@@ -798,15 +811,26 @@ const timeline = [
   }
 
   .feature-media-a {
-    grid-column: 1 / 7;
+    grid-column: 1 / 6;
+    grid-row: 1;
     align-self: start;
   }
 
   .feature-media-b {
-    grid-column: 2 / 6;
-    width: 75%;
+    grid-column: 4 / 8;
+    grid-row: 1;
+    align-self: end;
+    width: 88%;
     justify-self: end;
-    margin-top: calc(-1 * var(--space-lg));
+    margin-top: var(--space-lg);
+    z-index: 2;
+  }
+
+  .feature-media-c {
+    grid-column: 1 / 5;
+    grid-row: 2;
+    width: 86%;
+    margin-top: calc(-1 * var(--space-md));
   }
 
   .feature-text {
@@ -817,7 +841,8 @@ const timeline = [
     gap: var(--space-sm);
   }
 
-  .feature-media-b :global(.smart-image) {
+  .feature-media-b :global(.smart-image),
+  .feature-media-c :global(.smart-image) {
     box-shadow: 0 24px 60px rgb(49 43 35 / 0.18);
   }
 
@@ -1093,6 +1118,11 @@ const timeline = [
 
     .feature-media-b {
       display: none;
+    }
+
+    .feature-media-c {
+      width: 100%;
+      margin-top: 0;
     }
 
     .spaces-row {

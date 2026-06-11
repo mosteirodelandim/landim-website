@@ -57,7 +57,7 @@ const gardenImages = [picture1, picture2, picture3, picture4, picture5, picture6
   </section>
 
   <!-- ============ VISITAS ============ -->
-  <section class="section section--alt">
+  <section class="section section--alt section--merge-spotlight">
     <div class="container">
       <SectionHeading index="02" label="Receber" title={c.secondParagraph.title} />
       <div class="prose prose--cols" data-reveal="fade-up">
@@ -65,15 +65,16 @@ const gardenImages = [picture1, picture2, picture3, picture4, picture5, picture6
         <p>{c.secondParagraph.description2}</p>
       </div>
     </div>
-  </section>
 
-  <SpotlightLink
-    label={c.lottie.title}
-    text={c.lottie.description}
-    linkText={c.lottie.hyperlink}
-    href={`mailto:${config.emailContact}`}
-    icon="gardens"
-  />
+    <SpotlightLink
+      class="spotlight--flush"
+      label={c.lottie.title}
+      text={c.lottie.description}
+      cta="Contactar"
+      href={`mailto:${config.emailContact}`}
+      icon="gardens"
+    />
+  </section>
 
   <Lightbox />
 </BaseLayout>
@@ -86,6 +87,12 @@ const gardenImages = [picture1, picture2, picture3, picture4, picture5, picture6
   .section--alt {
     background: var(--bg-alt);
     border-block: 1px solid var(--hairline);
+  }
+
+  /* Section that flows straight into a flush SpotlightLink below it */
+  .section--merge-spotlight {
+    padding-bottom: var(--space-lg);
+    border-block-end: 0;
   }
 
   .prose {

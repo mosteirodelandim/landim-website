@@ -78,22 +78,14 @@ const faqJsonLd = {
   <!-- ============ LOCALIZAÇÃO ============ -->
   <section class="section section--alt" id="location">
     <div class="container">
-      <SectionHeading
-        index="02"
-        label="Onde estamos"
-        title="Estamos <em>aqui</em>"
-      />
-
       <div class="location-grid">
         <div class="location-address" data-reveal="fade-up">
+          <p class="label location-eyebrow">
+            <span class="location-eyebrow-index">02</span> Onde estamos
+          </p>
           <p class="location-line serif-italic">{config.address}</p>
           <p class="location-transit label">
             A 30 minutos do Porto · 20 minutos do aeroporto
-          </p>
-          <p class="map-note">
-            Alameda do Mosteiro<br />
-            4770-328 Landim<br />
-            Vila Nova de Famalicão
           </p>
         </div>
 
@@ -132,7 +124,19 @@ const faqJsonLd = {
     display: grid;
     grid-template-columns: minmax(0, 2fr) minmax(14rem, 1fr);
     gap: var(--space-md);
-    align-items: start;
+    align-items: center;
+  }
+
+  .location-eyebrow {
+    display: inline-flex;
+    align-items: baseline;
+    gap: 0.9rem;
+    color: var(--clay-deep);
+    margin-bottom: var(--space-sm);
+  }
+
+  .location-eyebrow-index {
+    color: var(--gold-ink);
   }
 
   .location-line {
@@ -159,16 +163,10 @@ const faqJsonLd = {
     margin-bottom: 0.3rem;
   }
 
-  .map-note {
-    margin-top: var(--space-sm);
-    font-size: var(--text-sm);
-    color: var(--fg-soft);
-    line-height: 1.7;
-  }
-
   @media (max-width: 48rem) {
     .location-grid {
       grid-template-columns: 1fr;
+      align-items: start;
     }
   }
 </style>

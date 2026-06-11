@@ -1,10 +1,8 @@
 ---
 /**
- * Horizontal scroll-snap image strip with optional lightbox wiring
- * and drag-to-scroll on fine pointers.
+ * Horizontal drag-to-scroll image strip.
  */
 import SmartImage from "@/components/SmartImage.astro";
-import { getImage } from "astro:assets";
 
 interface StripItem {
   src: ImageMetadata;
@@ -14,25 +12,17 @@ interface StripItem {
 
 interface Props {
   items: StripItem[];
-  /** Lightbox group name; omit for non-clickable strip */
+  /** Retained for caller compatibility; strip is drag-only (no lightbox). */
   lightbox?: string;
   /** CSS aspect-ratio for every panel (default landscape 3/2) */
   aspect?: string;
   class?: string;
 }
 
-const { items, lightbox, aspect = "3 / 2", class: className = "" } = Astro.props;
+const { items, aspect = "3 / 2", class: className = "" } = Astro.props;
 
 const [aw, ah] = aspect.split("/").map((s) => parseFloat(s));
 const orientation = ah > aw ? "portrait" : "landscape";
-
-const fulls = lightbox
-  ? await Promise.all(
-      items.map((item) =>
-        getImage({ src: item.src, width: Math.min(1800, item.src.width), format: "webp", quality: 78 }),
-      ),
-    )
-  : [];
 ---
 
 <div
@@ -42,32 +32,15 @@ const fulls = lightbox
 >
   <ul class="strip-track" data-strip>
     {
-      items.map((item, i) => (
+      items.map((item) => (
         <li class="strip-item">
-          {lightbox ? (
-            <a
-              href={fulls[i].src}
-              data-lightbox={lightbox}
-              data-caption={item.caption ?? ""}
-              aria-label={item.caption || item.alt || "Ampliar imagem"}
-            >
-              <SmartImage
-                src={item.src}
-                alt={item.alt ?? item.caption ?? ""}
-                sizes="(min-width: 64rem) 38rem, 86vw"
-                widths={[480, 800, 1200]}
-                aspect={aspect}
-              />
-            </a>
-          ) : (
-            <SmartImage
-              src={item.src}
-              alt={item.alt ?? item.caption ?? ""}
-              sizes="(min-width: 64rem) 38rem, 86vw"
-              widths={[480, 800, 1200]}
-              aspect={aspect}
-            />
-          )}
+          <SmartImage
+            src={item.src}
+            alt={item.alt ?? item.caption ?? ""}
+            sizes="(min-width: 64rem) 38rem, 86vw"
+            widths={[480, 800, 1200]}
+            aspect={aspect}
+          />
           {item.caption && <p class="strip-caption serif-italic">{item.caption}</p>}
         </li>
       ))
@@ -75,7 +48,7 @@ const fulls = lightbox
   </ul>
   <p class="strip-hint label" aria-hidden="true">
     <span class="strip-hint-arrow">←</span>
-    arraste <span class="strip-hint-sep">·</span> clique para ampliar
+    arraste
     <span class="strip-hint-arrow">→</span>
   </p>
 </div>
@@ -116,12 +89,15 @@ const fulls = lightbox
     flex-basis: clamp(13rem, 46vw, 22rem);
   }
 
-  .strip-item a {
-    display: block;
-  }
-
   .strip-item :global(.smart-image) {
     border-radius: var(--radius-sm);
+  }
+
+  .strip-item :global(img) {
+    user-select: none;
+    -webkit-user-select: none;
+    -webkit-user-drag: none;
+    pointer-events: none;
   }
 
   .strip-caption {
@@ -138,10 +114,6 @@ const fulls = lightbox
     align-items: center;
     justify-content: center;
     gap: 0.5rem;
-  }
-
-  .strip-hint-sep {
-    opacity: 0.5;
   }
 
   .strip-hint-arrow {
@@ -224,9 +196,6 @@ const fulls = lightbox
         if (Math.abs(dx) > 5) {
           moved = true;
           track.classList.add("is-dragging");
-          // Block the lightbox click that fires when this drag ends.
-          (window as unknown as { __lbDragUntil?: number }).__lbDragUntil =
-            performance.now() + 500;
         }
         // Velocity tracking
         const now = performance.now();
@@ -252,9 +221,6 @@ const fulls = lightbox
           track.classList.remove("is-dragging");
           return;
         }
-        // Refresh the guard so the trailing click is ignored by the lightbox.
-        (window as unknown as { __lbDragUntil?: number }).__lbDragUntil =
-          performance.now() + 350;
 
         // Momentum coast then snap to nearest item
         const momentum = velX * -380;
@@ -304,19 +270,6 @@ const fulls = lightbox
         isDown = false;
         track.classList.remove("is-dragging");
       });
-
-      // Suppress accidental clicks after a drag
-      track.addEventListener(
-        "click",
-        (e) => {
-          if (moved) {
-            e.preventDefault();
-            e.stopPropagation();
-            moved = false;
-          }
-        },
-        true,
-      );
     });
   }
 

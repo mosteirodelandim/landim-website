@@ -283,7 +283,7 @@ const bookFull = await getImage({ src: book1, width: 1400, format: "webp", quali
               <p set:html={c.notable_people.camilo.description1} />
               <p set:html={c.notable_people.camilo.description2} />
             </div>
-            <div class="person-figs">
+            <div class="person-figs person-figs--stack">
               {
                 camiloFigs.map((f, i) => (
                   <figure class="fig" data-reveal="fade-up">
@@ -291,19 +291,16 @@ const bookFull = await getImage({ src: book1, width: 1400, format: "webp", quali
                       <SmartImage
                         src={f.img}
                         alt={i === 0 ? f.caption : `Carta de Camilo Castelo Branco — página ${i}`}
-                        sizes="(min-width: 64rem) 13rem, 44vw"
-                        widths={[300, 500, 800]}
-                        aspect="3 / 4"
+                        sizes="(min-width: 64rem) 26rem, 86vw"
+                        widths={[400, 700, 1000]}
                       />
                     </a>
+                    <figcaption class="fig-caption serif-italic">{f.caption}</figcaption>
                   </figure>
                 ))
               }
             </div>
           </div>
-          <p class="fig-caption serif-italic" data-reveal="fade-up">
-            {nc.camilo1} · {c.notable_people.camilo.lettersCaption}
-          </p>
         </article>
 
         <!-- Alberto -->
@@ -398,7 +395,6 @@ const bookFull = await getImage({ src: book1, width: 1400, format: "webp", quali
                   alt={c.book.imagesCaptions.book1}
                   sizes="(min-width: 64rem) 20rem, 70vw"
                   widths={[400, 700, 1000]}
-                  aspect="3 / 4"
                 />
               </a>
             </figure>
@@ -407,8 +403,7 @@ const bookFull = await getImage({ src: book1, width: 1400, format: "webp", quali
                 src={bookOld}
                 alt="Edição antiga sobre o Mosteiro de Landim"
                 sizes="(min-width: 64rem) 14rem, 50vw"
-                widths={[300, 500]}
-                aspect="3 / 4"
+                widths={[300, 500, 800]}
               />
             </figure>
           </div>
@@ -631,6 +626,14 @@ const bookFull = await getImage({ src: book1, width: 1400, format: "webp", quali
     top: 6rem;
   }
 
+  .person-figs--stack {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-md);
+    position: static;
+    top: auto;
+  }
+
   .poem-details {
     border: 1px solid var(--hairline);
     border-radius: var(--radius-sm);
@@ -665,16 +668,41 @@ const bookFull = await getImage({ src: book1, width: 1400, format: "webp", quali
   .book-images {
     display: flex;
     gap: var(--space-md);
-    align-items: start;
+    align-items: flex-end;
     flex-wrap: wrap;
+    --book-h: clamp(15rem, 30vw, 23rem);
   }
 
-  .book-cover {
-    flex: 0 0 min(20rem, 48%);
-  }
-
+  .book-cover,
   .book-old {
-    flex: 0 0 min(14rem, 38%);
+    flex: 0 0 auto;
+    height: var(--book-h);
+  }
+
+  .book-cover a {
+    display: inline-block;
+    height: 100%;
+  }
+
+  .book-cover :global(.smart-image),
+  .book-old :global(.smart-image) {
+    display: inline-block;
+    height: 100%;
+    width: auto;
+    aspect-ratio: auto !important;
+  }
+
+  .book-cover :global(picture),
+  .book-old :global(picture) {
+    height: 100%;
+    width: auto;
+  }
+
+  .book-cover :global(img),
+  .book-old :global(img) {
+    height: 100%;
+    width: auto;
+    object-fit: contain;
   }
 
   /* ---- Book ---- */
