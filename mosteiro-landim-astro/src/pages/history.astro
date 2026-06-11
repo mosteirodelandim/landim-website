@@ -411,6 +411,41 @@ const bookFull = await getImage({ src: book1, width: 1400, format: "webp", quali
     </div>
   </div>
 
+  <!-- ============ FLOATING CHAPTER WIDGET (mobile / tablet) ============ -->
+  <div class="chapters-fab" data-open="false">
+    <div id="chapters-fab-panel" class="chapters-fab-panel" role="menu" aria-label="Capítulos da história">
+      <p class="label chapters-fab-heading">Capítulos</p>
+      <ol>
+        {
+          chapters.map((ch, i) => (
+            <li role="none">
+              <a role="menuitem" href={`#${ch.id}`} data-chapter={ch.id} data-fab-link>
+                <span class="label">{String(i + 1).padStart(2, "0")}</span>
+                <span class="chapters-fab-text">{ch.label}</span>
+              </a>
+            </li>
+          ))
+        }
+      </ol>
+    </div>
+    <button
+      id="chapters-fab-btn"
+      class="chapters-fab-btn"
+      type="button"
+      aria-expanded="false"
+      aria-controls="chapters-fab-panel"
+      aria-label="Abrir capítulos"
+    >
+      <svg class="icon-list" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true">
+        <path d="M8 6h12M8 12h12M8 18h12M4 6h.01M4 12h.01M4 18h.01"></path>
+      </svg>
+      <svg class="icon-close" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true">
+        <path d="M6 6l12 12M18 6L6 18"></path>
+      </svg>
+      <span class="chapters-fab-current label">Capítulos</span>
+    </button>
+  </div>
+
   <button id="to-top" class="to-top" type="button" aria-label="Voltar ao topo">
     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true">
       <path d="M12 19V5M5 12l7-7 7 7"></path>
@@ -428,6 +463,12 @@ const bookFull = await getImage({ src: book1, width: 1400, format: "webp", quali
     grid-template-columns: minmax(13rem, 16rem) minmax(0, 1fr);
     gap: var(--space-lg);
     padding-block: var(--space-lg) var(--space-xl);
+  }
+
+  /* Content column must be allowed to shrink below its content's intrinsic
+     width, otherwise wide children (images, <pre>) push the page sideways. */
+  .chapters-content {
+    min-width: 0;
   }
 
   /* ---- Side nav ---- */
@@ -516,6 +557,7 @@ const bookFull = await getImage({ src: book1, width: 1400, format: "webp", quali
     gap: var(--space-sm);
     color: var(--fg-soft);
     max-width: 70ch;
+    min-width: 0;
   }
 
   .chapter-prose :global(b) {
@@ -542,6 +584,8 @@ const bookFull = await getImage({ src: book1, width: 1400, format: "webp", quali
   /* ---- Figures ---- */
   .fig {
     margin: 0;
+    min-width: 0;
+    max-width: 100%;
   }
 
   .fig a {
@@ -550,6 +594,7 @@ const bookFull = await getImage({ src: book1, width: 1400, format: "webp", quali
 
   .fig :global(.smart-image) {
     border-radius: var(--radius-sm);
+    max-width: 100%;
   }
 
   .fig-caption {
@@ -571,6 +616,10 @@ const bookFull = await getImage({ src: book1, width: 1400, format: "webp", quali
     grid-template-columns: minmax(0, 1fr) minmax(14rem, 20rem);
     gap: var(--space-lg);
     align-items: start;
+  }
+
+  .priests-grid > * {
+    min-width: 0;
   }
 
   .priests-figs {
@@ -617,6 +666,10 @@ const bookFull = await getImage({ src: book1, width: 1400, format: "webp", quali
     align-items: start;
   }
 
+  .person-grid > * {
+    min-width: 0;
+  }
+
   .person-figs {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(7rem, 1fr));
@@ -655,6 +708,7 @@ const bookFull = await getImage({ src: book1, width: 1400, format: "webp", quali
     line-height: 1.8;
     color: var(--fg-soft);
     overflow-x: auto;
+    max-width: 100%;
   }
 
   /* ---- Book chapter 6 — text first, images second ---- */
@@ -758,6 +812,11 @@ const bookFull = await getImage({ src: book1, width: 1400, format: "webp", quali
     translate: 0 0;
   }
 
+  /* ---- Floating chapters widget (hidden on desktop) ---- */
+  .chapters-fab {
+    display: none;
+  }
+
   /* ---- Responsive ---- */
   @media (max-width: 80rem) {
     .history-layout {
@@ -765,23 +824,124 @@ const bookFull = await getImage({ src: book1, width: 1400, format: "webp", quali
       gap: var(--space-sm);
     }
 
+    /* Side nav is replaced by the floating widget below this width */
     .chapters-nav {
-      position: static;
-      padding-top: 0;
+      display: none;
     }
 
-    .chapters-nav ol {
-      flex-direction: row;
-      flex-wrap: wrap;
-      gap: 0.2rem 1rem;
-      border-left: none;
-      border-top: 1px solid var(--hairline);
-      padding-top: var(--space-xs);
+    .chapters-fab {
+      display: block;
+      position: fixed;
+      left: clamp(1rem, 3vw, 2rem);
+      bottom: clamp(1rem, 3vw, 2rem);
+      z-index: 90;
     }
 
-    .chapters-nav a {
-      border-left: none;
-      padding: 0.3rem 0;
+    .chapters-fab-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      height: 2.9rem;
+      padding-inline: 1rem;
+      border-radius: 999rem;
+      border: 1px solid var(--hairline);
+      background: var(--parchment);
+      color: var(--clay-deep);
+      font-family: var(--font-body);
+      cursor: pointer;
+      box-shadow: 0 6px 22px -12px rgb(0 0 0 / 0.45);
+      transition:
+        background var(--dur-fast) var(--ease-out),
+        color var(--dur-fast) var(--ease-out);
+    }
+
+    .chapters-fab-btn svg {
+      width: 1.15rem;
+      height: 1.15rem;
+      flex: none;
+    }
+
+    .chapters-fab-btn .icon-close {
+      display: none;
+    }
+
+    .chapters-fab[data-open="true"] .chapters-fab-btn .icon-list {
+      display: none;
+    }
+
+    .chapters-fab[data-open="true"] .chapters-fab-btn .icon-close {
+      display: block;
+    }
+
+    .chapters-fab-current {
+      white-space: nowrap;
+    }
+
+    .chapters-fab-panel {
+      position: absolute;
+      bottom: calc(100% + 0.6rem);
+      left: 0;
+      min-width: min(18rem, 78vw);
+      max-height: min(60vh, 30rem);
+      overflow-y: auto;
+      padding: var(--space-sm);
+      border-radius: var(--radius-sm);
+      border: 1px solid var(--hairline);
+      background: var(--bg);
+      box-shadow: 0 18px 48px -20px rgb(0 0 0 / 0.5);
+      opacity: 0;
+      visibility: hidden;
+      transform: translateY(0.6rem);
+      transition:
+        opacity var(--dur-fast) var(--ease-out),
+        transform var(--dur-fast) var(--ease-out),
+        visibility 0s linear var(--dur-fast);
+    }
+
+    .chapters-fab[data-open="true"] .chapters-fab-panel {
+      opacity: 1;
+      visibility: visible;
+      transform: translateY(0);
+      transition:
+        opacity var(--dur-fast) var(--ease-out),
+        transform var(--dur-fast) var(--ease-out);
+    }
+
+    .chapters-fab-heading {
+      color: var(--clay-deep);
+      margin-bottom: var(--space-xs);
+    }
+
+    .chapters-fab-panel ol {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .chapters-fab-panel a {
+      display: flex;
+      align-items: baseline;
+      gap: 0.7rem;
+      padding: 0.55rem 0.4rem;
+      border-radius: var(--radius-sm);
+      text-decoration: none;
+      font-size: var(--text-base);
+      color: var(--fg-soft);
+      transition:
+        color var(--dur-fast) var(--ease-out),
+        background var(--dur-fast) var(--ease-out);
+    }
+
+    .chapters-fab-panel a .label {
+      color: var(--gold-ink);
+    }
+
+    .chapters-fab-panel a:hover,
+    .chapters-fab-panel a.is-active {
+      color: var(--fg);
+      background: var(--bg-alt);
     }
   }
 
@@ -795,23 +955,63 @@ const bookFull = await getImage({ src: book1, width: 1400, format: "webp", quali
     .priests-figs,
     .person-figs {
       position: static;
-      grid-template-columns: repeat(auto-fit, minmax(9rem, 14rem));
+      top: auto;
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: var(--space-sm);
     }
 
     .priests-figs {
-      flex-direction: row;
-      flex-wrap: wrap;
-    }
-
-    .priests-figs .fig {
-      flex: 1 1 12rem;
-      max-width: 16rem;
+      max-width: 32rem;
     }
   }
 
   @media (max-width: 34rem) {
     .fig-grid {
       grid-template-columns: 1fr;
+    }
+
+    .chapter-prose {
+      max-width: none;
+    }
+
+    .prose-drop > p:first-child::first-letter {
+      font-size: 3em;
+    }
+
+    /* Book images: drive sizing by width (not a fixed height) so they
+       shrink with the viewport and stack instead of overflowing. */
+    .book-images {
+      flex-direction: column;
+      align-items: stretch;
+      --book-h: auto;
+    }
+
+    .book-cover,
+    .book-old {
+      height: auto;
+      width: 100%;
+      max-width: 18rem;
+    }
+
+    .book-cover a,
+    .book-cover :global(.smart-image),
+    .book-old :global(.smart-image),
+    .book-cover :global(picture),
+    .book-old :global(picture),
+    .book-cover :global(img),
+    .book-old :global(img) {
+      height: auto;
+      width: 100%;
+    }
+
+    .person-figs {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .poem-full {
+      font-size: var(--text-sm);
+      line-height: 1.7;
     }
   }
 </style>
@@ -822,21 +1022,26 @@ const bookFull = await getImage({ src: book1, width: 1400, format: "webp", quali
     if (!list || list.dataset.bound) return;
     list.dataset.bound = "true";
 
-    /* Active chapter highlighting */
-    const links = new Map(
-      Array.from(list.querySelectorAll<HTMLAnchorElement>("a[data-chapter]")).map((a) => [
-        a.dataset.chapter!,
-        a,
-      ]),
-    );
+    /* Active chapter highlighting (desktop nav + floating widget) */
+    const links = new Map<string, HTMLAnchorElement[]>();
+    document.querySelectorAll<HTMLAnchorElement>("a[data-chapter]").forEach((a) => {
+      const key = a.dataset.chapter!;
+      if (!links.has(key)) links.set(key, []);
+      links.get(key)!.push(a);
+    });
+
+    const fabCurrent = document.querySelector<HTMLElement>(".chapters-fab-current");
+    const setActive = (id: string) => {
+      links.forEach((group) => group.forEach((a) => a.classList.remove("is-active")));
+      links.get(id)?.forEach((a) => a.classList.add("is-active"));
+      const label = links.get(id)?.[0]?.querySelector(".chapters-fab-text")?.textContent;
+      if (fabCurrent && label) fabCurrent.textContent = label;
+    };
 
     const observer = new IntersectionObserver(
       (entries) => {
         entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            links.forEach((a) => a.classList.remove("is-active"));
-            links.get(entry.target.id)?.classList.add("is-active");
-          }
+          if (entry.isIntersecting) setActive(entry.target.id);
         });
       },
       { rootMargin: "-20% 0px -65% 0px" },
@@ -859,7 +1064,44 @@ const bookFull = await getImage({ src: book1, width: 1400, format: "webp", quali
       });
     }
 
+    /* Floating chapters widget */
+    const fab = document.querySelector<HTMLElement>(".chapters-fab");
+    const fabBtn = document.getElementById("chapters-fab-btn");
+    if (fab && fabBtn) {
+      const setOpen = (open: boolean) => {
+        fab.dataset.open = String(open);
+        fabBtn.setAttribute("aria-expanded", String(open));
+      };
+
+      fabBtn.addEventListener("click", (e) => {
+        e.stopPropagation();
+        setOpen(fab.dataset.open !== "true");
+      });
+
+      fab.querySelectorAll<HTMLAnchorElement>("a[data-fab-link]").forEach((a) => {
+        a.addEventListener("click", (e) => {
+          e.preventDefault();
+          const id = a.dataset.chapter!;
+          const target = document.getElementById(id);
+          setOpen(false);
+          if (!target) return;
+          const lenis = window.__lenis;
+          if (lenis) lenis.scrollTo(target, { offset: -88 });
+          else target.scrollIntoView({ behavior: "smooth" });
+        });
+      });
+
+      document.addEventListener("click", (e) => {
+        if (fab.dataset.open === "true" && !fab.contains(e.target as Node)) setOpen(false);
+      });
+
+      document.addEventListener("keydown", (e) => {
+        if (e.key === "Escape") setOpen(false);
+      });
+    }
+
     document.addEventListener("astro:before-swap", () => observer.disconnect(), { once: true });
+
   }
 
   initHistoryPage();
