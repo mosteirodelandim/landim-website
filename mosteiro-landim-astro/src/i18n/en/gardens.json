@@ -1,0 +1,38 @@
+{
+  "en": {
+    "title": "Gardens & Visits",
+    "subHeading": "Our story told among centuries-old camellias, rhododendrons and azaleas.",
+
+    "firstParagraph": {
+      "title": "Timeless gardens",
+      "description1": {
+        "text": "Throughout the year, we welcome people from all over the world to visit our centuries-old gardens. We are members of the Portuguese Association of Historic Gardens and part of the ",
+        "hyperlink": "Historic Gardens route of the Baixo Minho"
+      },
+      "description2": "Access to the Monastery's gardens is through a gate that leads the visitor into a landscaped courtyard with beds of sculpted camellias rich in history, encircling a central fountain crowned by a bust of Venus. Fountains from another age and azulejo-clad walls mark the start of a route steeped in history, with paths shaded by pergolas, offering coolness and a magical atmosphere.",
+      "description3": "Climbing these paths, surrounded by orchards and vineyards, we reach the Monastery's old enclosure, with a 13-hectare woodland rich in eucalyptus, acacia, oak and pine. Here lies the ground of the old Jogo da Péla and, at the far end, the Casa do Paço, a singular room with wide windows and eighteenth-century azulejo panels depicting scenes from the lives of saints.",
+      "description4": "Take a look at some images of our gardens."
+    },
+
+    "secondParagraph": {
+      "title": "Visits",
+      "description1": "In times past, the Monastery was home to friars of the Order of the Canons Regular of St. Augustine, who roamed these grounds. Now, we open our gardens to those who wish to admire them and relive a piece of history.",
+      "description2": "Our visits are not limited to the gardens. We also invite everyone to explore the rest of the monastic complex, which extends across considerable farmland and vineyards, beyond a magnificent woodland of oaks and strawberry trees. The rooms and interior of the Monastery, dating back to the time of King Afonso Henriques, as well as the vineyards and vast fields, offer the chance to enjoy a unique experience."
+    },
+
+    "lottie": {
+      "title": "Tours",
+      "description": "Mosteiro de Landim offers guided visits through its historic gardens.",
+      "hyperlink": "email"
+    },
+
+    "ui": {
+      "heroLabel": "Historic gardens",
+      "heroAlt": "The gardens of Mosteiro de Landim",
+      "section1Label": "Living heritage",
+      "section2Label": "Welcoming",
+      "galleryAlt": "Historic gardens of Mosteiro de Landim — {n}",
+      "spotlightCta": "Get in touch"
+    }
+  }
+}

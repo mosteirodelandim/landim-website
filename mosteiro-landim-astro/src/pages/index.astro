@@ -6,7 +6,7 @@ import SmartImage from "@/components/SmartImage.astro";
 import Marquee from "@/components/Marquee.astro";
 import CTABand from "@/components/CTABand.astro";
 import Lightbox from "@/components/Lightbox.astro";
-import { t } from "@/i18n";
+import { getContent, resolveLocale, localizePath } from "@/i18n";
 
 import banner from "@/assets/images/landing/banner.jpg";
 import aboutTile from "@/assets/images/landing/about_us_tile.jpg";
@@ -28,23 +28,27 @@ import momento4 from "@/assets/images/photo-gallery/rooms/1.jpg";
 import momento5 from "@/assets/images/photo-gallery/church/2.jpg";
 import momento6 from "@/assets/images/photo-gallery/cloister/9.jpg";
 
+const locale = resolveLocale(Astro.currentLocale);
+const t = getContent(locale);
+const u = t.landing.ui;
+
 const spaces = [
-  { key: "weAre", href: "/about_us", img: aboutTile, ...t.landing.weAre },
-  { key: "events", href: "/events", img: eventsTile, ...t.landing.events },
-  { key: "photos", href: "/photo_gallery", img: photosTile, ...t.landing.photos },
-  { key: "history", href: "/history", img: historyTile, ...t.landing.history },
-  { key: "gardens", href: "/gardens", img: gardensTile, ...t.landing.gardens },
-  { key: "vineyards", href: "/wine_vineyards", img: wineTile, ...t.landing.vineyards },
-  { key: "faq", href: "/faq", img: faqTile, ...t.landing.faq },
+  { key: "weAre", href: localizePath("/about_us", locale), img: aboutTile, ...t.landing.weAre },
+  { key: "events", href: localizePath("/events", locale), img: eventsTile, ...t.landing.events },
+  { key: "photos", href: localizePath("/photo_gallery", locale), img: photosTile, ...t.landing.photos },
+  { key: "history", href: localizePath("/history", locale), img: historyTile, ...t.landing.history },
+  { key: "gardens", href: localizePath("/gardens", locale), img: gardensTile, ...t.landing.gardens },
+  { key: "vineyards", href: localizePath("/wine_vineyards", locale), img: wineTile, ...t.landing.vineyards },
+  { key: "faq", href: localizePath("/faq", locale), img: faqTile, ...t.landing.faq },
 ];
 
 const momentos = [
-  { img: momento1, caption: "Os jardins centenários", tall: false },
-  { img: momento2, caption: "Mesas no claustro", tall: true },
-  { img: momento3, caption: "Sombra das ramadas", tall: false },
-  { img: momento4, caption: "O salão principal", tall: true },
-  { img: momento5, caption: "A igreja românica", tall: false },
-  { img: momento6, caption: "Festa entre colunas dóricas", tall: true },
+  { img: momento1, caption: u.momentosCaptions[0], tall: false },
+  { img: momento2, caption: u.momentosCaptions[1], tall: true },
+  { img: momento3, caption: u.momentosCaptions[2], tall: false },
+  { img: momento4, caption: u.momentosCaptions[3], tall: true },
+  { img: momento5, caption: u.momentosCaptions[4], tall: false },
+  { img: momento6, caption: u.momentosCaptions[5], tall: true },
 ];
 
 const momentoFulls = await Promise.all(
@@ -53,28 +57,7 @@ const momentoFulls = await Promise.all(
   ),
 );
 
-const timeline = [
-  {
-    year: "Séc. XII",
-    title: "A fundação",
-    text: "Nasce o Mosteiro de Santa Maria de Landim, casa dos Cónegos Regrantes de Santo Agostinho.",
-  },
-  {
-    year: "1770",
-    title: "A extinção",
-    text: "A carta régia de D. José I dita o fim da vida monástica em Landim.",
-  },
-  {
-    year: "1775",
-    title: "A escritura",
-    text: "O Mosteiro passa para as mãos da família — uma herança que dura há 250 anos.",
-  },
-  {
-    year: "Hoje",
-    title: "Dez gerações",
-    text: "Uma casa de família aberta a quem celebra: casamentos, eventos, visitas e vindimas.",
-  },
-];
+const timeline = u.timeline;
 ---
 
 <BaseLayout title={t.landing.heading}>
@@ -82,7 +65,6 @@ const timeline = [
   <div id="preloader" aria-hidden="true">
     <div class="preloader-inner">
       <Image class="preloader-mark" src={logoOneline} alt="" widths={[200, 320, 460]} sizes="240px" />
-      <p class="preloader-name label">Mosteiro de Landim</p>
       <span class="preloader-line"><i></i></span>
       <p class="preloader-counter label">000</p>
     </div>
@@ -93,7 +75,7 @@ const timeline = [
     <div class="hero-media">
       <SmartImage
         src={banner}
-        alt="Vista do Mosteiro de Landim ao entardecer"
+        alt={u.heroAlt}
         eager
         sizes="100vw"
         widths={[640, 828, 1080, 1366, 1600, 2200]}
@@ -119,7 +101,7 @@ const timeline = [
     </div>
 
     <div class="hero-scroll" aria-hidden="true">
-      <span class="label">Desça</span>
+      <span class="label">{u.scroll}</span>
       <span class="hero-scroll-line"><i></i></span>
     </div>
   </section>
@@ -130,22 +112,21 @@ const timeline = [
       <div class="manifesto-text">
         <p class="label manifesto-label" data-reveal="fade-up">{t.landing.weAre.title}</p>
         <h2 class="manifesto-title" id="manifesto-title" data-reveal="stagger-children">
-          <span>Um Mosteiro.</span>
-          <span>Uma família.</span>
-          <span><em>Dez gerações.</em></span>
+          <span>{u.manifesto.line1}</span>
+          <span>{u.manifesto.line2}</span>
+          <span><em>{u.manifesto.line3}</em></span>
         </h2>
         <p class="manifesto-lede" data-reveal="fade-up">
-          Entre japoneiras centenárias e um claustro do século XVI, a nossa casa guarda
-          oito séculos de história — e continua a abrir os portões a quem celebra.
+          {u.manifesto.lede}
         </p>
-        <a class="btn" href="/about_us" data-reveal="fade-up">Sobre nós</a>
+        <a class="btn" href={localizePath("/about_us", locale)} data-reveal="fade-up">{u.manifesto.cta}</a>
       </div>
       <div class="manifesto-media">
         <div class="manifesto-arch" data-reveal="mask">
           <div data-reveal="parallax" data-parallax="10" class="manifesto-parallax">
             <SmartImage
               src={manifestoImg}
-              alt="O claustro do Mosteiro de Landim"
+              alt={u.manifesto.imageAlt}
               sizes="(min-width: 64rem) 34rem, 86vw"
               widths={[480, 800, 1200]}
               aspect="4 / 5"
@@ -184,22 +165,22 @@ const timeline = [
           <line x1="80" y1="496" x2="320" y2="496" stroke="var(--clay)" stroke-width="0.7" opacity="0.2"/>
         </svg>
         <p class="manifesto-caption serif-italic" data-reveal="fade-up">
-          O claustro — o coração de cada festa.
+          {u.manifesto.caption}
         </p>
       </div>
     </div>
   </section>
 
   <!-- ============ MARQUEE ============ -->
-  <Marquee items={["Casamentos", "Eventos", "Tours", "Vindimas", "Estadia", "História"]} />
+  <Marquee items={u.marquee} />
 
   <!-- ============ INDEX OF SPACES ============ -->
   <section class="spaces" aria-labelledby="spaces-title">
     <div class="container">
       <header class="spaces-header">
-        <p class="label" data-reveal="fade-up">Índice</p>
+        <p class="label" data-reveal="fade-up">{u.spacesLabel}</p>
         <h2 class="spaces-title" id="spaces-title" data-reveal="words">
-          Explore <em class="serif-italic">a quinta</em>
+          {u.spacesTitleLead}<em class="serif-italic">{u.spacesTitleEm}</em>
         </h2>
       </header>
 
@@ -280,7 +261,7 @@ const timeline = [
       <div class="feature-media-a" data-reveal="mask">
         <SmartImage
           src={featureGarden}
-          alt="Jardins do Mosteiro preparados para um casamento"
+          alt={u.featureAltGarden}
           sizes="(min-width: 64rem) 38rem, 92vw"
           widths={[480, 800, 1200]}
           aspect="4 / 3"
@@ -289,7 +270,7 @@ const timeline = [
       <div class="feature-media-b" data-reveal="mask">
         <SmartImage
           src={featureCloister}
-          alt="Mesa de festa no claustro"
+          alt={u.featureAltCloister}
           sizes="(min-width: 64rem) 24rem, 70vw"
           widths={[400, 700, 1000]}
           aspect="3 / 4"
@@ -298,7 +279,7 @@ const timeline = [
       <div class="feature-media-c" data-reveal="mask">
         <SmartImage
           src={featureRooms}
-          alt="Salão histórico preparado para um banquete"
+          alt={u.featureAltRooms}
           sizes="(min-width: 64rem) 20rem, 60vw"
           widths={[400, 700, 1000]}
           aspect="5 / 4"
@@ -307,14 +288,13 @@ const timeline = [
       <div class="feature-text">
         <p class="label" data-reveal="fade-up">{t.landing.events.title}</p>
         <h2 class="feature-title" id="feature-title" data-reveal="words">
-          O cenário de uma <em class="serif-italic">festa única</em>
+          {u.featureTitleLead}<em class="serif-italic">{u.featureTitleEm}</em>
         </h2>
         <p data-reveal="fade-up">{t.landing.events.description}</p>
         <p data-reveal="fade-up">
-          Claustro, salas históricas, jardins e igreja — um conjunto de espaços com séculos
-          de histórias para contar, exclusivamente seus por um dia.
+          {u.featureDescription2}
         </p>
-        <a class="btn btn--solid" href="/events" data-reveal="fade-up">Conhecer os serviços</a>
+        <a class="btn btn--solid" href={localizePath("/events", locale)} data-reveal="fade-up">{u.featureCta}</a>
       </div>
     </div>
   </section>
@@ -323,14 +303,14 @@ const timeline = [
   <section class="momentos" aria-labelledby="momentos-title">
     <div class="momentos-track">
       <header class="momentos-intro">
-        <p class="label" data-reveal="fade-up">Galeria</p>
+        <p class="label" data-reveal="fade-up">{u.momentosLabel}</p>
         <h2 class="momentos-title" id="momentos-title" data-reveal="words">
-          Momentos <em class="serif-italic">que ficam</em>
+          {u.momentosTitleLead}<em class="serif-italic">{u.momentosTitleEm}</em>
         </h2>
         <p class="momentos-lede" data-reveal="fade-up">
           {t.landing.photos.description}
         </p>
-        <p class="label momentos-hint" aria-hidden="true">( continue a descer )</p>
+        <p class="label momentos-hint" aria-hidden="true">{u.momentosHint}</p>
       </header>
 
       {
@@ -351,8 +331,8 @@ const timeline = [
       }
 
       <div class="momentos-cta">
-        <p class="momentos-cta-text serif-italic">Há muito mais para ver.</p>
-        <a class="btn" href="/photo_gallery">Galeria completa</a>
+        <p class="momentos-cta-text serif-italic">{u.momentosCtaText}</p>
+        <a class="btn" href={localizePath("/photo_gallery", locale)}>{u.momentosCta}</a>
       </div>
     </div>
     <span class="momentos-progress" aria-hidden="true"><i></i></span>
@@ -364,7 +344,7 @@ const timeline = [
       <header class="timeline-header">
         <p class="label timeline-label" data-reveal="fade-up">{t.landing.history.title}</p>
         <h2 class="timeline-title" id="timeline-title" data-reveal="fade-up">
-          Oito séculos <em class="serif-italic">numa casa</em>
+          {u.timelineTitleLead}<em class="serif-italic">{u.timelineTitleEm}</em>
         </h2>
         <p class="timeline-lede" data-reveal="fade-up">{t.landing.history.description}</p>
       </header>
@@ -386,7 +366,7 @@ const timeline = [
         </ol>
       </div>
 
-      <a class="btn timeline-btn" href="/history" data-reveal="fade-up">A história completa</a>
+      <a class="btn timeline-btn" href={localizePath("/history", locale)} data-reveal="fade-up">{u.timelineCta}</a>
     </div>
   </section>
 

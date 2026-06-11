@@ -1,20 +1,22 @@
 ---
 import BaseLayout from "@/layouts/BaseLayout.astro";
-import { t } from "@/i18n";
+import { getContent, resolveLocale, localizePath } from "@/i18n";
 import { config } from "@/config";
 
-const c = t.notFound;
+const locale = resolveLocale(Astro.currentLocale);
+const c = getContent(locale).notFound;
+const homeHref = localizePath("/", locale);
 const dog = config.houseDogs[Math.floor(Math.random() * config.houseDogs.length)];
 ---
 
-<BaseLayout title="404" noIndex>
+<BaseLayout title={c.title} noIndex>
   <section class="notfound">
     <div class="container notfound-inner">
-      <p class="notfound-code label">Erro 404</p>
+      <p class="notfound-code label">{c.code}</p>
       <h1 class="notfound-title">{c.heading}</h1>
       <p class="notfound-sub serif-italic">{c.subHeading}</p>
       <p class="notfound-text">
-        {c.subSubHeading1}<a href="/">{c.subSubHeadingLink}</a>
+        {c.subSubHeading1}<a href={homeHref}>{c.subSubHeadingLink}</a>
         {c.subSubHeading2}
         <strong id="dog-name">{dog}</strong>{c.subSubHeading3}
       </p>
@@ -49,7 +51,7 @@ const dog = config.houseDogs[Math.floor(Math.random() * config.houseDogs.length)
         <path d="M146 76c6 5 16 6 23 2"></path>
       </svg>
 
-      <a class="btn btn--solid notfound-btn" href="/">Voltar a Landim</a>
+      <a class="btn btn--solid notfound-btn" href={homeHref}>{c.back}</a>
     </div>
   </section>
 </BaseLayout>

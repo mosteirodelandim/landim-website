@@ -8,7 +8,7 @@ import SpotlightLink from "@/components/SpotlightLink.astro";
 import GalleryStrip from "@/components/GalleryStrip.astro";
 import Lightbox from "@/components/Lightbox.astro";
 import SmartImage from "@/components/SmartImage.astro";
-import { t } from "@/i18n";
+import { getContent, resolveLocale, localizePath } from "@/i18n";
 
 import banner from "@/assets/images/about_us/banner.jpg";
 import old1 from "@/assets/images/about_us/old1.jpg";
@@ -21,7 +21,8 @@ import spaces2 from "@/assets/images/about_us/spaces2.png";
 import spaces3 from "@/assets/images/about_us/spaces3.jpg";
 import spaces4 from "@/assets/images/about_us/spaces4.png";
 
-const c = t.aboutUs;
+const locale = resolveLocale(Astro.currentLocale);
+const c = getContent(locale).aboutUs;
 const title = `${c.heading1}. ${c.heading2}. ${c.heading3}.`;
 
 const oldPhotos = await Promise.all(
@@ -29,20 +30,20 @@ const oldPhotos = await Promise.all(
 );
 
 const spaceCards = [
-  { img: spaces1, href: "/events", ...c.events_spaces.images.image1 },
-  { img: spaces2, href: "/events", ...c.events_spaces.images.image2 },
-  { img: spaces3, href: "/gardens", ...c.events_spaces.images.image3 },
-  { img: spaces4, href: "/events", ...c.events_spaces.images.image4 },
+  { img: spaces1, href: localizePath("/events", locale), ...c.events_spaces.images.image1 },
+  { img: spaces2, href: localizePath("/events", locale), ...c.events_spaces.images.image2 },
+  { img: spaces3, href: localizePath("/gardens", locale), ...c.events_spaces.images.image3 },
+  { img: spaces4, href: localizePath("/events", locale), ...c.events_spaces.images.image4 },
 ];
 ---
 
-<BaseLayout title="Sobre Nós" description={c.history.description1.slice(0, 155)}>
+<BaseLayout title={c.ui.heroLabel} description={c.history.description1.slice(0, 155)}>
   <PageHero
     title={title}
     subtitle={c.history.subtitle}
     image={banner}
-    imageAlt="Fachada do Mosteiro de Landim"
-    label="Sobre Nós"
+    imageAlt={c.ui.heroAlt}
+    label={c.ui.heroLabel}
   >
     <span slot="title" class="about-hero-title">
       <span class="about-clause">{c.heading1}.</span>
@@ -54,7 +55,7 @@ const spaceCards = [
   <!-- ============ A QUINTA ============ -->
   <section class="section">
     <div class="container">
-      <SectionHeading index="01" label="A casa" title={c.history.title} lede={c.history.subtitle} />
+      <SectionHeading index="01" label={c.ui.section1Label} title={c.history.title} lede={c.history.subtitle} />
       <div class="prose-grid">
         <div class="prose" data-reveal="fade-up">
           <p>{c.history.description1}</p>
@@ -93,15 +94,15 @@ const spaceCards = [
   <SpotlightLink
     label={c.history.lottie.title}
     text={c.history.lottie.description}
-    cta="Ver história"
-    href="/history"
+    cta={c.ui.ctaHistory}
+    href={localizePath("/history", locale)}
     icon="history"
   />
 
   <!-- ============ GERAÇÕES ============ -->
   <section class="section">
     <div class="container">
-      <SectionHeading index="02" label="Família" title={c.family.title} lede={c.family.subtitle} />
+      <SectionHeading index="02" label={c.ui.section2Label} title={c.family.title} lede={c.family.subtitle} />
 
       <div class="poem-grid">
         <figure class="poem" data-reveal="fade-up">
@@ -126,7 +127,7 @@ const spaceCards = [
   <!-- ============ VINHO ============ -->
   <section class="section section--alt">
     <div class="container">
-      <SectionHeading index="03" label="Tradição" title={c.wines.title} lede={c.wines.subtitle} />
+      <SectionHeading index="03" label={c.ui.section3Label} title={c.wines.title} lede={c.wines.subtitle} />
       <div class="prose prose--cols" data-reveal="fade-up">
         <p>{c.wines.description1}</p>
         <p>{c.wines.description2}</p>
@@ -135,9 +136,9 @@ const spaceCards = [
     <div class="strip-wrap">
       <GalleryStrip
         items={[
-          { src: wines1, alt: "Vindimas no Mosteiro de Landim" },
-          { src: wines2, alt: "Vinhas do Mosteiro" },
-          { src: wines3, alt: "Vinho Camélia" },
+          { src: wines1, alt: c.ui.altVindimas },
+          { src: wines2, alt: c.ui.altVinhas },
+          { src: wines3, alt: c.ui.altWine },
         ]}
         lightbox="wines"
       />
@@ -147,8 +148,8 @@ const spaceCards = [
   <SpotlightLink
     label={c.wines.lottie.title}
     text={c.wines.lottie.description}
-    cta="Ver vinhos"
-    href="/wine_vineyards"
+    cta={c.ui.ctaWines}
+    href={localizePath("/wine_vineyards", locale)}
     icon="wine"
   />
 
@@ -157,7 +158,7 @@ const spaceCards = [
     <div class="container">
       <SectionHeading
         index="04"
-        label="Eventos"
+        label={c.ui.section4Label}
         title={c.events_spaces.title}
         lede={c.events_spaces.subtitle}
       />
@@ -194,8 +195,8 @@ const spaceCards = [
   <SpotlightLink
     label={c.events_spaces.lottie.title}
     text={c.events_spaces.lottie.description}
-    cta="Ver eventos"
-    href="/events"
+    cta={c.ui.ctaEvents}
+    href={localizePath("/events", locale)}
     icon="events"
   />
 

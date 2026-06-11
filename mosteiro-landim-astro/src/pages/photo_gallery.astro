@@ -6,12 +6,13 @@ import QuoteBlock from "@/components/QuoteBlock.astro";
 import SpotlightLink from "@/components/SpotlightLink.astro";
 import Lightbox from "@/components/Lightbox.astro";
 import SmartImage from "@/components/SmartImage.astro";
-import { t } from "@/i18n";
+import { getContent, resolveLocale } from "@/i18n";
 import { config } from "@/config";
 
 import banner from "@/assets/images/photo-gallery/banner.png";
 
-const c = t.photoGallery;
+const locale = resolveLocale(Astro.currentLocale);
+const c = getContent(locale).photoGallery;
 
 /* ---- Collect chapter images at build time ---- */
 type GlobMap = Record<string, { default: ImageMetadata }>;
@@ -118,8 +119,8 @@ const galleryIcons: Record<string, string> = {
     title={c.title}
     subtitle={c.subHeading}
     image={banner}
-    imageAlt="Recantos do Mosteiro de Landim"
-    label="Galeria"
+    imageAlt={c.ui.heroAlt}
+    label={c.ui.heroLabel}
   />
 
   <!-- ============ INTRO ============ -->
@@ -129,13 +130,13 @@ const galleryIcons: Record<string, string> = {
       <p class="intro-text" data-reveal="fade-up">{c.paragraph.description1}</p>
     </div>
 
-    <nav class="chapter-nav container" aria-label="Capítulos da galeria" data-reveal="stagger-children">
+    <nav class="chapter-nav container" aria-label={c.ui.navLabel} data-reveal="stagger-children">
       {
         chapters.map((ch) => (
           <a href={`#${ch.id}`} class="chapter-nav-link">
             <span class="label">{ch.index}</span>
             <span class="chapter-nav-name serif-italic">{ch.title}</span>
-            <span class="chapter-nav-count label">{ch.images.length} fotografias</span>
+            <span class="chapter-nav-count label">{ch.images.length} {c.ui.photosCount}</span>
           </a>
         ))
       }
@@ -148,7 +149,7 @@ const galleryIcons: Record<string, string> = {
       <section class="chapter" id={ch.id} aria-labelledby={`${ch.id}-title`}>
         <header class="container chapter-header">
           <p class="label chapter-index" data-reveal="fade-up">
-            Capítulo {ch.index}
+            {c.ui.chapterWord} {ch.index}
           </p>
           <h2 class="chapter-title" id={`${ch.id}-title`} data-reveal="fade-up">
             {ch.title}
@@ -165,11 +166,11 @@ const galleryIcons: Record<string, string> = {
                 href={ch.fulls[i]}
                 data-lightbox={ch.id}
                 data-caption={`${ch.title} — ${i + 1} / ${ch.images.length}`}
-                aria-label={`Ampliar fotografia ${i + 1} de ${ch.title}`}
+                aria-label={c.ui.zoomAria.replace("{n}", String(i + 1)).replace("{title}", ch.title)}
               >
                 <SmartImage
                   src={img}
-                  alt={`${ch.title} do Mosteiro de Landim — fotografia ${i + 1}`}
+                  alt={c.ui.imageAlt.replace("{title}", ch.title).replace("{n}", String(i + 1))}
                   sizes={gallerySizes}
                   widths={[400, 700, 1100, 1500]}
                 />
@@ -182,7 +183,7 @@ const galleryIcons: Record<string, string> = {
   }
 
   <!-- ============ FLOATING CHAPTER NAV ============ -->
-  <nav class="gallery-float" aria-label="Capítulos da galeria" data-gallery-float>
+  <nav class="gallery-float" aria-label={c.ui.navLabel} data-gallery-float>
     <ul>
       {
         chapters.map((ch) => (
@@ -202,7 +203,7 @@ const galleryIcons: Record<string, string> = {
   <SpotlightLink
     label={c.spotlight.title}
     text={c.spotlight.description}
-    cta="Seguir no Instagram"
+    cta={c.ui.spotlightCta}
     href={config.socialLinks[0].url}
     external
     icon="social"

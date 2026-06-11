@@ -1,0 +1,66 @@
+{
+  "en": {
+    "title": "Wine & Stay",
+    "subHeading": "From vine to wine. Our 10 hectares of Vinho Verde.",
+    "wine": {
+      "title": "Our wine",
+      "description1": "Camélia. Evoking the name of this flower from Japan, we want to offer you, through the elegant and fresh aroma of this wine, a journey through the 19th-century gardens of Mosteiro de Landim. The wine was created by the renowned oenologist Anselmo Mendes with selected grapes of the Loureiro variety.",
+      "description2": "The 2005 Camélia won the Revista de Vinhos awards for Best of the Region and Best Buy. In 2007, Revista de Vinhos rated it sixteen points in its June issue, having already been considered one of the Best Buys.",
+      "quote1Title": "Camélia Loureiro 2008 | 15",
+      "quote1": "A single wine, yet original and rousing enough to fill the soul. Above all, it is a joyful, uncomplicated wine, as fun as all wines should be. A beautiful choice for the summer months. \n\nVery pale straw-yellow colour, almost colourless. The floral register is effusive, almost unrestrained, full of aromatic herbs, bay leaf, anise, fennel and a light citrus finish. Fresh and vibrant, tense and nervy, it is a biting white, acidic in just the right measure, the perfect summer companion. Original and pleasing.",
+      "quote1Author": "Rui Falcão \"Guia de Vinhos 2010\" Oficina do Livro, 2009",
+      "quote2Title": "Camélia Loureiro 2006 | 14",
+      "quote2": "Beneath this romantic, spring-like name hides a deeply aromatic wine of the Loureiro variety, a poem to Vinho Verde, a gentle expression of the charm of the Minho. It would be wonderful for the region if the quality standard of Vinho Verde resembled this Camélia. It would be extraordinary if the Vinho Verde profile were founded on the logic of the perfumed and mineral wine. This Camélia is a truly interesting wine, with enough merit to venture into international markets. \n\nStraw-yellow colour. Unmistakable floral notes, with clear hints of roses, orange blossom, wet grass and pansies. Elegant and attractive on the nose. Round and smooth, captivating in its sugar/acidity balance, pleasant in the grace of its floral side, it is a fine model of the variety's potential. Well worth tasting.",
+      "quote2Author": "Rui Falcão \"Guia de Vinhos 2008\" Oficina do Livro, 2007"
+    },
+
+	"vines": {
+      "title": "Vineyards",
+      "description1": "We have around 10 hectares of vineyard, predominantly of the Loureiro variety, tended and worked since 1983. A whole year's effort culminates in the harvest, an important moment of gathering and teamwork."
+    },
+
+    "images": {
+      "image1": {
+        "title": "Loureiro",
+        "subtitle": "A white grape variety native to the Lima river valley — one of the main drivers behind the rise of white Vinho Verde."
+      },
+      "image2": {
+        "title": "Trajadura",
+        "subtitle": "A grape of Minho origin with compact bunches and large berries."
+      },
+      "image3": {
+        "title": "Pedernã",
+        "subtitle": "Known as Arinto, Pedernã is one of Portugal's oldest grape varieties, marked by a unique acidity and minerality."
+      }
+    },
+
+    "airbnb": {
+      "title": "Stay",
+      "description1": "Within the Monastery grounds is a small, welcoming guest accommodation for up to three guests, perfect for recharging in a historic place within walking distance of the centre of Landim.",
+      "description2": "Given its privileged position just 25 minutes from Porto, it is a great base for northern travel itineraries. During your stay, access to all the Monastery's outdoor spaces is allowed. Breathe deeply and relax in our little corner of the Minho.",
+
+      "spotlight": {
+        "title": "Guest accommodation",
+        "phrase1": "",
+        "phraseAirbnbUrl": "",
+        "phrase2": "Our guest accommodation is temporarily closed."
+      }
+    },
+
+    "imageCaptions": {
+      "wine": "Front and back labels of the Camélia wine."
+    },
+
+    "ui": {
+      "heroLabel": "Vinho Verde",
+      "heroAlt": "The vineyards of Mosteiro de Landim",
+      "section1Label": "Camélia",
+      "section2Label": "From the land",
+      "section3Label": "Stay",
+      "grapeAlt": "{title} grape variety",
+      "stayAlt": "Guest accommodation at Mosteiro de Landim — {n}",
+      "spotlightCta": "How to get here"
+    }
+
+  }
+}

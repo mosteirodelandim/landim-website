@@ -22,8 +22,17 @@
 
     "lottie": {
       "title": "Tours",
-      "description": "O Mosteiro de Landim oferece visitas guiadas pelos jardins históricos. Para mais informações e agendamento, contacte-nos por ",
+      "description": "O Mosteiro de Landim oferece visitas guiadas pelos jardins históricos.",
       "hyperlink": "email"
+    },
+
+    "ui": {
+      "heroLabel": "Jardins históricos",
+      "heroAlt": "Jardins do Mosteiro de Landim",
+      "section1Label": "Património vivo",
+      "section2Label": "Receber",
+      "galleryAlt": "Jardins históricos do Mosteiro de Landim — {n}",
+      "spotlightCta": "Contactar"
     }
   }
 }

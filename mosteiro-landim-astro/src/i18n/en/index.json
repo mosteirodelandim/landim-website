@@ -1,0 +1,105 @@
+{
+  "en": {
+    "heading": "Mosteiro de Landim",
+    "subHeading": "A place ",
+    "subheadingTextCarousel": [
+      "for family.",
+      "of tradition.",
+      "for celebration.",
+      "for you."
+    ],
+    "weAre": {
+      "title": "About Us",
+      "description": "One Monastery. One family. Ten generations."
+    },
+    "history": {
+      "title": "History",
+      "description": "From sweeping gardens to a timeless cloister, Mosteiro de Landim carries centuries of history and tradition."
+    },
+    "photos": {
+      "title": "Photographs",
+      "description": "See what our spaces, steeped in centuries of history, have to offer."
+    },
+    "gardens": {
+      "title": "Gardens & Tours",
+      "description": "Our award-winning gardens are the heart of weddings and guided visits."
+    },
+    "events": {
+      "title": "Events",
+      "description": "We are an events venue. Come and discover our services."
+    },
+    "vineyards": {
+      "title": "Wine & Stay",
+      "description": "The Monastery produces award-winning Vinho Verde across a vast stretch of vineyards."
+    },
+    "faq": {
+      "title": "FAQ",
+      "description": "How to reach us, and answers to some of the most frequently asked questions."
+    },
+    "footer": "All rights reserved",
+
+    "ui": {
+      "heroAlt": "View of Mosteiro de Landim at dusk",
+      "scroll": "Scroll",
+      "manifesto": {
+        "line1": "One Monastery.",
+        "line2": "One family.",
+        "line3": "Ten generations.",
+        "lede": "Among centuries-old camellias and a 16th-century cloister, our home holds eight centuries of history — and still opens its gates to those who celebrate.",
+        "cta": "About us",
+        "caption": "The cloister — the heart of every celebration.",
+        "imageAlt": "The cloister of Mosteiro de Landim"
+      },
+      "marquee": ["Weddings", "Events", "Tours", "Harvest", "Stay", "History"],
+      "spacesLabel": "Index",
+      "spacesTitleLead": "Explore ",
+      "spacesTitleEm": "the estate",
+      "featureTitleLead": "The setting for a ",
+      "featureTitleEm": "singular celebration",
+      "featureDescription2": "Cloister, historic halls, gardens and church — a set of spaces with centuries of stories to tell, exclusively yours for a day.",
+      "featureCta": "Discover our services",
+      "featureAltGarden": "The Monastery gardens set for a wedding",
+      "featureAltCloister": "A banquet table in the cloister",
+      "featureAltRooms": "A historic hall set for a banquet",
+      "momentosLabel": "Gallery",
+      "momentosTitleLead": "Moments ",
+      "momentosTitleEm": "that last",
+      "momentosHint": "( keep scrolling )",
+      "momentosCaptions": [
+        "The centuries-old gardens",
+        "Tables in the cloister",
+        "Shade of the pergolas",
+        "The main hall",
+        "The Romanesque church",
+        "A celebration among Doric columns"
+      ],
+      "momentosCtaText": "There is much more to see.",
+      "momentosCta": "Full gallery",
+      "timelineTitleLead": "Eight centuries ",
+      "timelineTitleEm": "in one home",
+      "timeline": [
+        {
+          "year": "12th c.",
+          "title": "The founding",
+          "text": "The Monastery of Santa Maria de Landim is born, home to the Canons Regular of St. Augustine."
+        },
+        {
+          "year": "1770",
+          "title": "The dissolution",
+          "text": "The royal charter of King José I ends monastic life at Landim."
+        },
+        {
+          "year": "1775",
+          "title": "The deed",
+          "text": "The Monastery passes into the family's hands — an inheritance now 250 years old."
+        },
+        {
+          "year": "Today",
+          "title": "Ten generations",
+          "text": "A family home open to those who celebrate: weddings, events, visits and harvests."
+        }
+      ],
+      "timelineCta": "The full history"
+    }
+  }
+}

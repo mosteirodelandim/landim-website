@@ -5,7 +5,7 @@ import SectionHeading from "@/components/SectionHeading.astro";
 import GalleryStrip from "@/components/GalleryStrip.astro";
 import SpotlightLink from "@/components/SpotlightLink.astro";
 import Lightbox from "@/components/Lightbox.astro";
-import { t } from "@/i18n";
+import { getContent, resolveLocale, localizePath } from "@/i18n";
 import { config } from "@/config";
 
 import banner from "@/assets/images/gardens/banner.jpg";
@@ -16,26 +16,27 @@ import picture4 from "@/assets/images/gardens/picture4.jpg";
 import picture5 from "@/assets/images/gardens/picture5.jpg";
 import picture6 from "@/assets/images/gardens/picture6.jpg";
 
-const c = t.gardens;
+const locale = resolveLocale(Astro.currentLocale);
+const c = getContent(locale).gardens;
 
 const gardenImages = [picture1, picture2, picture3, picture4, picture5, picture6].map(
-  (src, i) => ({ src, alt: `Jardins históricos do Mosteiro de Landim — ${i + 1}` }),
+  (src, i) => ({ src, alt: c.ui.galleryAlt.replace("{n}", String(i + 1)) }),
 );
 ---
 
-<BaseLayout title="Jardins & Visitas" description={c.subHeading}>
+<BaseLayout title={c.title} description={c.subHeading}>
   <PageHero
     title={c.title}
     subtitle={c.subHeading}
     image={banner}
-    imageAlt="Jardins do Mosteiro de Landim"
-    label="Jardins históricos"
+    imageAlt={c.ui.heroAlt}
+    label={c.ui.heroLabel}
   />
 
   <!-- ============ JARDINS ============ -->
   <section class="section">
     <div class="container">
-      <SectionHeading index="01" label="Património vivo" title={c.firstParagraph.title} />
+      <SectionHeading index="01" label={c.ui.section1Label} title={c.firstParagraph.title} />
       <div class="prose prose--cols" data-reveal="fade-up">
         <p>
           {c.firstParagraph.description1.text}<a
@@ -59,7 +60,7 @@ const gardenImages = [picture1, picture2, picture3, picture4, picture5, picture6
   <!-- ============ VISITAS ============ -->
   <section class="section section--alt section--merge-spotlight">
     <div class="container">
-      <SectionHeading index="02" label="Receber" title={c.secondParagraph.title} />
+      <SectionHeading index="02" label={c.ui.section2Label} title={c.secondParagraph.title} />
       <div class="prose prose--cols" data-reveal="fade-up">
         <p>{c.secondParagraph.description1}</p>
         <p>{c.secondParagraph.description2}</p>
@@ -70,7 +71,7 @@ const gardenImages = [picture1, picture2, picture3, picture4, picture5, picture6
       class="spotlight--flush"
       label={c.lottie.title}
       text={c.lottie.description}
-      cta="Contactar"
+      cta={c.ui.spotlightCta}
       href={`mailto:${config.emailContact}`}
       icon="gardens"
     />

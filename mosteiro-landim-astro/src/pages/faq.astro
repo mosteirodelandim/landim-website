@@ -3,12 +3,13 @@ import BaseLayout from "@/layouts/BaseLayout.astro";
 import PageHero from "@/components/PageHero.astro";
 import SectionHeading from "@/components/SectionHeading.astro";
 import Accordion from "@/components/Accordion.astro";
-import { t } from "@/i18n";
+import { getContent, resolveLocale } from "@/i18n";
 import { config } from "@/config";
 
 import banner from "@/assets/images/faq/banner.jpg";
 
-const c = t.faq;
+const locale = resolveLocale(Astro.currentLocale);
+const c = getContent(locale).faq;
 
 const esc = (s: string) =>
   s.replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;");
@@ -58,19 +59,19 @@ const faqJsonLd = {
 };
 ---
 
-<BaseLayout title="FAQ & Contactos" description={c.subHeading}>
+<BaseLayout title={c.ui.pageTitle} description={c.subHeading}>
   <PageHero
     title={c.heading}
     subtitle={c.subHeading}
     image={banner}
-    imageAlt="Pormenor do Mosteiro de Landim"
-    label="Perguntas & respostas"
+    imageAlt={c.ui.heroAlt}
+    label={c.ui.heroLabel}
   />
 
   <!-- ============ PERGUNTAS ============ -->
   <section class="section">
     <div class="container container--narrow">
-      <SectionHeading index="01" label="Dúvidas comuns" title="Perguntas frequentes" />
+      <SectionHeading index="01" label={c.ui.sectionLabel} title={c.ui.sectionTitle} />
       <Accordion items={faqItems} />
     </div>
   </section>
@@ -81,16 +82,16 @@ const faqJsonLd = {
       <div class="location-grid">
         <div class="location-address" data-reveal="fade-up">
           <p class="label location-eyebrow">
-            <span class="location-eyebrow-index">02</span> Onde estamos
+            <span class="location-eyebrow-index">02</span> {c.ui.locationEyebrow}
           </p>
           <p class="location-line serif-italic">{config.address}</p>
           <p class="location-transit label">
-            A 30 minutos do Porto · 20 minutos do aeroporto
+            {c.ui.transit}
           </p>
         </div>
 
         <div class="location-actions" data-reveal="stagger-children">
-          <p class="label">Direções</p>
+          <p class="label">{c.ui.directions}</p>
           <a
             class="btn btn--solid"
             href={config.directionsGoogleMaps}

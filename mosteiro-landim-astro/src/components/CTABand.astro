@@ -3,7 +3,7 @@
  * Contact call-to-action band (content from cta.json).
  */
 import { config } from "@/config";
-import { t } from "@/i18n";
+import { getContent, resolveLocale } from "@/i18n";
 
 interface Props {
   /** Visual variant: parchment (default) or dark moss band */
@@ -11,11 +11,12 @@ interface Props {
 }
 
 const { variant = "light" } = Astro.props;
+const t = getContent(resolveLocale(Astro.currentLocale));
 ---
 
 <section class:list={["cta-band", { "theme-dark": variant === "dark" }]}>
   <div class="container cta-inner" data-reveal="stagger-children">
-    <p class="label cta-label">Contacte-nos</p>
+    <p class="label cta-label">{t.ui.contactCta}</p>
     <h2 class="cta-title">{t.cta.title}</h2>
     <p class="cta-description">{t.cta.description}</p>
     <div class="cta-actions">

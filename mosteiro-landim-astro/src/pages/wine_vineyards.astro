@@ -8,7 +8,7 @@ import GalleryStrip from "@/components/GalleryStrip.astro";
 import SpotlightLink from "@/components/SpotlightLink.astro";
 import Lightbox from "@/components/Lightbox.astro";
 import SmartImage from "@/components/SmartImage.astro";
-import { t } from "@/i18n";
+import { getContent, resolveLocale, localizePath } from "@/i18n";
 
 import banner from "@/assets/images/wine_vineyards/banner.jpg";
 import wine1 from "@/assets/images/wine_vineyards/wine1.jpg";
@@ -21,7 +21,8 @@ import airbnb3 from "@/assets/images/wine_vineyards/airbnb/picture3.png";
 import airbnb4 from "@/assets/images/wine_vineyards/airbnb/picture4.png";
 import airbnb5 from "@/assets/images/wine_vineyards/airbnb/picture5.png";
 
-const c = t.wineVineyards;
+const locale = resolveLocale(Astro.currentLocale);
+const c = getContent(locale).wineVineyards;
 
 const wineFull = await getImage({ src: wine1, width: 1600, format: "webp", quality: 80 });
 
@@ -33,24 +34,24 @@ const grapes = [
 
 const stayImages = [airbnb1, airbnb2, airbnb3, airbnb4, airbnb5].map((src, i) => ({
   src,
-  alt: `Alojamento local do Mosteiro de Landim — ${i + 1}`,
+  alt: c.ui.stayAlt.replace("{n}", String(i + 1)),
 }));
 ---
 
-<BaseLayout title="Vinho & Estadia" description={c.subHeading}>
+<BaseLayout title={c.title} description={c.subHeading}>
   <PageHero
     title={c.title}
     subtitle={c.subHeading}
     image={banner}
-    imageAlt="Vinhas do Mosteiro de Landim"
-    label="Vinho Verde"
+    imageAlt={c.ui.heroAlt}
+    label={c.ui.heroLabel}
   />
 
   <!-- ============ O VINHO ============ -->
   <section class="section">
     <div class="container wine-grid">
       <div>
-        <SectionHeading index="01" label="Camélia" title={c.wine.title} />
+        <SectionHeading index="01" label={c.ui.section1Label} title={c.wine.title} />
         <div class="prose prose-drop" data-reveal="fade-up">
           <p>{c.wine.description1}</p>
           <p>{c.wine.description2}</p>
@@ -87,7 +88,7 @@ const stayImages = [airbnb1, airbnb2, airbnb3, airbnb4, airbnb5].map((src, i) =>
   <!-- ============ VINHAS ============ -->
   <section class="section">
     <div class="container">
-      <SectionHeading index="02" label="Da terra" title={c.vines.title} lede={c.vines.description1} />
+      <SectionHeading index="02" label={c.ui.section2Label} title={c.vines.title} lede={c.vines.description1} />
 
       <ul class="grape-cards" data-reveal="stagger-children">
         {
@@ -96,7 +97,7 @@ const stayImages = [airbnb1, airbnb2, airbnb3, airbnb4, airbnb5].map((src, i) =>
               <div class="grape-arch">
                 <SmartImage
                   src={g.img}
-                  alt={`Casta ${g.title}`}
+                  alt={c.ui.grapeAlt.replace("{title}", g.title)}
                   sizes="(min-width: 64rem) 26rem, (min-width: 48rem) 44vw, 92vw"
                   widths={[400, 700, 1000]}
                   aspect="3 / 4"
@@ -114,7 +115,7 @@ const stayImages = [airbnb1, airbnb2, airbnb3, airbnb4, airbnb5].map((src, i) =>
   <!-- ============ ESTADIA ============ -->
   <section class="section section--alt section--merge-spotlight">
     <div class="container">
-      <SectionHeading index="03" label="Ficar" title={c.airbnb.title} />
+      <SectionHeading index="03" label={c.ui.section3Label} title={c.airbnb.title} />
       <div class="prose prose--cols" data-reveal="fade-up">
         <p>{c.airbnb.description1}</p>
         <p>{c.airbnb.description2}</p>
@@ -126,8 +127,8 @@ const stayImages = [airbnb1, airbnb2, airbnb3, airbnb4, airbnb5].map((src, i) =>
     <SpotlightLink
       label={c.airbnb.spotlight.title}
       text={c.airbnb.spotlight.phrase2}
-      cta="Como chegar"
-      href="/faq#location"
+      cta={c.ui.spotlightCta}
+      href={localizePath("/faq#location", locale)}
       icon="stay"
       class="spotlight--flush"
     />

@@ -5,7 +5,7 @@ import PageHero from "@/components/PageHero.astro";
 import GalleryStrip from "@/components/GalleryStrip.astro";
 import Lightbox from "@/components/Lightbox.astro";
 import SmartImage from "@/components/SmartImage.astro";
-import { t } from "@/i18n";
+import { getContent, resolveLocale } from "@/i18n";
 
 import banner from "@/assets/images/history/banner.jpg";
 import origins1 from "@/assets/images/history/origins_architecture/pic1.jpg";
@@ -29,10 +29,10 @@ import sebastiao1 from "@/assets/images/history/notable_people/sebastiao1.jpg";
 import book1 from "@/assets/images/history/book/book1.jpg";
 import bookOld from "@/assets/images/history/book/book_old.jpg";
 
-const c = t.history;
+const locale = resolveLocale(Astro.currentLocale);
+const c = getContent(locale).history;
 
-/* ---- chapters nav ---- */
-const chapters = [
+/* ---- chapters nav ---- */const chapters = [
   { id: "origins", label: c.origins_architecture.title },
   { id: "priests", label: c.priests_commissioners.title },
   { id: "extinction", label: c.extinction.title },
@@ -102,19 +102,19 @@ const sebastiaoFigs = await figs([sebastiao1], [nc.sebastiao6]);
 const bookFull = await getImage({ src: book1, width: 1400, format: "webp", quality: 80 });
 ---
 
-<BaseLayout title="História" description={c.subHeading}>
+<BaseLayout title={c.title} description={c.subHeading}>
   <PageHero
     title={c.title}
     subtitle={c.subHeading}
     image={banner}
-    imageAlt="O Mosteiro de Landim"
-    label="Séc. XII — hoje"
+    imageAlt={c.ui.heroAlt}
+    label={c.ui.heroLabel}
   />
 
   <div class="history-layout container--wide">
     <!-- ============ STICKY CHAPTER NAV ============ -->
-    <nav class="chapters-nav" aria-label="Capítulos da história">
-      <p class="label chapters-nav-title">Capítulos</p>
+    <nav class="chapters-nav" aria-label={c.ui.chaptersNavLabel}>
+      <p class="label chapters-nav-title">{c.ui.chaptersTitle}</p>
       <ol id="chapters-list">
         {
           chapters.map((ch, i) => (
@@ -133,7 +133,7 @@ const bookFull = await getImage({ src: book1, width: 1400, format: "webp", quali
       <!-- ============ 01 ORIGENS ============ -->
       <section class="chapter" id="origins" aria-labelledby="origins-title">
         <header class="chapter-head">
-          <p class="label" data-reveal="fade-up">Capítulo 01</p>
+          <p class="label" data-reveal="fade-up">{c.ui.chapterWord} 01</p>
           <h2 id="origins-title" data-reveal="fade-up">{c.origins_architecture.title}</h2>
           <p class="chapter-lede serif-italic" data-reveal="fade-up">
             {c.origins_architecture.subHeading}
@@ -167,7 +167,7 @@ const bookFull = await getImage({ src: book1, width: 1400, format: "webp", quali
       <!-- ============ 02 PRIORES ============ -->
       <section class="chapter" id="priests" aria-labelledby="priests-title">
         <header class="chapter-head">
-          <p class="label" data-reveal="fade-up">Capítulo 02</p>
+          <p class="label" data-reveal="fade-up">{c.ui.chapterWord} 02</p>
           <h2 id="priests-title" data-reveal="fade-up">{c.priests_commissioners.title}</h2>
           <p class="chapter-lede serif-italic" data-reveal="fade-up">
             {c.priests_commissioners.subHeading}
@@ -208,7 +208,7 @@ const bookFull = await getImage({ src: book1, width: 1400, format: "webp", quali
       <!-- ============ 03 EXTINÇÃO ============ -->
       <section class="chapter" id="extinction" aria-labelledby="extinction-title">
         <header class="chapter-head">
-          <p class="label" data-reveal="fade-up">Capítulo 03</p>
+          <p class="label" data-reveal="fade-up">{c.ui.chapterWord} 03</p>
           <h2 id="extinction-title" data-reveal="fade-up">{c.extinction.title}</h2>
           <p class="chapter-lede serif-italic" data-reveal="fade-up">{c.extinction.subHeading}</p>
         </header>
@@ -219,18 +219,18 @@ const bookFull = await getImage({ src: book1, width: 1400, format: "webp", quali
         </div>
 
         <h3 class="strip-title serif-italic" data-reveal="fade-up">
-          O Breve Apostólico, página a página
+          {c.ui.breveStripTitle}
         </h3>
         <GalleryStrip items={breveItems} lightbox="breve" aspect="3 / 4" class="docs-strip" />
 
-        <h3 class="strip-title serif-italic" data-reveal="fade-up">O Livro do Inventário</h3>
+        <h3 class="strip-title serif-italic" data-reveal="fade-up">{c.ui.receitaStripTitle}</h3>
         <GalleryStrip items={receitaItems} lightbox="receita" aspect="3 / 4" class="docs-strip" />
       </section>
 
       <!-- ============ 04 VENDA ============ -->
       <section class="chapter" id="sale" aria-labelledby="sale-title">
         <header class="chapter-head">
-          <p class="label" data-reveal="fade-up">Capítulo 04</p>
+          <p class="label" data-reveal="fade-up">{c.ui.chapterWord} 04</p>
           <h2 id="sale-title" data-reveal="fade-up">{c.sale.title}</h2>
           <p class="chapter-lede serif-italic" data-reveal="fade-up">{c.sale.subHeading}</p>
         </header>
@@ -264,7 +264,7 @@ const bookFull = await getImage({ src: book1, width: 1400, format: "webp", quali
       <!-- ============ 05 FIGURAS DE RELEVO ============ -->
       <section class="chapter" id="notable" aria-labelledby="notable-title">
         <header class="chapter-head">
-          <p class="label" data-reveal="fade-up">Capítulo 05</p>
+          <p class="label" data-reveal="fade-up">{c.ui.chapterWord} 05</p>
           <h2 id="notable-title" data-reveal="fade-up">{c.notable_people.title}</h2>
           <p class="chapter-lede serif-italic" data-reveal="fade-up">
             {c.notable_people.subHeading}
@@ -289,7 +289,7 @@ const bookFull = await getImage({ src: book1, width: 1400, format: "webp", quali
                     <a href={f.full} data-lightbox="camilo" data-caption={f.caption}>
                       <SmartImage
                         src={f.img}
-                        alt={i === 0 ? f.caption : `Carta de Camilo Castelo Branco — página ${i}`}
+                        alt={i === 0 ? f.caption : c.ui.camiloLetterAlt.replace("{n}", String(i))}
                         sizes="(min-width: 64rem) 26rem, 86vw"
                         widths={[400, 700, 1000]}
                       />
@@ -344,7 +344,7 @@ const bookFull = await getImage({ src: book1, width: 1400, format: "webp", quali
               <p set:html={c.notable_people.sebastiao.description1} />
               <details class="poem-details">
                 <summary>
-                  <span class="serif-italic">Ler o poema “{c.notable_people.sebastiao.poemTitle}”</span>
+                  <span class="serif-italic">{c.ui.readPoem} “{c.notable_people.sebastiao.poemTitle}”</span>
                 </summary>
                 <pre class="poem-full">{c.notable_people.sebastiao.poem}</pre>
               </details>
@@ -374,7 +374,7 @@ const bookFull = await getImage({ src: book1, width: 1400, format: "webp", quali
       <!-- ============ 06 LIVRO ============ -->
       <section class="chapter" id="book" aria-labelledby="book-title">
         <header class="chapter-head">
-          <p class="label" data-reveal="fade-up">Capítulo 06</p>
+          <p class="label" data-reveal="fade-up">{c.ui.chapterWord} 06</p>
           <h2 id="book-title" data-reveal="fade-up">{c.book.title}</h2>
         </header>
         <div class="book-layout">
@@ -400,7 +400,7 @@ const bookFull = await getImage({ src: book1, width: 1400, format: "webp", quali
             <figure class="fig book-old" data-reveal="fade-up">
               <SmartImage
                 src={bookOld}
-                alt="Edição antiga sobre o Mosteiro de Landim"
+                alt={c.ui.bookOldAlt}
                 sizes="(min-width: 64rem) 14rem, 50vw"
                 widths={[300, 500, 800]}
               />
@@ -413,8 +413,8 @@ const bookFull = await getImage({ src: book1, width: 1400, format: "webp", quali
 
   <!-- ============ FLOATING CHAPTER WIDGET (mobile / tablet) ============ -->
   <div class="chapters-fab" data-open="false">
-    <div id="chapters-fab-panel" class="chapters-fab-panel" role="menu" aria-label="Capítulos da história">
-      <p class="label chapters-fab-heading">Capítulos</p>
+    <div id="chapters-fab-panel" class="chapters-fab-panel" role="menu" aria-label={c.ui.chaptersNavLabel}>
+      <p class="label chapters-fab-heading">{c.ui.chaptersTitle}</p>
       <ol>
         {
           chapters.map((ch, i) => (
@@ -434,7 +434,7 @@ const bookFull = await getImage({ src: book1, width: 1400, format: "webp", quali
       type="button"
       aria-expanded="false"
       aria-controls="chapters-fab-panel"
-      aria-label="Abrir capítulos"
+      aria-label={c.ui.fabOpenAria}
     >
       <svg class="icon-list" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true">
         <path d="M8 6h12M8 12h12M8 18h12M4 6h.01M4 12h.01M4 18h.01"></path>
@@ -442,11 +442,11 @@ const bookFull = await getImage({ src: book1, width: 1400, format: "webp", quali
       <svg class="icon-close" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true">
         <path d="M6 6l12 12M18 6L6 18"></path>
       </svg>
-      <span class="chapters-fab-current label">Capítulos</span>
+      <span class="chapters-fab-current label">{c.ui.chaptersTitle}</span>
     </button>
   </div>
 
-  <button id="to-top" class="to-top" type="button" aria-label="Voltar ao topo">
+  <button id="to-top" class="to-top" type="button" aria-label={c.ui.backToTopAria}>
     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true">
       <path d="M12 19V5M5 12l7-7 7 7"></path>
     </svg>

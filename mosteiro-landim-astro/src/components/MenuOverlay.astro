@@ -1,9 +1,13 @@
 ---
-import { navLinks, historyAnchors } from "@/data/nav";
+import { getNavLinks, getHistoryAnchors } from "@/data/nav";
 import { config } from "@/config";
-import { t } from "@/i18n";
+import { getContent, localizePath, resolveLocale } from "@/i18n";
 
-const allLinks = navLinks;
+const locale = resolveLocale(Astro.currentLocale);
+const t = getContent(locale);
+const allLinks = getNavLinks(locale);
+const historyAnchors = getHistoryAnchors(locale);
+const historyHref = localizePath("/history", locale);
 ---
 
 <div id="menu-overlay" class="menu-overlay" aria-hidden="true">
@@ -19,7 +23,7 @@ const allLinks = navLinks;
                 </span>
                 <span class="menu-label">{link.label}</span>
               </a>
-              {link.href === "/history" && (
+              {link.href === historyHref && (
                 <ul class="menu-sublist">
                   {historyAnchors.map((sub) => (
                     <li>
@@ -38,13 +42,13 @@ const allLinks = navLinks;
 
     <div class="menu-meta">
       <div class="menu-meta-block">
-        <p class="label">Contactos</p>
+        <p class="label">{t.ui.contacts}</p>
         <a href={`mailto:${config.emailContact}`}>{config.emailContact}</a>
         <a href={`tel:${config.phoneContact.replace(/\s/g, "")}`}>{config.phoneContact}</a>
         <p class="menu-address">{config.address}</p>
       </div>
       <div class="menu-meta-block">
-        <p class="label">Seguir</p>
+        <p class="label">{t.ui.follow}</p>
         {
           config.socialLinks.map((s) => (
             <a href={s.url} target="_blank" rel="noopener noreferrer">
@@ -250,7 +254,11 @@ const allLinks = navLinks;
       document.documentElement.classList.toggle("menu-locked", open);
       window.__lenis?.[open ? "stop" : "start"]();
       const label = toggle!.querySelector(".menu-toggle-text");
-      if (label) label.textContent = open ? "Fechar" : "Menu";
+      if (label) {
+        const opened = toggle!.dataset.labelClose ?? "Close";
+        const closed = toggle!.dataset.labelMenu ?? "Menu";
+        label.textContent = open ? opened : closed;
+      }
       if (open) {
         lastFocused = document.activeElement as HTMLElement;
         focusables()[0]?.focus();

@@ -3,6 +3,7 @@
  * Horizontal drag-to-scroll image strip.
  */
 import SmartImage from "@/components/SmartImage.astro";
+import { getContent, resolveLocale } from "@/i18n";
 
 interface StripItem {
   src: ImageMetadata;
@@ -20,6 +21,8 @@ interface Props {
 }
 
 const { items, aspect = "3 / 2", class: className = "" } = Astro.props;
+
+const ui = getContent(resolveLocale(Astro.currentLocale)).ui;
 
 const [aw, ah] = aspect.split("/").map((s) => parseFloat(s));
 const orientation = ah > aw ? "portrait" : "landscape";
@@ -48,7 +51,7 @@ const orientation = ah > aw ? "portrait" : "landscape";
   </ul>
   <p class="strip-hint label" aria-hidden="true">
     <span class="strip-hint-arrow">←</span>
-    arraste
+    {ui.dragHint}
     <span class="strip-hint-arrow">→</span>
   </p>
 </div>

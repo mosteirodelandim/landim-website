@@ -19,7 +19,7 @@
 
       "lottie": {
         "title": "História",
-        "description": "Cada recanto do Mosteiro de Landim prende-se com pedaços de história únicos e valiosos. Se tiver curiosidade para saber mais, pode encontrar informações detalhadas sobre a história do Mosteiro ",
+        "description": "Cada recanto do Mosteiro de Landim prende-se com pedaços de história únicos e valiosos.",
         "hyperlink": "aqui"
       }
     },
@@ -51,7 +51,7 @@
 
       "lottie": {
         "title": "Vinho",
-        "description": "As vinhas do Mosteiro de Landim já foram premiadas por diversas vezes, bem como o nosso vinho. Para saber mais sobre a história, os nossos métodos e o nosso vinho, pode fazê-lo ",
+        "description": "As vinhas do Mosteiro de Landim já foram premiadas por diversas vezes, bem como o nosso vinho.",
         "hyperlink": "aqui"
       }
     },
@@ -75,7 +75,7 @@
         },
         "image3": {
           "title": "Jardins",
-          "subtitle": "Galardoados, belos e centenários. Mais informação ",
+          "subtitle": "Galardoados, belos e centenários.",
           "hyperlink": "aqui"
         },
         "image4": {
@@ -86,10 +86,25 @@
 
       "lottie": {
         "title": "Serviços",
-        "description": "O Mosteiro de Landim oferece um leque variado de eventos personalizados a seu gosto. Para mais informação, clique ",
+        "description": "O Mosteiro de Landim oferece um leque variado de eventos personalizados a seu gosto.",
         "hyperlink": "aqui"
       }
 
+    },
+
+    "ui": {
+      "heroLabel": "Sobre Nós",
+      "heroAlt": "Fachada do Mosteiro de Landim",
+      "section1Label": "A casa",
+      "section2Label": "Família",
+      "section3Label": "Tradição",
+      "section4Label": "Eventos",
+      "ctaHistory": "Ver história",
+      "ctaWines": "Ver vinhos",
+      "ctaEvents": "Ver eventos",
+      "altVindimas": "Vindimas no Mosteiro de Landim",
+      "altVinhas": "Vinhas do Mosteiro",
+      "altWine": "Vinho Camélia"
     }
   }
 }

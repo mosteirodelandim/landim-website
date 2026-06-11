@@ -1,0 +1,64 @@
+{
+  "en": {
+    "heading": "Events",
+    "subHeading": "A singular space. Come and discover our services.",
+
+    "firstParagraph": {
+      "title": "A Versatile Space",
+      "description1": "The gates of Mosteiro de Landim open to unforgettable moments. Weddings, civil ceremonies, birthdays, christenings, parties of every kind, conferences, book launches and themed visits. More than a space, we want to offer feelings and memories.",
+      "description2": "We offer a set of spaces full of history for any kind of celebration, and settings for a diverse range of event formats. Whatever your choice, we guarantee the flexibility to create scenes that will make your event memorable.",
+      "description3": "We provide a centuries-old outdoor garden, perfect for receptions and ceremonies. And, in perfect combination, the magnificent cloister — open or enclosed — along with adjoining halls able to host up to 350 guests."
+    },
+
+    "spotlights": {
+      "cloister": {
+        "title": "The Cloister",
+        "description": "The 16th-century cloister, covered or open to the sky, is the ideal space for tables among friends, dance floors, grand dinners and family gatherings."
+      },
+      "gardens": {
+        "title": "The Gardens",
+        "description": "Centuries-old trees, fountains, colours that shift with the seasons, different nooks of sun and shade. Our gardens — always cool in the summer heat and mild in the winter cold — are the perfect place to gather and mingle, to enjoy music, food and good company."
+      },
+      "rooms": {
+        "title": "The Halls",
+        "description": "Around the cloister stand two emblematic halls that extend the space for the celebration. The main hall, the friars' former refectory, is crowned by a precious 18th-century carved ceiling and traces of azulejos from the same period."
+      },
+      "church": {
+        "title": "The Church",
+        "description": "The parish church, adjoining the Monastery of Santa Maria de Landim, Romanesque in origin and restored in 2007, is the ideal place for a religious ceremony. Nothing could be more convenient for guests than this proximity, right beside the celebration that follows."
+      }
+    },
+
+    "secondParagraph": {
+      "title": "Our services",
+      "description1": "We rent out our space and, together with our partners, we can also — should you wish — handle the entire organisation of the event: planning, decoration, catering and entertainment. Every aspect of your event can be tailored to you to make it memorable. We are committed to helping you choose everything you need to organise your event and to ensuring that all your wishes come true. Enjoy the celebration, leave the rest to us.",
+
+      "spaces": {
+        "title": "Space",
+
+        "image1Caption": "Assembling the translucent marquee.",
+        "image2Caption": "A canopy that can be used to decorate your event.",
+
+        "description1": "The Monastery rental price includes the use of all the spaces. For an up-to-date quote, please contact us by email.",
+        "description2": "The rental fee covers the assembly day, the event day and the dismantling day. To ensure a unique service of excellence, we host only one event per weekend."
+      },
+
+      "decor": {
+        "title": "Decoration & Catering",
+        "description1": "We work exclusively with experienced professionals and trusted partners, ensuring a service of excellence and attention to every detail. These partners, with whom we collaborate regularly, are prepared to meet the specific needs of each wedding, offering solutions in areas such as decoration, catering, music, photography and other essential services. At Mosteiro de Landim, we make sure that each event reflects the wishes and unique vision of every client, making your wedding truly special."
+      }
+    },
+
+    "ui": {
+      "heroLabel": "Weddings & celebrations",
+      "heroAlt": "A celebration at Mosteiro de Landim",
+      "section1Label": "The space",
+      "section2Label": "Services",
+      "altCloister": "The 16th-century cloister",
+      "altGarden": "The centuries-old gardens",
+      "altRooms": "The main hall, the former refectory",
+      "altChurch": "The parish church of Landim",
+      "altDecor": "Event decoration at Mosteiro de Landim — {n}"
+    }
+  }
+}

@@ -22,6 +22,17 @@
     "spotlight": {
       "title": "Instagram",
       "description": "A nossa página de Instagram é o sítio perfeito para conhecer ainda mais o nosso espaço."
+    },
+
+    "ui": {
+      "heroLabel": "Galeria",
+      "heroAlt": "Recantos do Mosteiro de Landim",
+      "navLabel": "Capítulos da galeria",
+      "photosCount": "fotografias",
+      "chapterWord": "Capítulo",
+      "zoomAria": "Ampliar fotografia {n} de {title}",
+      "imageAlt": "{title} do Mosteiro de Landim — fotografia {n}",
+      "spotlightCta": "Seguir no Instagram"
     }
 
   }

@@ -49,6 +49,17 @@
 
     "imageCaptions": {
       "wine": "Rótulo e contra-rótulo do vinho Camélia."
+    },
+
+    "ui": {
+      "heroLabel": "Vinho Verde",
+      "heroAlt": "Vinhas do Mosteiro de Landim",
+      "section1Label": "Camélia",
+      "section2Label": "Da terra",
+      "section3Label": "Ficar",
+      "grapeAlt": "Casta {title}",
+      "stayAlt": "Alojamento local do Mosteiro de Landim — {n}",
+      "spotlightCta": "Como chegar"
     }
 
   }

@@ -6,7 +6,7 @@ import SectionHeading from "@/components/SectionHeading.astro";
 import GalleryStrip from "@/components/GalleryStrip.astro";
 import Lightbox from "@/components/Lightbox.astro";
 import SmartImage from "@/components/SmartImage.astro";
-import { t } from "@/i18n";
+import { getContent, resolveLocale } from "@/i18n";
 
 import banner from "@/assets/images/events/banner.jpg";
 import cloister from "@/assets/images/events/cloister.jpg";
@@ -24,13 +24,14 @@ import decor5 from "@/assets/images/events/carousel/5.jpg";
 import decor6 from "@/assets/images/events/carousel/6.jpg";
 import decor9 from "@/assets/images/events/carousel/9.jpg";
 
-const c = t.events;
+const locale = resolveLocale(Astro.currentLocale);
+const c = getContent(locale).events;
 
 const spotlights = [
-  { img: cloister, alt: "O claustro do século XVI", ...c.spotlights.cloister },
-  { img: garden, alt: "Os jardins centenários", ...c.spotlights.gardens },
-  { img: rooms, alt: "O salão principal, antigo refeitório", ...c.spotlights.rooms },
-  { img: church, alt: "A Igreja paroquial de Landim", ...c.spotlights.church },
+  { img: cloister, alt: c.ui.altCloister, ...c.spotlights.cloister },
+  { img: garden, alt: c.ui.altGarden, ...c.spotlights.gardens },
+  { img: rooms, alt: c.ui.altRooms, ...c.spotlights.rooms },
+  { img: church, alt: c.ui.altChurch, ...c.spotlights.church },
 ];
 
 const spaceImages = [
@@ -44,23 +45,23 @@ const spaceFulls = await Promise.all(
 
 const decorItems = [decor1, decor2, decor3, decor4, decor5, decor6, decor9].map((src, i) => ({
   src,
-  alt: `Decoração de eventos no Mosteiro de Landim — ${i + 1}`,
+  alt: c.ui.altDecor.replace("{n}", String(i + 1)),
 }));
 ---
 
-<BaseLayout title="Eventos" description={c.firstParagraph.description1}>
+<BaseLayout title={c.heading} description={c.firstParagraph.description1}>
   <PageHero
     title={c.heading}
     subtitle={c.subHeading}
     image={banner}
-    imageAlt="Festa no Mosteiro de Landim"
-    label="Casamentos & celebrações"
+    imageAlt={c.ui.heroAlt}
+    label={c.ui.heroLabel}
   />
 
   <!-- ============ INTRO ============ -->
   <section class="section">
     <div class="container">
-      <SectionHeading index="01" label="O espaço" title={c.firstParagraph.title} />
+      <SectionHeading index="01" label={c.ui.section1Label} title={c.firstParagraph.title} />
       <div class="prose prose--cols" data-reveal="fade-up">
         <p>{c.firstParagraph.description1}</p>
         <p>{c.firstParagraph.description2}</p>
@@ -115,7 +116,7 @@ const decorItems = [decor1, decor2, decor3, decor4, decor5, decor6, decor9].map(
   <!-- ============ SERVIÇOS ============ -->
   <section class="section section--alt">
     <div class="container">
-      <SectionHeading index="02" label="Serviços" title={c.secondParagraph.title} />
+      <SectionHeading index="02" label={c.ui.section2Label} title={c.secondParagraph.title} />
       <div class="prose prose--full" data-reveal="fade-up">
         <p>{c.secondParagraph.description1}</p>
       </div>

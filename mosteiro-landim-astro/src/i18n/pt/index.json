@@ -36,6 +36,70 @@
       "title": "FAQ",
       "description": "Detalhes de como nos contactar e respondendo a algumas perguntas mais frequentes."
     },
-    "footer": "Direitos reservados"
+    "footer": "Direitos reservados",
+
+    "ui": {
+      "heroAlt": "Vista do Mosteiro de Landim ao entardecer",
+      "scroll": "Desça",
+      "manifesto": {
+        "line1": "Um Mosteiro.",
+        "line2": "Uma família.",
+        "line3": "Dez gerações.",
+        "lede": "Entre japoneiras centenárias e um claustro do século XVI, a nossa casa guarda oito séculos de história — e continua a abrir os portões a quem celebra.",
+        "cta": "Sobre nós",
+        "caption": "O claustro — o coração de cada festa.",
+        "imageAlt": "O claustro do Mosteiro de Landim"
+      },
+      "marquee": ["Casamentos", "Eventos", "Tours", "Vindimas", "Estadia", "História"],
+      "spacesLabel": "Índice",
+      "spacesTitleLead": "Explore ",
+      "spacesTitleEm": "a quinta",
+      "featureTitleLead": "O cenário de uma ",
+      "featureTitleEm": "festa única",
+      "featureDescription2": "Claustro, salas históricas, jardins e igreja — um conjunto de espaços com séculos de histórias para contar, exclusivamente seus por um dia.",
+      "featureCta": "Conhecer os serviços",
+      "featureAltGarden": "Jardins do Mosteiro preparados para um casamento",
+      "featureAltCloister": "Mesa de festa no claustro",
+      "featureAltRooms": "Salão histórico preparado para um banquete",
+      "momentosLabel": "Galeria",
+      "momentosTitleLead": "Momentos ",
+      "momentosTitleEm": "que ficam",
+      "momentosHint": "( continue a descer )",
+      "momentosCaptions": [
+        "Os jardins centenários",
+        "Mesas no claustro",
+        "Sombra das ramadas",
+        "O salão principal",
+        "A igreja românica",
+        "Festa entre colunas dóricas"
+      ],
+      "momentosCtaText": "Há muito mais para ver.",
+      "momentosCta": "Galeria completa",
+      "timelineTitleLead": "Oito séculos ",
+      "timelineTitleEm": "numa casa",
+      "timeline": [
+        {
+          "year": "Séc. XII",
+          "title": "A fundação",
+          "text": "Nasce o Mosteiro de Santa Maria de Landim, casa dos Cónegos Regrantes de Santo Agostinho."
+        },
+        {
+          "year": "1770",
+          "title": "A extinção",
+          "text": "A carta régia de D. José I dita o fim da vida monástica em Landim."
+        },
+        {
+          "year": "1775",
+          "title": "A escritura",
+          "text": "O Mosteiro passa para as mãos da família — uma herança que dura há 250 anos."
+        },
+        {
+          "year": "Hoje",
+          "title": "Dez gerações",
+          "text": "Uma casa de família aberta a quem celebra: casamentos, eventos, visitas e vindimas."
+        }
+      ],
+      "timelineCta": "A história completa"
+    }
   }
 }

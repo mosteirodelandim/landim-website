@@ -1,7 +1,11 @@
 ---
-import { navLinks } from "@/data/nav";
+import { getNavLinks } from "@/data/nav";
 import { config } from "@/config";
-import { t } from "@/i18n";
+import { getContent, resolveLocale } from "@/i18n";
+
+const locale = resolveLocale(Astro.currentLocale);
+const t = getContent(locale);
+const navLinks = getNavLinks(locale);
 
 const year = new Date().getFullYear();
 
@@ -21,12 +25,12 @@ const socialIcons: Record<string, string> = {
       <p class="footer-logotype">
         Mosteiro <span class="serif-italic">de</span> Landim
       </p>
-      <p class="footer-tagline">{t.landing.subHeading}<span class="serif-italic">de família.</span></p>
+      <p class="footer-tagline">{t.landing.subHeading}<span class="serif-italic">{t.ui.tagline}</span></p>
     </div>
 
     <div class="footer-grid">
-      <nav class="footer-col" aria-label="Rodapé — navegação">
-        <p class="label">Explorar</p>
+      <nav class="footer-col" aria-label={t.ui.footerNavLabel}>
+        <p class="label">{t.ui.explore}</p>
         <ul>
           {
             navLinks.map((link) => (
@@ -39,7 +43,7 @@ const socialIcons: Record<string, string> = {
       </nav>
 
       <div class="footer-col">
-        <p class="label">Contactos</p>
+        <p class="label">{t.ui.contacts}</p>
         <ul>
           <li><a href={`mailto:${config.emailContact}`}>{config.emailContact}</a></li>
           <li>
@@ -50,7 +54,7 @@ const socialIcons: Record<string, string> = {
       </div>
 
       <div class="footer-col">
-        <p class="label">Seguir</p>
+        <p class="label">{t.ui.follow}</p>
         <ul class="footer-social">
           {
             config.socialLinks.map((s) => (

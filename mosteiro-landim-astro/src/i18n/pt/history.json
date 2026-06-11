@@ -129,6 +129,21 @@
       "imagesCaptions": {
         "book1": "Mosteiro de Santa Maria de Landim: Raízes e Memória"
       }
+    },
+
+    "ui": {
+      "heroLabel": "Séc. XII — hoje",
+      "heroAlt": "O Mosteiro de Landim",
+      "chaptersNavLabel": "Capítulos da história",
+      "chaptersTitle": "Capítulos",
+      "chapterWord": "Capítulo",
+      "breveStripTitle": "O Breve Apostólico, página a página",
+      "receitaStripTitle": "O Livro do Inventário",
+      "camiloLetterAlt": "Carta de Camilo Castelo Branco — página {n}",
+      "bookOldAlt": "Edição antiga sobre o Mosteiro de Landim",
+      "readPoem": "Ler o poema",
+      "fabOpenAria": "Abrir capítulos",
+      "backToTopAria": "Voltar ao topo"
     }
   }
 }

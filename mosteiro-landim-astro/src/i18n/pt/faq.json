@@ -35,6 +35,17 @@
       "title": "Ainda tenho perguntas...",
       "description": "Podemos ajudar se nos contactar, preferencialmente por ",
       "hyperlink": "e-mail"
+    },
+
+    "ui": {
+      "pageTitle": "FAQ & Contactos",
+      "heroLabel": "Perguntas & respostas",
+      "heroAlt": "Pormenor do Mosteiro de Landim",
+      "sectionLabel": "Dúvidas comuns",
+      "sectionTitle": "Perguntas frequentes",
+      "locationEyebrow": "Onde estamos",
+      "transit": "A 30 minutos do Porto · 20 minutos do aeroporto",
+      "directions": "Direções"
     }
   }
 }

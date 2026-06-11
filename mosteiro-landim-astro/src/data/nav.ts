@@ -1,28 +1,37 @@
-import { t } from "@/i18n";
+import { getContent, localizePath } from "@/i18n";
 
 export interface NavLink {
   href: string;
   label: string;
 }
 
-export const navLinks: NavLink[] = [
-  { href: "/", label: t.sidebar.landing },
-  { href: "/about_us", label: t.sidebar.aboutUs },
-  { href: "/events", label: t.sidebar.events },
-  { href: "/photo_gallery", label: t.sidebar.photos },
-  { href: "/history", label: t.sidebar.history.main },
-  { href: "/gardens", label: t.sidebar.gardens },
-  { href: "/wine_vineyards", label: t.sidebar.wine_vineyards },
-  { href: "/faq", label: t.sidebar.faq },
-];
+export function getNavLinks(locale: string | undefined): NavLink[] {
+  const t = getContent(locale);
+  return [
+    { href: localizePath("/", locale), label: t.sidebar.landing },
+    { href: localizePath("/about_us", locale), label: t.sidebar.aboutUs },
+    { href: localizePath("/events", locale), label: t.sidebar.events },
+    { href: localizePath("/photo_gallery", locale), label: t.sidebar.photos },
+    { href: localizePath("/history", locale), label: t.sidebar.history.main },
+    { href: localizePath("/gardens", locale), label: t.sidebar.gardens },
+    { href: localizePath("/wine_vineyards", locale), label: t.sidebar.wine_vineyards },
+    { href: localizePath("/faq", locale), label: t.sidebar.faq },
+  ];
+}
 
-export const contactLink: NavLink = { href: "/faq#location", label: t.sidebar.contact };
+export function getContactLink(locale: string | undefined): NavLink {
+  const t = getContent(locale);
+  return { href: localizePath("/faq#location", locale), label: t.sidebar.contact };
+}
 
-export const historyAnchors: NavLink[] = [
-  { href: "/history#origins", label: t.sidebar.history.origins },
-  { href: "/history#priests", label: t.sidebar.history.priests },
-  { href: "/history#extinction", label: t.sidebar.history.extinction },
-  { href: "/history#sale", label: t.sidebar.history.sale },
-  { href: "/history#notable", label: t.sidebar.history.notable },
-  { href: "/history#book", label: t.sidebar.history.book },
-];
+export function getHistoryAnchors(locale: string | undefined): NavLink[] {
+  const t = getContent(locale);
+  return [
+    { href: localizePath("/history#origins", locale), label: t.sidebar.history.origins },
+    { href: localizePath("/history#priests", locale), label: t.sidebar.history.priests },
+    { href: localizePath("/history#extinction", locale), label: t.sidebar.history.extinction },
+    { href: localizePath("/history#sale", locale), label: t.sidebar.history.sale },
+    { href: localizePath("/history#notable", locale), label: t.sidebar.history.notable },
+    { href: localizePath("/history#book", locale), label: t.sidebar.history.book },
+  ];
+}

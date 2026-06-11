@@ -16,6 +16,7 @@ import { config } from "@/config";
 import Header from "@/components/Header.astro";
 import MenuOverlay from "@/components/MenuOverlay.astro";
 import Footer from "@/components/Footer.astro";
+import { localizePath, resolveLocale } from "@/i18n";
 
 interface Props {
   title: string;
@@ -34,6 +35,17 @@ const {
 
 const canonical = new URL(Astro.url.pathname, config.siteUrl).href;
 const ogImage = new URL("/og.jpg", config.siteUrl).href;
+
+const locale = resolveLocale(Astro.currentLocale);
+const htmlLang = locale === "en" ? "en" : "pt";
+const ogLocale = locale === "en" ? "en_US" : "pt_PT";
+const ogLocaleAlternate = locale === "en" ? "pt_PT" : "en_US";
+
+// Locale alternates for hreflang (same page in each language).
+const path = Astro.url.pathname;
+const logicalPath = locale === "en" ? path.replace(/^\/en(?=\/|$)/, "") || "/" : path;
+const altPt = new URL(localizePath(logicalPath, "pt"), config.siteUrl).href;
+const altEn = new URL(localizePath(logicalPath, "en"), config.siteUrl).href;
 
 /** Brand-enriched title for social cards / search snippets (tab title stays clean) */
 const isHome = title === config.siteTitle;
@@ -72,7 +84,7 @@ const jsonLd = {
 ---
 
 <!doctype html>
-<html lang="pt">
+<html lang={htmlLang}>
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -84,6 +96,9 @@ const jsonLd = {
     <meta name="theme-color" content="#f6f1e7" />
     <meta name="robots" content={robotsContent} />
     <link rel="canonical" href={canonical} />
+    <link rel="alternate" hreflang="pt" href={altPt} />
+    <link rel="alternate" hreflang="en" href={altEn} />
+    <link rel="alternate" hreflang="x-default" href={altPt} />
     <link rel="icon" href="/website-icon.png" type="image/png" />
     <link rel="apple-touch-icon" href="/website-icon.png" />
 
@@ -97,7 +112,8 @@ const jsonLd = {
     <meta property="og:image:width" content="1200" />
     <meta property="og:image:height" content="630" />
     <meta property="og:image:alt" content={imageAlt} />
-    <meta property="og:locale" content="pt_PT" />
+    <meta property="og:locale" content={ogLocale} />
+    <meta property="og:locale:alternate" content={ogLocaleAlternate} />
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:title" content={socialTitle} />
     <meta name="twitter:description" content={description} />
