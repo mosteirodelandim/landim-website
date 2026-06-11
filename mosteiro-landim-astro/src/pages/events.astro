@@ -48,7 +48,7 @@ const decorItems = [decor1, decor2, decor3, decor4, decor5, decor6, decor9].map(
 }));
 ---
 
-<BaseLayout title={`Eventos — ${c.subHeading}`} description={c.firstParagraph.description1}>
+<BaseLayout title="Eventos" description={c.firstParagraph.description1}>
   <PageHero
     title={c.heading}
     subtitle={c.subHeading}
@@ -98,12 +98,13 @@ const decorItems = [decor1, decor2, decor3, decor4, decor5, decor6, decor9].map(
                 {s.description}
               </p>
             </div>
-            <span
-              class="spot-num"
-              aria-hidden="true"
-              style={`animation-delay: ${i * 0.7}s`}
-            >
-              {String(i + 1).padStart(2, "0")}
+            <span class="spot-num" aria-hidden="true">
+              <span class="spot-num-layer spot-num-fill">
+                {String(i + 1).padStart(2, "0")}
+              </span>
+              <span class="spot-num-layer spot-num-outline">
+                {String(i + 1).padStart(2, "0")}
+              </span>
             </span>
           </article>
         ))
@@ -115,7 +116,7 @@ const decorItems = [decor1, decor2, decor3, decor4, decor5, decor6, decor9].map(
   <section class="section section--alt">
     <div class="container">
       <SectionHeading index="02" label="Serviços" title={c.secondParagraph.title} />
-      <div class="prose" data-reveal="fade-up">
+      <div class="prose prose--full" data-reveal="fade-up">
         <p>{c.secondParagraph.description1}</p>
       </div>
 
@@ -195,6 +196,10 @@ const decorItems = [decor1, decor2, decor3, decor4, decor5, decor6, decor9].map(
     max-width: none;
   }
 
+  .prose--full {
+    max-width: none;
+  }
+
   .spot-section {
     overflow: clip;
   }
@@ -233,21 +238,42 @@ const decorItems = [decor1, decor2, decor3, decor4, decor5, decor6, decor9].map(
     max-width: 38rem;
   }
 
-  /* Oversized floating numeral straddling the image edge */
+  /* Oversized two-tone numeral straddling the image edge.
+     Two stacked copies of the same digits, each clipped at the image's
+     edge (which sits 1.4ch into the numeral):
+     · fill copy    → terracotta, visible only over the photograph
+     · outline copy → page-coloured fill + terracotta stroke, over the page */
   .spot-num {
     position: absolute;
-    top: 50%;
+    top: 34%;
     z-index: 3;
     font-family: var(--font-display);
     font-style: italic;
     font-weight: 400;
     font-size: clamp(5rem, 15vw, 13rem);
-    line-height: 0.78;
-    color: var(--linen);
-    mix-blend-mode: difference;
+    line-height: 1;
     pointer-events: none;
     transform: translateY(-50%);
-    animation: spot-num-float 6.5s ease-in-out infinite;
+  }
+
+  .spot-num-layer {
+    display: block;
+    font: inherit;
+    letter-spacing: inherit;
+  }
+
+  .spot-num-fill {
+    color: #ffd968;
+    clip-path: inset(0 calc(100% - 1.4ch) 0 0);
+  }
+
+  .spot-num-outline {
+    position: absolute;
+    inset: 0;
+    color: var(--bg);
+    -webkit-text-stroke: 2px #ffd968;
+    text-stroke: 2px #ffd968;
+    clip-path: inset(0 -0.45ch 0 1.4ch);
   }
 
   .spot-row:not(.spot-row--flip) .spot-num {
@@ -258,14 +284,12 @@ const decorItems = [decor1, decor2, decor3, decor4, decor5, decor6, decor9].map(
     right: calc(54vw - 1.4ch);
   }
 
-  @keyframes spot-num-float {
-    0%,
-    100% {
-      transform: translateY(-50%);
-    }
-    50% {
-      transform: translateY(calc(-50% - 1.3rem));
-    }
+  .spot-row--flip .spot-num-fill {
+    clip-path: inset(0 -0.45ch 0 calc(100% - 1.4ch));
+  }
+
+  .spot-row--flip .spot-num-outline {
+    clip-path: inset(0 1.4ch 0 0);
   }
 
   .spot-title {
@@ -340,36 +364,23 @@ const decorItems = [decor1, decor2, decor3, decor4, decor5, decor6, decor9].map(
       padding-block: var(--space-md) 0;
     }
 
-    .spot-num,
-    .spot-row--flip .spot-num,
-    .spot-row:not(.spot-row--flip) .spot-num {
-      top: auto;
-      bottom: auto;
+    .spot-num {
       left: var(--gutter);
       right: auto;
       transform: none;
       font-size: clamp(3.5rem, 18vw, 6rem);
-    }
-
-    .spot-row .spot-num {
-      position: absolute;
       top: 1rem;
     }
 
-    @keyframes spot-num-float {
-      0%,
-      100% {
-        transform: translateY(0);
-      }
-      50% {
-        transform: translateY(-0.7rem);
-      }
+    /* The photo spans the full width here, so the whole numeral sits
+       over the image — show the terracotta fill only. */
+    .spot-num-fill,
+    .spot-row--flip .spot-num-fill {
+      clip-path: none;
     }
-  }
 
-  @media (prefers-reduced-motion: reduce) {
-    .spot-num {
-      animation: none;
+    .spot-num-outline {
+      display: none;
     }
   }
 
@@ -379,3 +390,4 @@ const decorItems = [decor1, decor2, decor3, decor4, decor5, decor6, decor9].map(
     }
   }
 </style>
+

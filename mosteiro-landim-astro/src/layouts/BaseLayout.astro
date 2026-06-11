@@ -35,6 +35,14 @@ const {
 const canonical = new URL(Astro.url.pathname, config.siteUrl).href;
 const ogImage = new URL("/og.jpg", config.siteUrl).href;
 
+/** Brand-enriched title for social cards / search snippets (tab title stays clean) */
+const isHome = title === config.siteTitle;
+const socialTitle = isHome ? config.siteTitle : `${title} — ${config.siteTitle}`;
+const robotsContent = noIndex
+  ? "noindex, nofollow"
+  : "index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1";
+const imageAlt = `${config.siteTitle} — ${config.siteDescription}`;
+
 const jsonLd = {
   "@context": "https://schema.org",
   "@type": "EventVenue",
@@ -44,11 +52,13 @@ const jsonLd = {
   email: config.emailContact,
   telephone: config.phoneContact,
   image: ogImage,
+  logo: new URL("/website-icon.png", config.siteUrl).href,
   address: {
     "@type": "PostalAddress",
     streetAddress: "Alameda do Mosteiro",
     postalCode: "4770-328",
     addressLocality: "Landim, Vila Nova de Famalicão",
+    addressRegion: "Braga",
     addressCountry: "PT",
   },
   geo: {
@@ -56,6 +66,7 @@ const jsonLd = {
     latitude: config.mapLocation.center.lat,
     longitude: config.mapLocation.center.lng,
   },
+  hasMap: config.directionsGoogleMaps,
   sameAs: config.socialLinks.map((s) => s.url),
 };
 ---
@@ -68,21 +79,30 @@ const jsonLd = {
     <title>{title}</title>
     <meta name="description" content={description} />
     <meta name="keywords" content={config.siteKeywords.join(", ")} />
+    <meta name="author" content={config.siteTitle} />
     <meta name="generator" content={Astro.generator} />
     <meta name="theme-color" content="#f6f1e7" />
-    {noIndex && <meta name="robots" content="noindex" />}
+    <meta name="robots" content={robotsContent} />
     <link rel="canonical" href={canonical} />
     <link rel="icon" href="/website-icon.png" type="image/png" />
     <link rel="apple-touch-icon" href="/website-icon.png" />
 
     <meta property="og:type" content="website" />
     <meta property="og:site_name" content={config.siteTitle} />
-    <meta property="og:title" content={title} />
+    <meta property="og:title" content={socialTitle} />
     <meta property="og:description" content={description} />
     <meta property="og:url" content={canonical} />
     <meta property="og:image" content={ogImage} />
+    <meta property="og:image:type" content="image/jpeg" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:image:alt" content={imageAlt} />
     <meta property="og:locale" content="pt_PT" />
     <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={socialTitle} />
+    <meta name="twitter:description" content={description} />
+    <meta name="twitter:image" content={ogImage} />
+    <meta name="twitter:image:alt" content={imageAlt} />
 
     <link rel="preload" href={frauncesUrl} as="font" type="font/woff2" crossorigin />
 

@@ -37,7 +37,7 @@ const stayImages = [airbnb1, airbnb2, airbnb3, airbnb4, airbnb5].map((src, i) =>
 }));
 ---
 
-<BaseLayout title={`Vinho & Estadia — ${c.wine.title}`} description={c.subHeading}>
+<BaseLayout title="Vinho & Estadia" description={c.subHeading}>
   <PageHero
     title={c.title}
     subtitle={c.subHeading}
@@ -112,7 +112,7 @@ const stayImages = [airbnb1, airbnb2, airbnb3, airbnb4, airbnb5].map((src, i) =>
   </section>
 
   <!-- ============ ESTADIA ============ -->
-  <section class="section section--alt">
+  <section class="section section--alt section--merge-spotlight">
     <div class="container">
       <SectionHeading index="03" label="Ficar" title={c.airbnb.title} />
       <div class="prose prose--cols" data-reveal="fade-up">
@@ -123,15 +123,15 @@ const stayImages = [airbnb1, airbnb2, airbnb3, airbnb4, airbnb5].map((src, i) =>
     <div class="strip-wrap">
       <GalleryStrip items={stayImages} lightbox="stay" />
     </div>
+    <SpotlightLink
+      label={c.airbnb.spotlight.title}
+      text={c.airbnb.spotlight.phrase2}
+      cta="Como chegar"
+      href="/faq#location"
+      icon="stay"
+      class="spotlight--flush"
+    />
   </section>
-
-  <SpotlightLink
-    label={c.airbnb.spotlight.title}
-    text={c.airbnb.spotlight.phrase2}
-    cta="Como chegar"
-    href="/faq#location"
-    icon="stay"
-  />
 
   <Lightbox />
 </BaseLayout>
@@ -144,6 +144,11 @@ const stayImages = [airbnb1, airbnb2, airbnb3, airbnb4, airbnb5].map((src, i) =>
   .section--alt {
     background: var(--bg-alt);
     border-block: 1px solid var(--hairline);
+  }
+
+  .section--merge-spotlight {
+    padding-bottom: 0;
+    border-block-end: 0;
   }
 
   .prose {

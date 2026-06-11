@@ -6,7 +6,6 @@ import GalleryStrip from "@/components/GalleryStrip.astro";
 import Lightbox from "@/components/Lightbox.astro";
 import SmartImage from "@/components/SmartImage.astro";
 import { t } from "@/i18n";
-import { config } from "@/config";
 
 import banner from "@/assets/images/history/banner.jpg";
 import origins1 from "@/assets/images/history/origins_architecture/pic1.jpg";
@@ -103,7 +102,7 @@ const sebastiaoFigs = await figs([sebastiao1], [nc.sebastiao6]);
 const bookFull = await getImage({ src: book1, width: 1400, format: "webp", quality: 80 });
 ---
 
-<BaseLayout title={`História — ${config.siteTitle}`} description={c.subHeading}>
+<BaseLayout title="História" description={c.subHeading}>
   <PageHero
     title={c.title}
     subtitle={c.subHeading}
