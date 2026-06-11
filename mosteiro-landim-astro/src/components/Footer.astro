@@ -1,5 +1,5 @@
 ---
-import { navLinks, contactLink } from "@/data/nav";
+import { navLinks } from "@/data/nav";
 import { config } from "@/config";
 import { t } from "@/i18n";
 
@@ -29,7 +29,7 @@ const socialIcons: Record<string, string> = {
         <p class="label">Explorar</p>
         <ul>
           {
-            [...navLinks, contactLink].map((link) => (
+            navLinks.map((link) => (
               <li>
                 <a href={link.href}>{link.label}</a>
               </li>
@@ -68,7 +68,6 @@ const socialIcons: Record<string, string> = {
 
     <div class="footer-bottom">
       <p>© {year} Mosteiro de Landim · {t.landing.footer}</p>
-      <p class="label">Estd · Séc. XII — Landim, Vila Nova de Famalicão</p>
     </div>
   </div>
 </footer>

@@ -10,6 +10,8 @@ import frauncesUrl from "@fontsource-variable/fraunces/files/fraunces-latin-opsz
 import "@/styles/tokens.css";
 import "@/styles/base.css";
 import { ClientRouter } from "astro:transitions";
+import { Image } from "astro:assets";
+import logoOneline from "@/assets/images/logo_black_oneline.png";
 import { config } from "@/config";
 import Header from "@/components/Header.astro";
 import MenuOverlay from "@/components/MenuOverlay.astro";
@@ -119,7 +121,7 @@ const jsonLd = {
     </main>
     <Footer />
     <div id="page-curtain" aria-hidden="true">
-      <span class="curtain-mark serif-italic">ML</span>
+      <Image class="curtain-mark" src={logoOneline} alt="" widths={[160, 280, 400]} sizes="200px" />
     </div>
     <script src="@/scripts/motion.ts"></script>
   </body>
@@ -138,7 +140,7 @@ const jsonLd = {
   }
 
   .curtain-mark {
-    font-size: var(--text-xl);
-    color: var(--clay);
+    width: clamp(10rem, 24vw, 18rem);
+    height: auto;
   }
 </style>

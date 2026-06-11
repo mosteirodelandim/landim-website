@@ -70,26 +70,27 @@ const decorItems = [decor1, decor2, decor3, decor4, decor5, decor6, decor9].map(
   </section>
 
   <!-- ============ SPOTLIGHTS ============ -->
-  <section class="section section--flush">
-    <div class="container spot-list">
+  <section class="section section--flush spot-section">
+    <div class="spot-list">
       {
         spotlights.map((s, i) => (
           <article class:list={["spot-row", { "spot-row--flip": i % 2 === 1 }]}>
-            <div class="spot-media" data-reveal="mask">
-              <div class="spot-media-inner" data-reveal="parallax" data-parallax="5">
+            <div
+              class="spot-media"
+              data-reveal="slide-x"
+              data-dir={i % 2 === 1 ? "right" : "left"}
+            >
+              <div class="spot-media-inner" data-reveal="parallax" data-parallax="6">
                 <SmartImage
                   src={s.img}
                   alt={s.alt}
-                  sizes="(min-width: 64rem) 44rem, 92vw"
-                  widths={[480, 800, 1200, 1600]}
-                  aspect="3 / 2"
+                  sizes="(min-width: 64rem) 54vw, 100vw"
+                  widths={[600, 1000, 1500, 2000]}
+                  aspect="4 / 3"
                 />
               </div>
             </div>
             <div class="spot-text">
-              <span class="spot-num serif-italic" aria-hidden="true">
-                {String(i + 1).padStart(2, "0")}
-              </span>
               <h3 class="spot-title serif-italic" data-reveal="fade-up">
                 {s.title}
               </h3>
@@ -97,6 +98,13 @@ const decorItems = [decor1, decor2, decor3, decor4, decor5, decor6, decor9].map(
                 {s.description}
               </p>
             </div>
+            <span
+              class="spot-num"
+              aria-hidden="true"
+              style={`animation-delay: ${i * 0.7}s`}
+            >
+              {String(i + 1).padStart(2, "0")}
+            </span>
           </article>
         ))
       }
@@ -187,42 +195,77 @@ const decorItems = [decor1, decor2, decor3, decor4, decor5, decor6, decor9].map(
     max-width: none;
   }
 
+  .spot-section {
+    overflow: clip;
+  }
+
+  .spot-list {
+    display: flex;
+    flex-direction: column;
+    gap: clamp(3.5rem, 9vw, 8rem);
+  }
+
   .spot-row {
-    display: grid;
-    grid-template-columns: minmax(0, 7fr) minmax(0, 5fr);
-    gap: clamp(1.5rem, 4vw, var(--space-xl));
+    position: relative;
+    display: flex;
     align-items: center;
-    padding-block: clamp(var(--space-md), 5vw, var(--space-xl));
-    border-top: 1px solid var(--hairline);
+    gap: clamp(2rem, 5vw, 5rem);
   }
 
-  .spot-list .spot-row:first-child {
-    border-top: 0;
-  }
-
-  .spot-row--flip .spot-media {
-    order: 2;
+  .spot-row--flip {
+    flex-direction: row-reverse;
   }
 
   .spot-media {
+    flex: 0 0 54vw;
+    max-width: 54vw;
     overflow: hidden;
-    border-radius: var(--radius-sm);
+    border-radius: 0;
   }
 
   .spot-media-inner :global(.smart-image) {
-    border-radius: var(--radius-sm);
     transform: scale(1.12);
   }
 
+  .spot-text {
+    flex: 1 1 auto;
+    padding-inline: clamp(1.25rem, 4vw, 3.5rem);
+    max-width: 38rem;
+  }
+
+  /* Oversized floating numeral straddling the image edge */
   .spot-num {
-    display: block;
+    position: absolute;
+    top: 50%;
+    z-index: 3;
     font-family: var(--font-display);
     font-style: italic;
-    font-size: clamp(2.6rem, 6vw, 4.2rem);
-    line-height: 1;
-    color: var(--gold-ink);
-    opacity: 0.5;
-    margin-bottom: var(--space-xs);
+    font-weight: 400;
+    font-size: clamp(5rem, 15vw, 13rem);
+    line-height: 0.78;
+    color: var(--linen);
+    mix-blend-mode: difference;
+    pointer-events: none;
+    transform: translateY(-50%);
+    animation: spot-num-float 6.5s ease-in-out infinite;
+  }
+
+  .spot-row:not(.spot-row--flip) .spot-num {
+    left: calc(54vw - 1.4ch);
+  }
+
+  .spot-row--flip .spot-num {
+    right: calc(54vw - 1.4ch);
+  }
+
+  @keyframes spot-num-float {
+    0%,
+    100% {
+      transform: translateY(-50%);
+    }
+    50% {
+      transform: translateY(calc(-50% - 1.3rem));
+    }
   }
 
   .spot-title {
@@ -279,13 +322,54 @@ const decorItems = [decor1, decor2, decor3, decor4, decor5, decor6, decor9].map(
   }
 
   @media (max-width: 64rem) {
-    .spot-row {
-      grid-template-columns: 1fr;
-      gap: var(--space-sm);
+    .spot-row,
+    .spot-row--flip {
+      flex-direction: column;
+      align-items: stretch;
+      gap: 0;
     }
 
-    .spot-row--flip .spot-media {
-      order: 0;
+    .spot-media {
+      flex: 0 0 auto;
+      max-width: 100%;
+      width: 100%;
+    }
+
+    .spot-text {
+      max-width: none;
+      padding-block: var(--space-md) 0;
+    }
+
+    .spot-num,
+    .spot-row--flip .spot-num,
+    .spot-row:not(.spot-row--flip) .spot-num {
+      top: auto;
+      bottom: auto;
+      left: var(--gutter);
+      right: auto;
+      transform: none;
+      font-size: clamp(3.5rem, 18vw, 6rem);
+    }
+
+    .spot-row .spot-num {
+      position: absolute;
+      top: 1rem;
+    }
+
+    @keyframes spot-num-float {
+      0%,
+      100% {
+        transform: translateY(0);
+      }
+      50% {
+        transform: translateY(-0.7rem);
+      }
+    }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .spot-num {
+      animation: none;
     }
   }
 

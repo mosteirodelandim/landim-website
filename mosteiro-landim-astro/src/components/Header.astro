@@ -1,4 +1,8 @@
 ---
+import { Image } from "astro:assets";
+import logoWhite from "@/assets/images/logo_white_twoline.png";
+import logoBlack from "@/assets/images/logo_black_twoline.png";
+
 interface Props {
   tone?: "light" | "dark";
 }
@@ -7,9 +11,9 @@ const { tone = "light" } = Astro.props;
 ---
 
 <header id="site-header" class:list={["site-header", `tone-${tone}`]}>
-  <a class="brand" href="/">
-    <span class="brand-mark serif-italic">ML</span>
-    <span class="brand-name">Mosteiro de Landim</span>
+  <a class="brand" href="/" aria-label="Mosteiro de Landim — início">
+    <Image class="brand-logo brand-logo--white" src={logoWhite} alt="Mosteiro de Landim" widths={[160, 240, 320]} sizes="130px" />
+    <Image class="brand-logo brand-logo--black" src={logoBlack} alt="Mosteiro de Landim" widths={[160, 240, 320]} sizes="130px" />
   </a>
 
   <button
@@ -33,7 +37,7 @@ const { tone = "light" } = Astro.props;
     align-items: center;
     justify-content: space-between;
     gap: var(--space-sm);
-    padding: clamp(0.9rem, 2vw, 1.4rem) var(--gutter);
+    padding: clamp(0.9rem, 2vw, 1.1rem) var(--gutter);
     transition:
       background var(--dur-base) var(--ease-out),
       color var(--dur-base) var(--ease-out),
@@ -55,7 +59,6 @@ const { tone = "light" } = Astro.props;
     backdrop-filter: blur(14px);
     -webkit-backdrop-filter: blur(14px);
     box-shadow: 0 1px 0 var(--hairline);
-    padding-block: 0.65rem;
   }
 
   /* While the menu overlay is open the header rises above it and darkens */
@@ -70,7 +73,7 @@ const { tone = "light" } = Astro.props;
 
   .brand {
     display: inline-flex;
-    align-items: baseline;
+    align-items: center;
     gap: 0.65rem;
     text-decoration: none;
     color: inherit;
@@ -80,18 +83,28 @@ const { tone = "light" } = Astro.props;
     color: inherit;
   }
 
-  .brand-mark {
-    font-size: 1.5rem;
-    line-height: 1;
+  .brand-logo {
+    display: block;
+    height: clamp(2.4rem, 4vw, 3rem);
+    width: auto;
   }
 
-  .brand-name {
-    font-family: var(--font-body);
-    font-size: var(--text-xs);
-    font-weight: 700;
-    letter-spacing: 0.28em;
-    text-transform: uppercase;
+  .site-header.is-scrolled .brand-logo {
+    height: clamp(2.4rem, 4vw, 3rem);
   }
+
+  /* Default (over hero): show white logo, hide black */
+  .brand-logo--white { display: block; }
+  .brand-logo--black { display: none; }
+
+  /* Scrolled or dark-tone or menu-open: show black logo, hide white */
+  .site-header.is-scrolled .brand-logo--white,
+  .site-header.menu-open .brand-logo--white,
+  .tone-dark .brand-logo--white { display: none; }
+
+  .site-header.is-scrolled .brand-logo--black,
+  .site-header.menu-open .brand-logo--black,
+  .tone-dark .brand-logo--black { display: block; }
 
   .menu-toggle {
     display: inline-flex;
@@ -129,12 +142,8 @@ const { tone = "light" } = Astro.props;
   }
 
   @media (max-width: 48rem) {
-    .brand-name {
-      display: none;
-    }
-
-    .brand-mark {
-      font-size: 1.8rem;
+    .brand-logo {
+      height: clamp(2rem, 8vw, 2.4rem);
     }
   }
 </style>

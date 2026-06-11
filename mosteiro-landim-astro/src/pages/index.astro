@@ -1,5 +1,6 @@
 ---
 import { getImage } from "astro:assets";
+import { Image } from "astro:assets";
 import BaseLayout from "@/layouts/BaseLayout.astro";
 import SmartImage from "@/components/SmartImage.astro";
 import Marquee from "@/components/Marquee.astro";
@@ -16,6 +17,7 @@ import gardensTile from "@/assets/images/landing/gardens_tile.png";
 import wineTile from "@/assets/images/landing/wine_tile.jpg";
 import faqTile from "@/assets/images/landing/faq_tile.jpg";
 import manifestoImg from "@/assets/images/about_us/spaces1.jpg";
+import logoOneline from "@/assets/images/logo_black_oneline.png";
 import featureCloister from "@/assets/images/events/cloister.jpg";
 import featureGarden from "@/assets/images/events/garden.jpg";
 import featureRooms from "@/assets/images/events/rooms.jpg";
@@ -79,7 +81,7 @@ const timeline = [
   <!-- ============ PRELOADER ============ -->
   <div id="preloader" aria-hidden="true">
     <div class="preloader-inner">
-      <p class="preloader-mark serif-italic">ML</p>
+      <Image class="preloader-mark" src={logoOneline} alt="" widths={[200, 320, 460]} sizes="240px" />
       <p class="preloader-name label">Mosteiro de Landim</p>
       <span class="preloader-line"><i></i></span>
       <p class="preloader-counter label">000</p>
@@ -426,8 +428,8 @@ const timeline = [
   }
 
   .preloader-mark {
-    font-size: var(--text-2xl);
-    color: var(--clay);
+    width: clamp(10rem, 22vw, 16rem);
+    height: auto;
     line-height: 1;
   }
 

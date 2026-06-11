@@ -99,6 +99,22 @@ function buildReveals(): void {
       );
     });
 
+    document.querySelectorAll<HTMLElement>('[data-reveal="slide-x"]').forEach((el) => {
+      const dir = el.dataset.dir === "right" ? 1 : -1;
+      gsap.fromTo(
+        el,
+        { autoAlpha: 0, xPercent: dir * 16, scale: 1.05 },
+        {
+          autoAlpha: 1,
+          xPercent: 0,
+          scale: 1,
+          duration: 1.3,
+          ease: "power3.out",
+          scrollTrigger: { trigger: el, start: "top 85%", once: true },
+        },
+      );
+    });
+
     document.querySelectorAll<HTMLElement>('[data-reveal="mask"]').forEach((el) => {
       gsap.fromTo(
         el,
