@@ -1,0 +1,70 @@
+---
+/**
+ * Editorial cross-link band (replaces the old Lottie "spotlights"):
+ * icon-free, hairline-framed invitation to another page.
+ */
+interface Props {
+  label: string;
+  text: string;
+  linkText: string;
+  href: string;
+  external?: boolean;
+}
+
+const { label, text, linkText, href, external = false } = Astro.props;
+---
+
+<aside class="spotlight" data-reveal="fade-up">
+  <div class="container spotlight-inner">
+    <p class="label spotlight-label">{label}</p>
+    <p class="spotlight-text">
+      {text}
+      <a
+        class="spotlight-link serif-italic"
+        href={href}
+        target={external ? "_blank" : undefined}
+        rel={external ? "noopener noreferrer" : undefined}>{linkText}</a
+      >.
+    </p>
+  </div>
+</aside>
+
+<style>
+  .spotlight {
+    border-block: 1px solid var(--hairline);
+    background: var(--bg-alt);
+    padding-block: var(--space-md);
+    margin-block: var(--space-lg);
+  }
+
+  .spotlight-inner {
+    display: grid;
+    grid-template-columns: minmax(8rem, 14rem) 1fr;
+    gap: var(--space-sm);
+    align-items: baseline;
+  }
+
+  .spotlight-label {
+    color: var(--clay-deep);
+  }
+
+  .spotlight-text {
+    font-size: var(--text-md);
+    font-family: var(--font-display);
+    font-weight: 420;
+    line-height: 1.45;
+    max-width: 56ch;
+  }
+
+  .spotlight-link {
+    color: var(--clay-deep);
+    text-decoration-color: var(--clay);
+  }
+
+  @media (max-width: 48rem) {
+    .spotlight-inner {
+      grid-template-columns: 1fr;
+      gap: 0.6rem;
+    }
+  }
+</style>

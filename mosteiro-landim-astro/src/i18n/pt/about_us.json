@@ -1,0 +1,95 @@
+{
+  "pt": {
+    "heading1": "Um Mosteiro",
+    "heading2": "Uma família",
+    "heading3": "Dez gerações",
+
+    "history": {
+      "title": "A quinta",
+      "subtitle": "Era uma vez uma antiga e romântica quinta...",
+      "description1": "Quem somos? Uma casa de família que conta com séculos de história – antigo Mosteiro da Ordem dos Cónegos Regrantes de St. Agostinho no século XI,  transformado em casa particular no séc. XVIII. Desde então, geração após geração, mantém-se na mesma família, preservando tradições, valorizando o património e guardando momentos e memórias de família.",
+      "description2": "Dos nossos pais, António Vicente de Sequeira Leal Sampaio da Nóvoa e Maria Rosa Dourado Eusébio Sampaio da Nóvoa, herdámos a responsabilidade de cuidar deste espaço único e de o transmitir - ainda mais cuidado e preservado - aos nossos filhos e netos. A história continua...",
+      "quote": "\"Nunca se perde tempo com aquilo que amamos.\"",
+
+
+      "quoteAuthor": "Alberto Sampaio",
+      "description3": "Valorizamos a herança que nos foi deixada e estamos dedicados a mantê-la intacta para futuras gerações. Regemo-nos pelas palavras dos nossos antepassados para nos inspirar e guiar.",
+
+      "imagesCaption": "Fotos históricas do claustro e Sala de Capítulo antigas.",
+
+      "lottie": {
+        "title": "História",
+        "description": "Cada recanto do Mosteiro de Landim prende-se com pedaços de história únicos e valiosos. Se tiver curiosidade para saber mais, pode encontrar informações detalhadas sobre a história do Mosteiro ",
+        "hyperlink": "aqui"
+      }
+    },
+
+    "family": {
+      "title": "Gerações de família",
+      "subtitle": "Várias gerações de família já passaram por aqui...",
+
+      "poem": {
+        "verse1": "É sagrada a nossa casa:",
+        "verse2": "Protectora, como aza.",
+        "verse3": "Guarda e cobre o nosso lar;",
+        "verse4": "Dentro dela, com carinho.",
+        "verse5": "O coração tem seu ninho.",
+        "verse6": "Tem o amor o seu altar!",
+        "author": "poema de Sebastião de Carvalho"
+      },
+
+      "description1": "Este poema, escrito por Sebastião de Carvalho, ilustre advogado e poeta vimaranense, casado com a nossa tia bisavó Maria Henriqueta Leal Sampaio de Carvalho, bem representa os valores incutidos de geração em geração na nossa família. Estes quatro versos gravados em azulejo na varanda da casa fazem parte da memória de todos nós, repetidos ano após ano por todos quantos se detêm naquele espaço único.",
+      "description2": "Em 2025 celebrámos os 250 anos da escritura da venda do Mosteiro de Santa Maria de Landim ao nosso antepassado Manuel Batista Landim. A propriedade mantém-se na família desde então, já contando com dez gerações, mantendo sempre uma relação íntima com a cidade famalicense."
+    },
+
+    "wines": {
+      "title": "Vinho",
+      "subtitle": "Uma tradição de vindima premiada...",
+
+      "description1": "Os terrenos do Mosteiro de Landim estendem-se por mais de vinte hectares. Nestas terras agrícolas nasceu uma tradição de cultivo da vinha que persiste até aos dias de hoje. Assim, todos os anos em Setembro reunimos a família e amigos da família e de Landim para  participar nas vindimas, mantendo uma já longa tradição.",
+      "description2": "Em 2005 lançámos no mercado um vinho da casta loureiro a que demos o nome de Camélia, vinho que ganhou logo no primeiro ano o prémio na categoria “Melhores da Região” pela Comissão Vitivinícola da Região dos Vinhos Verdes. Este vinho deixou de ser produzido em 2017.",
+
+      "lottie": {
+        "title": "Vinho",
+        "description": "As vinhas do Mosteiro de Landim já foram premiadas por diversas vezes, bem como o nosso vinho. Para saber mais sobre a história, os nossos métodos e o nosso vinho, pode fazê-lo ",
+        "hyperlink": "aqui"
+      }
+    },
+
+    "events_spaces": {
+      "title": "Serviços e Espaços",
+      "subtitle": "A variedade de espaços que oferecemos faz com que Landim seja perfeito para qualquer evento...",
+
+      "description1": "O valor que se dá a uma festa não se limita apenas à ocasião, mas também ao ambiente que a rodeia. O Mosteiro de Landim e os seus jardins centenários têm um encanto que os torna únicos. Basta entrar pelos portões do Mosteiro para perceber que encontrou o sítio e espaços ideais para reunir a sua família e amigos e partilhar momentos felizes e especiais.",
+      "description2": "Seja um simples almoço, uma festa de família, uma cerimónia religiosa, bodas de ouro ou um casamento, o Mosteiro dispõe de variados espaços - o claustro, os jardins, a igreja e as salas centenárias. Devido às suas características únicas e grande espaço disponível, o Mosteiro adapta-se facilmente às necessidades de qualquer tipo de evento. ",
+      "description3": "Paralelamente, o Mosteiro disponibiliza serviços de catering, decoração e organização de eventos através de parceiros privilegiados, com uma enorme experiência de utilização das várias valências do espaço.",
+
+      "images": {
+        "image1": {
+          "title": "Claustro",
+          "subtitle": "Séculos de história. O coração de cada festa."
+        },
+        "image2": {
+          "title": "Salas",
+          "subtitle": "Amplas e versáteis salas, envoltas em história. "
+        },
+        "image3": {
+          "title": "Jardins",
+          "subtitle": "Galardoados, belos e centenários. Mais informação ",
+          "hyperlink": "aqui"
+        },
+        "image4": {
+          "title": "Igreja",
+          "subtitle": "A Igreja do Mosteiro é perfeita para cerimónias religiosas, mesmo ao lado."
+        }
+      },
+
+      "lottie": {
+        "title": "Serviços",
+        "description": "O Mosteiro de Landim oferece um leque variado de eventos personalizados a seu gosto. Para mais informação, clique ",
+        "hyperlink": "aqui"
+      }
+
+    }
+  }
+}

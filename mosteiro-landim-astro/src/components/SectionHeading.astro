@@ -1,0 +1,85 @@
+---
+/**
+ * Editorial section heading: numbered label + display title (+ optional lede).
+ */
+interface Props {
+  label?: string;
+  index?: string;
+  title: string;
+  lede?: string;
+  align?: "start" | "center";
+  class?: string;
+}
+
+const { label, index, title, lede, align = "start", class: className = "" } = Astro.props;
+---
+
+<header class:list={["section-heading", `align-${align}`, className]}>
+  {
+    (label || index) && (
+      <p class="label section-heading-label" data-reveal="fade-up">
+        {index && <span class="section-heading-index">{index}</span>}
+        {label}
+      </p>
+    )
+  }
+  <h2 class="section-heading-title" data-reveal="fade-up" set:html={title} />
+  {lede && <p class="section-heading-lede serif-italic" data-reveal="fade-up">{lede}</p>}
+  <span class="section-heading-rule" data-reveal="line" aria-hidden="true"></span>
+</header>
+
+<style>
+  .section-heading {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-xs);
+    margin-bottom: var(--space-md);
+    max-width: 56rem;
+  }
+
+  .align-center {
+    align-items: center;
+    text-align: center;
+    margin-inline: auto;
+  }
+
+  .section-heading-label {
+    display: inline-flex;
+    align-items: baseline;
+    gap: 0.9rem;
+    color: var(--clay-deep);
+  }
+
+  .section-heading-index {
+    color: var(--gold-ink);
+  }
+
+  .section-heading-title {
+    font-size: var(--text-xl);
+    font-weight: 420;
+  }
+
+  .section-heading-title :global(em),
+  .section-heading-title :global(i) {
+    font-style: italic;
+    color: var(--clay-deep);
+  }
+
+  .section-heading-lede {
+    font-size: var(--text-md);
+    color: var(--fg-soft);
+    max-width: 52ch;
+  }
+
+  .section-heading-rule {
+    display: block;
+    width: 4.5rem;
+    height: 1px;
+    background: var(--gold);
+    margin-top: 0.4rem;
+  }
+
+  .align-center .section-heading-rule {
+    margin-inline: auto;
+  }
+</style>

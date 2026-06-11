@@ -1,0 +1,78 @@
+---
+/**
+ * Contact call-to-action band (content from cta.json).
+ */
+import { config } from "@/config";
+import { t } from "@/i18n";
+
+interface Props {
+  /** Visual variant: parchment (default) or dark moss band */
+  variant?: "light" | "dark";
+}
+
+const { variant = "light" } = Astro.props;
+---
+
+<section class:list={["cta-band", { "theme-dark": variant === "dark" }]}>
+  <div class="container cta-inner" data-reveal="stagger-children">
+    <p class="label cta-label">Contacte-nos</p>
+    <h2 class="cta-title">{t.cta.title}</h2>
+    <p class="cta-description">{t.cta.description}</p>
+    <div class="cta-actions">
+      <a class="btn btn--solid" href={`mailto:${config.emailContact}`}>
+        {t.cta.buttons.email}
+      </a>
+      <a class="btn" href={`tel:${config.phoneContact.replace(/\s/g, "")}`}>
+        {t.cta.buttons.call}
+      </a>
+    </div>
+  </div>
+</section>
+
+<style>
+  .cta-band {
+    background: var(--bg-alt);
+    border-block: 1px solid var(--hairline);
+    padding-block: var(--space-xl);
+    text-align: center;
+  }
+
+  .cta-band.theme-dark {
+    background: var(--moss);
+    color: var(--linen);
+    border-block-color: var(--hairline-dark);
+  }
+
+  .cta-inner {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: var(--space-xs);
+  }
+
+  .cta-label {
+    color: var(--clay-deep);
+  }
+
+  .theme-dark .cta-label {
+    color: var(--rose);
+  }
+
+  .cta-title {
+    font-size: var(--text-xl);
+    font-weight: 420;
+  }
+
+  .cta-description {
+    color: var(--fg-soft);
+    max-width: 40rem;
+  }
+
+  .cta-actions {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: var(--space-xs);
+    margin-top: var(--space-sm);
+  }
+</style>

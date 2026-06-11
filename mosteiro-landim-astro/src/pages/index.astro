@@ -1,0 +1,1062 @@
+---
+import { getImage } from "astro:assets";
+import BaseLayout from "@/layouts/BaseLayout.astro";
+import SmartImage from "@/components/SmartImage.astro";
+import Marquee from "@/components/Marquee.astro";
+import CTABand from "@/components/CTABand.astro";
+import { t } from "@/i18n";
+
+import banner from "@/assets/images/landing/banner.jpg";
+import aboutTile from "@/assets/images/landing/about_us_tile.jpg";
+import eventsTile from "@/assets/images/landing/events_tile.jpg";
+import photosTile from "@/assets/images/landing/photos_tile.jpg";
+import historyTile from "@/assets/images/landing/history_tile.png";
+import gardensTile from "@/assets/images/landing/gardens_tile.png";
+import wineTile from "@/assets/images/landing/wine_tile.jpg";
+import faqTile from "@/assets/images/landing/faq_tile.jpg";
+import manifestoImg from "@/assets/images/about_us/spaces1.jpg";
+import featureCloister from "@/assets/images/events/cloister.jpg";
+import featureGarden from "@/assets/images/events/garden.jpg";
+import momento1 from "@/assets/images/photo-gallery/garden/2.jpg";
+import momento2 from "@/assets/images/photo-gallery/cloister/5.jpg";
+import momento3 from "@/assets/images/photo-gallery/garden/14.jpg";
+import momento4 from "@/assets/images/photo-gallery/rooms/1.jpg";
+import momento5 from "@/assets/images/photo-gallery/church/2.jpg";
+import momento6 from "@/assets/images/photo-gallery/cloister/9.jpg";
+
+const heroTexture = await getImage({ src: banner, width: 1920, format: "webp", quality: 80 });
+
+const spaces = [
+  { key: "weAre", href: "/about_us", img: aboutTile, ...t.landing.weAre },
+  { key: "events", href: "/events", img: eventsTile, ...t.landing.events },
+  { key: "photos", href: "/photo_gallery", img: photosTile, ...t.landing.photos },
+  { key: "history", href: "/history", img: historyTile, ...t.landing.history },
+  { key: "gardens", href: "/gardens", img: gardensTile, ...t.landing.gardens },
+  { key: "vineyards", href: "/wine_vineyards", img: wineTile, ...t.landing.vineyards },
+  { key: "faq", href: "/faq", img: faqTile, ...t.landing.faq },
+];
+
+const momentos = [
+  { img: momento1, caption: "Os jardins centenários", tall: false },
+  { img: momento2, caption: "Mesas no claustro", tall: true },
+  { img: momento3, caption: "Sombra das ramadas", tall: false },
+  { img: momento4, caption: "O salão principal", tall: true },
+  { img: momento5, caption: "A igreja românica", tall: false },
+  { img: momento6, caption: "Festa entre colunas dóricas", tall: true },
+];
+
+const timeline = [
+  {
+    year: "Séc. XII",
+    title: "A fundação",
+    text: "Nasce o Mosteiro de Santa Maria de Landim, casa dos Cónegos Regrantes de Santo Agostinho.",
+  },
+  {
+    year: "1770",
+    title: "A extinção",
+    text: "A carta régia de D. José I dita o fim da vida monástica em Landim.",
+  },
+  {
+    year: "1775",
+    title: "A escritura",
+    text: "O Mosteiro passa para as mãos da família — uma herança que dura há 250 anos.",
+  },
+  {
+    year: "Hoje",
+    title: "Dez gerações",
+    text: "Uma casa de família aberta a quem celebra: casamentos, eventos, visitas e vindimas.",
+  },
+];
+---
+
+<BaseLayout title={`${t.landing.heading} — Quinta de eventos & património histórico`}>
+  <!-- ============ PRELOADER ============ -->
+  <div id="preloader" aria-hidden="true">
+    <div class="preloader-inner">
+      <p class="preloader-mark serif-italic">ML</p>
+      <p class="preloader-name label">Mosteiro de Landim</p>
+      <span class="preloader-line"><i></i></span>
+      <p class="preloader-counter label">000</p>
+    </div>
+  </div>
+
+  <!-- ============ HERO ============ -->
+  <section class="hero" aria-label={t.landing.heading}>
+    <div class="hero-media">
+      <SmartImage
+        src={banner}
+        alt="Vista do Mosteiro de Landim ao entardecer"
+        eager
+        sizes="100vw"
+        widths={[640, 828, 1080, 1366, 1600, 2200]}
+        class="hero-fallback"
+      />
+      <canvas id="hero-canvas" data-src={heroTexture.src} aria-hidden="true"></canvas>
+      <div class="hero-scrim" aria-hidden="true"></div>
+    </div>
+
+    <div class="hero-content">
+      <p class="hero-estd label">Estd · Séc. XII — Vila Nova de Famalicão</p>
+      <h1 class="hero-title">{t.landing.heading}</h1>
+      <p class="hero-sub">
+        <span>{t.landing.subHeading}</span>
+        <span class="hero-words">
+          {
+            t.landing.subheadingTextCarousel.map((word, i) => (
+              <span class:list={["hero-word", "serif-italic", { "is-first": i === 0 }]}>
+                {word}
+              </span>
+            ))
+          }
+        </span>
+      </p>
+    </div>
+
+    <div class="hero-scroll" aria-hidden="true">
+      <span class="label">Desça</span>
+      <span class="hero-scroll-line"><i></i></span>
+    </div>
+  </section>
+
+  <!-- ============ MANIFESTO ============ -->
+  <section class="manifesto" aria-labelledby="manifesto-title">
+    <div class="container manifesto-grid">
+      <div class="manifesto-text">
+        <p class="label manifesto-label" data-reveal="fade-up">{t.landing.weAre.title}</p>
+        <h2 class="manifesto-title" id="manifesto-title" data-reveal="stagger-children">
+          <span>Um Mosteiro.</span>
+          <span>Uma família.</span>
+          <span><em>Dez gerações.</em></span>
+        </h2>
+        <p class="manifesto-lede" data-reveal="fade-up">
+          Entre japoneiras centenárias e um claustro do século XVI, a nossa casa guarda
+          oito séculos de história — e continua a abrir os portões a quem celebra.
+        </p>
+        <a class="btn" href="/about_us" data-reveal="fade-up">Sobre nós</a>
+      </div>
+      <div class="manifesto-media">
+        <div class="manifesto-arch" data-reveal="mask">
+          <div data-reveal="parallax" data-parallax="10" class="manifesto-parallax">
+            <SmartImage
+              src={manifestoImg}
+              alt="O claustro do Mosteiro de Landim"
+              sizes="(min-width: 64rem) 34rem, 86vw"
+              widths={[480, 800, 1200]}
+              aspect="4 / 5"
+            />
+          </div>
+        </div>
+        <p class="manifesto-caption serif-italic" data-reveal="fade-up">
+          O claustro — o coração de cada festa.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ MARQUEE ============ -->
+  <Marquee items={["Casamentos", "Eventos", "Tours", "Vindimas", "Estadia", "História"]} />
+
+  <!-- ============ INDEX OF SPACES ============ -->
+  <section class="spaces" aria-labelledby="spaces-title">
+    <div class="container">
+      <header class="spaces-header">
+        <p class="label" data-reveal="fade-up">Índice</p>
+        <h2 class="spaces-title" id="spaces-title" data-reveal="words">
+          Explore <em class="serif-italic">a quinta</em>
+        </h2>
+      </header>
+
+      <ol class="spaces-list">
+        {
+          spaces.map((space, i) => (
+            <li>
+              <a class="spaces-row" href={space.href} data-space={space.key} data-reveal="fade-up">
+                <span class="spaces-num label">{String(i + 1).padStart(2, "0")}</span>
+                <span class="spaces-name">{space.title}</span>
+                <span class="spaces-desc">{space.description}</span>
+                <span class="spaces-thumb" aria-hidden="true">
+                  <SmartImage
+                    src={space.img}
+                    alt=""
+                    sizes="9rem"
+                    widths={[200, 400]}
+                    aspect="4 / 3"
+                  />
+                </span>
+                <span class="spaces-arrow" aria-hidden="true">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4">
+                    <path d="M4 12h15M13 5l7 7-7 7" />
+                  </svg>
+                </span>
+              </a>
+            </li>
+          ))
+        }
+      </ol>
+    </div>
+
+    <!-- cursor-following preview (full tier only) -->
+    <div class="spaces-preview" aria-hidden="true">
+      {
+        spaces.map((space) => (
+          <div class="spaces-preview-img" data-space={space.key}>
+            <SmartImage src={space.img} alt="" sizes="22rem" widths={[400, 700]} aspect="4 / 3" />
+          </div>
+        ))
+      }
+    </div>
+  </section>
+
+  <!-- ============ EVENTS FEATURE ============ -->
+  <section class="feature" aria-labelledby="feature-title">
+    <div class="container feature-grid">
+      <div class="feature-media-a" data-reveal="mask">
+        <SmartImage
+          src={featureGarden}
+          alt="Jardins do Mosteiro preparados para um casamento"
+          sizes="(min-width: 64rem) 38rem, 92vw"
+          widths={[480, 800, 1200]}
+          aspect="4 / 3"
+        />
+      </div>
+      <div class="feature-media-b" data-reveal="mask">
+        <SmartImage
+          src={featureCloister}
+          alt="Mesa de festa no claustro"
+          sizes="(min-width: 64rem) 24rem, 70vw"
+          widths={[400, 700, 1000]}
+          aspect="3 / 4"
+        />
+      </div>
+      <div class="feature-text">
+        <p class="label" data-reveal="fade-up">{t.landing.events.title}</p>
+        <h2 class="feature-title" id="feature-title" data-reveal="words">
+          O cenário de uma <em class="serif-italic">festa única</em>
+        </h2>
+        <p data-reveal="fade-up">{t.landing.events.description}</p>
+        <p data-reveal="fade-up">
+          Claustro, salas históricas, jardins e igreja — um conjunto de espaços com séculos
+          de histórias para contar, exclusivamente seus por um dia.
+        </p>
+        <a class="btn btn--solid" href="/events" data-reveal="fade-up">Conhecer os serviços</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ MOMENTOS (pinned horizontal) ============ -->
+  <section class="momentos" aria-labelledby="momentos-title">
+    <div class="momentos-track">
+      <header class="momentos-intro">
+        <p class="label" data-reveal="fade-up">Galeria</p>
+        <h2 class="momentos-title" id="momentos-title" data-reveal="words">
+          Momentos <em class="serif-italic">que ficam</em>
+        </h2>
+        <p class="momentos-lede" data-reveal="fade-up">
+          {t.landing.photos.description}
+        </p>
+        <p class="label momentos-hint" aria-hidden="true">( continue a descer )</p>
+      </header>
+
+      {
+        momentos.map((m) => (
+          <figure class:list={["momentos-panel", { "is-tall": m.tall }]}>
+            <SmartImage
+              src={m.img}
+              alt={m.caption}
+              sizes="(min-width: 64rem) 36rem, 78vw"
+              widths={[480, 800, 1200]}
+              aspect={m.tall ? "3 / 4" : "4 / 3"}
+            />
+            <figcaption class="momentos-caption serif-italic">{m.caption}</figcaption>
+          </figure>
+        ))
+      }
+
+      <div class="momentos-cta">
+        <p class="momentos-cta-text serif-italic">Há muito mais para ver.</p>
+        <a class="btn" href="/photo_gallery">Galeria completa</a>
+      </div>
+    </div>
+    <span class="momentos-progress" aria-hidden="true"><i></i></span>
+  </section>
+
+  <!-- ============ TIMELINE (dark band) ============ -->
+  <section class="timeline theme-dark" aria-labelledby="timeline-title">
+    <div class="container">
+      <header class="timeline-header">
+        <p class="label timeline-label" data-reveal="fade-up">{t.landing.history.title}</p>
+        <h2 class="timeline-title" id="timeline-title" data-reveal="fade-up">
+          Oito séculos <em class="serif-italic">numa casa</em>
+        </h2>
+        <p class="timeline-lede" data-reveal="fade-up">{t.landing.history.description}</p>
+      </header>
+
+      <div class="timeline-body">
+        <span class="timeline-rail" aria-hidden="true"><i></i></span>
+        <ol class="timeline-list">
+          {
+            timeline.map((item) => (
+              <li class="timeline-item">
+                <p class="timeline-year">{item.year}</p>
+                <div>
+                  <h3 class="timeline-item-title serif-italic">{item.title}</h3>
+                  <p class="timeline-item-text">{item.text}</p>
+                </div>
+              </li>
+            ))
+          }
+        </ol>
+      </div>
+
+      <a class="btn timeline-btn" href="/history" data-reveal="fade-up">A história completa</a>
+    </div>
+  </section>
+
+  <CTABand />
+</BaseLayout>
+
+<style>
+  /* ============ Preloader ============ */
+  #preloader {
+    position: fixed;
+    inset: 0;
+    z-index: var(--z-preloader);
+    display: grid;
+    place-items: center;
+    background: var(--parchment);
+    clip-path: inset(0 0 0% 0);
+    /* Safety: if JS never removes it, fade it away */
+    animation: preloader-bail 0.6s ease 6s forwards;
+  }
+
+  html[data-motion="min"] #preloader,
+  html[data-motion="medium"] #preloader {
+    display: none;
+  }
+
+  @keyframes preloader-bail {
+    to {
+      opacity: 0;
+      visibility: hidden;
+    }
+  }
+
+  .preloader-inner {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+  }
+
+  .preloader-mark {
+    font-size: var(--text-2xl);
+    color: var(--clay);
+    line-height: 1;
+  }
+
+  .preloader-name {
+    color: var(--fg-soft);
+  }
+
+  .preloader-line {
+    width: 9rem;
+    height: 1px;
+    background: var(--sand);
+    overflow: hidden;
+  }
+
+  .preloader-line i {
+    display: block;
+    height: 100%;
+    background: var(--clay);
+    transform: scaleX(0);
+    transform-origin: left;
+  }
+
+  .preloader-counter {
+    color: var(--clay-deep);
+    font-variant-numeric: tabular-nums;
+  }
+
+  /* ============ Hero ============ */
+  .hero {
+    position: relative;
+    min-height: 100svh;
+    display: flex;
+    align-items: flex-end;
+    color: var(--linen);
+    overflow: clip;
+  }
+
+  .hero-media {
+    position: absolute;
+    inset: 0;
+  }
+
+  .hero-media :global(.hero-fallback) {
+    position: absolute;
+    inset: 0;
+    aspect-ratio: auto !important;
+  }
+
+  .hero-media :global(.hero-fallback img) {
+    height: 100%;
+  }
+
+  #hero-canvas {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    transition: opacity 1.2s var(--ease-out);
+  }
+
+  #hero-canvas.is-live {
+    opacity: 1;
+  }
+
+  .hero-scrim {
+    position: absolute;
+    inset: 0;
+    background:
+      linear-gradient(to bottom, rgb(35 32 26 / 0.3), transparent 35%),
+      linear-gradient(to top, rgb(35 32 26 / 0.72), rgb(35 32 26 / 0.06) 52%);
+  }
+
+  .hero-content {
+    position: relative;
+    z-index: 1;
+    width: min(100% - 2 * var(--gutter), var(--container-wide));
+    margin-inline: auto;
+    padding-bottom: clamp(5rem, 13vh, 9rem);
+  }
+
+  .hero-estd {
+    color: var(--rose);
+    margin-bottom: var(--space-sm);
+  }
+
+  .hero-title {
+    font-size: var(--text-display);
+    font-weight: 380;
+    letter-spacing: -0.025em;
+    line-height: 0.98;
+    max-width: 10ch;
+  }
+
+  .hero-title :global(.hero-line) {
+    overflow: clip;
+    padding-bottom: 0.08em;
+    margin-bottom: -0.08em;
+  }
+
+  .hero-sub {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: baseline;
+    gap: 0.4ch;
+    margin-top: var(--space-sm);
+    font-size: var(--text-lg);
+    font-weight: 300;
+  }
+
+  .hero-words {
+    position: relative;
+    display: inline-block;
+    min-width: 9ch;
+    min-height: 1.4em;
+  }
+
+  .hero-word {
+    position: absolute;
+    inset: 0 auto auto 0;
+    white-space: nowrap;
+    color: var(--rose);
+    opacity: 0;
+  }
+
+  /* Before JS (and on min tier) only the first word shows */
+  .hero-word.is-first {
+    opacity: 1;
+  }
+
+  .hero-scroll {
+    position: absolute;
+    right: var(--gutter);
+    bottom: clamp(5rem, 13vh, 9rem);
+    z-index: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.8rem;
+    color: var(--linen);
+  }
+
+  .hero-scroll .label {
+    color: inherit;
+    writing-mode: vertical-rl;
+  }
+
+  .hero-scroll-line {
+    width: 1px;
+    height: 4.4rem;
+    background: color-mix(in srgb, var(--linen) 30%, transparent);
+    overflow: hidden;
+  }
+
+  .hero-scroll-line i {
+    display: block;
+    width: 100%;
+    height: 40%;
+    background: var(--linen);
+    animation: scroll-drip 2.2s var(--ease-in-out) infinite;
+  }
+
+  @keyframes scroll-drip {
+    0% {
+      transform: translateY(-110%);
+    }
+    60%,
+    100% {
+      transform: translateY(280%);
+    }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .hero-scroll-line i {
+      animation: none;
+    }
+  }
+
+  /* ============ Manifesto ============ */
+  .manifesto {
+    padding-block: var(--space-2xl) var(--space-xl);
+  }
+
+  .manifesto-grid {
+    display: grid;
+    grid-template-columns: minmax(0, 1.1fr) minmax(0, 0.9fr);
+    gap: var(--space-lg);
+    align-items: center;
+  }
+
+  .manifesto-label {
+    color: var(--clay-deep);
+    margin-bottom: var(--space-sm);
+  }
+
+  .manifesto-title {
+    display: flex;
+    flex-direction: column;
+    font-size: var(--text-2xl);
+    font-weight: 400;
+  }
+
+  .manifesto-title em {
+    color: var(--clay-deep);
+  }
+
+  .manifesto-lede {
+    margin-top: var(--space-sm);
+    font-size: var(--text-md);
+    color: var(--fg-soft);
+    max-width: 44ch;
+  }
+
+  .manifesto-text .btn {
+    margin-top: var(--space-md);
+  }
+
+  .manifesto-media {
+    justify-self: center;
+    width: min(100%, 30rem);
+  }
+
+  .manifesto-arch {
+    border-radius: var(--radius-arch);
+    overflow: hidden;
+  }
+
+  .manifesto-parallax {
+    will-change: transform;
+  }
+
+  .manifesto-arch :global(.smart-image) {
+    height: 100%;
+  }
+
+  .manifesto-caption {
+    margin-top: var(--space-xs);
+    text-align: center;
+    color: var(--fg-soft);
+    font-size: var(--text-sm);
+  }
+
+  /* ============ Spaces ============ */
+  .spaces {
+    position: relative;
+    padding-block: var(--space-xl);
+  }
+
+  .spaces-header {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-xs);
+    margin-bottom: var(--space-md);
+  }
+
+  .spaces-header .label {
+    color: var(--clay-deep);
+  }
+
+  .spaces-title {
+    font-size: var(--text-xl);
+    font-weight: 420;
+  }
+
+  .spaces-title em {
+    color: var(--clay-deep);
+  }
+
+  .spaces-list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    border-top: 1px solid var(--hairline);
+  }
+
+  .spaces-row {
+    display: grid;
+    grid-template-columns: 3ch minmax(10rem, 0.55fr) 1fr auto;
+    align-items: center;
+    gap: clamp(0.8rem, 2.5vw, 2.4rem);
+    padding: var(--space-sm) 0.4rem;
+    border-bottom: 1px solid var(--hairline);
+    text-decoration: none;
+    transition:
+      background var(--dur-base) var(--ease-out),
+      padding-left var(--dur-base) var(--ease-out);
+  }
+
+  .spaces-row:hover {
+    background: color-mix(in oklab, var(--parchment) 60%, transparent);
+    padding-left: 1rem;
+  }
+
+  .spaces-num {
+    color: var(--gold-ink);
+  }
+
+  .spaces-name {
+    font-family: var(--font-display);
+    font-size: var(--text-lg);
+    font-weight: 420;
+    line-height: 1.1;
+    transition: color var(--dur-fast) var(--ease-out);
+  }
+
+  .spaces-row:hover .spaces-name {
+    color: var(--clay-deep);
+    font-style: italic;
+  }
+
+  .spaces-desc {
+    font-size: var(--text-sm);
+    color: var(--fg-soft);
+    max-width: 44ch;
+  }
+
+  .spaces-thumb {
+    display: none;
+  }
+
+  .spaces-arrow {
+    width: 1.4rem;
+    height: 1.4rem;
+    color: var(--clay);
+    transition: transform var(--dur-base) var(--ease-out);
+  }
+
+  .spaces-row:hover .spaces-arrow {
+    transform: translateX(0.4rem);
+  }
+
+  .spaces-preview {
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 50;
+    width: 22rem;
+    aspect-ratio: 4 / 3;
+    pointer-events: none;
+    opacity: 0;
+    translate: -50% -50%;
+    border-radius: var(--radius-sm);
+    overflow: hidden;
+  }
+
+  html:not([data-motion="full"]) .spaces-preview {
+    display: none;
+  }
+
+  .spaces-preview-img {
+    position: absolute;
+    inset: 0;
+    opacity: 0;
+  }
+
+  /* ============ Feature ============ */
+  .feature {
+    padding-block: var(--space-xl);
+    background: var(--bg-alt);
+    border-block: 1px solid var(--hairline);
+  }
+
+  .feature-grid {
+    display: grid;
+    grid-template-columns: repeat(12, minmax(0, 1fr));
+    gap: var(--space-md);
+    align-items: center;
+  }
+
+  .feature-media-a {
+    grid-column: 1 / 7;
+    align-self: start;
+  }
+
+  .feature-media-b {
+    grid-column: 2 / 6;
+    width: 75%;
+    justify-self: end;
+    margin-top: calc(-1 * var(--space-lg));
+  }
+
+  .feature-text {
+    grid-column: 8 / 13;
+    grid-row: 1 / 3;
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-sm);
+  }
+
+  .feature-media-b :global(.smart-image) {
+    box-shadow: 0 24px 60px rgb(49 43 35 / 0.18);
+  }
+
+  .feature-text .label {
+    color: var(--clay-deep);
+  }
+
+  .feature-title {
+    font-size: var(--text-xl);
+    font-weight: 420;
+  }
+
+  .feature-title em {
+    color: var(--clay-deep);
+  }
+
+  .feature-text p {
+    color: var(--fg-soft);
+  }
+
+  .feature-text .btn {
+    align-self: flex-start;
+    margin-top: var(--space-xs);
+  }
+
+  /* ============ Momentos ============ */
+  .momentos {
+    position: relative;
+    background: var(--bg-alt);
+    border-block: 1px solid var(--hairline);
+    overflow: clip;
+  }
+
+  .momentos-track {
+    display: flex;
+    align-items: center;
+    gap: clamp(1.4rem, 3.5vw, 3.4rem);
+    padding: var(--space-lg) var(--gutter);
+    width: max-content;
+    min-height: 100svh;
+    will-change: transform;
+  }
+
+  /* Non-full tiers: native horizontal scroll with snap */
+  html:not([data-motion="full"]) .momentos-track {
+    width: auto;
+    min-height: 0;
+    overflow-x: auto;
+    scroll-snap-type: x proximity;
+    scrollbar-width: none;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  html:not([data-motion="full"]) .momentos-track::-webkit-scrollbar {
+    display: none;
+  }
+
+  .momentos-intro {
+    flex: 0 0 auto;
+    width: min(34rem, 80vw);
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-xs);
+  }
+
+  .momentos-intro .label {
+    color: var(--clay-deep);
+  }
+
+  .momentos-title {
+    font-size: var(--text-2xl);
+    font-weight: 400;
+  }
+
+  .momentos-title em {
+    color: var(--clay-deep);
+  }
+
+  .momentos-lede {
+    color: var(--fg-soft);
+    max-width: 38ch;
+  }
+
+  .momentos-hint {
+    margin-top: var(--space-sm);
+    color: var(--clay-deep);
+  }
+
+  html:not([data-motion="full"]) .momentos-hint {
+    display: none;
+  }
+
+  .momentos-panel {
+    flex: 0 0 auto;
+    margin: 0;
+    width: clamp(16rem, 44vw, 30rem);
+    scroll-snap-align: center;
+  }
+
+  .momentos-panel.is-tall {
+    width: clamp(14rem, 34vw, 24rem);
+  }
+
+  .momentos-panel :global(.smart-image) {
+    border-radius: var(--radius-sm);
+  }
+
+  .momentos-panel.is-tall :global(.smart-image) {
+    border-radius: var(--radius-arch);
+  }
+
+  .momentos-panel :global(img) {
+    will-change: transform;
+  }
+
+  .momentos-caption {
+    margin-top: 0.6rem;
+    font-size: var(--text-sm);
+    color: var(--fg-soft);
+  }
+
+  .momentos-cta {
+    flex: 0 0 auto;
+    width: min(26rem, 76vw);
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: var(--space-sm);
+    padding-right: var(--gutter);
+  }
+
+  .momentos-cta-text {
+    font-size: var(--text-lg);
+    color: var(--clay-deep);
+  }
+
+  .momentos-progress {
+    position: absolute;
+    left: var(--gutter);
+    right: var(--gutter);
+    bottom: clamp(1rem, 3vh, 2rem);
+    height: 1px;
+    background: var(--sand);
+    overflow: hidden;
+  }
+
+  html:not([data-motion="full"]) .momentos-progress {
+    display: none;
+  }
+
+  .momentos-progress i {
+    display: block;
+    height: 100%;
+    background: var(--clay-deep);
+    transform: scaleX(0);
+    transform-origin: left center;
+  }
+
+  /* ============ Timeline ============ */
+  .timeline {
+    background: var(--moss);
+    color: var(--linen);
+    padding-block: var(--space-xl);
+  }
+
+  .timeline-header {
+    max-width: 46rem;
+    margin-bottom: var(--space-lg);
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-xs);
+  }
+
+  .timeline-label {
+    color: var(--rose);
+  }
+
+  .timeline-title {
+    font-size: var(--text-xl);
+    font-weight: 420;
+  }
+
+  .timeline-title em {
+    color: var(--rose);
+  }
+
+  .timeline-lede {
+    color: color-mix(in oklab, var(--linen) 82%, var(--moss));
+  }
+
+  .timeline-body {
+    position: relative;
+    padding-left: clamp(1.6rem, 4vw, 3rem);
+  }
+
+  .timeline-rail {
+    position: absolute;
+    left: 0;
+    top: 0.5rem;
+    bottom: 0.5rem;
+    width: 1px;
+    background: color-mix(in oklab, var(--linen) 18%, var(--moss));
+  }
+
+  .timeline-rail i {
+    display: block;
+    width: 100%;
+    height: 100%;
+    background: var(--rose);
+    transform: scaleY(0);
+    transform-origin: top;
+  }
+
+  html[data-motion="min"] .timeline-rail i,
+  html[data-motion="medium"] .timeline-rail i {
+    transform: none;
+  }
+
+  .timeline-list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-md);
+  }
+
+  .timeline-item {
+    display: grid;
+    grid-template-columns: minmax(7ch, auto) 1fr;
+    gap: clamp(1.2rem, 4vw, 3rem);
+    align-items: baseline;
+  }
+
+  .timeline-year {
+    font-family: var(--font-display);
+    font-size: var(--text-lg);
+    color: var(--rose);
+    line-height: 1;
+  }
+
+  .timeline-item-title {
+    font-size: var(--text-md);
+    margin-bottom: 0.3rem;
+    font-weight: 460;
+  }
+
+  .timeline-item-text {
+    color: color-mix(in oklab, var(--linen) 82%, var(--moss));
+    max-width: 52ch;
+  }
+
+  .timeline-btn {
+    margin-top: var(--space-lg);
+    color: var(--linen);
+  }
+
+  /* ============ Responsive ============ */
+  @media (max-width: 64rem) {
+    .manifesto-grid {
+      grid-template-columns: 1fr;
+    }
+
+    .feature-grid {
+      display: flex;
+      flex-direction: column;
+      align-items: stretch;
+    }
+
+    .feature-media-b {
+      display: none;
+    }
+
+    .spaces-row {
+      grid-template-columns: 3ch 1fr auto;
+      grid-template-areas:
+        "num name arrow"
+        "num desc arrow"
+        "num thumb thumb";
+    }
+
+    .spaces-num {
+      grid-area: num;
+    }
+
+    .spaces-name {
+      grid-area: name;
+    }
+
+    .spaces-desc {
+      grid-area: desc;
+    }
+
+    .spaces-arrow {
+      grid-area: arrow;
+    }
+  }
+
+  @media (max-width: 48rem) {
+    .hero-scroll {
+      display: none;
+    }
+
+    .hero-title {
+      font-size: clamp(2.7rem, 13.5vw, 4.4rem);
+    }
+
+    .spaces-thumb {
+      display: block;
+      grid-area: thumb;
+      width: 9rem;
+      border-radius: var(--radius-sm);
+      overflow: hidden;
+      margin-top: 0.4rem;
+    }
+  }
+</style>
+
+<script src="@/scripts/landing.ts"></script>

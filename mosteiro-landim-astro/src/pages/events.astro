@@ -1,0 +1,273 @@
+---
+import { getImage } from "astro:assets";
+import BaseLayout from "@/layouts/BaseLayout.astro";
+import PageHero from "@/components/PageHero.astro";
+import SectionHeading from "@/components/SectionHeading.astro";
+import GalleryStrip from "@/components/GalleryStrip.astro";
+import CTABand from "@/components/CTABand.astro";
+import Lightbox from "@/components/Lightbox.astro";
+import SmartImage from "@/components/SmartImage.astro";
+import { t } from "@/i18n";
+
+import banner from "@/assets/images/events/banner.jpg";
+import cloister from "@/assets/images/events/cloister.jpg";
+import garden from "@/assets/images/events/garden.jpg";
+import rooms from "@/assets/images/events/rooms.jpg";
+import church from "@/assets/images/events/church.png";
+import space1 from "@/assets/images/events/space1.jpg";
+import space2 from "@/assets/images/events/space2.jpg";
+
+import decor1 from "@/assets/images/events/carousel/1.jpg";
+import decor2 from "@/assets/images/events/carousel/2.jpg";
+import decor3 from "@/assets/images/events/carousel/3.jpg";
+import decor4 from "@/assets/images/events/carousel/4.jpg";
+import decor5 from "@/assets/images/events/carousel/5.jpg";
+import decor6 from "@/assets/images/events/carousel/6.jpg";
+import decor9 from "@/assets/images/events/carousel/9.jpg";
+
+const c = t.events;
+
+const spotlights = [
+  { img: cloister, alt: "O claustro do século XVI", ...c.spotlights.cloister },
+  { img: garden, alt: "Os jardins centenários", ...c.spotlights.gardens },
+  { img: rooms, alt: "O salão principal, antigo refeitório", ...c.spotlights.rooms },
+  { img: church, alt: "A Igreja paroquial de Landim", ...c.spotlights.church },
+];
+
+const spaceImages = [
+  { img: space1, caption: c.secondParagraph.spaces.image1Caption },
+  { img: space2, caption: c.secondParagraph.spaces.image2Caption },
+];
+
+const spaceFulls = await Promise.all(
+  spaceImages.map(({ img }) => getImage({ src: img, width: 1600, format: "webp", quality: 78 })),
+);
+
+const decorItems = [decor1, decor2, decor3, decor4, decor5, decor6, decor9].map((src, i) => ({
+  src,
+  alt: `Decoração de eventos no Mosteiro de Landim — ${i + 1}`,
+}));
+---
+
+<BaseLayout title={`Eventos — ${c.subHeading}`} description={c.firstParagraph.description1}>
+  <PageHero
+    title={c.heading}
+    subtitle={c.subHeading}
+    image={banner}
+    imageAlt="Festa no Mosteiro de Landim"
+    label="Casamentos & celebrações"
+  />
+
+  <!-- ============ INTRO ============ -->
+  <section class="section">
+    <div class="container">
+      <SectionHeading index="01" label="O espaço" title={c.firstParagraph.title} />
+      <div class="prose prose--cols" data-reveal="fade-up">
+        <p>{c.firstParagraph.description1}</p>
+        <p>{c.firstParagraph.description2}</p>
+        <p>{c.firstParagraph.description3}</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ SPOTLIGHTS ============ -->
+  <section class="section section--flush">
+    <div class="container">
+      {
+        spotlights.map((s, i) => (
+          <article class:list={["spot-row", { "spot-row--flip": i % 2 === 1 }]}>
+            <div class="spot-media" data-reveal="mask">
+              <SmartImage
+                src={s.img}
+                alt={s.alt}
+                sizes="(min-width: 64rem) 44rem, 92vw"
+                widths={[480, 800, 1200, 1600]}
+                aspect="3 / 2"
+              />
+            </div>
+            <div class="spot-text">
+              <p class="label spot-num" data-reveal="fade-up">
+                {String(i + 1).padStart(2, "0")}
+              </p>
+              <h3 class="spot-title" data-reveal="fade-up">
+                {s.title}
+              </h3>
+              <p class="spot-desc" data-reveal="fade-up">
+                {s.description}
+              </p>
+            </div>
+          </article>
+        ))
+      }
+    </div>
+  </section>
+
+  <!-- ============ SERVIÇOS ============ -->
+  <section class="section section--alt">
+    <div class="container">
+      <SectionHeading index="02" label="Serviços" title={c.secondParagraph.title} />
+      <div class="prose" data-reveal="fade-up">
+        <p>{c.secondParagraph.description1}</p>
+      </div>
+
+      <div class="services-block">
+        <h3 class="services-subtitle serif-italic" data-reveal="fade-up">
+          {c.secondParagraph.spaces.title}
+        </h3>
+        <div class="prose prose--cols" data-reveal="fade-up">
+          <p>{c.secondParagraph.spaces.description1}</p>
+          <p>{c.secondParagraph.spaces.description2}</p>
+        </div>
+
+        <div class="space-photos">
+          {
+            spaceImages.map((s, i) => (
+              <figure class="space-photo" data-reveal="fade-up">
+                <a href={spaceFulls[i].src} data-lightbox="spaces" data-caption={s.caption}>
+                  <SmartImage
+                    src={s.img}
+                    alt={s.caption}
+                    sizes="(min-width: 64rem) 38rem, 92vw"
+                    widths={[480, 800, 1200]}
+                    aspect="4 / 3"
+                  />
+                </a>
+                <figcaption class="caption serif-italic">{s.caption}</figcaption>
+              </figure>
+            ))
+          }
+        </div>
+      </div>
+
+      <div class="services-block">
+        <h3 class="services-subtitle serif-italic" data-reveal="fade-up">
+          {c.secondParagraph.decor.title}
+        </h3>
+        <div class="prose" data-reveal="fade-up">
+          <p>{c.secondParagraph.decor.description1}</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="strip-wrap">
+      <GalleryStrip items={decorItems} lightbox="decor" />
+    </div>
+  </section>
+
+  <CTABand />
+  <Lightbox />
+</BaseLayout>
+
+<style>
+  .section {
+    padding-block: var(--space-xl);
+  }
+
+  .section--flush {
+    padding-top: 0;
+  }
+
+  .section--alt {
+    background: var(--bg-alt);
+    border-block: 1px solid var(--hairline);
+  }
+
+  .prose {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-sm);
+    color: var(--fg-soft);
+    max-width: 62rem;
+  }
+
+  .prose--cols {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(20rem, 1fr));
+    gap: var(--space-md);
+    max-width: none;
+  }
+
+  .spot-row {
+    display: grid;
+    grid-template-columns: minmax(0, 7fr) minmax(0, 5fr);
+    gap: var(--space-lg);
+    align-items: center;
+    padding-block: var(--space-md);
+  }
+
+  .spot-row--flip .spot-media {
+    order: 2;
+  }
+
+  .spot-num {
+    color: var(--gold-ink);
+    margin-bottom: 0.6rem;
+  }
+
+  .spot-title {
+    font-size: var(--text-xl);
+    font-weight: 420;
+    margin-bottom: var(--space-xs);
+  }
+
+  .spot-desc {
+    color: var(--fg-soft);
+  }
+
+  .spot-media :global(.smart-image) {
+    border-radius: var(--radius-sm);
+  }
+
+  .services-block {
+    margin-top: var(--space-lg);
+  }
+
+  .services-subtitle {
+    font-size: var(--text-lg);
+    font-weight: 440;
+    color: var(--clay-deep);
+    margin-bottom: var(--space-sm);
+  }
+
+  .space-photos {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: var(--space-sm);
+    margin-top: var(--space-md);
+  }
+
+  .space-photo {
+    margin: 0;
+  }
+
+  .space-photo a {
+    display: block;
+  }
+
+  .caption {
+    margin-top: var(--space-2xs);
+    font-size: var(--text-sm);
+    color: var(--fg-soft);
+  }
+
+  .strip-wrap {
+    margin-top: var(--space-lg);
+  }
+
+  @media (max-width: 64rem) {
+    .spot-row {
+      grid-template-columns: 1fr;
+      gap: var(--space-sm);
+    }
+
+    .spot-row--flip .spot-media {
+      order: 0;
+    }
+  }
+
+  @media (max-width: 34rem) {
+    .space-photos {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>

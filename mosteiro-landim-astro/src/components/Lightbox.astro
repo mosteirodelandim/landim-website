@@ -1,0 +1,187 @@
+---
+/**
+ * Site-wide lightbox. Include ONCE per page that has lightbox triggers.
+ *
+ * Trigger convention:
+ *   <a href={fullUrl} data-lightbox="group-name" data-caption="...">
+ *     <SmartImage ... />
+ *   </a>
+ *
+ * Native <dialog> provides focus trapping and Esc handling.
+ */
+---
+
+<dialog id="lightbox" class="lightbox" aria-label="Galeria de imagens">
+  <button class="lb-close" type="button" data-lb-close aria-label="Fechar">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" aria-hidden="true">
+      <path d="M5 5l14 14M19 5L5 19"></path>
+    </svg>
+  </button>
+
+  <button class="lb-arrow lb-prev" type="button" data-lb-prev aria-label="Anterior">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" aria-hidden="true">
+      <path d="M15 4l-8 8 8 8"></path>
+    </svg>
+  </button>
+
+  <figure class="lb-stage">
+    <img class="lb-img" alt="" />
+    <figcaption class="lb-meta">
+      <span class="lb-caption"></span>
+      <span class="lb-counter label"></span>
+    </figcaption>
+  </figure>
+
+  <button class="lb-arrow lb-next" type="button" data-lb-next aria-label="Seguinte">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" aria-hidden="true">
+      <path d="M9 4l8 8-8 8"></path>
+    </svg>
+  </button>
+</dialog>
+
+<style>
+  .lightbox {
+    position: fixed;
+    inset: 0;
+    z-index: var(--z-lightbox);
+    width: 100vw;
+    height: 100dvh;
+    max-width: none;
+    max-height: none;
+    margin: 0;
+    padding: 0;
+    border: none;
+    background: transparent;
+    display: none;
+    align-items: center;
+    justify-content: center;
+    color: var(--linen);
+  }
+
+  .lightbox[open] {
+    display: flex;
+  }
+
+  .lightbox::backdrop {
+    background: color-mix(in oklab, var(--espresso) 92%, black);
+    opacity: 0.96;
+  }
+
+  .lb-stage {
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.9rem;
+    max-width: min(92vw, 100rem);
+    max-height: 100dvh;
+    padding: 3.5rem 0;
+  }
+
+  .lb-img {
+    max-width: 100%;
+    max-height: calc(100dvh - 9rem);
+    object-fit: contain;
+    box-shadow: 0 30px 80px rgb(0 0 0 / 0.45);
+    opacity: 1;
+    transition: opacity 280ms var(--ease-out);
+  }
+
+  .lb-img.is-switching {
+    opacity: 0;
+  }
+
+  .lb-meta {
+    display: flex;
+    align-items: baseline;
+    gap: 1.4rem;
+    justify-content: space-between;
+    width: 100%;
+    min-height: 1.4rem;
+  }
+
+  .lb-caption {
+    font-family: var(--font-display);
+    font-style: italic;
+    font-size: var(--text-sm);
+    color: color-mix(in srgb, var(--linen) 82%, transparent);
+  }
+
+  .lb-counter {
+    color: var(--rose);
+    flex-shrink: 0;
+  }
+
+  .lb-close {
+    position: absolute;
+    top: clamp(0.8rem, 2.5vw, 1.8rem);
+    right: clamp(0.8rem, 2.5vw, 1.8rem);
+    width: 2.8rem;
+    height: 2.8rem;
+    color: var(--linen);
+    border: 1px solid color-mix(in srgb, var(--linen) 35%, transparent);
+    border-radius: 50%;
+    display: grid;
+    place-items: center;
+    padding: 0.7rem;
+    transition: background var(--dur-fast) var(--ease-out);
+  }
+
+  .lb-close:hover {
+    background: color-mix(in srgb, var(--linen) 16%, transparent);
+  }
+
+  .lb-arrow {
+    position: absolute;
+    top: 50%;
+    translate: 0 -50%;
+    width: 3.2rem;
+    height: 3.2rem;
+    padding: 0.8rem;
+    color: var(--linen);
+    border: 1px solid color-mix(in srgb, var(--linen) 35%, transparent);
+    border-radius: 50%;
+    display: grid;
+    place-items: center;
+    transition: background var(--dur-fast) var(--ease-out);
+  }
+
+  .lb-arrow:hover {
+    background: color-mix(in srgb, var(--linen) 16%, transparent);
+  }
+
+  .lb-prev {
+    left: clamp(0.6rem, 2.5vw, 2rem);
+  }
+
+  .lb-next {
+    right: clamp(0.6rem, 2.5vw, 2rem);
+  }
+
+  @media (max-width: 48rem) {
+    .lb-arrow {
+      top: auto;
+      bottom: 1rem;
+      translate: 0 0;
+    }
+
+    .lb-prev {
+      left: 25%;
+    }
+
+    .lb-next {
+      right: 25%;
+    }
+
+    .lb-stage {
+      padding: 3rem 0 5.5rem;
+    }
+
+    .lb-img {
+      max-height: calc(100dvh - 11rem);
+      max-width: 96vw;
+    }
+  }
+</style>
+
+<script src="@/scripts/lightbox.ts"></script>

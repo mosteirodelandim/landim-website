@@ -1,0 +1,121 @@
+---
+import BaseLayout from "@/layouts/BaseLayout.astro";
+import PageHero from "@/components/PageHero.astro";
+import SectionHeading from "@/components/SectionHeading.astro";
+import GalleryStrip from "@/components/GalleryStrip.astro";
+import SpotlightLink from "@/components/SpotlightLink.astro";
+import CTABand from "@/components/CTABand.astro";
+import Lightbox from "@/components/Lightbox.astro";
+import { t } from "@/i18n";
+import { config } from "@/config";
+
+import banner from "@/assets/images/gardens/banner.jpg";
+import picture1 from "@/assets/images/gardens/picture1.jpg";
+import picture2 from "@/assets/images/gardens/picture2.jpg";
+import picture3 from "@/assets/images/gardens/picture3.jpg";
+import picture4 from "@/assets/images/gardens/picture4.jpg";
+import picture5 from "@/assets/images/gardens/picture5.jpg";
+import picture6 from "@/assets/images/gardens/picture6.jpg";
+
+const c = t.gardens;
+
+const gardenImages = [picture1, picture2, picture3, picture4, picture5, picture6].map(
+  (src, i) => ({ src, alt: `Jardins históricos do Mosteiro de Landim — ${i + 1}` }),
+);
+---
+
+<BaseLayout title={`Jardins & Visitas — ${c.firstParagraph.title}`} description={c.subHeading}>
+  <PageHero
+    title={c.title}
+    subtitle={c.subHeading}
+    image={banner}
+    imageAlt="Jardins do Mosteiro de Landim"
+    label="Jardins históricos"
+  />
+
+  <!-- ============ JARDINS ============ -->
+  <section class="section">
+    <div class="container">
+      <SectionHeading index="01" label="Património vivo" title={c.firstParagraph.title} />
+      <div class="prose prose--cols" data-reveal="fade-up">
+        <p>
+          {c.firstParagraph.description1.text}<a
+            href={config.external.historicGardensRoute}
+            target="_blank"
+            rel="noopener noreferrer">{c.firstParagraph.description1.hyperlink}</a
+          >.
+        </p>
+        <p>{c.firstParagraph.description2}</p>
+        <p>{c.firstParagraph.description3}</p>
+      </div>
+      <p class="strip-lead serif-italic" data-reveal="fade-up">
+        {c.firstParagraph.description4}
+      </p>
+    </div>
+    <div class="strip-wrap">
+      <GalleryStrip items={gardenImages} lightbox="gardens" />
+    </div>
+  </section>
+
+  <!-- ============ VISITAS ============ -->
+  <section class="section section--alt">
+    <div class="container">
+      <SectionHeading index="02" label="Receber" title={c.secondParagraph.title} />
+      <div class="prose prose--cols" data-reveal="fade-up">
+        <p>{c.secondParagraph.description1}</p>
+        <p>{c.secondParagraph.description2}</p>
+      </div>
+    </div>
+  </section>
+
+  <SpotlightLink
+    label={c.lottie.title}
+    text={c.lottie.description}
+    linkText={c.lottie.hyperlink}
+    href={`mailto:${config.emailContact}`}
+  />
+
+  <CTABand />
+  <Lightbox />
+</BaseLayout>
+
+<style>
+  .section {
+    padding-block: var(--space-xl);
+  }
+
+  .section--alt {
+    background: var(--bg-alt);
+    border-block: 1px solid var(--hairline);
+  }
+
+  .prose {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-sm);
+    color: var(--fg-soft);
+    max-width: 62rem;
+  }
+
+  .prose--cols {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(20rem, 1fr));
+    gap: var(--space-md);
+    max-width: none;
+  }
+
+  .prose :global(a),
+  .prose--cols :global(a) {
+    color: var(--clay-deep);
+  }
+
+  .strip-lead {
+    margin-top: var(--space-md);
+    font-size: var(--text-md);
+    color: var(--clay-deep);
+  }
+
+  .strip-wrap {
+    margin-top: var(--space-md);
+  }
+</style>

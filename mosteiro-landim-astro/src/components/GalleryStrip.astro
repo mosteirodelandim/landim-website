@@ -1,0 +1,187 @@
+---
+/**
+ * Horizontal scroll-snap image strip with optional lightbox wiring
+ * and drag-to-scroll on fine pointers.
+ */
+import SmartImage from "@/components/SmartImage.astro";
+import { getImage } from "astro:assets";
+
+interface StripItem {
+  src: ImageMetadata;
+  alt?: string;
+  caption?: string;
+}
+
+interface Props {
+  items: StripItem[];
+  /** Lightbox group name; omit for non-clickable strip */
+  lightbox?: string;
+  /** CSS aspect-ratio for every panel (default landscape 3/2) */
+  aspect?: string;
+  class?: string;
+}
+
+const { items, lightbox, aspect = "3 / 2", class: className = "" } = Astro.props;
+
+const [aw, ah] = aspect.split("/").map((s) => parseFloat(s));
+const orientation = ah > aw ? "portrait" : "landscape";
+
+const fulls = lightbox
+  ? await Promise.all(
+      items.map((item) =>
+        getImage({ src: item.src, width: Math.min(1800, item.src.width), format: "webp", quality: 78 }),
+      ),
+    )
+  : [];
+---
+
+<div
+  class:list={["gallery-strip", className]}
+  data-reveal="fade-up"
+  data-aspect={orientation}
+>
+  <ul class="strip-track" data-strip>
+    {
+      items.map((item, i) => (
+        <li class="strip-item">
+          {lightbox ? (
+            <a
+              href={fulls[i].src}
+              data-lightbox={lightbox}
+              data-caption={item.caption ?? ""}
+              aria-label={item.caption || item.alt || "Ampliar imagem"}
+            >
+              <SmartImage
+                src={item.src}
+                alt={item.alt ?? item.caption ?? ""}
+                sizes="(min-width: 64rem) 38rem, 86vw"
+                widths={[480, 800, 1200]}
+                aspect={aspect}
+              />
+            </a>
+          ) : (
+            <SmartImage
+              src={item.src}
+              alt={item.alt ?? item.caption ?? ""}
+              sizes="(min-width: 64rem) 38rem, 86vw"
+              widths={[480, 800, 1200]}
+              aspect={aspect}
+            />
+          )}
+          {item.caption && <p class="strip-caption serif-italic">{item.caption}</p>}
+        </li>
+      ))
+    }
+  </ul>
+  <p class="strip-hint label" aria-hidden="true">( arraste )</p>
+</div>
+
+<style>
+  .gallery-strip {
+    position: relative;
+  }
+
+  .strip-track {
+    list-style: none;
+    margin: 0;
+    padding: 0 var(--gutter);
+    display: flex;
+    gap: clamp(0.9rem, 2vw, 1.8rem);
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    scrollbar-width: none;
+    cursor: grab;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  .strip-track::-webkit-scrollbar {
+    display: none;
+  }
+
+  .strip-track.is-dragging {
+    cursor: grabbing;
+    scroll-snap-type: none;
+  }
+
+  .strip-item {
+    flex: 0 0 clamp(17rem, 62vw, 38rem);
+    scroll-snap-align: center;
+  }
+
+  .gallery-strip[data-aspect="portrait"] .strip-item {
+    flex-basis: clamp(13rem, 46vw, 22rem);
+  }
+
+  .strip-item a {
+    display: block;
+  }
+
+  .strip-item :global(.smart-image) {
+    border-radius: var(--radius-sm);
+  }
+
+  .strip-caption {
+    margin-top: 0.6rem;
+    font-size: var(--text-sm);
+    color: var(--fg-soft);
+  }
+
+  .strip-hint {
+    text-align: center;
+    margin-top: var(--space-sm);
+    color: var(--clay-deep);
+  }
+</style>
+
+<script>
+  function initStrips() {
+    document.querySelectorAll<HTMLElement>("[data-strip]").forEach((track) => {
+      if (track.dataset.bound) return;
+      track.dataset.bound = "true";
+
+      let isDown = false;
+      let startX = 0;
+      let startScroll = 0;
+      let moved = false;
+
+      track.addEventListener("pointerdown", (e) => {
+        if (e.pointerType !== "mouse") return;
+        isDown = true;
+        moved = false;
+        startX = e.clientX;
+        startScroll = track.scrollLeft;
+      });
+
+      window.addEventListener("pointermove", (e) => {
+        if (!isDown) return;
+        const dx = e.clientX - startX;
+        if (Math.abs(dx) > 6) {
+          moved = true;
+          track.classList.add("is-dragging");
+        }
+        track.scrollLeft = startScroll - dx;
+      });
+
+      window.addEventListener("pointerup", () => {
+        isDown = false;
+        requestAnimationFrame(() => track.classList.remove("is-dragging"));
+      });
+
+      // Suppress accidental clicks after a drag
+      track.addEventListener(
+        "click",
+        (e) => {
+          if (moved) {
+            e.preventDefault();
+            e.stopPropagation();
+            moved = false;
+          }
+        },
+        true,
+      );
+    });
+  }
+
+  initStrips();
+  document.addEventListener("astro:page-load", initStrips);
+</script>

@@ -1,0 +1,185 @@
+---
+import BaseLayout from "@/layouts/BaseLayout.astro";
+import PageHero from "@/components/PageHero.astro";
+import SectionHeading from "@/components/SectionHeading.astro";
+import Accordion from "@/components/Accordion.astro";
+import CTABand from "@/components/CTABand.astro";
+import { t } from "@/i18n";
+import { config } from "@/config";
+
+import banner from "@/assets/images/faq/banner.jpg";
+
+const c = t.faq;
+
+const esc = (s: string) =>
+  s.replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;");
+
+const faqItems = [
+  {
+    question: c.church.title,
+    html: `<p>${esc(c.church.description)}<a href="${config.external.parish}" target="_blank" rel="noopener noreferrer">${esc(c.church.hyperlink)}</a></p>`,
+  },
+  {
+    question: c.events.title,
+    html: `<p>${esc(c.events.description)}</p>`,
+  },
+  {
+    question: c.time_limit.title,
+    html: `<p>${esc(c.time_limit.description)}</p>`,
+  },
+  {
+    question: c.travel.title,
+    html: `<p>${esc(c.travel.description)}<a href="#location">${esc(c.travel.hyperlink)}</a>${esc(c.travel.description2)}</p>`,
+  },
+  {
+    question: c.per_weekend.title,
+    html: `<p>${esc(c.per_weekend.description)}</p>`,
+  },
+  {
+    question: c.more.title,
+    html: `<p>${esc(c.more.description)}<a href="mailto:${config.emailContact}">${esc(c.more.hyperlink)}</a>.</p>`,
+  },
+];
+
+// JSON-LD FAQPage (plain-text answers)
+const faqJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  mainEntity: [
+    { q: c.church.title, a: c.church.description + c.church.hyperlink },
+    { q: c.events.title, a: c.events.description },
+    { q: c.time_limit.title, a: c.time_limit.description },
+    { q: c.travel.title, a: c.travel.description + c.travel.hyperlink + c.travel.description2 },
+    { q: c.per_weekend.title, a: c.per_weekend.description },
+  ].map(({ q, a }) => ({
+    "@type": "Question",
+    name: q,
+    acceptedAnswer: { "@type": "Answer", text: a },
+  })),
+};
+---
+
+<BaseLayout title={`FAQ & Contactos — ${config.siteTitle}`} description={c.subHeading}>
+  <PageHero
+    title={c.heading}
+    subtitle={c.subHeading}
+    image={banner}
+    imageAlt="Pormenor do Mosteiro de Landim"
+    label="Perguntas & respostas"
+  />
+
+  <!-- ============ PERGUNTAS ============ -->
+  <section class="section">
+    <div class="container container--narrow">
+      <SectionHeading index="01" label="Dúvidas comuns" title="Perguntas frequentes" />
+      <Accordion items={faqItems} />
+    </div>
+  </section>
+
+  <!-- ============ LOCALIZAÇÃO ============ -->
+  <section class="section section--alt" id="location">
+    <div class="container">
+      <SectionHeading
+        index="02"
+        label="Onde estamos"
+        title="Estamos <em>aqui</em>"
+        lede={`${config.address}, a 30 minutos do Porto e 20 minutos do aeroporto.`}
+      />
+
+      <div class="map-grid">
+        <div class="map-frame" data-reveal="fade-up">
+          <iframe
+            src={config.mapEmbedSrc}
+            title="Mapa — Mosteiro de Landim"
+            loading="lazy"
+            allowfullscreen
+            referrerpolicy="no-referrer-when-downgrade"></iframe>
+        </div>
+
+        <div class="map-actions" data-reveal="stagger-children">
+          <p class="label">Direções</p>
+          <a
+            class="btn btn--solid"
+            href={config.directionsGoogleMaps}
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            Google Maps
+          </a>
+          <a class="btn" href={config.directionsWaze} target="_blank" rel="noopener noreferrer">
+            Waze
+          </a>
+          <p class="map-note">
+            Alameda do Mosteiro<br />
+            4770-328 Landim<br />
+            Vila Nova de Famalicão
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <CTABand />
+
+  <script is:inline type="application/ld+json" set:html={JSON.stringify(faqJsonLd)} />
+</BaseLayout>
+
+<style>
+  .section {
+    padding-block: var(--space-xl);
+  }
+
+  .section--alt {
+    background: var(--bg-alt);
+    border-block: 1px solid var(--hairline);
+  }
+
+  .map-grid {
+    display: grid;
+    grid-template-columns: minmax(0, 2fr) minmax(14rem, 1fr);
+    gap: var(--space-md);
+    align-items: start;
+  }
+
+  .map-frame {
+    aspect-ratio: 16 / 10;
+    border-radius: var(--radius-sm);
+    overflow: hidden;
+    border: 1px solid var(--hairline);
+    background: var(--sand);
+    /* Earthy tint over the default map tiles */
+    filter: sepia(0.22) saturate(0.85);
+  }
+
+  .map-frame iframe {
+    width: 100%;
+    height: 100%;
+    border: 0;
+    display: block;
+  }
+
+  .map-actions {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: var(--space-xs);
+  }
+
+  .map-actions .label {
+    color: var(--clay-deep);
+    margin-bottom: 0.3rem;
+  }
+
+  .map-note {
+    margin-top: var(--space-xs);
+    font-size: var(--text-sm);
+    color: var(--fg-soft);
+    line-height: 1.7;
+  }
+
+  @media (max-width: 48rem) {
+    .map-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>

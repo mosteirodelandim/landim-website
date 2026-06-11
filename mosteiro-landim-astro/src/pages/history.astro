@@ -1,0 +1,835 @@
+---
+import { getImage } from "astro:assets";
+import BaseLayout from "@/layouts/BaseLayout.astro";
+import PageHero from "@/components/PageHero.astro";
+import GalleryStrip from "@/components/GalleryStrip.astro";
+import CTABand from "@/components/CTABand.astro";
+import Lightbox from "@/components/Lightbox.astro";
+import SmartImage from "@/components/SmartImage.astro";
+import { t } from "@/i18n";
+import { config } from "@/config";
+
+import banner from "@/assets/images/history/banner.jpg";
+import origins1 from "@/assets/images/history/origins_architecture/pic1.jpg";
+import origins2 from "@/assets/images/history/origins_architecture/pic2.jpg";
+import origins3 from "@/assets/images/history/origins_architecture/pic3.jpg";
+import origins4 from "@/assets/images/history/origins_architecture/pic4.jpg";
+import origins5 from "@/assets/images/history/origins_architecture/pic5.jpg";
+import origins6 from "@/assets/images/history/origins_architecture/pic6.jpg";
+import origins7 from "@/assets/images/history/origins_architecture/pic7.jpg";
+import origins8 from "@/assets/images/history/origins_architecture/pic8.jpg";
+import priests1 from "@/assets/images/history/priests/pic1.jpg";
+import priests2 from "@/assets/images/history/priests/pic2.jpg";
+import sale1 from "@/assets/images/history/sale/picture1.jpg";
+import sale2 from "@/assets/images/history/sale/picture2.jpg";
+import camilo1 from "@/assets/images/history/notable_people/camilo.jpg";
+import camilo2 from "@/assets/images/history/notable_people/camilo2.jpg";
+import camilo3 from "@/assets/images/history/notable_people/camilo3.jpg";
+import alberto1 from "@/assets/images/history/notable_people/alberto1.jpg";
+import alberto2 from "@/assets/images/history/notable_people/alberto2.jpg";
+import sebastiao1 from "@/assets/images/history/notable_people/sebastiao1.jpg";
+import book1 from "@/assets/images/history/book/book1.jpg";
+import bookOld from "@/assets/images/history/book/book_old.jpg";
+
+const c = t.history;
+
+/* ---- chapters nav ---- */
+const chapters = [
+  { id: "origins", label: c.origins_architecture.title },
+  { id: "priests", label: c.priests_commissioners.title },
+  { id: "extinction", label: c.extinction.title },
+  { id: "sale", label: c.sale.title },
+  { id: "notable", label: c.notable_people.title },
+  { id: "book", label: c.book.title },
+];
+
+/* ---- figures ---- */
+interface Fig {
+  img: ImageMetadata;
+  caption: string;
+  full: string;
+}
+
+async function figs(images: ImageMetadata[], captions: string[]): Promise<Fig[]> {
+  const out = await Promise.all(
+    images.map((src) =>
+      getImage({ src, width: Math.min(1700, src.width), format: "webp", quality: 78 }),
+    ),
+  );
+  return images.map((img, i) => ({ img, caption: captions[i] ?? "", full: out[i].src }));
+}
+
+const oc = c.origins_architecture.imagesCaptions;
+const originsFigs = await figs(
+  [origins1, origins2, origins3, origins4, origins5, origins6, origins7, origins8],
+  [oc.picture1, oc.picture2, oc.picture3, oc.picture4, oc.picture5, oc.picture6, oc.picture7, oc.picture8],
+);
+
+const pc = c.priests_commissioners.imagesCaptions;
+const priestsFigs = await figs([priests1, priests2], [pc.picture1, pc.picture2]);
+
+const sc = c.sale.imagesCaptions;
+const saleFigs = await figs([sale1, sale2], [sc.picture1, sc.picture2]);
+
+/* ---- extinction scans (filmstrips) ---- */
+const ec = c.extinction.imagesCaptions as Record<string, string>;
+
+const byNumber = (globbed: Record<string, { default: ImageMetadata }>, stem: string) =>
+  Object.entries(globbed)
+    .filter(([p]) => p.includes(stem))
+    .sort(([a], [b]) => {
+      const num = (p: string) => parseInt((p.split("/").pop() ?? "").replace(/\D/g, ""), 10);
+      return num(a) - num(b);
+    })
+    .map(([, mod]) => mod.default);
+
+const extinctionGlob = import.meta.glob<{ default: ImageMetadata }>(
+  "/src/assets/images/history/extinction/*",
+  { eager: true },
+);
+
+const breveImgs = byNumber(extinctionGlob, "Breve");
+const receitaImgs = byNumber(extinctionGlob, "Receita");
+
+const breveItems = breveImgs.map((src, i) => ({ src, caption: ec[`breve${i + 1}`] ?? "" }));
+const receitaItems = receitaImgs.map((src, i) => ({ src, caption: ec[`receita${i + 1}`] ?? "" }));
+
+/* ---- notable people ---- */
+const nc = c.notable_people.imagesCaptions;
+const camiloCaptions = [nc.camilo1, nc.camilo2, nc.camilo3];
+const camiloFigs = await figs([camilo1, camilo2, camilo3], camiloCaptions);
+const albertoFigs = await figs([alberto1, alberto2], [nc.alberto4, nc.alberto5]);
+const sebastiaoFigs = await figs([sebastiao1], [nc.sebastiao6]);
+
+const bookFull = await getImage({ src: book1, width: 1400, format: "webp", quality: 80 });
+---
+
+<BaseLayout title={`História — ${config.siteTitle}`} description={c.subHeading}>
+  <PageHero
+    title={c.title}
+    subtitle={c.subHeading}
+    image={banner}
+    imageAlt="O Mosteiro de Landim"
+    label="Séc. XII — hoje"
+  />
+
+  <div class="history-layout container--wide">
+    <!-- ============ STICKY CHAPTER NAV ============ -->
+    <nav class="chapters-nav" aria-label="Capítulos da história">
+      <p class="label chapters-nav-title">Capítulos</p>
+      <ol id="chapters-list">
+        {
+          chapters.map((ch, i) => (
+            <li>
+              <a href={`#${ch.id}`} data-chapter={ch.id}>
+                <span class="label">{String(i + 1).padStart(2, "0")}</span>
+                {ch.label}
+              </a>
+            </li>
+          ))
+        }
+      </ol>
+    </nav>
+
+    <div class="chapters-content">
+      <!-- ============ 01 ORIGENS ============ -->
+      <section class="chapter" id="origins" aria-labelledby="origins-title">
+        <header class="chapter-head">
+          <p class="label" data-reveal="fade-up">Capítulo 01</p>
+          <h2 id="origins-title" data-reveal="fade-up">{c.origins_architecture.title}</h2>
+          <p class="chapter-lede serif-italic" data-reveal="fade-up">
+            {c.origins_architecture.subHeading}
+          </p>
+        </header>
+        <div class="chapter-prose prose-drop" data-reveal="fade-up">
+          <p set:html={c.origins_architecture.description1} />
+          <p set:html={c.origins_architecture.description2} />
+          <p set:html={c.origins_architecture.description3} />
+        </div>
+        <div class="fig-grid">
+          {
+            originsFigs.map((f) => (
+              <figure class="fig" data-reveal="fade-up">
+                <a href={f.full} data-lightbox="origins" data-caption={f.caption}>
+                  <SmartImage
+                    src={f.img}
+                    alt={f.caption}
+                    sizes="(min-width: 64rem) 26rem, 92vw"
+                    widths={[400, 700, 1100]}
+                    aspect="4 / 3"
+                  />
+                </a>
+                <figcaption class="fig-caption serif-italic">{f.caption}</figcaption>
+              </figure>
+            ))
+          }
+        </div>
+      </section>
+
+      <!-- ============ 02 PRIORES ============ -->
+      <section class="chapter" id="priests" aria-labelledby="priests-title">
+        <header class="chapter-head">
+          <p class="label" data-reveal="fade-up">Capítulo 02</p>
+          <h2 id="priests-title" data-reveal="fade-up">{c.priests_commissioners.title}</h2>
+          <p class="chapter-lede serif-italic" data-reveal="fade-up">
+            {c.priests_commissioners.subHeading}
+          </p>
+        </header>
+        <div class="priests-grid">
+          <div class="chapter-prose prose-drop" data-reveal="fade-up">
+            <p set:html={c.priests_commissioners.description1} />
+            <p set:html={c.priests_commissioners.description2} />
+            <p set:html={c.priests_commissioners.description3} />
+            <p set:html={c.priests_commissioners.description4} />
+            <p set:html={c.priests_commissioners.description5} />
+            <p set:html={c.priests_commissioners.description6} />
+            <p set:html={c.priests_commissioners.description7} />
+            <p set:html={c.priests_commissioners.description8} />
+          </div>
+          <div class="priests-figs">
+            {
+              priestsFigs.map((f) => (
+                <figure class="fig" data-reveal="fade-up">
+                  <a href={f.full} data-lightbox="priests" data-caption={f.caption}>
+                    <SmartImage
+                      src={f.img}
+                      alt={f.caption}
+                      sizes="(min-width: 64rem) 20rem, 86vw"
+                      widths={[400, 700]}
+                      aspect="3 / 4"
+                    />
+                  </a>
+                  <figcaption class="fig-caption serif-italic">{f.caption}</figcaption>
+                </figure>
+              ))
+            }
+          </div>
+        </div>
+      </section>
+
+      <!-- ============ 03 EXTINÇÃO ============ -->
+      <section class="chapter" id="extinction" aria-labelledby="extinction-title">
+        <header class="chapter-head">
+          <p class="label" data-reveal="fade-up">Capítulo 03</p>
+          <h2 id="extinction-title" data-reveal="fade-up">{c.extinction.title}</h2>
+          <p class="chapter-lede serif-italic" data-reveal="fade-up">{c.extinction.subHeading}</p>
+        </header>
+        <div class="chapter-prose prose-drop" data-reveal="fade-up">
+          <p set:html={c.extinction.description1} />
+          <p set:html={c.extinction.description2} />
+          <p set:html={c.extinction.description3} />
+        </div>
+
+        <h3 class="strip-title serif-italic" data-reveal="fade-up">
+          O Breve Apostólico, página a página
+        </h3>
+        <GalleryStrip items={breveItems} lightbox="breve" aspect="3 / 4" class="docs-strip" />
+
+        <h3 class="strip-title serif-italic" data-reveal="fade-up">O Livro do Inventário</h3>
+        <GalleryStrip items={receitaItems} lightbox="receita" aspect="3 / 4" class="docs-strip" />
+      </section>
+
+      <!-- ============ 04 VENDA ============ -->
+      <section class="chapter" id="sale" aria-labelledby="sale-title">
+        <header class="chapter-head">
+          <p class="label" data-reveal="fade-up">Capítulo 04</p>
+          <h2 id="sale-title" data-reveal="fade-up">{c.sale.title}</h2>
+          <p class="chapter-lede serif-italic" data-reveal="fade-up">{c.sale.subHeading}</p>
+        </header>
+        <div class="priests-grid">
+          <div class="chapter-prose prose-drop" data-reveal="fade-up">
+            <p set:html={c.sale.description1} />
+            <p set:html={c.sale.description2} />
+            <p set:html={c.sale.description3} />
+          </div>
+          <div class="priests-figs">
+            {
+              saleFigs.map((f) => (
+                <figure class="fig" data-reveal="fade-up">
+                  <a href={f.full} data-lightbox="sale" data-caption={f.caption}>
+                    <SmartImage
+                      src={f.img}
+                      alt={f.caption}
+                      sizes="(min-width: 64rem) 20rem, 86vw"
+                      widths={[400, 700]}
+                      aspect="3 / 4"
+                    />
+                  </a>
+                  <figcaption class="fig-caption serif-italic">{f.caption}</figcaption>
+                </figure>
+              ))
+            }
+          </div>
+        </div>
+      </section>
+
+      <!-- ============ 05 FIGURAS DE RELEVO ============ -->
+      <section class="chapter" id="notable" aria-labelledby="notable-title">
+        <header class="chapter-head">
+          <p class="label" data-reveal="fade-up">Capítulo 05</p>
+          <h2 id="notable-title" data-reveal="fade-up">{c.notable_people.title}</h2>
+          <p class="chapter-lede serif-italic" data-reveal="fade-up">
+            {c.notable_people.subHeading}
+          </p>
+        </header>
+
+        <!-- Camilo -->
+        <article class="person">
+          <header class="person-head" data-reveal="fade-up">
+            <h3>{c.notable_people.camilo.title}</h3>
+            <p class="label">{c.notable_people.camilo.subHeading}</p>
+          </header>
+          <div class="person-grid">
+            <div class="chapter-prose" data-reveal="fade-up">
+              <p set:html={c.notable_people.camilo.description1} />
+              <p set:html={c.notable_people.camilo.description2} />
+            </div>
+            <div class="person-figs">
+              {
+                camiloFigs.map((f, i) => (
+                  <figure class="fig" data-reveal="fade-up">
+                    <a href={f.full} data-lightbox="camilo" data-caption={f.caption}>
+                      <SmartImage
+                        src={f.img}
+                        alt={i === 0 ? f.caption : `Carta de Camilo Castelo Branco — página ${i}`}
+                        sizes="(min-width: 64rem) 13rem, 44vw"
+                        widths={[300, 500, 800]}
+                        aspect="3 / 4"
+                      />
+                    </a>
+                  </figure>
+                ))
+              }
+            </div>
+          </div>
+          <p class="fig-caption serif-italic" data-reveal="fade-up">
+            {nc.camilo1} · {c.notable_people.camilo.lettersCaption}
+          </p>
+        </article>
+
+        <!-- Alberto -->
+        <article class="person">
+          <header class="person-head" data-reveal="fade-up">
+            <h3>{c.notable_people.alberto.title}</h3>
+            <p class="label">{c.notable_people.alberto.subHeading}</p>
+          </header>
+          <div class="person-grid">
+            <div class="chapter-prose" data-reveal="fade-up">
+              <p set:html={c.notable_people.alberto.description1} />
+            </div>
+            <div class="person-figs">
+              {
+                albertoFigs.map((f) => (
+                  <figure class="fig" data-reveal="fade-up">
+                    <a href={f.full} data-lightbox="alberto" data-caption={f.caption}>
+                      <SmartImage
+                        src={f.img}
+                        alt={f.caption}
+                        sizes="(min-width: 64rem) 13rem, 44vw"
+                        widths={[300, 500, 800]}
+                        aspect="3 / 4"
+                      />
+                    </a>
+                    <figcaption class="fig-caption serif-italic">{f.caption}</figcaption>
+                  </figure>
+                ))
+              }
+            </div>
+          </div>
+        </article>
+
+        <!-- Sebastião -->
+        <article class="person">
+          <header class="person-head" data-reveal="fade-up">
+            <h3>{c.notable_people.sebastiao.title}</h3>
+            <p class="label">{c.notable_people.sebastiao.subHeading}</p>
+          </header>
+          <div class="person-grid">
+            <div class="chapter-prose" data-reveal="fade-up">
+              <p set:html={c.notable_people.sebastiao.description1} />
+              <details class="poem-details">
+                <summary>
+                  <span class="serif-italic">Ler o poema “{c.notable_people.sebastiao.poemTitle}”</span>
+                </summary>
+                <pre class="poem-full">{c.notable_people.sebastiao.poem}</pre>
+              </details>
+            </div>
+            <div class="person-figs">
+              {
+                sebastiaoFigs.map((f) => (
+                  <figure class="fig" data-reveal="fade-up">
+                    <a href={f.full} data-lightbox="sebastiao" data-caption={f.caption}>
+                      <SmartImage
+                        src={f.img}
+                        alt={f.caption}
+                        sizes="(min-width: 64rem) 13rem, 44vw"
+                        widths={[300, 500, 800]}
+                        aspect="3 / 4"
+                      />
+                    </a>
+                    <figcaption class="fig-caption serif-italic">{f.caption}</figcaption>
+                  </figure>
+                ))
+              }
+            </div>
+          </div>
+        </article>
+      </section>
+
+      <!-- ============ 06 LIVRO ============ -->
+      <section class="chapter" id="book" aria-labelledby="book-title">
+        <header class="chapter-head">
+          <p class="label" data-reveal="fade-up">Capítulo 06</p>
+          <h2 id="book-title" data-reveal="fade-up">{c.book.title}</h2>
+        </header>
+        <div class="book-grid">
+          <figure class="fig book-cover" data-reveal="mask">
+            <a href={bookFull.src} data-lightbox="book" data-caption={c.book.imagesCaptions.book1}>
+              <SmartImage
+                src={book1}
+                alt={c.book.imagesCaptions.book1}
+                sizes="(min-width: 64rem) 20rem, 70vw"
+                widths={[400, 700, 1000]}
+                aspect="3 / 4"
+              />
+            </a>
+          </figure>
+          <div class="book-text">
+            <h3 class="book-title serif-italic" data-reveal="fade-up">{c.book.subHeading}</h3>
+            <p class="label" data-reveal="fade-up">{c.book.subSubHeading}</p>
+            <p class="label book-publisher" data-reveal="fade-up">{c.book.subSubSubHeading}</p>
+            <blockquote class="book-quote" data-reveal="fade-up">
+              <p>{c.book.quote}</p>
+            </blockquote>
+          </div>
+          <figure class="fig book-old" data-reveal="fade-up">
+            <SmartImage
+              src={bookOld}
+              alt="Edição antiga sobre o Mosteiro de Landim"
+              sizes="(min-width: 64rem) 14rem, 50vw"
+              widths={[300, 500]}
+              aspect="3 / 4"
+            />
+          </figure>
+        </div>
+      </section>
+    </div>
+  </div>
+
+  <button id="to-top" class="to-top" type="button" aria-label="Voltar ao topo">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true">
+      <path d="M12 19V5M5 12l7-7 7 7"></path>
+    </svg>
+  </button>
+
+  <CTABand />
+  <Lightbox />
+</BaseLayout>
+
+<style>
+  .history-layout {
+    width: min(100% - 2 * var(--gutter), var(--container-wide));
+    margin-inline: auto;
+    display: grid;
+    grid-template-columns: minmax(13rem, 16rem) minmax(0, 1fr);
+    gap: var(--space-lg);
+    padding-block: var(--space-lg) var(--space-xl);
+  }
+
+  /* ---- Side nav ---- */
+  .chapters-nav {
+    position: sticky;
+    top: 6rem;
+    align-self: start;
+    padding-top: var(--space-sm);
+  }
+
+  .chapters-nav-title {
+    color: var(--clay-deep);
+    margin-bottom: var(--space-xs);
+  }
+
+  .chapters-nav ol {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    border-left: 1px solid var(--hairline);
+  }
+
+  .chapters-nav a {
+    display: flex;
+    align-items: baseline;
+    gap: 0.7rem;
+    padding: 0.55rem 0 0.55rem 1rem;
+    margin-left: -1px;
+    border-left: 2px solid transparent;
+    text-decoration: none;
+    font-size: var(--text-sm);
+    color: var(--fg-soft);
+    transition:
+      color var(--dur-fast) var(--ease-out),
+      border-color var(--dur-fast) var(--ease-out);
+  }
+
+  .chapters-nav a .label {
+    color: var(--gold-ink);
+  }
+
+  .chapters-nav a:hover,
+  .chapters-nav a.is-active {
+    color: var(--fg);
+    border-left-color: var(--clay);
+  }
+
+  /* ---- Chapters ---- */
+  .chapter {
+    padding-block: var(--space-lg);
+    border-bottom: 1px solid var(--hairline);
+    scroll-margin-top: 5.5rem;
+  }
+
+  .chapter:last-child {
+    border-bottom: none;
+  }
+
+  .chapter-head {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-2xs);
+    margin-bottom: var(--space-md);
+  }
+
+  .chapter-head .label {
+    color: var(--clay-deep);
+  }
+
+  .chapter-head h2 {
+    font-size: var(--text-xl);
+    font-weight: 420;
+  }
+
+  .chapter-lede {
+    color: var(--fg-soft);
+    font-size: var(--text-md);
+    max-width: 52ch;
+  }
+
+  .chapter-prose {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-sm);
+    color: var(--fg-soft);
+    max-width: 70ch;
+  }
+
+  .chapter-prose :global(b) {
+    color: var(--fg);
+    font-weight: 700;
+  }
+
+  .chapter-prose :global(i) {
+    font-family: var(--font-display);
+    font-style: italic;
+  }
+
+  /* Drop cap on first paragraph */
+  .prose-drop > p:first-child::first-letter {
+    float: left;
+    font-family: var(--font-display);
+    font-style: italic;
+    font-size: 3.6em;
+    line-height: 0.8;
+    padding-right: 0.14em;
+    color: var(--clay-deep);
+  }
+
+  /* ---- Figures ---- */
+  .fig {
+    margin: 0;
+  }
+
+  .fig a {
+    display: block;
+  }
+
+  .fig :global(.smart-image) {
+    border-radius: var(--radius-sm);
+  }
+
+  .fig-caption {
+    margin-top: 0.5rem;
+    font-size: var(--text-xs);
+    color: var(--fg-soft);
+    line-height: 1.5;
+  }
+
+  .fig-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: var(--space-sm);
+    margin-top: var(--space-md);
+  }
+
+  .priests-grid {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(14rem, 20rem);
+    gap: var(--space-lg);
+    align-items: start;
+  }
+
+  .priests-figs {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-md);
+    position: sticky;
+    top: 6rem;
+  }
+
+  .strip-title {
+    margin: var(--space-lg) 0 var(--space-sm);
+    font-size: var(--text-lg);
+    font-weight: 440;
+    color: var(--clay-deep);
+  }
+
+  .docs-strip :global(.strip-track) {
+    padding-inline: 0;
+  }
+
+  /* ---- People ---- */
+  .person {
+    margin-top: var(--space-lg);
+    padding-top: var(--space-md);
+    border-top: 1px dashed var(--hairline);
+  }
+
+  .person-head h3 {
+    font-size: var(--text-lg);
+    font-weight: 440;
+  }
+
+  .person-head .label {
+    color: var(--clay-deep);
+    margin-top: 0.3rem;
+    margin-bottom: var(--space-sm);
+  }
+
+  .person-grid {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(13rem, 28rem);
+    gap: var(--space-lg);
+    align-items: start;
+  }
+
+  .person-figs {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(7rem, 1fr));
+    gap: var(--space-xs);
+    position: sticky;
+    top: 6rem;
+  }
+
+  .poem-details {
+    border: 1px solid var(--hairline);
+    border-radius: var(--radius-sm);
+    background: var(--bg-alt);
+    padding: var(--space-xs) var(--space-sm);
+  }
+
+  .poem-details summary {
+    cursor: pointer;
+    color: var(--clay-deep);
+    font-size: var(--text-md);
+  }
+
+  .poem-full {
+    margin: var(--space-sm) 0 0;
+    white-space: pre-line;
+    font-family: var(--font-display);
+    font-style: italic;
+    font-size: var(--text-base);
+    line-height: 1.8;
+    color: var(--fg-soft);
+    overflow-x: auto;
+  }
+
+  /* ---- Book ---- */
+  .book-grid {
+    display: grid;
+    grid-template-columns: minmax(12rem, 20rem) minmax(0, 1fr) minmax(10rem, 14rem);
+    gap: var(--space-lg);
+    align-items: start;
+  }
+
+  .book-title {
+    font-size: var(--text-lg);
+    font-weight: 440;
+    margin-bottom: 0.5rem;
+  }
+
+  .book-publisher {
+    color: var(--clay-deep);
+    margin-bottom: var(--space-sm);
+  }
+
+  .book-quote {
+    margin: var(--space-sm) 0 0;
+    padding-left: var(--space-sm);
+    border-left: 2px solid var(--clay);
+  }
+
+  .book-quote p {
+    font-family: var(--font-display);
+    font-style: italic;
+    color: var(--fg-soft);
+    line-height: 1.7;
+  }
+
+  /* ---- To top ---- */
+  .to-top {
+    position: fixed;
+    right: clamp(1rem, 3vw, 2rem);
+    bottom: clamp(1rem, 3vw, 2rem);
+    z-index: 90;
+    width: 2.9rem;
+    height: 2.9rem;
+    border-radius: 50%;
+    border: 1px solid var(--hairline);
+    background: var(--parchment);
+    color: var(--clay-deep);
+    display: grid;
+    place-items: center;
+    padding: 0.75rem;
+    opacity: 0;
+    pointer-events: none;
+    translate: 0 0.6rem;
+    transition:
+      opacity var(--dur-base) var(--ease-out),
+      translate var(--dur-base) var(--ease-out);
+  }
+
+  .to-top.is-visible {
+    opacity: 1;
+    pointer-events: auto;
+    translate: 0 0;
+  }
+
+  /* ---- Responsive ---- */
+  @media (max-width: 64rem) {
+    .history-layout {
+      grid-template-columns: 1fr;
+      gap: var(--space-sm);
+    }
+
+    .chapters-nav {
+      position: static;
+      padding-top: 0;
+    }
+
+    .chapters-nav ol {
+      flex-direction: row;
+      flex-wrap: wrap;
+      gap: 0.2rem 1rem;
+      border-left: none;
+      border-top: 1px solid var(--hairline);
+      padding-top: var(--space-xs);
+    }
+
+    .chapters-nav a {
+      border-left: none;
+      padding: 0.3rem 0;
+    }
+
+    .priests-grid,
+    .person-grid {
+      grid-template-columns: 1fr;
+      gap: var(--space-md);
+    }
+
+    .priests-figs,
+    .person-figs {
+      position: static;
+      grid-template-columns: repeat(auto-fit, minmax(9rem, 14rem));
+    }
+
+    .priests-figs {
+      flex-direction: row;
+      flex-wrap: wrap;
+    }
+
+    .priests-figs .fig {
+      flex: 1 1 12rem;
+      max-width: 16rem;
+    }
+
+    .book-grid {
+      grid-template-columns: 1fr;
+    }
+
+    .book-cover {
+      max-width: 18rem;
+    }
+
+    .book-old {
+      max-width: 12rem;
+    }
+  }
+
+  @media (max-width: 34rem) {
+    .fig-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>
+
+<script>
+  function initHistoryPage() {
+    const list = document.getElementById("chapters-list");
+    if (!list || list.dataset.bound) return;
+    list.dataset.bound = "true";
+
+    /* Active chapter highlighting */
+    const links = new Map(
+      Array.from(list.querySelectorAll<HTMLAnchorElement>("a[data-chapter]")).map((a) => [
+        a.dataset.chapter!,
+        a,
+      ]),
+    );
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            links.forEach((a) => a.classList.remove("is-active"));
+            links.get(entry.target.id)?.classList.add("is-active");
+          }
+        });
+      },
+      { rootMargin: "-20% 0px -65% 0px" },
+    );
+
+    document.querySelectorAll(".chapter[id]").forEach((s) => observer.observe(s));
+
+    /* To-top button */
+    const toTop = document.getElementById("to-top");
+    if (toTop) {
+      const onScroll = () => {
+        toTop.classList.toggle("is-visible", window.scrollY > window.innerHeight * 1.2);
+      };
+      onScroll();
+      window.addEventListener("scroll", onScroll, { passive: true });
+      toTop.addEventListener("click", () => {
+        const lenis = window.__lenis;
+        if (lenis) lenis.scrollTo(0);
+        else window.scrollTo({ top: 0, behavior: "smooth" });
+      });
+    }
+
+    document.addEventListener("astro:before-swap", () => observer.disconnect(), { once: true });
+  }
+
+  initHistoryPage();
+  document.addEventListener("astro:page-load", initHistoryPage);
+</script>

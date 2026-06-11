@@ -1,0 +1,128 @@
+---
+import BaseLayout from "@/layouts/BaseLayout.astro";
+import { t } from "@/i18n";
+import { config } from "@/config";
+
+const c = t.notFound;
+const dog = config.houseDogs[Math.floor(Math.random() * config.houseDogs.length)];
+---
+
+<BaseLayout title={`404 — ${config.siteTitle}`} noIndex>
+  <section class="notfound">
+    <div class="container notfound-inner">
+      <p class="notfound-code label">Erro 404</p>
+      <h1 class="notfound-title">{c.heading}</h1>
+      <p class="notfound-sub serif-italic">{c.subHeading}</p>
+      <p class="notfound-text">
+        {c.subSubHeading1}<a href="/">{c.subSubHeadingLink}</a>
+        {c.subSubHeading2}
+        <strong id="dog-name">{dog}</strong>{c.subSubHeading3}
+      </p>
+
+      <!-- Line-art house dog, tail wags via CSS -->
+      <svg
+        class="notfound-dog"
+        viewBox="0 0 220 140"
+        fill="none"
+        stroke="currentColor"
+        stroke-width="2.4"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+        aria-hidden="true"
+      >
+        <!-- body -->
+        <path d="M60 95c0-22 18-38 44-38s48 12 48 36c0 6-2 10-5 13H73c-8-2-13-6-13-11Z"></path>
+        <!-- head -->
+        <circle cx="158" cy="62" r="20"></circle>
+        <!-- ear -->
+        <path d="M150 45c-4-8-12-12-20-10 2 8 8 14 16 15"></path>
+        <!-- snout + nose -->
+        <path d="M176 60c6 1 10 4 12 8-4 3-9 4-14 2"></path>
+        <circle cx="187" cy="67" r="1.6" fill="currentColor"></circle>
+        <!-- eye -->
+        <circle cx="160" cy="58" r="1.8" fill="currentColor"></circle>
+        <!-- legs -->
+        <path d="M78 106v22M100 106v22M126 106v22M146 106v22"></path>
+        <!-- tail (wags) -->
+        <path class="dog-tail" d="M62 92c-10-4-16-12-16-22"></path>
+        <!-- collar -->
+        <path d="M146 76c6 5 16 6 23 2"></path>
+      </svg>
+
+      <a class="btn btn--solid notfound-btn" href="/">Voltar a Landim</a>
+    </div>
+  </section>
+</BaseLayout>
+
+<style>
+  .notfound {
+    min-height: 100svh;
+    display: flex;
+    align-items: center;
+    background: var(--bg);
+    padding-block: var(--space-xl);
+  }
+
+  .notfound-inner {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: var(--space-xs);
+  }
+
+  .notfound-code {
+    color: var(--clay-deep);
+  }
+
+  .notfound-title {
+    font-size: var(--text-display);
+    font-weight: 400;
+  }
+
+  .notfound-sub {
+    font-size: var(--text-lg);
+    color: var(--clay-deep);
+  }
+
+  .notfound-text {
+    max-width: 44ch;
+    color: var(--fg-soft);
+    margin-top: var(--space-xs);
+  }
+
+  .notfound-text a {
+    color: var(--clay-deep);
+  }
+
+  .notfound-dog {
+    width: clamp(11rem, 30vw, 15rem);
+    color: var(--olive);
+    margin-top: var(--space-sm);
+  }
+
+  .dog-tail {
+    transform-origin: 62px 92px;
+    animation: tail-wag 0.7s ease-in-out infinite;
+  }
+
+  @keyframes tail-wag {
+    0%,
+    100% {
+      transform: rotate(0deg);
+    }
+    50% {
+      transform: rotate(24deg);
+    }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .dog-tail {
+      animation: none;
+    }
+  }
+
+  .notfound-btn {
+    margin-top: var(--space-sm);
+  }
+</style>
