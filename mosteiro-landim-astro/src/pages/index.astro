@@ -4,6 +4,7 @@ import BaseLayout from "@/layouts/BaseLayout.astro";
 import SmartImage from "@/components/SmartImage.astro";
 import Marquee from "@/components/Marquee.astro";
 import CTABand from "@/components/CTABand.astro";
+import Lightbox from "@/components/Lightbox.astro";
 import { t } from "@/i18n";
 
 import banner from "@/assets/images/landing/banner.jpg";
@@ -24,8 +25,6 @@ import momento4 from "@/assets/images/photo-gallery/rooms/1.jpg";
 import momento5 from "@/assets/images/photo-gallery/church/2.jpg";
 import momento6 from "@/assets/images/photo-gallery/cloister/9.jpg";
 
-const heroTexture = await getImage({ src: banner, width: 1920, format: "webp", quality: 80 });
-
 const spaces = [
   { key: "weAre", href: "/about_us", img: aboutTile, ...t.landing.weAre },
   { key: "events", href: "/events", img: eventsTile, ...t.landing.events },
@@ -44,6 +43,12 @@ const momentos = [
   { img: momento5, caption: "A igreja românica", tall: false },
   { img: momento6, caption: "Festa entre colunas dóricas", tall: true },
 ];
+
+const momentoFulls = await Promise.all(
+  momentos.map((m) =>
+    getImage({ src: m.img, width: Math.min(1800, m.img.width), format: "webp", quality: 78 }),
+  ),
+);
 
 const timeline = [
   {
@@ -91,12 +96,10 @@ const timeline = [
         widths={[640, 828, 1080, 1366, 1600, 2200]}
         class="hero-fallback"
       />
-      <canvas id="hero-canvas" data-src={heroTexture.src} aria-hidden="true"></canvas>
       <div class="hero-scrim" aria-hidden="true"></div>
     </div>
 
     <div class="hero-content">
-      <p class="hero-estd label">Estd · Séc. XII — Vila Nova de Famalicão</p>
       <h1 class="hero-title">{t.landing.heading}</h1>
       <p class="hero-sub">
         <span>{t.landing.subHeading}</span>
@@ -146,6 +149,37 @@ const timeline = [
             />
           </div>
         </div>
+        <!-- Celestial / mystical SVG ornament -->
+        <svg class="manifesto-ornament" viewBox="0 0 400 500" fill="none" aria-hidden="true" xmlns="http://www.w3.org/2000/svg">
+          <!-- Portal arch outline -->
+          <path class="orn-arch" d="M60 498 L60 230 Q60 100 200 100 Q340 100 340 230 L340 498" stroke="var(--clay)" stroke-width="0.8" opacity="0.18"/>
+          <!-- Crescent moon -->
+          <path class="orn-moon" d="M318 62 A34 34 0 1 1 290 35 A22 22 0 1 0 318 62 Z" stroke="var(--clay)" stroke-width="1.1" fill="none" opacity="0.55"/>
+          <!-- Outer dashed ring -->
+          <circle class="orn-ring" cx="200" cy="248" r="172" stroke="var(--clay)" stroke-width="0.6" stroke-dasharray="3 9" opacity="0.18"/>
+          <!-- Inner dashed ring -->
+          <circle class="orn-ring-inner" cx="200" cy="248" r="148" stroke="var(--sand)" stroke-width="0.5" stroke-dasharray="2 14" opacity="0.22"/>
+          <!-- 4-point star — top left -->
+          <path class="orn-star s1" d="M55 88 l3.5 -13 3.5 13 13 3.5 -13 3.5 -3.5 13 -3.5 -13 -13 -3.5Z" stroke="var(--clay)" stroke-width="0.8" opacity="0.55"/>
+          <!-- 4-point star — right mid -->
+          <path class="orn-star s2" d="M364 210 l2.8 -10.5 2.8 10.5 10.5 2.8 -10.5 2.8 -2.8 10.5 -2.8 -10.5 -10.5 -2.8Z" stroke="var(--clay)" stroke-width="0.8" opacity="0.45"/>
+          <!-- 4-point star — bottom left -->
+          <path class="orn-star s3" d="M28 370 l2.2 -8 2.2 8 8 2.2 -8 2.2 -2.2 8 -2.2 -8 -8 -2.2Z" stroke="var(--clay)" stroke-width="0.7" opacity="0.38"/>
+          <!-- Horizontal rule fragments -->
+          <line x1="110" y1="36" x2="170" y2="36" stroke="var(--clay)" stroke-width="0.7" opacity="0.3"/>
+          <line x1="232" y1="36" x2="280" y2="36" stroke="var(--clay)" stroke-width="0.7" opacity="0.3"/>
+          <!-- Dot cluster -->
+          <circle class="orn-dot d1" cx="38" cy="170" r="2" fill="var(--clay)" opacity="0.45"/>
+          <circle class="orn-dot d2" cx="376" cy="130" r="1.5" fill="var(--clay)" opacity="0.4"/>
+          <circle class="orn-dot d3" cx="22" cy="390" r="2" fill="var(--clay)" opacity="0.35"/>
+          <circle class="orn-dot d4" cx="388" cy="360" r="1.5" fill="var(--clay)" opacity="0.35"/>
+          <circle class="orn-dot d5" cx="200" cy="74" r="1.5" fill="var(--clay)" opacity="0.4"/>
+          <!-- Cross marks -->
+          <path class="orn-cross c1" d="M376 440 v-9 M371.5 435.5 h9" stroke="var(--clay)" stroke-width="0.8" opacity="0.35"/>
+          <path class="orn-cross c2" d="M18 50 v-9 M13.5 45.5 h9" stroke="var(--clay)" stroke-width="0.8" opacity="0.3"/>
+          <!-- Base horizontal rule -->
+          <line x1="80" y1="496" x2="320" y2="496" stroke="var(--clay)" stroke-width="0.7" opacity="0.2"/>
+        </svg>
         <p class="manifesto-caption serif-italic" data-reveal="fade-up">
           O claustro — o coração de cada festa.
         </p>
@@ -209,6 +243,36 @@ const timeline = [
 
   <!-- ============ EVENTS FEATURE ============ -->
   <section class="feature" aria-labelledby="feature-title">
+    <svg
+      class="feature-ornament"
+      viewBox="0 0 200 200"
+      fill="none"
+      aria-hidden="true"
+      preserveAspectRatio="xMidYMid meet"
+    >
+      <circle class="fo-ring" cx="100" cy="100" r="78" stroke="currentColor" stroke-width="0.6" />
+      <circle
+        class="fo-ring-inner"
+        cx="100"
+        cy="100"
+        r="52"
+        stroke="currentColor"
+        stroke-width="0.5"
+        stroke-dasharray="2 6"
+      />
+      <g transform="translate(58 70)"><g class="fo-flute fo-flute-a">
+        <path d="M0 0 L7 0 L5.2 13 Q4 16 3.5 22 L3.5 34 M0.6 34 L6.4 34" stroke="currentColor" stroke-width="0.9" stroke-linecap="round" />
+      </g></g>
+      <g transform="translate(132 64)"><g class="fo-flute fo-flute-b">
+        <path d="M0 0 L7 0 L5.2 13 Q4 16 3.5 22 L3.5 34 M0.6 34 L6.4 34" stroke="currentColor" stroke-width="0.9" stroke-linecap="round" />
+      </g></g>
+      <g transform="translate(40 44)"><path class="fo-spark fo-spark-a" d="M0 -7 L1.6 -1.6 L7 0 L1.6 1.6 L0 7 L-1.6 1.6 L-7 0 L-1.6 -1.6 Z" fill="currentColor" /></g>
+      <g transform="translate(160 120)"><path class="fo-spark fo-spark-b" d="M0 -5 L1.2 -1.2 L5 0 L1.2 1.2 L0 5 L-1.2 1.2 L-5 0 L-1.2 -1.2 Z" fill="currentColor" /></g>
+      <g transform="translate(96 36)"><path class="fo-spark fo-spark-c" d="M0 -4 L1 -1 L4 0 L1 1 L0 4 L-1 1 L-4 0 L-1 -1 Z" fill="currentColor" /></g>
+      <g transform="translate(150 156)"><circle class="fo-dot fo-dot-a" cx="0" cy="0" r="2" fill="currentColor" /></g>
+      <g transform="translate(44 150)"><circle class="fo-dot fo-dot-b" cx="0" cy="0" r="1.5" fill="currentColor" /></g>
+      <g transform="translate(112 168)"><circle class="fo-dot fo-dot-c" cx="0" cy="0" r="2.4" fill="currentColor" /></g>
+    </svg>
     <div class="container feature-grid">
       <div class="feature-media-a" data-reveal="mask">
         <SmartImage
@@ -258,15 +322,17 @@ const timeline = [
       </header>
 
       {
-        momentos.map((m) => (
+        momentos.map((m, i) => (
           <figure class:list={["momentos-panel", { "is-tall": m.tall }]}>
-            <SmartImage
-              src={m.img}
-              alt={m.caption}
-              sizes="(min-width: 64rem) 36rem, 78vw"
-              widths={[480, 800, 1200]}
-              aspect={m.tall ? "3 / 4" : "4 / 3"}
-            />
+            <a href={momentoFulls[i].src} data-lightbox="momentos" data-caption={m.caption} aria-label={m.caption}>
+              <SmartImage
+                src={m.img}
+                alt={m.caption}
+                sizes="(min-width: 64rem) 36rem, 78vw"
+                widths={[480, 800, 1200]}
+                aspect={m.tall ? "3 / 4" : "4 / 3"}
+              />
+            </a>
             <figcaption class="momentos-caption serif-italic">{m.caption}</figcaption>
           </figure>
         ))
@@ -313,6 +379,7 @@ const timeline = [
   </section>
 
   <CTABand />
+  <Lightbox />
 </BaseLayout>
 
 <style>
@@ -403,19 +470,6 @@ const timeline = [
     height: 100%;
   }
 
-  #hero-canvas {
-    position: absolute;
-    inset: 0;
-    width: 100%;
-    height: 100%;
-    opacity: 0;
-    transition: opacity 1.2s var(--ease-out);
-  }
-
-  #hero-canvas.is-live {
-    opacity: 1;
-  }
-
   .hero-scrim {
     position: absolute;
     inset: 0;
@@ -430,11 +484,6 @@ const timeline = [
     width: min(100% - 2 * var(--gutter), var(--container-wide));
     margin-inline: auto;
     padding-bottom: clamp(5rem, 13vh, 9rem);
-  }
-
-  .hero-estd {
-    color: var(--rose);
-    margin-bottom: var(--space-sm);
   }
 
   .hero-title {
@@ -462,15 +511,12 @@ const timeline = [
   }
 
   .hero-words {
-    position: relative;
-    display: inline-block;
-    min-width: 9ch;
-    min-height: 1.4em;
+    display: inline-grid;
+    vertical-align: baseline;
   }
 
   .hero-word {
-    position: absolute;
-    inset: 0 auto auto 0;
+    grid-area: 1 / 1;
     white-space: nowrap;
     color: var(--rose);
     opacity: 0;
@@ -569,6 +615,7 @@ const timeline = [
   }
 
   .manifesto-media {
+    position: relative;
     justify-self: center;
     width: min(100%, 30rem);
   }
@@ -584,6 +631,15 @@ const timeline = [
 
   .manifesto-arch :global(.smart-image) {
     height: 100%;
+  }
+
+  .manifesto-ornament {
+    position: absolute;
+    inset: -8% -12%;
+    width: 124%;
+    height: auto;
+    pointer-events: none;
+    z-index: 2;
   }
 
   .manifesto-caption {
@@ -706,11 +762,30 @@ const timeline = [
     opacity: 0;
   }
 
+  .spaces-preview-img :global(.smart-image) {
+    height: 100%;
+  }
+
   /* ============ Feature ============ */
   .feature {
     padding-block: var(--space-xl);
     background: var(--bg-alt);
     border-block: 1px solid var(--hairline);
+    position: relative;
+    overflow: clip;
+  }
+
+  .feature-ornament {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: min(42rem, 70vw);
+    aspect-ratio: 1;
+    transform: translate(-50%, -50%);
+    color: var(--clay-deep);
+    opacity: 0.16;
+    pointer-events: none;
+    z-index: 0;
   }
 
   .feature-grid {
@@ -718,6 +793,8 @@ const timeline = [
     grid-template-columns: repeat(12, minmax(0, 1fr));
     gap: var(--space-md);
     align-items: center;
+    position: relative;
+    z-index: 1;
   }
 
   .feature-media-a {
@@ -846,6 +923,10 @@ const timeline = [
 
   .momentos-panel :global(.smart-image) {
     border-radius: var(--radius-sm);
+  }
+
+  .momentos-panel a {
+    display: block;
   }
 
   .momentos-panel.is-tall :global(.smart-image) {

@@ -82,7 +82,14 @@ const ratio = aspect ?? `${src.width} / ${src.height}`;
     animation: none;
   }
 
+  .smart-image :global(picture) {
+    display: block;
+    width: 100%;
+    height: 100%;
+  }
+
   .smart-image :global(img) {
+    display: block;
     width: 100%;
     height: 100%;
     object-fit: cover;

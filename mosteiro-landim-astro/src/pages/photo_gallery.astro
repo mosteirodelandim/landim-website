@@ -4,7 +4,6 @@ import BaseLayout from "@/layouts/BaseLayout.astro";
 import PageHero from "@/components/PageHero.astro";
 import QuoteBlock from "@/components/QuoteBlock.astro";
 import SpotlightLink from "@/components/SpotlightLink.astro";
-import CTABand from "@/components/CTABand.astro";
 import Lightbox from "@/components/Lightbox.astro";
 import SmartImage from "@/components/SmartImage.astro";
 import { t } from "@/i18n";
@@ -104,6 +103,14 @@ const chapters: Chapter[] = [
 ];
 
 const gallerySizes = "(min-width: 84rem) 56rem, (min-width: 48rem) 60vw, 50vw";
+
+// Line-art glyphs for the floating chapter nav (24x24 viewBox).
+const galleryIcons: Record<string, string> = {
+  jardins: `<path d="M12 4 C18 8 18 17 12 21 C6 17 6 8 12 4 Z M12 6 L12 20 M12 12 L8 9 M12 15 L16 11" stroke="currentColor" stroke-width="1.1" fill="none" stroke-linecap="round" stroke-linejoin="round"/>`,
+  claustro: `<path d="M4 20 L4 9 Q4 5 8 5 Q12 5 12 9 L12 20 M12 20 L12 9 Q12 5 16 5 Q20 5 20 9 L20 20 M3 20 L21 20" stroke="currentColor" stroke-width="1.1" fill="none" stroke-linecap="round" stroke-linejoin="round"/>`,
+  salas: `<path d="M4 20 L4 7 L12 3 L20 7 L20 20 M3 20 L21 20 M9 20 L9 13 L15 13 L15 20" stroke="currentColor" stroke-width="1.1" fill="none" stroke-linecap="round" stroke-linejoin="round"/>`,
+  igreja: `<path d="M12 2 L12 6 M10 4 L14 4 M6 21 L6 10 L12 6 L18 10 L18 21 M4 21 L20 21 M10 21 L10 16 Q12 14 14 16 L14 21" stroke="currentColor" stroke-width="1.1" fill="none" stroke-linecap="round" stroke-linejoin="round"/>`,
+};
 ---
 
 <BaseLayout title={`${c.title} — ${config.siteTitle}`} description={c.subHeading}>
@@ -174,15 +181,31 @@ const gallerySizes = "(min-width: 84rem) 56rem, (min-width: 48rem) 60vw, 50vw";
     ))
   }
 
+  <!-- ============ FLOATING CHAPTER NAV ============ -->
+  <nav class="gallery-float" aria-label="Capítulos da galeria" data-gallery-float>
+    <ul>
+      {
+        chapters.map((ch) => (
+          <li>
+            <a href={`#${ch.id}`} class="gallery-float-link" data-float-link={ch.id}>
+              <span class="gallery-float-icon" aria-hidden="true" set:html={galleryIcons[ch.id] ?? ""} />
+              <span class="gallery-float-name serif-italic">{ch.title}</span>
+            </a>
+          </li>
+        ))
+      }
+    </ul>
+  </nav>
+
   <SpotlightLink
     label={c.spotlight.title}
     text={c.spotlight.description}
     linkText="@mosteirodelandim"
     href={config.socialLinks[0].url}
     external
+    icon="social"
   />
 
-  <CTABand />
   <Lightbox />
 </BaseLayout>
 
@@ -243,6 +266,7 @@ const gallerySizes = "(min-width: 84rem) 56rem, (min-width: 48rem) 60vw, 50vw";
   /* Chapters */
   .chapter {
     padding-block: var(--space-lg);
+    scroll-margin-top: 4.5rem;
   }
 
   .chapter:nth-of-type(even) {
@@ -345,11 +369,120 @@ const gallerySizes = "(min-width: 84rem) 56rem, (min-width: 48rem) 60vw, 50vw";
     aspect-ratio: 3 / 2 !important;
   }
 
+  /* ---- Floating chapter nav ---- */
+  .gallery-float {
+    position: fixed;
+    top: 50%;
+    right: clamp(0.6rem, 2vw, 1.4rem);
+    z-index: 40;
+    transform: translateY(-50%) translateX(1.5rem);
+    opacity: 0;
+    visibility: hidden;
+    transition:
+      opacity var(--dur-base) var(--ease-out),
+      transform var(--dur-base) var(--ease-out),
+      visibility var(--dur-base) var(--ease-out);
+  }
+
+  .gallery-float.is-visible {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(-50%) translateX(0);
+  }
+
+  .gallery-float ul {
+    list-style: none;
+    margin: 0;
+    padding: 0.5rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.35rem;
+    background: color-mix(in srgb, var(--bg) 82%, transparent);
+    backdrop-filter: blur(8px);
+    border: 1px solid var(--hairline);
+    border-radius: 2rem;
+    box-shadow: 0 10px 30px rgb(49 43 35 / 0.12);
+  }
+
+  .gallery-float-link {
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+    color: var(--fg-soft);
+    border-radius: 1.4rem;
+    transition:
+      color var(--dur-fast) var(--ease-out),
+      background var(--dur-fast) var(--ease-out);
+  }
+
+  .gallery-float-icon {
+    flex: 0 0 auto;
+    display: grid;
+    place-items: center;
+    width: 2.6rem;
+    height: 2.6rem;
+  }
+
+  .gallery-float-icon :global(svg) {
+    width: 1.35rem;
+    height: 1.35rem;
+  }
+
+  .gallery-float-name {
+    max-width: 0;
+    overflow: hidden;
+    white-space: nowrap;
+    opacity: 0;
+    font-size: var(--text-sm);
+    transition:
+      max-width var(--dur-base) var(--ease-out),
+      opacity var(--dur-base) var(--ease-out),
+      padding-right var(--dur-base) var(--ease-out);
+  }
+
+  .gallery-float-link:hover {
+    color: var(--clay-deep);
+    background: color-mix(in srgb, var(--clay) 10%, transparent);
+  }
+
+  .gallery-float-link:hover .gallery-float-name {
+    max-width: 12rem;
+    opacity: 1;
+    padding-right: 1rem;
+  }
+
+  .gallery-float-link.is-active {
+    color: var(--linen);
+    background: var(--clay);
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .gallery-float,
+    .gallery-float-name {
+      transition: none;
+    }
+  }
+
   /* ---- Mobile: simple 2-col grid ---- */
   @media (max-width: 48rem) {
     .intro-grid {
       grid-template-columns: 1fr;
       gap: var(--space-md);
+    }
+
+    .gallery-float {
+      top: auto;
+      bottom: 1rem;
+      right: 50%;
+      transform: translateX(50%) translateY(1.5rem);
+    }
+
+    .gallery-float.is-visible {
+      transform: translateX(50%) translateY(0);
+    }
+
+    .gallery-float ul {
+      flex-direction: row;
     }
 
     .chapter-nav {
@@ -379,3 +512,71 @@ const gallerySizes = "(min-width: 84rem) 56rem, (min-width: 48rem) 60vw, 50vw";
     }
   }
 </style>
+
+<script>
+  function initGalleryNav() {
+    const links = document.querySelectorAll<HTMLAnchorElement>(
+      ".chapter-nav-link, .gallery-float-link",
+    );
+    if (!links.length) return;
+
+    links.forEach((link) => {
+      if (link.dataset.bound) return;
+      link.dataset.bound = "true";
+
+      link.addEventListener("click", (e) => {
+        const id = link.getAttribute("href")?.slice(1);
+        if (!id) return;
+        const target = document.getElementById(id);
+        if (!target) return;
+        e.preventDefault();
+        const lenis = (window as unknown as Record<string, unknown>).__lenis as { scrollTo?: (el: Element, opts?: Record<string, unknown>) => void } | undefined;
+        if (lenis?.scrollTo) {
+          lenis.scrollTo(target, { offset: -72, duration: 1.2, easing: (t: number) => 1 - Math.pow(1 - t, 3) });
+        } else {
+          target.scrollIntoView({ behavior: "smooth", block: "start" });
+        }
+      });
+    });
+
+    // Floating widget: active highlight + reveal-on-scroll
+    const widget = document.querySelector<HTMLElement>("[data-gallery-float]");
+    const chapters = Array.from(document.querySelectorAll<HTMLElement>(".chapter"));
+    if (!widget || !chapters.length || widget.dataset.ioBound) return;
+    widget.dataset.ioBound = "true";
+
+    const floatLinks = new Map<string, HTMLElement>();
+    widget.querySelectorAll<HTMLElement>(".gallery-float-link").forEach((l) => {
+      const id = l.dataset.floatLink;
+      if (id) floatLinks.set(id, l);
+    });
+
+    const activeIO = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (!entry.isIntersecting) return;
+          const id = (entry.target as HTMLElement).id;
+          floatLinks.forEach((l, key) => l.classList.toggle("is-active", key === id));
+        });
+      },
+      { rootMargin: "-45% 0px -45% 0px" },
+    );
+    chapters.forEach((ch) => activeIO.observe(ch));
+
+    // Show the widget once the first chapter is reached, hide above it.
+    const first = chapters[0];
+    const visIO = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          const past = entry.boundingClientRect.top < 1 || entry.isIntersecting;
+          widget.classList.toggle("is-visible", past);
+        });
+      },
+      { threshold: 0 },
+    );
+    visIO.observe(first);
+  }
+
+  initGalleryNav();
+  document.addEventListener("astro:page-load", initGalleryNav);
+</script>

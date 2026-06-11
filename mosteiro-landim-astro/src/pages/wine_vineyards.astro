@@ -6,7 +6,6 @@ import SectionHeading from "@/components/SectionHeading.astro";
 import QuoteBlock from "@/components/QuoteBlock.astro";
 import GalleryStrip from "@/components/GalleryStrip.astro";
 import SpotlightLink from "@/components/SpotlightLink.astro";
-import CTABand from "@/components/CTABand.astro";
 import Lightbox from "@/components/Lightbox.astro";
 import SmartImage from "@/components/SmartImage.astro";
 import { t } from "@/i18n";
@@ -132,9 +131,9 @@ const stayImages = [airbnb1, airbnb2, airbnb3, airbnb4, airbnb5].map((src, i) =>
     text={c.airbnb.spotlight.phrase2}
     linkText="Contacte-nos para mais informações"
     href="/faq#location"
+    icon="stay"
   />
 
-  <CTABand />
   <Lightbox />
 </BaseLayout>
 

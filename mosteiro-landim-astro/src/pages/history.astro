@@ -3,7 +3,6 @@ import { getImage } from "astro:assets";
 import BaseLayout from "@/layouts/BaseLayout.astro";
 import PageHero from "@/components/PageHero.astro";
 import GalleryStrip from "@/components/GalleryStrip.astro";
-import CTABand from "@/components/CTABand.astro";
 import Lightbox from "@/components/Lightbox.astro";
 import SmartImage from "@/components/SmartImage.astro";
 import { t } from "@/i18n";
@@ -382,18 +381,7 @@ const bookFull = await getImage({ src: book1, width: 1400, format: "webp", quali
           <p class="label" data-reveal="fade-up">Capítulo 06</p>
           <h2 id="book-title" data-reveal="fade-up">{c.book.title}</h2>
         </header>
-        <div class="book-grid">
-          <figure class="fig book-cover" data-reveal="mask">
-            <a href={bookFull.src} data-lightbox="book" data-caption={c.book.imagesCaptions.book1}>
-              <SmartImage
-                src={book1}
-                alt={c.book.imagesCaptions.book1}
-                sizes="(min-width: 64rem) 20rem, 70vw"
-                widths={[400, 700, 1000]}
-                aspect="3 / 4"
-              />
-            </a>
-          </figure>
+        <div class="book-layout">
           <div class="book-text">
             <h3 class="book-title serif-italic" data-reveal="fade-up">{c.book.subHeading}</h3>
             <p class="label" data-reveal="fade-up">{c.book.subSubHeading}</p>
@@ -402,15 +390,28 @@ const bookFull = await getImage({ src: book1, width: 1400, format: "webp", quali
               <p>{c.book.quote}</p>
             </blockquote>
           </div>
-          <figure class="fig book-old" data-reveal="fade-up">
-            <SmartImage
-              src={bookOld}
-              alt="Edição antiga sobre o Mosteiro de Landim"
-              sizes="(min-width: 64rem) 14rem, 50vw"
-              widths={[300, 500]}
-              aspect="3 / 4"
-            />
-          </figure>
+          <div class="book-images">
+            <figure class="fig book-cover" data-reveal="mask">
+              <a href={bookFull.src} data-lightbox="book" data-caption={c.book.imagesCaptions.book1}>
+                <SmartImage
+                  src={book1}
+                  alt={c.book.imagesCaptions.book1}
+                  sizes="(min-width: 64rem) 20rem, 70vw"
+                  widths={[400, 700, 1000]}
+                  aspect="3 / 4"
+                />
+              </a>
+            </figure>
+            <figure class="fig book-old" data-reveal="fade-up">
+              <SmartImage
+                src={bookOld}
+                alt="Edição antiga sobre o Mosteiro de Landim"
+                sizes="(min-width: 64rem) 14rem, 50vw"
+                widths={[300, 500]}
+                aspect="3 / 4"
+              />
+            </figure>
+          </div>
         </div>
       </section>
     </div>
@@ -422,7 +423,6 @@ const bookFull = await getImage({ src: book1, width: 1400, format: "webp", quali
     </svg>
   </button>
 
-  <CTABand />
   <Lightbox />
 </BaseLayout>
 
@@ -655,14 +655,29 @@ const bookFull = await getImage({ src: book1, width: 1400, format: "webp", quali
     overflow-x: auto;
   }
 
-  /* ---- Book ---- */
-  .book-grid {
-    display: grid;
-    grid-template-columns: minmax(12rem, 20rem) minmax(0, 1fr) minmax(10rem, 14rem);
-    gap: var(--space-lg);
-    align-items: start;
+  /* ---- Book chapter 6 — text first, images second ---- */
+  .book-layout {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-md);
   }
 
+  .book-images {
+    display: flex;
+    gap: var(--space-md);
+    align-items: start;
+    flex-wrap: wrap;
+  }
+
+  .book-cover {
+    flex: 0 0 min(20rem, 48%);
+  }
+
+  .book-old {
+    flex: 0 0 min(14rem, 38%);
+  }
+
+  /* ---- Book ---- */
   .book-title {
     font-size: var(--text-lg);
     font-weight: 440;
@@ -717,7 +732,7 @@ const bookFull = await getImage({ src: book1, width: 1400, format: "webp", quali
   }
 
   /* ---- Responsive ---- */
-  @media (max-width: 64rem) {
+  @media (max-width: 80rem) {
     .history-layout {
       grid-template-columns: 1fr;
       gap: var(--space-sm);
@@ -741,7 +756,9 @@ const bookFull = await getImage({ src: book1, width: 1400, format: "webp", quali
       border-left: none;
       padding: 0.3rem 0;
     }
+  }
 
+  @media (max-width: 64rem) {
     .priests-grid,
     .person-grid {
       grid-template-columns: 1fr;
@@ -762,18 +779,6 @@ const bookFull = await getImage({ src: book1, width: 1400, format: "webp", quali
     .priests-figs .fig {
       flex: 1 1 12rem;
       max-width: 16rem;
-    }
-
-    .book-grid {
-      grid-template-columns: 1fr;
-    }
-
-    .book-cover {
-      max-width: 18rem;
-    }
-
-    .book-old {
-      max-width: 12rem;
     }
   }
 

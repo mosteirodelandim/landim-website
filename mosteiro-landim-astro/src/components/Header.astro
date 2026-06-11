@@ -12,8 +12,6 @@ const { tone = "light" } = Astro.props;
     <span class="brand-name">Mosteiro de Landim</span>
   </a>
 
-  <p class="estd label" aria-hidden="true">Estd · Séc. XII</p>
-
   <button
     id="menu-toggle"
     class="menu-toggle"
@@ -95,11 +93,6 @@ const { tone = "light" } = Astro.props;
     text-transform: uppercase;
   }
 
-  .estd {
-    color: inherit;
-    opacity: 0.75;
-  }
-
   .menu-toggle {
     display: inline-flex;
     align-items: center;
@@ -136,10 +129,6 @@ const { tone = "light" } = Astro.props;
   }
 
   @media (max-width: 48rem) {
-    .estd {
-      display: none;
-    }
-
     .brand-name {
       display: none;
     }

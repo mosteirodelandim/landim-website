@@ -73,7 +73,11 @@ const fulls = lightbox
       ))
     }
   </ul>
-  <p class="strip-hint label" aria-hidden="true">( arraste )</p>
+  <p class="strip-hint label" aria-hidden="true">
+    <span class="strip-hint-arrow">←</span>
+    arraste <span class="strip-hint-sep">·</span> clique para ampliar
+    <span class="strip-hint-arrow">→</span>
+  </p>
 </div>
 
 <style>
@@ -130,6 +134,57 @@ const fulls = lightbox
     text-align: center;
     margin-top: var(--space-sm);
     color: var(--clay-deep);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+  }
+
+  .strip-hint-sep {
+    opacity: 0.5;
+  }
+
+  .strip-hint-arrow {
+    display: inline-block;
+    animation: strip-hint-nudge 2.2s var(--ease-out) infinite;
+  }
+
+  .strip-hint-arrow:last-child {
+    animation-delay: 1.1s;
+  }
+
+  @keyframes strip-hint-nudge {
+    0%,
+    100% {
+      transform: translateX(0);
+      opacity: 0.55;
+    }
+    50% {
+      transform: translateX(0.3rem);
+      opacity: 1;
+    }
+  }
+
+  .strip-hint-arrow:first-child {
+    animation-name: strip-hint-nudge-left;
+  }
+
+  @keyframes strip-hint-nudge-left {
+    0%,
+    100% {
+      transform: translateX(0);
+      opacity: 0.55;
+    }
+    50% {
+      transform: translateX(-0.3rem);
+      opacity: 1;
+    }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .strip-hint-arrow {
+      animation: none;
+    }
   }
 </style>
 
@@ -143,28 +198,111 @@ const fulls = lightbox
       let startX = 0;
       let startScroll = 0;
       let moved = false;
+      let velX = 0;
+      let lastClientX = 0;
+      let lastTime = 0;
+      let pending = false;
+      let pendingScroll = 0;
+      let rafId: number | null = null;
 
       track.addEventListener("pointerdown", (e) => {
-        if (e.pointerType !== "mouse") return;
+        if (rafId) { cancelAnimationFrame(rafId); rafId = null; }
         isDown = true;
         moved = false;
         startX = e.clientX;
         startScroll = track.scrollLeft;
+        pendingScroll = track.scrollLeft;
+        velX = 0;
+        lastClientX = e.clientX;
+        lastTime = performance.now();
+        track.setPointerCapture(e.pointerId);
       });
 
-      window.addEventListener("pointermove", (e) => {
+      track.addEventListener("pointermove", (e) => {
         if (!isDown) return;
         const dx = e.clientX - startX;
-        if (Math.abs(dx) > 6) {
+        if (Math.abs(dx) > 5) {
           moved = true;
           track.classList.add("is-dragging");
+          // Block the lightbox click that fires when this drag ends.
+          (window as unknown as { __lbDragUntil?: number }).__lbDragUntil =
+            performance.now() + 500;
         }
-        track.scrollLeft = startScroll - dx;
+        // Velocity tracking
+        const now = performance.now();
+        const dt = Math.max(1, now - lastTime);
+        velX = (e.clientX - lastClientX) / dt;
+        lastClientX = e.clientX;
+        lastTime = now;
+
+        pendingScroll = startScroll - dx;
+        if (!pending) {
+          pending = true;
+          requestAnimationFrame(() => {
+            track.scrollLeft = pendingScroll;
+            pending = false;
+          });
+        }
       });
 
-      window.addEventListener("pointerup", () => {
+      track.addEventListener("pointerup", () => {
+        if (!isDown) return;
         isDown = false;
-        requestAnimationFrame(() => track.classList.remove("is-dragging"));
+        if (!moved) {
+          track.classList.remove("is-dragging");
+          return;
+        }
+        // Refresh the guard so the trailing click is ignored by the lightbox.
+        (window as unknown as { __lbDragUntil?: number }).__lbDragUntil =
+          performance.now() + 350;
+
+        // Momentum coast then snap to nearest item
+        const momentum = velX * -380;
+        const coastTarget = Math.max(
+          0,
+          Math.min(track.scrollWidth - track.clientWidth, track.scrollLeft + momentum),
+        );
+
+        // Find the strip-item whose center is nearest to coastTarget + half clientWidth
+        const items = Array.from(track.querySelectorAll<HTMLElement>(".strip-item"));
+        const viewCenter = coastTarget + track.clientWidth / 2;
+        let snapLeft = coastTarget;
+        let minDist = Infinity;
+        items.forEach((item) => {
+          const itemCenter = item.offsetLeft + item.offsetWidth / 2;
+          const dist = Math.abs(itemCenter - viewCenter);
+          if (dist < minDist) { minDist = dist; snapLeft = item.offsetLeft + item.offsetWidth / 2 - track.clientWidth / 2; }
+        });
+        snapLeft = Math.max(0, Math.min(track.scrollWidth - track.clientWidth, snapLeft));
+
+        const startVal = track.scrollLeft;
+        const delta = snapLeft - startVal;
+        const duration = Math.min(600, Math.max(200, Math.abs(delta) * 1.1));
+        let startTime: number | null = null;
+
+        function coast(time: number) {
+          if (!startTime) startTime = time;
+          const t = Math.min((time - startTime) / duration, 1);
+          const ease = 1 - Math.pow(1 - t, 3);
+          track.scrollLeft = startVal + delta * ease;
+          if (t < 1) {
+            rafId = requestAnimationFrame(coast);
+          } else {
+            rafId = null;
+            track.classList.remove("is-dragging");
+          }
+        }
+
+        if (Math.abs(delta) > 2) {
+          rafId = requestAnimationFrame(coast);
+        } else {
+          track.classList.remove("is-dragging");
+        }
+      });
+
+      track.addEventListener("pointercancel", () => {
+        isDown = false;
+        track.classList.remove("is-dragging");
       });
 
       // Suppress accidental clicks after a drag

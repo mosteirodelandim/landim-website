@@ -29,7 +29,9 @@ const { title, subtitle, image, imageAlt = "", label } = Astro.props;
   <div class="page-hero-scrim" aria-hidden="true"></div>
   <div class="container page-hero-content">
     {label && <p class="label page-hero-label">{label}</p>}
-    <h1 class="page-hero-title">{title}</h1>
+    <h1 class="page-hero-title">
+      <slot name="title">{title}</slot>
+    </h1>
     {subtitle && <p class="page-hero-subtitle serif-italic">{subtitle}</p>}
   </div>
 </section>

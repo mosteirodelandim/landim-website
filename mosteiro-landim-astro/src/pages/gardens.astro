@@ -4,7 +4,6 @@ import PageHero from "@/components/PageHero.astro";
 import SectionHeading from "@/components/SectionHeading.astro";
 import GalleryStrip from "@/components/GalleryStrip.astro";
 import SpotlightLink from "@/components/SpotlightLink.astro";
-import CTABand from "@/components/CTABand.astro";
 import Lightbox from "@/components/Lightbox.astro";
 import { t } from "@/i18n";
 import { config } from "@/config";
@@ -73,9 +72,9 @@ const gardenImages = [picture1, picture2, picture3, picture4, picture5, picture6
     text={c.lottie.description}
     linkText={c.lottie.hyperlink}
     href={`mailto:${config.emailContact}`}
+    icon="gardens"
   />
 
-  <CTABand />
   <Lightbox />
 </BaseLayout>
 

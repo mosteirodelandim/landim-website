@@ -3,7 +3,6 @@ import BaseLayout from "@/layouts/BaseLayout.astro";
 import PageHero from "@/components/PageHero.astro";
 import SectionHeading from "@/components/SectionHeading.astro";
 import Accordion from "@/components/Accordion.astro";
-import CTABand from "@/components/CTABand.astro";
 import { t } from "@/i18n";
 import { config } from "@/config";
 
@@ -83,20 +82,22 @@ const faqJsonLd = {
         index="02"
         label="Onde estamos"
         title="Estamos <em>aqui</em>"
-        lede={`${config.address}, a 30 minutos do Porto e 20 minutos do aeroporto.`}
       />
 
-      <div class="map-grid">
-        <div class="map-frame" data-reveal="fade-up">
-          <iframe
-            src={config.mapEmbedSrc}
-            title="Mapa — Mosteiro de Landim"
-            loading="lazy"
-            allowfullscreen
-            referrerpolicy="no-referrer-when-downgrade"></iframe>
+      <div class="location-grid">
+        <div class="location-address" data-reveal="fade-up">
+          <p class="location-line serif-italic">{config.address}</p>
+          <p class="location-transit label">
+            A 30 minutos do Porto · 20 minutos do aeroporto
+          </p>
+          <p class="map-note">
+            Alameda do Mosteiro<br />
+            4770-328 Landim<br />
+            Vila Nova de Famalicão
+          </p>
         </div>
 
-        <div class="map-actions" data-reveal="stagger-children">
+        <div class="location-actions" data-reveal="stagger-children">
           <p class="label">Direções</p>
           <a
             class="btn btn--solid"
@@ -109,17 +110,10 @@ const faqJsonLd = {
           <a class="btn" href={config.directionsWaze} target="_blank" rel="noopener noreferrer">
             Waze
           </a>
-          <p class="map-note">
-            Alameda do Mosteiro<br />
-            4770-328 Landim<br />
-            Vila Nova de Famalicão
-          </p>
         </div>
       </div>
     </div>
   </section>
-
-  <CTABand />
 
   <script is:inline type="application/ld+json" set:html={JSON.stringify(faqJsonLd)} />
 </BaseLayout>
@@ -134,51 +128,46 @@ const faqJsonLd = {
     border-block: 1px solid var(--hairline);
   }
 
-  .map-grid {
+  .location-grid {
     display: grid;
     grid-template-columns: minmax(0, 2fr) minmax(14rem, 1fr);
     gap: var(--space-md);
     align-items: start;
   }
 
-  .map-frame {
-    aspect-ratio: 16 / 10;
-    border-radius: var(--radius-sm);
-    overflow: hidden;
-    border: 1px solid var(--hairline);
-    background: var(--sand);
-    /* Earthy tint over the default map tiles */
-    filter: sepia(0.22) saturate(0.85);
+  .location-line {
+    font-size: var(--text-lg);
+    color: var(--clay-deep);
+    line-height: 1.3;
   }
 
-  .map-frame iframe {
-    width: 100%;
-    height: 100%;
-    border: 0;
-    display: block;
+  .location-transit {
+    margin-top: 0.6rem;
+    color: var(--fg-soft);
+    letter-spacing: 0.14em;
   }
 
-  .map-actions {
+  .location-actions {
     display: flex;
     flex-direction: column;
     align-items: flex-start;
     gap: var(--space-xs);
   }
 
-  .map-actions .label {
+  .location-actions .label {
     color: var(--clay-deep);
     margin-bottom: 0.3rem;
   }
 
   .map-note {
-    margin-top: var(--space-xs);
+    margin-top: var(--space-sm);
     font-size: var(--text-sm);
     color: var(--fg-soft);
     line-height: 1.7;
   }
 
   @media (max-width: 48rem) {
-    .map-grid {
+    .location-grid {
       grid-template-columns: 1fr;
     }
   }

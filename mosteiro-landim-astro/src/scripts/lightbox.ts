@@ -101,12 +101,22 @@ function init(): void {
 
   if (!docBound) {
     docBound = true;
-    document.addEventListener("click", (e) => {
-      const trigger = (e.target as HTMLElement).closest<HTMLElement>("[data-lightbox]");
-      if (!trigger) return;
-      e.preventDefault();
-      open(trigger.dataset.lightbox || "default", Number(trigger.dataset.lbIndex ?? 0));
-    });
+    // Capture phase + stopPropagation so Astro's ClientRouter does not navigate
+    // to the image href before this handler can preventDefault.
+    document.addEventListener(
+      "click",
+      (e) => {
+        const trigger = (e.target as HTMLElement).closest<HTMLElement>("[data-lightbox]");
+        if (!trigger) return;
+        // Ignore the click that ends a strip drag (set by GalleryStrip).
+        const guard = (window as unknown as { __lbDragUntil?: number }).__lbDragUntil ?? 0;
+        if (performance.now() < guard) return;
+        e.preventDefault();
+        e.stopPropagation();
+        open(trigger.dataset.lightbox || "default", Number(trigger.dataset.lbIndex ?? 0));
+      },
+      { capture: true },
+    );
   }
 
   if (dialog.dataset.bound) return;

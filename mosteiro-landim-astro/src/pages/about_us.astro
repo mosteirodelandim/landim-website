@@ -6,7 +6,6 @@ import SectionHeading from "@/components/SectionHeading.astro";
 import QuoteBlock from "@/components/QuoteBlock.astro";
 import SpotlightLink from "@/components/SpotlightLink.astro";
 import GalleryStrip from "@/components/GalleryStrip.astro";
-import CTABand from "@/components/CTABand.astro";
 import Lightbox from "@/components/Lightbox.astro";
 import SmartImage from "@/components/SmartImage.astro";
 import { t } from "@/i18n";
@@ -44,7 +43,13 @@ const spaceCards = [
     image={banner}
     imageAlt="Fachada do Mosteiro de Landim"
     label="Sobre Nós"
-  />
+  >
+    <span slot="title" class="about-hero-title">
+      <span class="about-clause">{c.heading1}.</span>
+      <em class="about-clause about-clause--italic serif-italic">{c.heading2}.</em>
+      <span class="about-clause about-clause--accent">{c.heading3}.</span>
+    </span>
+  </PageHero>
 
   <!-- ============ A QUINTA ============ -->
   <section class="section">
@@ -90,6 +95,7 @@ const spaceCards = [
     text={c.history.lottie.description}
     linkText={c.history.lottie.hyperlink}
     href="/history"
+    icon="history"
   />
 
   <!-- ============ GERAÇÕES ============ -->
@@ -143,6 +149,7 @@ const spaceCards = [
     text={c.wines.lottie.description}
     linkText={c.wines.lottie.hyperlink}
     href="/wine_vineyards"
+    icon="wine"
   />
 
   <!-- ============ SERVIÇOS E ESPAÇOS ============ -->
@@ -189,13 +196,39 @@ const spaceCards = [
     text={c.events_spaces.lottie.description}
     linkText={c.events_spaces.lottie.hyperlink}
     href="/events"
+    icon="events"
   />
 
-  <CTABand />
   <Lightbox />
 </BaseLayout>
 
 <style>
+  /* ---- Hero title styling ---- */
+  :global(.about-hero-title) {
+    display: flex;
+    flex-direction: column;
+    gap: 0.1em;
+  }
+
+  :global(.about-clause) {
+    display: block;
+    font-size: inherit;
+    line-height: 1.05;
+  }
+
+  :global(.about-clause--italic) {
+    color: var(--rose);
+    font-style: italic;
+  }
+
+  :global(.about-clause--accent) {
+    font-size: 0.72em;
+    font-weight: 300;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: color-mix(in srgb, var(--linen) 72%, transparent);
+  }
+
   .section {
     padding-block: var(--space-xl);
   }

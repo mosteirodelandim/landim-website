@@ -1,7 +1,7 @@
 /**
  * Landing bootstrap — ships to every tier.
  * On the min tier (phones / reduced motion) it only removes the preloader;
- * the heavy GSAP/Three code (landing-core) is dynamically imported elsewhere.
+ * the heavy GSAP code (landing-core) is dynamically imported elsewhere.
  */
 type Tier = "full" | "medium" | "min";
 
