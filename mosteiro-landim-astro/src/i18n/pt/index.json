@@ -45,9 +45,9 @@
         "line1": "Um Mosteiro.",
         "line2": "Uma família.",
         "line3": "Dez gerações.",
-        "lede": "Entre japoneiras centenárias e um claustro do século XVI, a nossa casa guarda oito séculos de história — e continua a abrir os portões a quem celebra.",
+        "lede": "Entre japoneiras centenárias e um claustro do século XVI, a nossa casa guarda oito séculos de história e ainda hoje abre os portões a quem celebra.",
         "cta": "Sobre nós",
-        "caption": "O claustro — o coração de cada festa.",
+        "caption": "O claustro, coração de cada festa.",
         "imageAlt": "O claustro do Mosteiro de Landim"
       },
       "marquee": ["Casamentos", "Eventos", "Tours", "Vindimas", "Estadia", "História"],
@@ -56,7 +56,7 @@
       "spacesTitleEm": "a quinta",
       "featureTitleLead": "O cenário de uma ",
       "featureTitleEm": "festa única",
-      "featureDescription2": "Claustro, salas históricas, jardins e igreja — um conjunto de espaços com séculos de histórias para contar, exclusivamente seus por um dia.",
+      "featureDescription2": "Claustro, salas históricas, jardins e igreja: um conjunto de espaços com séculos de histórias para contar, exclusivamente seus por um dia.",
       "featureCta": "Conhecer os serviços",
       "featureAltGarden": "Jardins do Mosteiro preparados para um casamento",
       "featureAltCloister": "Mesa de festa no claustro",
@@ -91,7 +91,7 @@
         {
           "year": "1775",
           "title": "A escritura",
-          "text": "O Mosteiro passa para as mãos da família — uma herança que dura há 250 anos."
+          "text": "O Mosteiro passa para as mãos da família, uma herança que perdura há 250 anos."
         },
         {
           "year": "Hoje",

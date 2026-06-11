@@ -45,9 +45,9 @@
         "line1": "One Monastery.",
         "line2": "One family.",
         "line3": "Ten generations.",
-        "lede": "Among centuries-old camellias and a 16th-century cloister, our home holds eight centuries of history — and still opens its gates to those who celebrate.",
+        "lede": "Among centuries-old camellias and a 16th-century cloister, our home holds eight centuries of history and still opens its gates to those who celebrate.",
         "cta": "About us",
-        "caption": "The cloister — the heart of every celebration.",
+        "caption": "The cloister, the heart of every celebration.",
         "imageAlt": "The cloister of Mosteiro de Landim"
       },
       "marquee": ["Weddings", "Events", "Tours", "Harvest", "Stay", "History"],
@@ -56,7 +56,7 @@
       "spacesTitleEm": "the estate",
       "featureTitleLead": "The setting for a ",
       "featureTitleEm": "singular celebration",
-      "featureDescription2": "Cloister, historic halls, gardens and church — a set of spaces with centuries of stories to tell, exclusively yours for a day.",
+      "featureDescription2": "Cloister, historic halls, gardens and church: a set of spaces with centuries of stories to tell, exclusively yours for a day.",
       "featureCta": "Discover our services",
       "featureAltGarden": "The Monastery gardens set for a wedding",
       "featureAltCloister": "A banquet table in the cloister",
@@ -91,7 +91,7 @@
         {
           "year": "1775",
           "title": "The deed",
-          "text": "The Monastery passes into the family's hands — an inheritance now 250 years old."
+          "text": "The Monastery passes into the family's hands, an inheritance now 250 years old."
         },
         {
           "year": "Today",
