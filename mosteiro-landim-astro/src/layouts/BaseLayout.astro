@@ -122,7 +122,7 @@ const jsonLd = {
 
     <link rel="preload" href={frauncesUrl} as="font" type="font/woff2" crossorigin />
 
-    <script is:inline>
+    <script is:inline data-astro-rerun>
       (function () {
         var d = document.documentElement;
         var tier = "min";
@@ -156,7 +156,7 @@ const jsonLd = {
       <slot />
     </main>
     <Footer />
-    <div id="page-curtain" aria-hidden="true">
+    <div id="page-curtain" aria-hidden="true" transition:persist="page-curtain">
       <Image class="curtain-mark" src={logoOneline} alt="" widths={[160, 280, 400]} sizes="200px" />
     </div>
     <script src="@/scripts/motion.ts"></script>
