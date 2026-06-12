@@ -1,0 +1,44 @@
+name: Astro Deploy to Netlify
+
+on:
+  push:
+    branches:
+      - master
+    paths:
+      - "mosteiro-landim-astro/**"
+      - ".github/workflows/astro-deploy.yml"
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: mosteiro-landim-astro
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: npm
+          cache-dependency-path: mosteiro-landim-astro/package-lock.json
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Build Astro site
+        run: npm run build
+
+      - name: Deploy to Netlify
+        uses: nwtgck/actions-netlify@v3.0
+        with:
+          publish-dir: mosteiro-landim-astro/dist
+          production-branch: master
+          deploy-message: "Deploy Astro site from GitHub Actions"
+        env:
+          NETLIFY_AUTH_TOKEN: ${{ secrets.NETLIFY_AUTH_TOKEN }}
+          NETLIFY_SITE_ID: ${{ secrets.NETLIFY_ASTRO_SITE_ID }}
+        timeout-minutes: 20
