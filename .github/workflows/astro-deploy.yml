@@ -5,37 +5,46 @@ on:
     branches:
       - master
     paths:
-      - "mosteiro-landim-astro/**"
       - ".github/workflows/astro-deploy.yml"
+      - "src/**"
+      - "public/**"
+      - "scripts/**"
+      - "astro.config.mjs"
+      - "package.json"
+      - "pnpm-lock.yaml"
+      - "tsconfig.json"
 
 jobs:
   deploy:
     runs-on: ubuntu-latest
-    defaults:
-      run:
-        working-directory: mosteiro-landim-astro
 
     steps:
       - name: Checkout
         uses: actions/checkout@v4
 
+      - name: Setup pnpm
+        uses: pnpm/action-setup@v4
+
       - name: Setup Node
         uses: actions/setup-node@v4
         with:
-          node-version: 20
-          cache: npm
-          cache-dependency-path: mosteiro-landim-astro/package-lock.json
+          node-version: 22
+          cache: pnpm
+          cache-dependency-path: pnpm-lock.yaml
 
       - name: Install dependencies
-        run: npm ci
+        run: pnpm install --frozen-lockfile
+
+      - name: Astro check
+        run: pnpm run check
 
       - name: Build Astro site
-        run: npm run build
+        run: pnpm run build
 
       - name: Deploy to Netlify
         uses: nwtgck/actions-netlify@v3.0
         with:
-          publish-dir: mosteiro-landim-astro/dist
+          publish-dir: ./dist
           production-branch: master
           deploy-message: "Deploy Astro site from GitHub Actions"
         env:
