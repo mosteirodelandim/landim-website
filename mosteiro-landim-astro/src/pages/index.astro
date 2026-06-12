@@ -18,15 +18,15 @@ import wineTile from "@/assets/images/landing/wine_tile.jpg";
 import faqTile from "@/assets/images/landing/faq_tile.jpg";
 import manifestoImg from "@/assets/images/landing/about-us-manifesto.jpg";
 import logoOneline from "@/assets/images/logo_black_oneline.png";
-import featureCloister from "@/assets/images/events/cloister.jpg";
-import featureGarden from "@/assets/images/events/garden.jpg";
-import featureRooms from "@/assets/images/events/rooms.jpg";
+import feature1 from "@/assets/images/landing/events-1.jpg";
+import feature2 from "@/assets/images/landing/events-2.jpg";
+import feature3 from "@/assets/images/landing/events-3.jpg";
 import momento1 from "@/assets/images/photo-gallery/garden/2.jpg";
-import momento2 from "@/assets/images/photo-gallery/cloister/5.jpg";
+import momento2 from "@/assets/images/landing/momento-2.jpg";
 import momento3 from "@/assets/images/photo-gallery/garden/14.jpg";
-import momento4 from "@/assets/images/photo-gallery/rooms/1.jpg";
+import momento4 from "@/assets/images/landing/momento-4.jpg";
 import momento5 from "@/assets/images/photo-gallery/church/2.jpg";
-import momento6 from "@/assets/images/photo-gallery/cloister/9.jpg";
+import momento6 from "@/assets/images/landing/momento-6.jpg";
 
 const locale = resolveLocale(Astro.currentLocale);
 const t = getContent(locale);
@@ -257,7 +257,7 @@ const timeline = u.timeline;
     <div class="container feature-grid">
       <div class="feature-media-a" data-reveal="mask">
         <SmartImage
-          src={featureGarden}
+          src={feature1}
           alt={u.featureAltGarden}
           sizes="(min-width: 64rem) 38rem, 92vw"
           widths={[480, 800, 1200]}
@@ -266,7 +266,7 @@ const timeline = u.timeline;
       </div>
       <div class="feature-media-b" data-reveal="mask">
         <SmartImage
-          src={featureCloister}
+          src={feature2}
           alt={u.featureAltCloister}
           sizes="(min-width: 64rem) 24rem, 70vw"
           widths={[400, 700, 1000]}
@@ -275,7 +275,7 @@ const timeline = u.timeline;
       </div>
       <div class="feature-media-c" data-reveal="mask">
         <SmartImage
-          src={featureRooms}
+          src={feature3}
           alt={u.featureAltRooms}
           sizes="(min-width: 64rem) 20rem, 60vw"
           widths={[400, 700, 1000]}
@@ -927,6 +927,8 @@ const timeline = u.timeline;
 
   .momentos-panel :global(.smart-image) {
     border-radius: var(--radius-sm);
+    will-change: transform;
+    -webkit-mask-image: -webkit-radial-gradient(white, black);
   }
 
   .momentos-panel a {

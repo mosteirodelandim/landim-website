@@ -361,9 +361,10 @@ function initMomentos(): void {
     section.querySelectorAll<HTMLElement>(".momentos-panel img").forEach((img) => {
       gsap.fromTo(
         img,
-        { xPercent: -7 },
+        { xPercent: -7, scale: 1.18 },
         {
           xPercent: 7,
+          scale: 1.18,
           ease: "none",
           scrollTrigger: {
             trigger: img.closest(".momentos-panel"),
