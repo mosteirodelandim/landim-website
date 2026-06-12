@@ -1,76 +1,29 @@
 {
-  "name": "landim-website",
-  "version": "0.0.1",
-  "description": "The website for Mosteiro de Santa Maria de Landim",
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/LuchoTurtle/landim-website.git"
+  "name": "mosteiro-landim",
+  "type": "module",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "dev": "astro dev",
+    "build": "astro build && node scripts/prune-originals.mjs",
+    "preview": "astro preview",
+    "check": "astro check",
+    "astro": "astro"
   },
   "dependencies": {
-    "fs-extra": "^9.0.1",
-    "gatsby": "2.32.13",
-    "gatsby-background-image": "^1.6.0",
-    "gatsby-image": "^2.11.0",
-    "gatsby-plugin-manifest": "^2.4.30",
-    "gatsby-plugin-offline": "^3.2.28",
-    "gatsby-plugin-react-helmet": "^3.3.11",
-    "gatsby-plugin-sass": "^3.0.0",
-    "gatsby-plugin-sharp": "^2.14.4",
-    "gatsby-source-filesystem": "^2.11.1",
-    "gatsby-transformer-sharp": "^2.12.1",
-    "google-map-react": "^2.1.3",
-    "i18next": "^17.2.0",
-    "i18next-browser-languagedetector": "^4.0.0",
-    "i18next-xhr-backend": "^3.2.2",
-    "node-sass": "^9.0.0",
-    "npm": "^11.6.1",
-    "prop-types": "^15.7.2",
-    "re-carousel": "^2.4.0",
-    "react": "^16.13.1",
-    "react-dom": "^16.13.1",
-    "react-flag-icon-css": "^1.0.25",
-    "react-flexbox-grid": "^2.1.2",
-    "react-helmet": "^6.1.0",
-    "react-i18next": "^10.13.1",
-    "react-image-gallery": "^1.0.8",
-    "react-image-lightbox": "^5.1.1",
-    "react-lottie": "^1.2.3",
-    "react-obfuscate": "^3.6.7",
-    "react-outside-click-handler": "^1.3.0",
-    "react-responsive": "^8.1.0",
-    "react-scroll-up-button": "^1.6.4",
-    "react-scrollspy": "^3.4.3",
-    "react-slidedown": "^2.4.5",
-    "smoothscroll-polyfill": "^0.4.4",
-    "typewriter-effect": "2.13.1"
-  },
-  "scripts": {
-    "lint": "eslint ./src --fix",
-    "develop": "gatsby develop",
-    "build": "npm run clean && gatsby build",
-    "deploy": "npm run clean && gatsby build --prefix-paths && gh-pages -d public",
-    "serve": "gatsby serve",
-    "clean": "rimraf .cache public",
-    "format": "prettier --write '**/*.js'",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "@astrojs/sitemap": "^3.7.3",
+    "@fontsource-variable/fraunces": "^5.2.9",
+    "@fontsource-variable/karla": "^5.2.8",
+    "astro": "^6.4.6",
+    "gsap": "^3.15.0",
+    "lenis": "^1.3.23",
+    "sharp": "^0.35.0"
   },
   "devDependencies": {
-    "babel-eslint": "^10.1.0",
-    "eslint": "^7.9.0",
-    "eslint-config-airbnb": "^18.2.0",
-    "eslint-plugin-import": "^2.22.0",
-    "eslint-plugin-jsx-a11y": "^6.3.1",
-    "eslint-plugin-react": "^7.20.6",
-    "eslint-plugin-react-hooks": "^4.1.2",
-    "gh-pages": "^3.1.0",
-    "prettier": "^2.1.2",
-    "rimraf": "^3.0.2"
+    "@astrojs/check": "^0.9.9",
+    "prettier": "^3.8.4",
+    "prettier-plugin-astro": "^0.14.1",
+    "typescript": "^6.0.3"
   },
-  "keywords": [
-    "gatsby",
-    "gatsby-starter",
-    "gatsby-starter-spectral"
-  ],
-  "license": "MIT",
-  "homepage": "https://github.com/LuchoTurtle/landim-website.git#readme"
+  "packageManager": "pnpm@11.6.0+sha512.9a36518224080c6fe5165afdcfe79bfa118c29be703f3f462b1e32efe1e98e47e8750b148e08286250aad4113cc7993ca413c4e2cd447752708c2ee5751bc95f"
 }
