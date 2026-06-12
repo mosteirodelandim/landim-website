@@ -30,7 +30,7 @@ jobs:
           GATSBY_MAP_GOOGLE_API_KEY: ${{ secrets.GATSBY_MAP_GOOGLE_API_KEY }}
 
       - name: Deploy to Netlify
-        uses: nwtgck/actions-netlify@v2.0
+        uses: nwtgck/actions-netlify@v4.0
         with:
             publish-dir: './public'
             production-branch: master
