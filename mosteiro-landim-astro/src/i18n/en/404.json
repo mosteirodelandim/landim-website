@@ -1,0 +1,13 @@
+{
+  "en": {
+    "title": "404",
+    "code": "Error 404",
+    "back": "Back to Landim",
+    "heading": "oh no...",
+    "subHeading": "You hit a 404 error",
+    "subSubHeading1": "You had better ",
+    "subSubHeadingLink": "head back",
+    "subSubHeading2": "to Landim — there is nothing for you here (except for",
+    "subSubHeading3": ", the house dog)."
+  }
+}

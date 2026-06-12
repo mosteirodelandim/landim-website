@@ -1,0 +1,138 @@
+---
+/**
+ * SmartImage — build-time optimized, lazy, CLS-free, shimmer-while-loading.
+ * Wraps astro:assets <Picture> (AVIF/WebP) inside an aspect-ratio box with a
+ * sand-toned shimmer that fades out once the image has decoded.
+ */
+import { Picture } from "astro:assets";
+
+interface Props {
+  src: ImageMetadata;
+  alt: string;
+  /** Per-slot responsive hint, e.g. "(min-width: 64rem) 50vw, 100vw" */
+  sizes?: string;
+  widths?: number[];
+  /** Above-the-fold images: eager + high priority, no shimmer delay */
+  eager?: boolean;
+  /** CSS aspect-ratio override (e.g. "4 / 5"); crops visually via object-fit */
+  aspect?: string;
+  quality?: number;
+  class?: string;
+}
+
+const {
+  src,
+  alt,
+  sizes = "(min-width: 84rem) 84rem, 100vw",
+  widths = [400, 800, 1200, 1600, 2000],
+  eager = false,
+  aspect,
+  quality = 72,
+  class: className = "",
+} = Astro.props;
+
+const usableWidths = [...new Set(widths.filter((w) => w <= src.width).concat(Math.min(src.width, Math.max(...widths))))].sort((a, b) => a - b);
+const ratio = aspect ?? `${src.width} / ${src.height}`;
+---
+
+<div class:list={["smart-image", { "is-eager": eager }, className]} style={`aspect-ratio: ${ratio};`}>
+  <Picture
+    src={src}
+    alt={alt}
+    widths={usableWidths}
+    sizes={sizes}
+    formats={["avif", "webp"]}
+    fallbackFormat="webp"
+    quality={quality}
+    loading={eager ? "eager" : "lazy"}
+    fetchpriority={eager ? "high" : "auto"}
+    decoding="async"
+    onload="this.closest('.smart-image').classList.add('is-loaded')"
+    onerror="this.closest('.smart-image').classList.add('is-loaded')"
+  />
+</div>
+
+<style>
+  .smart-image {
+    position: relative;
+    overflow: hidden;
+    background: var(--sand);
+  }
+
+  /* Shimmer sweep while loading */
+  .smart-image::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    z-index: 1;
+    background: linear-gradient(
+      105deg,
+      transparent 30%,
+      color-mix(in oklab, var(--linen) 60%, transparent) 50%,
+      transparent 70%
+    );
+    background-size: 220% 100%;
+    animation: shimmer 1.6s ease-in-out infinite;
+    opacity: 1;
+    transition: opacity 500ms ease;
+  }
+
+  .smart-image.is-loaded::before {
+    opacity: 0;
+    animation: none;
+  }
+
+  .smart-image :global(picture) {
+    display: block;
+    width: 100%;
+    height: 100%;
+  }
+
+  .smart-image :global(img) {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    opacity: 0;
+    transition: opacity 700ms var(--ease-out);
+  }
+
+  .smart-image.is-loaded :global(img) {
+    opacity: 1;
+  }
+
+  /* Above-the-fold (LCP) images paint immediately — no fade gate */
+  .smart-image.is-eager :global(img) {
+    opacity: 1;
+    transition: none;
+  }
+
+  @keyframes shimmer {
+    from {
+      background-position: 160% 0;
+    }
+    to {
+      background-position: -60% 0;
+    }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .smart-image::before {
+      animation: none;
+    }
+  }
+</style>
+
+<script>
+  // Cached/instant images may fire `load` before hydration of the inline
+  // handler in rare SSR streaming cases — sweep for already-complete images.
+  function sweep() {
+    document.querySelectorAll<HTMLImageElement>(".smart-image img").forEach((img) => {
+      if (img.complete && img.naturalWidth > 0) {
+        img.closest(".smart-image")?.classList.add("is-loaded");
+      }
+    });
+  }
+  sweep();
+  document.addEventListener("astro:page-load", sweep);
+</script>

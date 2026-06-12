@@ -1,0 +1,182 @@
+---
+/**
+ * Global page shell: meta/OG/JSON-LD, fonts, motion-tier gate, chrome.
+ */
+import "@fontsource-variable/fraunces/opsz.css";
+import "@fontsource-variable/fraunces/opsz-italic.css";
+import "@fontsource-variable/karla/wght.css";
+import "@fontsource-variable/karla/wght-italic.css";
+import frauncesUrl from "@fontsource-variable/fraunces/files/fraunces-latin-opsz-normal.woff2?url";
+import "@/styles/tokens.css";
+import "@/styles/base.css";
+import { ClientRouter } from "astro:transitions";
+import { Image } from "astro:assets";
+import logoOneline from "@/assets/images/logo_black_oneline.png";
+import { config } from "@/config";
+import Header from "@/components/Header.astro";
+import MenuOverlay from "@/components/MenuOverlay.astro";
+import Footer from "@/components/Footer.astro";
+import { localizePath, resolveLocale } from "@/i18n";
+
+interface Props {
+  title: string;
+  description?: string;
+  /** Header tone while at top of page (over hero imagery = light) */
+  headerTone?: "light" | "dark";
+  noIndex?: boolean;
+}
+
+const {
+  title,
+  description = config.siteDescription,
+  headerTone = "light",
+  noIndex = false,
+} = Astro.props;
+
+const canonical = new URL(Astro.url.pathname, config.siteUrl).href;
+const ogImage = new URL("/og.jpg", config.siteUrl).href;
+
+const locale = resolveLocale(Astro.currentLocale);
+const htmlLang = locale === "en" ? "en" : "pt";
+const ogLocale = locale === "en" ? "en_US" : "pt_PT";
+const ogLocaleAlternate = locale === "en" ? "pt_PT" : "en_US";
+
+// Locale alternates for hreflang (same page in each language).
+const path = Astro.url.pathname;
+const logicalPath = locale === "en" ? path.replace(/^\/en(?=\/|$)/, "") || "/" : path;
+const altPt = new URL(localizePath(logicalPath, "pt"), config.siteUrl).href;
+const altEn = new URL(localizePath(logicalPath, "en"), config.siteUrl).href;
+
+/** Brand-enriched title for social cards / search snippets (tab title stays clean) */
+const isHome = title === config.siteTitle;
+const socialTitle = isHome ? config.siteTitle : `${title} — ${config.siteTitle}`;
+const robotsContent = noIndex
+  ? "noindex, nofollow"
+  : "index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1";
+const imageAlt = `${config.siteTitle} — ${config.siteDescription}`;
+
+const jsonLd = {
+  "@context": "https://schema.org",
+  "@type": "EventVenue",
+  name: config.siteTitle,
+  description: config.siteDescription,
+  url: config.siteUrl,
+  email: config.emailContact,
+  telephone: config.phoneContact,
+  image: ogImage,
+  logo: new URL("/website-icon.png", config.siteUrl).href,
+  address: {
+    "@type": "PostalAddress",
+    streetAddress: "Alameda do Mosteiro",
+    postalCode: "4770-328",
+    addressLocality: "Landim, Vila Nova de Famalicão",
+    addressRegion: "Braga",
+    addressCountry: "PT",
+  },
+  geo: {
+    "@type": "GeoCoordinates",
+    latitude: config.mapLocation.center.lat,
+    longitude: config.mapLocation.center.lng,
+  },
+  hasMap: config.directionsGoogleMaps,
+  sameAs: config.socialLinks.map((s) => s.url),
+};
+---
+
+<!doctype html>
+<html lang={htmlLang}>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>{title}</title>
+    <meta name="description" content={description} />
+    <meta name="keywords" content={config.siteKeywords.join(", ")} />
+    <meta name="author" content={config.siteTitle} />
+    <meta name="generator" content={Astro.generator} />
+    <meta name="theme-color" content="#f6f1e7" />
+    <meta name="robots" content={robotsContent} />
+    <link rel="canonical" href={canonical} />
+    <link rel="alternate" hreflang="pt" href={altPt} />
+    <link rel="alternate" hreflang="en" href={altEn} />
+    <link rel="alternate" hreflang="x-default" href={altPt} />
+    <link rel="icon" href="/website-icon.png" type="image/png" />
+    <link rel="apple-touch-icon" href="/website-icon.png" />
+
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content={config.siteTitle} />
+    <meta property="og:title" content={socialTitle} />
+    <meta property="og:description" content={description} />
+    <meta property="og:url" content={canonical} />
+    <meta property="og:image" content={ogImage} />
+    <meta property="og:image:type" content="image/jpeg" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:image:alt" content={imageAlt} />
+    <meta property="og:locale" content={ogLocale} />
+    <meta property="og:locale:alternate" content={ogLocaleAlternate} />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={socialTitle} />
+    <meta name="twitter:description" content={description} />
+    <meta name="twitter:image" content={ogImage} />
+    <meta name="twitter:image:alt" content={imageAlt} />
+
+    <link rel="preload" href={frauncesUrl} as="font" type="font/woff2" crossorigin />
+
+    <script is:inline data-astro-rerun>
+      (function () {
+        var d = document.documentElement;
+        var tier = "min";
+        try {
+          if (!matchMedia("(prefers-reduced-motion: reduce)").matches) {
+            var fine = matchMedia("(pointer: fine)").matches;
+            var mem = navigator.deviceMemory;
+            if (fine && innerWidth >= 1024 && (mem === undefined || mem >= 4)) {
+              tier = "full";
+            } else if (innerWidth >= 768) {
+              tier = "medium";
+            }
+          }
+        } catch (e) {
+          /* default min */
+        }
+        d.dataset.motion = tier;
+        setTimeout(function () {
+          if (!window.__motionReady) d.dataset.motion = "min";
+        }, 3000);
+      })();
+    </script>
+
+    <script is:inline type="application/ld+json" set:html={JSON.stringify(jsonLd)} />
+    <ClientRouter />
+  </head>
+  <body>
+    <Header tone={headerTone} />
+    <MenuOverlay />
+    <main id="main">
+      <slot />
+    </main>
+    <Footer />
+    <div id="page-curtain" aria-hidden="true" transition:persist="page-curtain">
+      <Image class="curtain-mark" src={logoOneline} alt="" widths={[160, 280, 400]} sizes="200px" />
+    </div>
+    <script src="@/scripts/motion.ts"></script>
+  </body>
+</html>
+
+<style is:global>
+  #page-curtain {
+    position: fixed;
+    inset: 0;
+    z-index: var(--z-curtain);
+    display: grid;
+    place-items: center;
+    background: var(--parchment);
+    transform: translateY(100%);
+    pointer-events: none;
+  }
+
+  .curtain-mark {
+    width: clamp(10rem, 24vw, 18rem);
+    height: auto;
+  }
+</style>

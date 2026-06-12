@@ -1,0 +1,57 @@
+---
+/**
+ * Pull-quote: large italic serif with author attribution.
+ */
+interface Props {
+  quote: string;
+  author?: string;
+  class?: string;
+}
+
+const { quote, author, class: className = "" } = Astro.props;
+---
+
+<figure class:list={["quote-block", className]} data-reveal="fade-up">
+  <span class="quote-orn serif-italic" aria-hidden="true">“</span>
+  <blockquote>
+    <p class="quote-text">{quote.replace(/^"|"$/g, "")}</p>
+  </blockquote>
+  {author && <figcaption class="label quote-author">— {author}</figcaption>}
+</figure>
+
+<style>
+  .quote-block {
+    position: relative;
+    margin: 0;
+    padding-left: clamp(2.4rem, 6vw, 4.2rem);
+    max-width: 44rem;
+  }
+
+  .quote-orn {
+    position: absolute;
+    left: 0;
+    top: -0.18em;
+    font-size: clamp(3.4rem, 8vw, 5.6rem);
+    line-height: 1;
+    color: var(--clay);
+  }
+
+  blockquote {
+    margin: 0;
+  }
+
+  .quote-text {
+    font-family: var(--font-display);
+    font-style: italic;
+    font-weight: 420;
+    font-size: var(--text-lg);
+    line-height: 1.32;
+    color: var(--fg);
+  }
+
+  .quote-author {
+    margin-top: var(--space-xs);
+    color: var(--fg-soft);
+    letter-spacing: 0.18em;
+  }
+</style>

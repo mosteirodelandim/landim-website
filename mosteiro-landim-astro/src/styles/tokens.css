@@ -1,0 +1,86 @@
+/* ============================================================
+   Mosteiro de Landim — Design tokens
+   Boho · earthy · pastel · rustic-premium-historic
+   ============================================================ */
+
+:root {
+  /* ---- Palette ---- */
+  --linen: #f6f1e7;
+  --parchment: #efe6d8;
+  --sand: #e2d5c0;
+  --clay: #c58b6f;
+  --clay-deep: #8a5640;
+  --rose: #e2b4a3;
+  --sage: #9fae94;
+  --olive: #5c6650;
+  --moss: #424b3a;
+  --moss-deep: #333b2d;
+  --espresso: #312b23;
+  --gold: #b99b6b;
+  --gold-ink: #76603a;
+
+  /* ---- Semantic ---- */
+  --bg: var(--linen);
+  --bg-alt: var(--parchment);
+  --fg: var(--espresso);
+  --fg-soft: color-mix(in oklab, var(--espresso) 78%, var(--linen));
+  --accent: var(--clay);
+  --hairline: color-mix(in oklab, var(--gold) 46%, var(--linen));
+  --hairline-dark: color-mix(in oklab, var(--gold) 40%, var(--moss));
+
+  /* ---- Typography ---- */
+  --font-display: "Fraunces Variable", "Fraunces", georgia, serif;
+  --font-body: "Karla Variable", "Karla", "Helvetica Neue", sans-serif;
+
+  /* Fluid type scale */
+  --text-xs: clamp(0.69rem, 0.66rem + 0.15vw, 0.78rem);
+  --text-sm: clamp(0.82rem, 0.78rem + 0.2vw, 0.95rem);
+  --text-base: clamp(1rem, 0.95rem + 0.25vw, 1.155rem);
+  --text-md: clamp(1.18rem, 1.1rem + 0.4vw, 1.45rem);
+  --text-lg: clamp(1.5rem, 1.3rem + 1vw, 2.2rem);
+  --text-xl: clamp(2rem, 1.6rem + 2vw, 3.4rem);
+  --text-2xl: clamp(2.6rem, 1.9rem + 3.4vw, 5rem);
+  --text-display: clamp(3rem, 1.4rem + 8vw, 7.6rem);
+
+  /* ---- Spacing ---- */
+  --space-2xs: clamp(0.5rem, 0.45rem + 0.25vw, 0.7rem);
+  --space-xs: clamp(0.75rem, 0.65rem + 0.5vw, 1.1rem);
+  --space-sm: clamp(1.1rem, 0.95rem + 0.75vw, 1.65rem);
+  --space-md: clamp(1.8rem, 1.5rem + 1.5vw, 2.9rem);
+  --space-lg: clamp(2.9rem, 2.3rem + 3vw, 5.1rem);
+  --space-xl: clamp(4.6rem, 3.4rem + 6vw, 9rem);
+  --space-2xl: clamp(6.5rem, 4.5rem + 10vw, 14rem);
+
+  /* ---- Layout ---- */
+  --container: 84rem;
+  --container-narrow: 46rem;
+  --container-wide: 100rem;
+  --gutter: clamp(1.25rem, 4vw, 3.5rem);
+
+  /* ---- Radii / arches ---- */
+  --radius-sm: 0.375rem;
+  --radius-arch: 999rem 999rem 0 0;
+
+  /* ---- Motion ---- */
+  --ease-out: cubic-bezier(0.22, 1, 0.36, 1);
+  --ease-in-out: cubic-bezier(0.65, 0, 0.35, 1);
+  --dur-fast: 220ms;
+  --dur-base: 420ms;
+  --dur-slow: 900ms;
+
+  /* ---- Z ---- */
+  --z-header: 100;
+  --z-menu: 200;
+  --z-lightbox: 300;
+  --z-curtain: 400;
+  --z-preloader: 500;
+}
+
+/* Dark band sections flip semantics */
+.theme-dark {
+  --bg: var(--moss);
+  --bg-alt: var(--moss-deep);
+  --fg: var(--linen);
+  --fg-soft: color-mix(in oklab, var(--linen) 80%, var(--moss));
+  --hairline: var(--hairline-dark);
+}

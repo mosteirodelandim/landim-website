@@ -1,0 +1,409 @@
+---
+import { getImage } from "astro:assets";
+import BaseLayout from "@/layouts/BaseLayout.astro";
+import PageHero from "@/components/PageHero.astro";
+import SectionHeading from "@/components/SectionHeading.astro";
+import QuoteBlock from "@/components/QuoteBlock.astro";
+import SpotlightLink from "@/components/SpotlightLink.astro";
+import GalleryStrip from "@/components/GalleryStrip.astro";
+import Lightbox from "@/components/Lightbox.astro";
+import SmartImage from "@/components/SmartImage.astro";
+import { getContent, resolveLocale, localizePath } from "@/i18n";
+
+import banner from "@/assets/images/about_us/banner.jpg";
+import old1 from "@/assets/images/about_us/old1.jpg";
+import old2 from "@/assets/images/about_us/old2.jpg";
+import wines1 from "@/assets/images/about_us/wines1.jpg";
+import wines2 from "@/assets/images/about_us/wines2.jpg";
+import wines3 from "@/assets/images/about_us/wines3.jpg";
+import spaces1 from "@/assets/images/about_us/spaces1.jpg";
+import spaces2 from "@/assets/images/about_us/spaces2.png";
+import spaces3 from "@/assets/images/about_us/spaces3.jpg";
+import spaces4 from "@/assets/images/about_us/spaces4.png";
+
+const locale = resolveLocale(Astro.currentLocale);
+const c = getContent(locale).aboutUs;
+const title = `${c.heading1}. ${c.heading2}. ${c.heading3}.`;
+
+const oldPhotos = await Promise.all(
+  [old1, old2].map((src) => getImage({ src, width: 1600, format: "webp", quality: 78 })),
+);
+
+const spaceCards = [
+  { img: spaces1, href: localizePath("/events", locale), ...c.events_spaces.images.image1 },
+  { img: spaces2, href: localizePath("/events", locale), ...c.events_spaces.images.image2 },
+  { img: spaces3, href: localizePath("/gardens", locale), ...c.events_spaces.images.image3 },
+  { img: spaces4, href: localizePath("/events", locale), ...c.events_spaces.images.image4 },
+];
+---
+
+<BaseLayout title={c.ui.heroLabel} description={c.history.description1.slice(0, 155)}>
+  <PageHero
+    title={title}
+    subtitle={c.history.subtitle}
+    image={banner}
+    imageAlt={c.ui.heroAlt}
+    label={c.ui.heroLabel}
+  >
+    <span slot="title" class="about-hero-title">
+      <span class="about-clause">{c.heading1}.</span>
+      <em class="about-clause about-clause--italic serif-italic">{c.heading2}.</em>
+      <span class="about-clause about-clause--accent">{c.heading3}.</span>
+    </span>
+  </PageHero>
+
+  <!-- ============ A QUINTA ============ -->
+  <section class="section">
+    <div class="container">
+      <SectionHeading index="01" label={c.ui.section1Label} title={c.history.title} lede={c.history.subtitle} />
+      <div class="prose-grid">
+        <div class="prose" data-reveal="fade-up">
+          <p>{c.history.description1}</p>
+          <p>{c.history.description2}</p>
+        </div>
+        <div class="prose-aside">
+          <QuoteBlock quote={c.history.quote} author={c.history.quoteAuthor} />
+          <p class="prose-after" data-reveal="fade-up">{c.history.description3}</p>
+        </div>
+      </div>
+
+      <div class="old-photos">
+        {
+          [old1, old2].map((img, i) => (
+            <a
+              href={oldPhotos[i].src}
+              data-lightbox="old-photos"
+              data-caption={c.history.imagesCaption}
+              data-reveal="mask"
+            >
+              <SmartImage
+                src={img}
+                alt={c.history.imagesCaption}
+                sizes="(min-width: 64rem) 38rem, 92vw"
+                widths={[480, 800, 1200]}
+                aspect="4 / 3"
+              />
+            </a>
+          ))
+        }
+      </div>
+      <p class="caption serif-italic" data-reveal="fade-up">{c.history.imagesCaption}</p>
+    </div>
+  </section>
+
+  <SpotlightLink
+    label={c.history.lottie.title}
+    text={c.history.lottie.description}
+    cta={c.ui.ctaHistory}
+    href={localizePath("/history", locale)}
+    icon="history"
+  />
+
+  <!-- ============ GERAÇÕES ============ -->
+  <section class="section">
+    <div class="container">
+      <SectionHeading index="02" label={c.ui.section2Label} title={c.family.title} lede={c.family.subtitle} />
+
+      <div class="poem-grid">
+        <figure class="poem" data-reveal="fade-up">
+          <div class="poem-verses">
+            <p>{c.family.poem.verse1}</p>
+            <p>{c.family.poem.verse2}</p>
+            <p>{c.family.poem.verse3}</p>
+            <p>{c.family.poem.verse4}</p>
+            <p>{c.family.poem.verse5}</p>
+            <p>{c.family.poem.verse6}</p>
+          </div>
+          <figcaption class="label">{c.family.poem.author}</figcaption>
+        </figure>
+        <div class="prose" data-reveal="fade-up">
+          <p>{c.family.description1}</p>
+          <p>{c.family.description2}</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ VINHO ============ -->
+  <section class="section section--alt">
+    <div class="container">
+      <SectionHeading index="03" label={c.ui.section3Label} title={c.wines.title} lede={c.wines.subtitle} />
+      <div class="prose prose--cols" data-reveal="fade-up">
+        <p>{c.wines.description1}</p>
+        <p>{c.wines.description2}</p>
+      </div>
+    </div>
+    <div class="strip-wrap">
+      <GalleryStrip
+        items={[
+          { src: wines1, alt: c.ui.altVindimas },
+          { src: wines2, alt: c.ui.altVinhas },
+          { src: wines3, alt: c.ui.altWine },
+        ]}
+        lightbox="wines"
+      />
+    </div>
+  </section>
+
+  <SpotlightLink
+    label={c.wines.lottie.title}
+    text={c.wines.lottie.description}
+    cta={c.ui.ctaWines}
+    href={localizePath("/wine_vineyards", locale)}
+    icon="wine"
+  />
+
+  <!-- ============ SERVIÇOS E ESPAÇOS ============ -->
+  <section class="section">
+    <div class="container">
+      <SectionHeading
+        index="04"
+        label={c.ui.section4Label}
+        title={c.events_spaces.title}
+        lede={c.events_spaces.subtitle}
+      />
+      <div class="prose prose--cols" data-reveal="fade-up">
+        <p>{c.events_spaces.description1}</p>
+        <p>{c.events_spaces.description2}</p>
+        <p>{c.events_spaces.description3}</p>
+      </div>
+
+      <ul class="space-cards" data-reveal="stagger-children">
+        {
+          spaceCards.map((card) => (
+            <li>
+              <a class="space-card" href={card.href}>
+                <SmartImage
+                  src={card.img}
+                  alt={card.title}
+                  sizes="(min-width: 64rem) 21rem, (min-width: 48rem) 46vw, 92vw"
+                  widths={[400, 700, 1000]}
+                  aspect="4 / 5"
+                />
+                <span class="space-card-overlay">
+                  <span class="space-card-title">{card.title}</span>
+                  <span class="space-card-sub">{card.subtitle}</span>
+                </span>
+              </a>
+            </li>
+          ))
+        }
+      </ul>
+    </div>
+  </section>
+
+  <SpotlightLink
+    label={c.events_spaces.lottie.title}
+    text={c.events_spaces.lottie.description}
+    cta={c.ui.ctaEvents}
+    href={localizePath("/events", locale)}
+    icon="events"
+  />
+
+  <Lightbox />
+</BaseLayout>
+
+<style>
+  /* ---- Hero banner flip ---- */
+  :global(.page-hero-img img) {
+    transform: scaleX(-1);
+  }
+
+  /* ---- Hero title styling ---- */
+  :global(.about-hero-title) {
+    display: flex;
+    flex-direction: column;
+    gap: 0.1em;
+  }
+
+  :global(.about-clause) {
+    display: block;
+    font-size: inherit;
+    line-height: 1.05;
+  }
+
+  :global(.about-clause--italic) {
+    color: var(--rose);
+    font-style: italic;
+  }
+
+  :global(.about-clause--accent) {
+    font-size: 0.72em;
+    font-weight: 300;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: color-mix(in srgb, var(--linen) 72%, transparent);
+  }
+
+  .section {
+    padding-block: var(--space-xl);
+  }
+
+  .section--alt {
+    background: var(--bg-alt);
+    border-block: 1px solid var(--hairline);
+  }
+
+  .prose {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-sm);
+    color: var(--fg-soft);
+    max-width: 62rem;
+  }
+
+  .prose--cols {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(20rem, 1fr));
+    gap: var(--space-md);
+    max-width: none;
+  }
+
+  .prose-grid {
+    display: grid;
+    grid-template-columns: minmax(0, 1.05fr) minmax(0, 0.95fr);
+    gap: var(--space-lg);
+    align-items: start;
+  }
+
+  .prose-aside {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-md);
+  }
+
+  .prose-after {
+    color: var(--fg-soft);
+  }
+
+  .old-photos {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: var(--space-sm);
+    margin-top: var(--space-lg);
+  }
+
+  .old-photos a {
+    display: block;
+  }
+
+  .caption {
+    margin-top: var(--space-xs);
+    font-size: var(--text-sm);
+    color: var(--fg-soft);
+  }
+
+  .poem-grid {
+    display: grid;
+    grid-template-columns: minmax(0, 0.85fr) minmax(0, 1.15fr);
+    gap: var(--space-lg);
+    align-items: center;
+  }
+
+  .poem {
+    margin: 0;
+    padding: var(--space-md) var(--space-md);
+    border: 1px solid var(--hairline);
+    border-radius: var(--radius-arch);
+    background: var(--bg-alt);
+    text-align: center;
+  }
+
+  .poem-verses p {
+    font-family: var(--font-display);
+    font-style: italic;
+    font-size: var(--text-md);
+    line-height: 1.7;
+    max-width: none;
+  }
+
+  .poem figcaption {
+    margin-top: var(--space-sm);
+    color: var(--clay-deep);
+  }
+
+  .strip-wrap {
+    margin-top: var(--space-md);
+  }
+
+  .space-cards {
+    list-style: none;
+    margin: var(--space-lg) 0 0;
+    padding: 0;
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: var(--space-sm);
+  }
+
+  .space-card {
+    position: relative;
+    display: block;
+    overflow: hidden;
+    border-radius: var(--radius-sm);
+  }
+
+  .space-card :global(.smart-image img) {
+    transition: transform 1.1s var(--ease-out);
+  }
+
+  .space-card:hover :global(.smart-image img) {
+    transform: scale(1.06);
+  }
+
+  .space-card-overlay {
+    position: absolute;
+    inset: 0;
+    z-index: 2;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    gap: 0.3rem;
+    padding: var(--space-sm);
+    background: linear-gradient(to top, rgb(35 32 26 / 0.72), transparent 62%);
+    color: var(--linen);
+  }
+
+  .space-card-title {
+    font-family: var(--font-display);
+    font-size: var(--text-md);
+  }
+
+  .space-card-sub {
+    font-size: var(--text-xs);
+    opacity: 0;
+    transform: translateY(0.5rem);
+    transition:
+      opacity var(--dur-base) var(--ease-out),
+      transform var(--dur-base) var(--ease-out);
+  }
+
+  .space-card:hover .space-card-sub {
+    opacity: 1;
+    transform: none;
+  }
+
+  @media (hover: none) {
+    .space-card-sub {
+      opacity: 1;
+      transform: none;
+    }
+  }
+
+  @media (max-width: 64rem) {
+    .prose-grid,
+    .poem-grid {
+      grid-template-columns: 1fr;
+      gap: var(--space-md);
+    }
+
+    .space-cards {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+  }
+
+  @media (max-width: 34rem) {
+    .old-photos {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>

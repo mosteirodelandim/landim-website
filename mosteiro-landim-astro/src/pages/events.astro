@@ -1,0 +1,394 @@
+---
+import { getImage } from "astro:assets";
+import BaseLayout from "@/layouts/BaseLayout.astro";
+import PageHero from "@/components/PageHero.astro";
+import SectionHeading from "@/components/SectionHeading.astro";
+import GalleryStrip from "@/components/GalleryStrip.astro";
+import Lightbox from "@/components/Lightbox.astro";
+import SmartImage from "@/components/SmartImage.astro";
+import { getContent, resolveLocale } from "@/i18n";
+
+import banner from "@/assets/images/events/banner.jpg";
+import cloister from "@/assets/images/events/cloister.jpg";
+import garden from "@/assets/images/events/garden.jpg";
+import rooms from "@/assets/images/events/rooms.jpg";
+import church from "@/assets/images/events/church.png";
+import space1 from "@/assets/images/events/space1.jpg";
+import space2 from "@/assets/images/events/space2.jpg";
+
+import decor1 from "@/assets/images/events/carousel/1.jpg";
+import decor2 from "@/assets/images/events/carousel/2.jpg";
+import decor3 from "@/assets/images/events/carousel/3.jpg";
+import decor4 from "@/assets/images/events/carousel/4.jpg";
+import decor5 from "@/assets/images/events/carousel/5.jpg";
+import decor6 from "@/assets/images/events/carousel/6.jpg";
+import decor9 from "@/assets/images/events/carousel/9.jpg";
+
+const locale = resolveLocale(Astro.currentLocale);
+const c = getContent(locale).events;
+
+const spotlights = [
+  { img: cloister, alt: c.ui.altCloister, ...c.spotlights.cloister },
+  { img: garden, alt: c.ui.altGarden, ...c.spotlights.gardens },
+  { img: rooms, alt: c.ui.altRooms, ...c.spotlights.rooms },
+  { img: church, alt: c.ui.altChurch, ...c.spotlights.church },
+];
+
+const spaceImages = [
+  { img: space1, caption: c.secondParagraph.spaces.image1Caption },
+  { img: space2, caption: c.secondParagraph.spaces.image2Caption },
+];
+
+const spaceFulls = await Promise.all(
+  spaceImages.map(({ img }) => getImage({ src: img, width: 1600, format: "webp", quality: 78 })),
+);
+
+const decorItems = [decor1, decor2, decor3, decor4, decor5, decor6, decor9].map((src, i) => ({
+  src,
+  alt: c.ui.altDecor.replace("{n}", String(i + 1)),
+}));
+---
+
+<BaseLayout title={c.heading} description={c.firstParagraph.description1}>
+  <PageHero
+    title={c.heading}
+    subtitle={c.subHeading}
+    image={banner}
+    imageAlt={c.ui.heroAlt}
+    label={c.ui.heroLabel}
+  />
+
+  <!-- ============ INTRO ============ -->
+  <section class="section">
+    <div class="container">
+      <SectionHeading index="01" label={c.ui.section1Label} title={c.firstParagraph.title} />
+      <div class="prose prose--cols" data-reveal="fade-up">
+        <p>{c.firstParagraph.description1}</p>
+        <p>{c.firstParagraph.description2}</p>
+        <p>{c.firstParagraph.description3}</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ SPOTLIGHTS ============ -->
+  <section class="section section--flush spot-section">
+    <div class="spot-list">
+      {
+        spotlights.map((s, i) => (
+          <article class:list={["spot-row", { "spot-row--flip": i % 2 === 1 }]}>
+            <div
+              class="spot-media"
+              data-reveal="slide-x"
+              data-dir={i % 2 === 1 ? "right" : "left"}
+            >
+              <div class="spot-media-inner" data-reveal="parallax" data-parallax="6">
+                <SmartImage
+                  src={s.img}
+                  alt={s.alt}
+                  sizes="(min-width: 64rem) 54vw, 100vw"
+                  widths={[600, 1000, 1500, 2000]}
+                  aspect="4 / 3"
+                />
+              </div>
+            </div>
+            <div class="spot-text">
+              <h3 class="spot-title serif-italic" data-reveal="fade-up">
+                {s.title}
+              </h3>
+              <p class="spot-desc" data-reveal="fade-up" data-reveal-delay="0.08">
+                {s.description}
+              </p>
+            </div>
+            <span class="spot-num" aria-hidden="true">
+              <span class="spot-num-layer spot-num-fill">
+                {String(i + 1).padStart(2, "0")}
+              </span>
+              <span class="spot-num-layer spot-num-outline">
+                {String(i + 1).padStart(2, "0")}
+              </span>
+            </span>
+          </article>
+        ))
+      }
+    </div>
+  </section>
+
+  <!-- ============ SERVIÇOS ============ -->
+  <section class="section section--alt">
+    <div class="container">
+      <SectionHeading index="02" label={c.ui.section2Label} title={c.secondParagraph.title} />
+      <div class="prose prose--full" data-reveal="fade-up">
+        <p>{c.secondParagraph.description1}</p>
+      </div>
+
+      <div class="services-block">
+        <h3 class="services-subtitle serif-italic" data-reveal="fade-up">
+          {c.secondParagraph.spaces.title}
+        </h3>
+        <div class="prose prose--cols" data-reveal="fade-up">
+          <p>{c.secondParagraph.spaces.description1}</p>
+          <p>{c.secondParagraph.spaces.description2}</p>
+        </div>
+
+        <div class="space-photos">
+          {
+            spaceImages.map((s, i) => (
+              <figure class="space-photo" data-reveal="fade-up">
+                <a href={spaceFulls[i].src} data-lightbox="spaces" data-caption={s.caption}>
+                  <SmartImage
+                    src={s.img}
+                    alt={s.caption}
+                    sizes="(min-width: 64rem) 38rem, 92vw"
+                    widths={[480, 800, 1200]}
+                    aspect="4 / 3"
+                  />
+                </a>
+                <figcaption class="caption serif-italic">{s.caption}</figcaption>
+              </figure>
+            ))
+          }
+        </div>
+      </div>
+
+      <div class="services-block">
+        <h3 class="services-subtitle serif-italic" data-reveal="fade-up">
+          {c.secondParagraph.decor.title}
+        </h3>
+        <div class="prose" data-reveal="fade-up">
+          <p>{c.secondParagraph.decor.description1}</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="strip-wrap">
+      <GalleryStrip items={decorItems} lightbox="decor" />
+    </div>
+  </section>
+
+  <Lightbox />
+</BaseLayout>
+
+<style>
+  .section {
+    padding-block: var(--space-xl);
+  }
+
+  .section--flush {
+    padding-top: 0;
+  }
+
+  .section--alt {
+    background: var(--bg-alt);
+    border-block: 1px solid var(--hairline);
+  }
+
+  .prose {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-sm);
+    color: var(--fg-soft);
+    max-width: 62rem;
+  }
+
+  .prose--cols {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(20rem, 1fr));
+    gap: var(--space-md);
+    max-width: none;
+  }
+
+  .prose--full {
+    max-width: none;
+  }
+
+  .spot-section {
+    overflow: clip;
+  }
+
+  .spot-list {
+    display: flex;
+    flex-direction: column;
+    gap: clamp(3.5rem, 9vw, 8rem);
+  }
+
+  .spot-row {
+    position: relative;
+    display: flex;
+    align-items: center;
+    gap: clamp(2rem, 5vw, 5rem);
+  }
+
+  .spot-row--flip {
+    flex-direction: row-reverse;
+  }
+
+  .spot-media {
+    flex: 0 0 54vw;
+    max-width: 54vw;
+    overflow: hidden;
+    border-radius: 0;
+  }
+
+  .spot-media-inner :global(.smart-image) {
+    transform: scale(1.12);
+  }
+
+  .spot-text {
+    flex: 1 1 auto;
+    padding-inline: clamp(1.25rem, 4vw, 3.5rem);
+    max-width: 38rem;
+  }
+
+  /* Oversized two-tone numeral straddling the image edge.
+     Two stacked copies of the same digits, each clipped at the image's
+     edge (which sits 1.4ch into the numeral):
+     · fill copy    → terracotta, visible only over the photograph
+     · outline copy → page-coloured fill + terracotta stroke, over the page */
+  .spot-num {
+    position: absolute;
+    top: 34%;
+    z-index: 3;
+    font-family: var(--font-display);
+    font-style: italic;
+    font-weight: 400;
+    font-size: clamp(5rem, 15vw, 13rem);
+    line-height: 1;
+    pointer-events: none;
+    transform: translateY(-50%);
+  }
+
+  .spot-num-layer {
+    display: block;
+    font: inherit;
+    letter-spacing: inherit;
+  }
+
+  .spot-num-fill {
+    color: #ffd968;
+    clip-path: inset(0 calc(100% - 1.4ch) 0 0);
+  }
+
+  .spot-num-outline {
+    position: absolute;
+    inset: 0;
+    color: var(--bg);
+    -webkit-text-stroke: 2px #ffd968;
+    text-stroke: 2px #ffd968;
+    clip-path: inset(0 -0.45ch 0 1.4ch);
+  }
+
+  .spot-row:not(.spot-row--flip) .spot-num {
+    left: calc(54vw - 1.4ch);
+  }
+
+  .spot-row--flip .spot-num {
+    right: calc(54vw - 1.4ch);
+  }
+
+  .spot-row--flip .spot-num-fill {
+    clip-path: inset(0 -0.45ch 0 calc(100% - 1.4ch));
+  }
+
+  .spot-row--flip .spot-num-outline {
+    clip-path: inset(0 1.4ch 0 0);
+  }
+
+  .spot-title {
+    font-family: var(--font-display);
+    font-style: italic;
+    font-weight: 400;
+    font-size: clamp(1.8rem, 3.6vw, 2.7rem);
+    line-height: 1.08;
+    letter-spacing: -0.015em;
+    color: var(--clay-deep);
+    margin-bottom: var(--space-sm);
+  }
+
+  .spot-desc {
+    color: var(--fg-soft);
+    line-height: 1.65;
+    max-width: 40ch;
+  }
+
+  .services-block {
+    margin-top: var(--space-lg);
+  }
+
+  .services-subtitle {
+    font-size: var(--text-lg);
+    font-weight: 440;
+    color: var(--clay-deep);
+    margin-bottom: var(--space-sm);
+  }
+
+  .space-photos {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: var(--space-sm);
+    margin-top: var(--space-md);
+  }
+
+  .space-photo {
+    margin: 0;
+  }
+
+  .space-photo a {
+    display: block;
+  }
+
+  .caption {
+    margin-top: var(--space-2xs);
+    font-size: var(--text-sm);
+    color: var(--fg-soft);
+  }
+
+  .strip-wrap {
+    margin-top: var(--space-lg);
+  }
+
+  @media (max-width: 64rem) {
+    .spot-row,
+    .spot-row--flip {
+      flex-direction: column;
+      align-items: stretch;
+      gap: 0;
+    }
+
+    .spot-media {
+      flex: 0 0 auto;
+      max-width: 100%;
+      width: 100%;
+    }
+
+    .spot-text {
+      max-width: none;
+      padding-block: var(--space-md) 0;
+    }
+
+    .spot-num {
+      left: var(--gutter);
+      right: auto;
+      transform: none;
+      font-size: clamp(3.5rem, 18vw, 6rem);
+      top: 1rem;
+    }
+
+    /* The photo spans the full width here, so the whole numeral sits
+       over the image — show the terracotta fill only. */
+    .spot-num-fill,
+    .spot-row--flip .spot-num-fill {
+      clip-path: none;
+    }
+
+    .spot-num-outline {
+      display: none;
+    }
+  }
+
+  @media (max-width: 34rem) {
+    .space-photos {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>
+

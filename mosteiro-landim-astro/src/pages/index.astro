@@ -1,0 +1,1154 @@
+---
+import { getImage } from "astro:assets";
+import { Image } from "astro:assets";
+import BaseLayout from "@/layouts/BaseLayout.astro";
+import SmartImage from "@/components/SmartImage.astro";
+import Marquee from "@/components/Marquee.astro";
+import CTABand from "@/components/CTABand.astro";
+import Lightbox from "@/components/Lightbox.astro";
+import { getContent, resolveLocale, localizePath } from "@/i18n";
+
+import banner from "@/assets/images/landing/banner.jpg";
+import aboutTile from "@/assets/images/landing/about_us_tile.jpg";
+import eventsTile from "@/assets/images/landing/events_tile.jpg";
+import photosTile from "@/assets/images/landing/photos_tile.jpg";
+import historyTile from "@/assets/images/landing/history_tile.png";
+import gardensTile from "@/assets/images/landing/gardens_tile.png";
+import wineTile from "@/assets/images/landing/wine_tile.jpg";
+import faqTile from "@/assets/images/landing/faq_tile.jpg";
+import manifestoImg from "@/assets/images/landing/about-us-manifesto.jpg";
+import logoOneline from "@/assets/images/logo_black_oneline.png";
+import feature1 from "@/assets/images/landing/events-1.jpg";
+import feature2 from "@/assets/images/landing/events-2.jpg";
+import feature3 from "@/assets/images/landing/events-3.jpg";
+import momento1 from "@/assets/images/photo-gallery/garden/2.jpg";
+import momento2 from "@/assets/images/landing/momento-2.jpg";
+import momento3 from "@/assets/images/photo-gallery/garden/14.jpg";
+import momento4 from "@/assets/images/landing/momento-4.jpg";
+import momento5 from "@/assets/images/photo-gallery/church/2.jpg";
+import momento6 from "@/assets/images/landing/momento-6.jpg";
+
+const locale = resolveLocale(Astro.currentLocale);
+const t = getContent(locale);
+const u = t.landing.ui;
+
+const spaces = [
+  { key: "weAre", href: localizePath("/about_us", locale), img: aboutTile, ...t.landing.weAre },
+  { key: "events", href: localizePath("/events", locale), img: eventsTile, ...t.landing.events },
+  { key: "photos", href: localizePath("/photo_gallery", locale), img: photosTile, ...t.landing.photos },
+  { key: "history", href: localizePath("/history", locale), img: historyTile, ...t.landing.history },
+  { key: "gardens", href: localizePath("/gardens", locale), img: gardensTile, ...t.landing.gardens },
+  { key: "vineyards", href: localizePath("/wine_vineyards", locale), img: wineTile, ...t.landing.vineyards },
+  { key: "faq", href: localizePath("/faq", locale), img: faqTile, ...t.landing.faq },
+];
+
+const momentos = [
+  { img: momento1, caption: u.momentosCaptions[0], tall: false },
+  { img: momento2, caption: u.momentosCaptions[1], tall: true },
+  { img: momento3, caption: u.momentosCaptions[2], tall: false },
+  { img: momento4, caption: u.momentosCaptions[3], tall: true },
+  { img: momento5, caption: u.momentosCaptions[4], tall: false },
+  { img: momento6, caption: u.momentosCaptions[5], tall: true },
+];
+
+const momentoFulls = await Promise.all(
+  momentos.map((m) =>
+    getImage({ src: m.img, width: Math.min(1800, m.img.width), format: "webp", quality: 78 }),
+  ),
+);
+
+const timeline = u.timeline;
+---
+
+<BaseLayout title={t.landing.heading}>
+  <!-- ============ PRELOADER ============ -->
+  <div id="preloader" aria-hidden="true">
+    <div class="preloader-inner">
+      <Image class="preloader-mark" src={logoOneline} alt="" widths={[200, 320, 460]} sizes="240px" />
+      <span class="preloader-line"><i></i></span>
+      <p class="preloader-counter label">000</p>
+    </div>
+  </div>
+
+  <!-- ============ HERO ============ -->
+  <section class="hero" aria-label={t.landing.heading}>
+    <div class="hero-media">
+      <SmartImage
+        src={banner}
+        alt={u.heroAlt}
+        eager
+        sizes="100vw"
+        widths={[640, 828, 1080, 1366, 1600, 2200]}
+        class="hero-fallback"
+      />
+      <div class="hero-scrim" aria-hidden="true"></div>
+    </div>
+
+    <div class="hero-content">
+      <h1 class="hero-title">{t.landing.heading}</h1>
+      <p class="hero-sub">
+        <span>{t.landing.subHeading}</span>
+        <span class="hero-words">
+          {
+            t.landing.subheadingTextCarousel.map((word, i) => (
+              <span class:list={["hero-word", "serif-italic", { "is-first": i === 0 }]}>
+                {word}
+              </span>
+            ))
+          }
+        </span>
+      </p>
+    </div>
+
+    <div class="hero-scroll" aria-hidden="true">
+      <span class="label">{u.scroll}</span>
+      <span class="hero-scroll-line"><i></i></span>
+    </div>
+  </section>
+
+  <!-- ============ MANIFESTO ============ -->
+  <section class="manifesto" aria-labelledby="manifesto-title">
+    <div class="container manifesto-grid">
+      <div class="manifesto-text">
+        <p class="label manifesto-label" data-reveal="fade-up">{t.landing.weAre.title}</p>
+        <h2 class="manifesto-title" id="manifesto-title" data-reveal="stagger-children">
+          <span>{u.manifesto.line1}</span>
+          <span>{u.manifesto.line2}</span>
+          <span><em>{u.manifesto.line3}</em></span>
+        </h2>
+        <p class="manifesto-lede" data-reveal="fade-up">
+          {u.manifesto.lede}
+        </p>
+        <a class="btn" href={localizePath("/about_us", locale)} data-reveal="fade-up">{u.manifesto.cta}</a>
+      </div>
+      <div class="manifesto-media">
+        <div class="manifesto-arch" data-reveal="mask">
+          <div data-reveal="parallax" data-parallax="10" class="manifesto-parallax">
+            <SmartImage
+              src={manifestoImg}
+              alt={u.manifesto.imageAlt}
+              sizes="(min-width: 64rem) 34rem, 86vw"
+              widths={[480, 800, 1200]}
+              aspect="4 / 5"
+            />
+          </div>
+        </div>
+        <!-- Celestial / mystical SVG ornament -->
+        <svg class="manifesto-ornament" viewBox="0 0 400 500" fill="none" aria-hidden="true" xmlns="http://www.w3.org/2000/svg">
+          <!-- Portal arch outline -->
+          <path class="orn-arch" d="M60 498 L60 230 Q60 100 200 100 Q340 100 340 230 L340 498" stroke="var(--clay)" stroke-width="0.8" opacity="0.18"/>
+          <!-- Crescent moon -->
+          <path class="orn-moon" d="M318 62 A34 34 0 1 1 290 35 A22 22 0 1 0 318 62 Z" stroke="var(--clay)" stroke-width="1.1" fill="none" opacity="0.55"/>
+          <!-- Outer dashed ring -->
+          <circle class="orn-ring" cx="200" cy="248" r="172" stroke="var(--clay)" stroke-width="0.6" stroke-dasharray="3 9" opacity="0.18"/>
+          <!-- Inner dashed ring -->
+          <circle class="orn-ring-inner" cx="200" cy="248" r="148" stroke="var(--sand)" stroke-width="0.5" stroke-dasharray="2 14" opacity="0.22"/>
+          <!-- 4-point star — top left -->
+          <path class="orn-star s1" d="M55 88 l3.5 -13 3.5 13 13 3.5 -13 3.5 -3.5 13 -3.5 -13 -13 -3.5Z" stroke="var(--clay)" stroke-width="0.8" opacity="0.55"/>
+          <!-- 4-point star — right mid -->
+          <path class="orn-star s2" d="M364 210 l2.8 -10.5 2.8 10.5 10.5 2.8 -10.5 2.8 -2.8 10.5 -2.8 -10.5 -10.5 -2.8Z" stroke="var(--clay)" stroke-width="0.8" opacity="0.45"/>
+          <!-- 4-point star — bottom left -->
+          <path class="orn-star s3" d="M28 370 l2.2 -8 2.2 8 8 2.2 -8 2.2 -2.2 8 -2.2 -8 -8 -2.2Z" stroke="var(--clay)" stroke-width="0.7" opacity="0.38"/>
+          <!-- Horizontal rule fragments -->
+          <line x1="110" y1="36" x2="170" y2="36" stroke="var(--clay)" stroke-width="0.7" opacity="0.3"/>
+          <line x1="232" y1="36" x2="280" y2="36" stroke="var(--clay)" stroke-width="0.7" opacity="0.3"/>
+          <!-- Dot cluster -->
+          <circle class="orn-dot d1" cx="38" cy="170" r="2" fill="var(--clay)" opacity="0.45"/>
+          <circle class="orn-dot d2" cx="376" cy="130" r="1.5" fill="var(--clay)" opacity="0.4"/>
+          <circle class="orn-dot d3" cx="22" cy="390" r="2" fill="var(--clay)" opacity="0.35"/>
+          <circle class="orn-dot d4" cx="388" cy="360" r="1.5" fill="var(--clay)" opacity="0.35"/>
+          <circle class="orn-dot d5" cx="200" cy="74" r="1.5" fill="var(--clay)" opacity="0.4"/>
+          <!-- Cross marks -->
+          <path class="orn-cross c1" d="M376 440 v-9 M371.5 435.5 h9" stroke="var(--clay)" stroke-width="0.8" opacity="0.35"/>
+          <path class="orn-cross c2" d="M18 50 v-9 M13.5 45.5 h9" stroke="var(--clay)" stroke-width="0.8" opacity="0.3"/>
+          <!-- Base horizontal rule -->
+          <line x1="80" y1="496" x2="320" y2="496" stroke="var(--clay)" stroke-width="0.7" opacity="0.2"/>
+        </svg>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ MARQUEE ============ -->
+  <Marquee items={u.marquee} />
+
+  <!-- ============ INDEX OF SPACES ============ -->
+  <section class="spaces" aria-labelledby="spaces-title">
+    <div class="container">
+      <header class="spaces-header">
+        <p class="label" data-reveal="fade-up">{u.spacesLabel}</p>
+        <h2 class="spaces-title" id="spaces-title" data-reveal="words">
+          {u.spacesTitleLead}<em class="serif-italic">{u.spacesTitleEm}</em>
+        </h2>
+      </header>
+
+      <ol class="spaces-list">
+        {
+          spaces.map((space, i) => (
+            <li>
+              <a class="spaces-row" href={space.href} data-space={space.key} data-reveal="fade-up">
+                <span class="spaces-num label">{String(i + 1).padStart(2, "0")}</span>
+                <span class="spaces-name">{space.title}</span>
+                <span class="spaces-desc">{space.description}</span>
+                <span class="spaces-thumb" aria-hidden="true">
+                  <SmartImage
+                    src={space.img}
+                    alt=""
+                    sizes="9rem"
+                    widths={[200, 400]}
+                    aspect="4 / 3"
+                  />
+                </span>
+                <span class="spaces-arrow" aria-hidden="true">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4">
+                    <path d="M4 12h15M13 5l7 7-7 7" />
+                  </svg>
+                </span>
+              </a>
+            </li>
+          ))
+        }
+      </ol>
+    </div>
+
+    <!-- cursor-following preview (full tier only) -->
+    <div class="spaces-preview" aria-hidden="true">
+      {
+        spaces.map((space) => (
+          <div class="spaces-preview-img" data-space={space.key}>
+            <SmartImage src={space.img} alt="" sizes="22rem" widths={[400, 700]} aspect="4 / 3" />
+          </div>
+        ))
+      }
+    </div>
+  </section>
+
+  <!-- ============ EVENTS FEATURE ============ -->
+  <section class="feature" aria-labelledby="feature-title">
+    <svg
+      class="feature-ornament"
+      viewBox="0 0 200 200"
+      fill="none"
+      aria-hidden="true"
+      preserveAspectRatio="xMidYMid meet"
+    >
+      <circle class="fo-ring" cx="100" cy="100" r="78" stroke="currentColor" stroke-width="0.6" />
+      <circle
+        class="fo-ring-inner"
+        cx="100"
+        cy="100"
+        r="52"
+        stroke="currentColor"
+        stroke-width="0.5"
+        stroke-dasharray="2 6"
+      />
+      <g transform="translate(58 70)"><g class="fo-flute fo-flute-a">
+        <path d="M0 0 L7 0 L5.2 13 Q4 16 3.5 22 L3.5 34 M0.6 34 L6.4 34" stroke="currentColor" stroke-width="0.9" stroke-linecap="round" />
+      </g></g>
+      <g transform="translate(132 64)"><g class="fo-flute fo-flute-b">
+        <path d="M0 0 L7 0 L5.2 13 Q4 16 3.5 22 L3.5 34 M0.6 34 L6.4 34" stroke="currentColor" stroke-width="0.9" stroke-linecap="round" />
+      </g></g>
+      <g transform="translate(40 44)"><path class="fo-spark fo-spark-a" d="M0 -7 L1.6 -1.6 L7 0 L1.6 1.6 L0 7 L-1.6 1.6 L-7 0 L-1.6 -1.6 Z" fill="currentColor" /></g>
+      <g transform="translate(160 120)"><path class="fo-spark fo-spark-b" d="M0 -5 L1.2 -1.2 L5 0 L1.2 1.2 L0 5 L-1.2 1.2 L-5 0 L-1.2 -1.2 Z" fill="currentColor" /></g>
+      <g transform="translate(96 36)"><path class="fo-spark fo-spark-c" d="M0 -4 L1 -1 L4 0 L1 1 L0 4 L-1 1 L-4 0 L-1 -1 Z" fill="currentColor" /></g>
+      <g transform="translate(150 156)"><circle class="fo-dot fo-dot-a" cx="0" cy="0" r="2" fill="currentColor" /></g>
+      <g transform="translate(44 150)"><circle class="fo-dot fo-dot-b" cx="0" cy="0" r="1.5" fill="currentColor" /></g>
+      <g transform="translate(112 168)"><circle class="fo-dot fo-dot-c" cx="0" cy="0" r="2.4" fill="currentColor" /></g>
+    </svg>
+    <div class="container feature-grid">
+      <div class="feature-media-a" data-reveal="mask">
+        <SmartImage
+          src={feature1}
+          alt={u.featureAltGarden}
+          sizes="(min-width: 64rem) 38rem, 92vw"
+          widths={[480, 800, 1200]}
+          aspect="4 / 3"
+        />
+      </div>
+      <div class="feature-media-b" data-reveal="mask">
+        <SmartImage
+          src={feature2}
+          alt={u.featureAltCloister}
+          sizes="(min-width: 64rem) 24rem, 70vw"
+          widths={[400, 700, 1000]}
+          aspect="3 / 4"
+        />
+      </div>
+      <div class="feature-media-c" data-reveal="mask">
+        <SmartImage
+          src={feature3}
+          alt={u.featureAltRooms}
+          sizes="(min-width: 64rem) 20rem, 60vw"
+          widths={[400, 700, 1000]}
+          aspect="5 / 4"
+        />
+      </div>
+      <div class="feature-text">
+        <p class="label" data-reveal="fade-up">{t.landing.events.title}</p>
+        <h2 class="feature-title" id="feature-title" data-reveal="words">
+          {u.featureTitleLead}<em class="serif-italic">{u.featureTitleEm}</em>
+        </h2>
+        <p data-reveal="fade-up">{t.landing.events.description}</p>
+        <p data-reveal="fade-up">
+          {u.featureDescription2}
+        </p>
+        <a class="btn btn--solid" href={localizePath("/events", locale)} data-reveal="fade-up">{u.featureCta}</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ MOMENTOS (pinned horizontal) ============ -->
+  <section class="momentos" aria-labelledby="momentos-title">
+    <div class="momentos-track">
+      <header class="momentos-intro">
+        <p class="label" data-reveal="fade-up">{u.momentosLabel}</p>
+        <h2 class="momentos-title" id="momentos-title" data-reveal="words">
+          {u.momentosTitleLead}<em class="serif-italic">{u.momentosTitleEm}</em>
+        </h2>
+        <p class="momentos-lede" data-reveal="fade-up">
+          {t.landing.photos.description}
+        </p>
+        <p class="label momentos-hint" aria-hidden="true">{u.momentosHint}</p>
+      </header>
+
+      {
+        momentos.map((m, i) => (
+          <figure class:list={["momentos-panel", { "is-tall": m.tall }]}>
+            <a href={momentoFulls[i].src} data-lightbox="momentos" data-caption={m.caption} aria-label={m.caption}>
+              <SmartImage
+                src={m.img}
+                alt={m.caption}
+                sizes="(min-width: 64rem) 36rem, 78vw"
+                widths={[480, 800, 1200]}
+                aspect={m.tall ? "3 / 4" : "4 / 3"}
+              />
+            </a>
+            <figcaption class="momentos-caption serif-italic">{m.caption}</figcaption>
+          </figure>
+        ))
+      }
+
+      <div class="momentos-cta">
+        <p class="momentos-cta-text serif-italic">{u.momentosCtaText}</p>
+        <a class="btn" href={localizePath("/photo_gallery", locale)}>{u.momentosCta}</a>
+      </div>
+    </div>
+    <span class="momentos-progress" aria-hidden="true"><i></i></span>
+  </section>
+
+  <!-- ============ TIMELINE (dark band) ============ -->
+  <section class="timeline theme-dark" aria-labelledby="timeline-title">
+    <div class="container">
+      <header class="timeline-header">
+        <p class="label timeline-label" data-reveal="fade-up">{t.landing.history.title}</p>
+        <h2 class="timeline-title" id="timeline-title" data-reveal="fade-up">
+          {u.timelineTitleLead}<em class="serif-italic">{u.timelineTitleEm}</em>
+        </h2>
+        <p class="timeline-lede" data-reveal="fade-up">{t.landing.history.description}</p>
+      </header>
+
+      <div class="timeline-body">
+        <span class="timeline-rail" aria-hidden="true"><i></i></span>
+        <ol class="timeline-list">
+          {
+            timeline.map((item) => (
+              <li class="timeline-item">
+                <p class="timeline-year">{item.year}</p>
+                <div>
+                  <h3 class="timeline-item-title serif-italic">{item.title}</h3>
+                  <p class="timeline-item-text">{item.text}</p>
+                </div>
+              </li>
+            ))
+          }
+        </ol>
+      </div>
+
+      <a class="btn timeline-btn" href={localizePath("/history", locale)} data-reveal="fade-up">{u.timelineCta}</a>
+    </div>
+  </section>
+
+  <CTABand />
+  <Lightbox />
+</BaseLayout>
+
+<style>
+  /* ============ Preloader ============ */
+  #preloader {
+    position: fixed;
+    inset: 0;
+    z-index: var(--z-preloader);
+    display: grid;
+    place-items: center;
+    background: var(--parchment);
+    clip-path: inset(0 0 0% 0);
+    /* Safety: if JS never removes it, fade it away */
+    animation: preloader-bail 0.6s ease 6s forwards;
+  }
+
+  html[data-motion="min"] #preloader,
+  html[data-motion="medium"] #preloader {
+    display: none;
+  }
+
+  @keyframes preloader-bail {
+    to {
+      opacity: 0;
+      visibility: hidden;
+    }
+  }
+
+  .preloader-inner {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+  }
+
+  .preloader-mark {
+    width: clamp(10rem, 22vw, 16rem);
+    height: auto;
+    line-height: 1;
+  }
+
+  .preloader-name {
+    color: var(--fg-soft);
+  }
+
+  .preloader-line {
+    width: 9rem;
+    height: 1px;
+    background: var(--sand);
+    overflow: hidden;
+  }
+
+  .preloader-line i {
+    display: block;
+    height: 100%;
+    background: var(--clay);
+    transform: scaleX(0);
+    transform-origin: left;
+  }
+
+  .preloader-counter {
+    color: var(--clay-deep);
+    font-variant-numeric: tabular-nums;
+  }
+
+  /* ============ Hero ============ */
+  .hero {
+    position: relative;
+    min-height: 100svh;
+    display: flex;
+    align-items: flex-end;
+    color: var(--linen);
+    overflow: clip;
+  }
+
+  .hero-media {
+    position: absolute;
+    inset: 0;
+  }
+
+  .hero-media :global(.hero-fallback) {
+    position: absolute;
+    inset: 0;
+    aspect-ratio: auto !important;
+  }
+
+  .hero-media :global(.hero-fallback img) {
+    height: 100%;
+  }
+
+  .hero-scrim {
+    position: absolute;
+    inset: 0;
+    background:
+      linear-gradient(to bottom, rgb(35 32 26 / 0.3), transparent 35%),
+      linear-gradient(to top, rgb(35 32 26 / 0.72), rgb(35 32 26 / 0.06) 52%);
+  }
+
+  .hero-content {
+    position: relative;
+    z-index: 1;
+    width: min(100% - 2 * var(--gutter), var(--container-wide));
+    margin-inline: auto;
+    padding-bottom: clamp(5rem, 13vh, 9rem);
+  }
+
+  .hero-title {
+    font-size: var(--text-display);
+    font-weight: 380;
+    letter-spacing: -0.025em;
+    line-height: 0.98;
+    max-width: 10ch;
+  }
+
+  .hero-title :global(.hero-line) {
+    overflow: clip;
+    padding-bottom: 0.08em;
+    margin-bottom: -0.08em;
+  }
+
+  .hero-sub {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: baseline;
+    gap: 0.4ch;
+    margin-top: var(--space-sm);
+    font-size: var(--text-lg);
+    font-weight: 300;
+  }
+
+  .hero-words {
+    display: inline-grid;
+    vertical-align: baseline;
+  }
+
+  .hero-word {
+    grid-area: 1 / 1;
+    white-space: nowrap;
+    color: var(--rose);
+    opacity: 0;
+  }
+
+  /* Before JS (and on min tier) only the first word shows */
+  .hero-word.is-first {
+    opacity: 1;
+  }
+
+  .hero-scroll {
+    position: absolute;
+    right: var(--gutter);
+    bottom: clamp(5rem, 13vh, 9rem);
+    z-index: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.8rem;
+    color: var(--linen);
+  }
+
+  .hero-scroll .label {
+    color: inherit;
+    writing-mode: vertical-rl;
+  }
+
+  .hero-scroll-line {
+    width: 1px;
+    height: 4.4rem;
+    background: color-mix(in srgb, var(--linen) 30%, transparent);
+    overflow: hidden;
+  }
+
+  .hero-scroll-line i {
+    display: block;
+    width: 100%;
+    height: 40%;
+    background: var(--linen);
+    animation: scroll-drip 2.2s var(--ease-in-out) infinite;
+  }
+
+  @keyframes scroll-drip {
+    0% {
+      transform: translateY(-110%);
+    }
+    60%,
+    100% {
+      transform: translateY(280%);
+    }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .hero-scroll-line i {
+      animation: none;
+    }
+  }
+
+  /* ============ Manifesto ============ */
+  .manifesto {
+    padding-block: var(--space-2xl) var(--space-xl);
+  }
+
+  .manifesto-grid {
+    display: grid;
+    grid-template-columns: minmax(0, 1.1fr) minmax(0, 0.9fr);
+    gap: var(--space-lg);
+    align-items: center;
+  }
+
+  .manifesto-label {
+    color: var(--clay-deep);
+    margin-bottom: var(--space-sm);
+  }
+
+  .manifesto-title {
+    display: flex;
+    flex-direction: column;
+    font-size: var(--text-2xl);
+    font-weight: 400;
+  }
+
+  .manifesto-title em {
+    color: var(--clay-deep);
+  }
+
+  .manifesto-lede {
+    margin-top: var(--space-sm);
+    font-size: var(--text-md);
+    color: var(--fg-soft);
+    max-width: 44ch;
+  }
+
+  .manifesto-text .btn {
+    margin-top: var(--space-md);
+  }
+
+  .manifesto-media {
+    position: relative;
+    justify-self: center;
+    width: min(100%, 30rem);
+  }
+
+  .manifesto-arch {
+    border-radius: var(--radius-arch);
+    overflow: hidden;
+  }
+
+  .manifesto-parallax {
+    will-change: transform;
+  }
+
+  .manifesto-arch :global(.smart-image) {
+    height: 100%;
+  }
+
+  .manifesto-ornament {
+    position: absolute;
+    inset: -8% -12%;
+    width: 124%;
+    height: auto;
+    pointer-events: none;
+    overflow: visible;
+    z-index: 2;
+  }
+
+  .manifesto-caption {
+    margin-top: var(--space-xs);
+    text-align: center;
+    color: var(--fg-soft);
+    font-size: var(--text-sm);
+  }
+
+  /* ============ Spaces ============ */
+  .spaces {
+    position: relative;
+    padding-block: var(--space-xl);
+  }
+
+  .spaces-header {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-xs);
+    margin-bottom: var(--space-md);
+  }
+
+  .spaces-header .label {
+    color: var(--clay-deep);
+  }
+
+  .spaces-title {
+    font-size: var(--text-xl);
+    font-weight: 420;
+  }
+
+  .spaces-title em {
+    color: var(--clay-deep);
+  }
+
+  .spaces-list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    border-top: 1px solid var(--hairline);
+  }
+
+  .spaces-row {
+    display: grid;
+    grid-template-columns: 3ch minmax(10rem, 0.55fr) 1fr auto;
+    align-items: center;
+    gap: clamp(0.8rem, 2.5vw, 2.4rem);
+    padding: var(--space-sm) 0.4rem;
+    border-bottom: 1px solid var(--hairline);
+    text-decoration: none;
+    transition:
+      background var(--dur-base) var(--ease-out),
+      padding-left var(--dur-base) var(--ease-out);
+  }
+
+  .spaces-row:hover {
+    background: color-mix(in oklab, var(--parchment) 60%, transparent);
+    padding-left: 1rem;
+  }
+
+  .spaces-num {
+    color: var(--gold-ink);
+  }
+
+  .spaces-name {
+    font-family: var(--font-display);
+    font-size: var(--text-lg);
+    font-weight: 420;
+    line-height: 1.1;
+    transition: color var(--dur-fast) var(--ease-out);
+  }
+
+  .spaces-row:hover .spaces-name {
+    color: var(--clay-deep);
+    font-style: italic;
+  }
+
+  .spaces-desc {
+    font-size: var(--text-sm);
+    color: var(--fg-soft);
+    max-width: 44ch;
+  }
+
+  .spaces-thumb {
+    display: none;
+  }
+
+  .spaces-arrow {
+    width: 1.4rem;
+    height: 1.4rem;
+    color: var(--clay);
+    transition: transform var(--dur-base) var(--ease-out);
+  }
+
+  .spaces-row:hover .spaces-arrow {
+    transform: translateX(0.4rem);
+  }
+
+  .spaces-preview {
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 50;
+    width: 22rem;
+    aspect-ratio: 4 / 3;
+    pointer-events: none;
+    opacity: 0;
+    translate: -50% -50%;
+    border-radius: var(--radius-sm);
+    overflow: hidden;
+  }
+
+  html:not([data-motion="full"]) .spaces-preview {
+    display: none;
+  }
+
+  .spaces-preview-img {
+    position: absolute;
+    inset: 0;
+    opacity: 0;
+  }
+
+  .spaces-preview-img :global(.smart-image) {
+    height: 100%;
+  }
+
+  /* ============ Feature ============ */
+  .feature {
+    padding-block: var(--space-xl);
+    background: var(--bg-alt);
+    border-block: 1px solid var(--hairline);
+    position: relative;
+    overflow: clip;
+  }
+
+  .feature-ornament {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: min(42rem, 70vw);
+    aspect-ratio: 1;
+    transform: translate(-50%, -50%);
+    color: var(--clay-deep);
+    opacity: 0.16;
+    pointer-events: none;
+    overflow: visible;
+    z-index: 0;
+  }
+
+  .feature-grid {
+    display: grid;
+    grid-template-columns: repeat(12, minmax(0, 1fr));
+    grid-auto-rows: auto;
+    gap: var(--space-md);
+    align-items: center;
+    position: relative;
+    z-index: 1;
+  }
+
+  .feature-media-a {
+    grid-column: 1 / 6;
+    grid-row: 1;
+    align-self: start;
+  }
+
+  .feature-media-b {
+    grid-column: 4 / 8;
+    grid-row: 1;
+    align-self: end;
+    width: 88%;
+    justify-self: end;
+    margin-top: var(--space-lg);
+    z-index: 2;
+  }
+
+  .feature-media-c {
+    grid-column: 1 / 5;
+    grid-row: 2;
+    width: 86%;
+    margin-top: calc(-1 * var(--space-md));
+  }
+
+  .feature-text {
+    grid-column: 8 / 13;
+    grid-row: 1 / 3;
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-sm);
+  }
+
+  .feature-media-b :global(.smart-image),
+  .feature-media-c :global(.smart-image) {
+    box-shadow: 0 24px 60px rgb(49 43 35 / 0.18);
+  }
+
+  .feature-text .label {
+    color: var(--clay-deep);
+  }
+
+  .feature-title {
+    font-size: var(--text-xl);
+    font-weight: 420;
+  }
+
+  .feature-title em {
+    color: var(--clay-deep);
+  }
+
+  .feature-text p {
+    color: var(--fg-soft);
+  }
+
+  .feature-text .btn {
+    align-self: flex-start;
+    margin-top: var(--space-xs);
+  }
+
+  /* ============ Momentos ============ */
+  .momentos {
+    position: relative;
+    background: var(--bg-alt);
+    border-block: 1px solid var(--hairline);
+    overflow: clip;
+  }
+
+  .momentos-track {
+    display: flex;
+    align-items: center;
+    gap: clamp(1.4rem, 3.5vw, 3.4rem);
+    padding: var(--space-lg) var(--gutter);
+    width: max-content;
+    min-height: 100svh;
+    will-change: transform;
+  }
+
+  /* Non-full tiers: native horizontal scroll with snap */
+  html:not([data-motion="full"]) .momentos-track {
+    width: auto;
+    min-height: 0;
+    overflow-x: auto;
+    scroll-snap-type: x proximity;
+    scrollbar-width: none;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  html:not([data-motion="full"]) .momentos-track::-webkit-scrollbar {
+    display: none;
+  }
+
+  .momentos-intro {
+    flex: 0 0 auto;
+    width: min(34rem, 80vw);
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-xs);
+  }
+
+  .momentos-intro .label {
+    color: var(--clay-deep);
+  }
+
+  .momentos-title {
+    font-size: var(--text-2xl);
+    font-weight: 400;
+  }
+
+  .momentos-title em {
+    color: var(--clay-deep);
+  }
+
+  .momentos-lede {
+    color: var(--fg-soft);
+    max-width: 38ch;
+  }
+
+  .momentos-hint {
+    margin-top: var(--space-sm);
+    color: var(--clay-deep);
+  }
+
+  html:not([data-motion="full"]) .momentos-hint {
+    display: none;
+  }
+
+  .momentos-panel {
+    flex: 0 0 auto;
+    margin: 0;
+    width: clamp(16rem, 44vw, 30rem);
+    scroll-snap-align: center;
+  }
+
+  .momentos-panel.is-tall {
+    width: clamp(14rem, 34vw, 24rem);
+  }
+
+  .momentos-panel :global(.smart-image) {
+    border-radius: var(--radius-sm);
+    will-change: transform;
+    -webkit-mask-image: -webkit-radial-gradient(white, black);
+  }
+
+  .momentos-panel a {
+    display: block;
+  }
+
+  .momentos-panel.is-tall :global(.smart-image) {
+    border-radius: var(--radius-arch);
+  }
+
+  .momentos-panel :global(img) {
+    will-change: transform;
+  }
+
+  .momentos-caption {
+    margin-top: 0.6rem;
+    font-size: var(--text-sm);
+    color: var(--fg-soft);
+  }
+
+  .momentos-cta {
+    flex: 0 0 auto;
+    width: min(26rem, 76vw);
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: var(--space-sm);
+    padding-right: var(--gutter);
+  }
+
+  .momentos-cta-text {
+    font-size: var(--text-lg);
+    color: var(--clay-deep);
+  }
+
+  .momentos-progress {
+    position: absolute;
+    left: var(--gutter);
+    right: var(--gutter);
+    bottom: clamp(1rem, 3vh, 2rem);
+    height: 1px;
+    background: var(--sand);
+    overflow: hidden;
+  }
+
+  html:not([data-motion="full"]) .momentos-progress {
+    display: none;
+  }
+
+  .momentos-progress i {
+    display: block;
+    height: 100%;
+    background: var(--clay-deep);
+    transform: scaleX(0);
+    transform-origin: left center;
+  }
+
+  /* ============ Timeline ============ */
+  .timeline {
+    background: var(--moss);
+    color: var(--linen);
+    padding-block: var(--space-xl);
+  }
+
+  .timeline-header {
+    max-width: 46rem;
+    margin-bottom: var(--space-lg);
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-xs);
+  }
+
+  .timeline-label {
+    color: var(--rose);
+  }
+
+  .timeline-title {
+    font-size: var(--text-xl);
+    font-weight: 420;
+  }
+
+  .timeline-title em {
+    color: var(--rose);
+  }
+
+  .timeline-lede {
+    color: color-mix(in oklab, var(--linen) 82%, var(--moss));
+  }
+
+  .timeline-body {
+    position: relative;
+    padding-left: clamp(1.6rem, 4vw, 3rem);
+  }
+
+  .timeline-rail {
+    position: absolute;
+    left: 0;
+    top: 0.5rem;
+    bottom: 0.5rem;
+    width: 1px;
+    background: color-mix(in oklab, var(--linen) 18%, var(--moss));
+  }
+
+  .timeline-rail i {
+    display: block;
+    width: 100%;
+    height: 100%;
+    background: var(--rose);
+    transform: scaleY(0);
+    transform-origin: top;
+  }
+
+  html[data-motion="min"] .timeline-rail i,
+  html[data-motion="medium"] .timeline-rail i {
+    transform: none;
+  }
+
+  .timeline-list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-md);
+  }
+
+  .timeline-item {
+    display: grid;
+    grid-template-columns: minmax(7ch, auto) 1fr;
+    gap: clamp(1.2rem, 4vw, 3rem);
+    align-items: baseline;
+  }
+
+  .timeline-year {
+    font-family: var(--font-display);
+    font-size: var(--text-lg);
+    color: var(--rose);
+    line-height: 1;
+  }
+
+  .timeline-item-title {
+    font-size: var(--text-md);
+    margin-bottom: 0.3rem;
+    font-weight: 460;
+  }
+
+  .timeline-item-text {
+    color: color-mix(in oklab, var(--linen) 82%, var(--moss));
+    max-width: 52ch;
+  }
+
+  .timeline-btn {
+    margin-top: var(--space-lg);
+    color: var(--linen);
+  }
+
+  /* ============ Responsive ============ */
+  @media (max-width: 64rem) {
+    .manifesto-grid {
+      grid-template-columns: 1fr;
+    }
+
+    .feature-grid {
+      display: flex;
+      flex-direction: column;
+      align-items: stretch;
+    }
+
+    .feature-media-b {
+      display: none;
+    }
+
+    .feature-media-c {
+      width: 100%;
+      margin-top: 0;
+    }
+
+    .spaces-row {
+      grid-template-columns: 3ch 1fr auto;
+      grid-template-areas:
+        "num name arrow"
+        "num desc arrow"
+        "num thumb thumb";
+    }
+
+    .spaces-num {
+      grid-area: num;
+    }
+
+    .spaces-name {
+      grid-area: name;
+    }
+
+    .spaces-desc {
+      grid-area: desc;
+    }
+
+    .spaces-arrow {
+      grid-area: arrow;
+    }
+  }
+
+  @media (max-width: 48rem) {
+    .hero-scroll {
+      display: none;
+    }
+
+    .hero-title {
+      font-size: clamp(2.7rem, 13.5vw, 4.4rem);
+    }
+
+    .spaces-thumb {
+      display: block;
+      grid-area: thumb;
+      width: 9rem;
+      border-radius: var(--radius-sm);
+      overflow: hidden;
+      margin-top: 0.4rem;
+    }
+  }
+</style>
+
+<script src="@/scripts/landing.ts"></script>

@@ -1,0 +1,51 @@
+{
+  "en": {
+    "heading": "FAQ",
+    "subHeading": "Frequently asked questions and contacts.",
+
+    "church": {
+      "title": "Is it possible to use the church for celebrations?",
+      "description": "Yes — you need to contact the ",
+      "hyperlink": "parish directly."
+    },
+
+    "events": {
+      "title": "Does the Monastery rental fee include all the services needed to host an event?",
+      "description": "This fee covers the space only. However, the Monastery arranges all the other services needed for your event (catering, decoration, entertainment, etc.)."
+    },
+
+    "time_limit": {
+      "title": "Is there a time limit for an event?",
+      "description": "Yes. Events last 12 hours and are expected to end by 04:00, with the option of an additional hour."
+    },
+
+    "travel": {
+      "title": "Is it easy to reach Mosteiro de Landim?",
+      "description": "The Monastery ",
+      "hyperlink": "enjoys a privileged location",
+      "description2": ", 30 minutes from Porto and 20 minutes from Porto airport."
+    },
+
+    "per_weekend": {
+      "title": "When is the Monastery open for events?",
+      "description": "The Monastery is open to any kind of event throughout the year."
+    },
+
+    "more": {
+      "title": "I still have questions...",
+      "description": "We can help if you contact us, preferably by ",
+      "hyperlink": "email"
+    },
+
+    "ui": {
+      "pageTitle": "FAQ & Contacts",
+      "heroLabel": "Questions & answers",
+      "heroAlt": "A detail of Mosteiro de Landim",
+      "sectionLabel": "Common questions",
+      "sectionTitle": "Frequently asked questions",
+      "locationEyebrow": "Where we are",
+      "transit": "30 minutes from Porto · 20 minutes from the airport",
+      "directions": "Directions"
+    }
+  }
+}

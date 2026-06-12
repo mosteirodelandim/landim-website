@@ -1,0 +1,270 @@
+---
+import { getImage } from "astro:assets";
+import BaseLayout from "@/layouts/BaseLayout.astro";
+import PageHero from "@/components/PageHero.astro";
+import SectionHeading from "@/components/SectionHeading.astro";
+import QuoteBlock from "@/components/QuoteBlock.astro";
+import GalleryStrip from "@/components/GalleryStrip.astro";
+import SpotlightLink from "@/components/SpotlightLink.astro";
+import Lightbox from "@/components/Lightbox.astro";
+import SmartImage from "@/components/SmartImage.astro";
+import { getContent, resolveLocale, localizePath } from "@/i18n";
+
+import banner from "@/assets/images/wine_vineyards/banner.jpg";
+import wine1 from "@/assets/images/wine_vineyards/wine1.png";
+import feature1 from "@/assets/images/wine_vineyards/feature_1.jpg";
+import feature2 from "@/assets/images/wine_vineyards/feature_2.jpg";
+import feature3 from "@/assets/images/wine_vineyards/feature_3.jpg";
+import airbnb1 from "@/assets/images/wine_vineyards/airbnb/picture1.png";
+import airbnb2 from "@/assets/images/wine_vineyards/airbnb/picture2.png";
+import airbnb3 from "@/assets/images/wine_vineyards/airbnb/picture3.png";
+import airbnb4 from "@/assets/images/wine_vineyards/airbnb/picture4.png";
+import airbnb5 from "@/assets/images/wine_vineyards/airbnb/picture5.png";
+
+const locale = resolveLocale(Astro.currentLocale);
+const c = getContent(locale).wineVineyards;
+
+const wineFull = await getImage({ src: wine1, width: 1600, format: "webp", quality: 80 });
+
+const grapes = [
+  { img: feature1, ...c.images.image1 },
+  { img: feature2, ...c.images.image2 },
+  { img: feature3, ...c.images.image3 },
+];
+
+const stayImages = [airbnb1, airbnb2, airbnb3, airbnb4, airbnb5].map((src, i) => ({
+  src,
+  alt: c.ui.stayAlt.replace("{n}", String(i + 1)),
+}));
+---
+
+<BaseLayout title={c.title} description={c.subHeading}>
+  <PageHero
+    title={c.title}
+    subtitle={c.subHeading}
+    image={banner}
+    imageAlt={c.ui.heroAlt}
+    label={c.ui.heroLabel}
+  />
+
+  <!-- ============ O VINHO ============ -->
+  <section class="section">
+    <div class="container wine-grid">
+      <div>
+        <SectionHeading index="01" label={c.ui.section1Label} title={c.wine.title} />
+        <div class="prose prose-drop" data-reveal="fade-up">
+          <p>{c.wine.description1}</p>
+          <p>{c.wine.description2}</p>
+        </div>
+      </div>
+      <figure class="wine-figure" data-reveal="mask">
+        <a href={wineFull.src} data-lightbox="wine" data-caption={c.imageCaptions.wine}>
+          <SmartImage
+            src={wine1}
+            alt={c.imageCaptions.wine}
+            sizes="(min-width: 64rem) 26rem, 80vw"
+            widths={[400, 700, 1100]}
+          />
+        </a>
+        <figcaption class="caption serif-italic">{c.imageCaptions.wine}</figcaption>
+      </figure>
+    </div>
+  </section>
+
+  <!-- ============ CRÍTICA ============ -->
+  <section class="section section--alt reviews">
+    <div class="container reviews-grid">
+      <article data-reveal="fade-up">
+        <p class="label review-title">{c.wine.quote1Title}</p>
+        <QuoteBlock quote={c.wine.quote1.split("\n\n")[0]} author={c.wine.quote1Author} />
+      </article>
+      <article data-reveal="fade-up">
+        <p class="label review-title">{c.wine.quote2Title}</p>
+        <QuoteBlock quote={c.wine.quote2.split("\n\n")[0]} author={c.wine.quote2Author} />
+      </article>
+    </div>
+  </section>
+
+  <!-- ============ VINHAS ============ -->
+  <section class="section">
+    <div class="container">
+      <SectionHeading index="02" label={c.ui.section2Label} title={c.vines.title} lede={c.vines.description1} />
+
+      <ul class="grape-cards" data-reveal="stagger-children">
+        {
+          grapes.map((g) => (
+            <li class="grape-card">
+              <div class="grape-arch">
+                <SmartImage
+                  src={g.img}
+                  alt={c.ui.grapeAlt.replace("{title}", g.title)}
+                  sizes="(min-width: 64rem) 26rem, (min-width: 48rem) 44vw, 92vw"
+                  widths={[400, 700, 1000]}
+                  aspect="3 / 4"
+                />
+              </div>
+              <h3 class="grape-title serif-italic">{g.title}</h3>
+              <p class="grape-sub">{g.subtitle}</p>
+            </li>
+          ))
+        }
+      </ul>
+    </div>
+  </section>
+
+  <!-- ============ ESTADIA ============ -->
+  <section class="section section--alt section--merge-spotlight">
+    <div class="container">
+      <SectionHeading index="03" label={c.ui.section3Label} title={c.airbnb.title} />
+      <div class="prose prose--cols" data-reveal="fade-up">
+        <p>{c.airbnb.description1}</p>
+        <p>{c.airbnb.description2}</p>
+      </div>
+    </div>
+    <div class="strip-wrap">
+      <GalleryStrip items={stayImages} lightbox="stay" />
+    </div>
+    <SpotlightLink
+      label={c.airbnb.spotlight.title}
+      text={c.airbnb.spotlight.phrase2}
+      cta={c.ui.spotlightCta}
+      href={localizePath("/faq#location", locale)}
+      icon="stay"
+      class="spotlight--flush"
+    />
+  </section>
+
+  <Lightbox />
+</BaseLayout>
+
+<style>
+  .section {
+    padding-block: var(--space-xl);
+  }
+
+  .section--alt {
+    background: var(--bg-alt);
+    border-block: 1px solid var(--hairline);
+  }
+
+  .section--merge-spotlight {
+    padding-bottom: 0;
+    border-block-end: 0;
+  }
+
+  .prose {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-sm);
+    color: var(--fg-soft);
+    max-width: 62rem;
+  }
+
+  .prose--cols {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(20rem, 1fr));
+    gap: var(--space-md);
+    max-width: none;
+  }
+
+  .dropcap,
+  .prose-drop > p:first-child::first-letter {
+    float: left;
+    font-family: var(--font-display);
+    font-style: italic;
+    font-size: 3.4em;
+    line-height: 0.82;
+    padding-right: 0.12em;
+    color: var(--clay-deep);
+  }
+
+  .wine-grid {
+    display: grid;
+    grid-template-columns: minmax(0, 1.2fr) minmax(0, 0.8fr);
+    gap: var(--space-lg);
+    align-items: start;
+  }
+
+  .wine-figure {
+    margin: 0;
+    width: min(100%, 26rem);
+    justify-self: center;
+  }
+
+  .wine-figure a {
+    display: block;
+  }
+
+  .caption {
+    margin-top: var(--space-2xs);
+    font-size: var(--text-sm);
+    color: var(--fg-soft);
+    text-align: center;
+  }
+
+  .reviews-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(20rem, 1fr));
+    gap: var(--space-lg);
+  }
+
+  .review-title {
+    color: var(--clay-deep);
+    margin-bottom: var(--space-sm);
+  }
+
+  .grape-cards {
+    list-style: none;
+    margin: var(--space-md) 0 0;
+    padding: 0;
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: var(--space-md);
+  }
+
+  .grape-arch {
+    border-radius: var(--radius-arch);
+    overflow: hidden;
+  }
+
+  .grape-arch :global(.smart-image img) {
+    transition: transform 1.1s var(--ease-out);
+  }
+
+  .grape-card:hover .grape-arch :global(.smart-image img) {
+    transform: scale(1.05);
+  }
+
+  .grape-title {
+    margin-top: var(--space-sm);
+    font-size: var(--text-lg);
+    font-weight: 440;
+    text-align: center;
+    color: var(--clay-deep);
+  }
+
+  .grape-sub {
+    margin-top: 0.5rem;
+    text-align: center;
+    font-size: var(--text-sm);
+    color: var(--fg-soft);
+    margin-inline: auto;
+    max-width: 34ch;
+  }
+
+  .strip-wrap {
+    margin-top: var(--space-sm);
+  }
+
+  @media (max-width: 64rem) {
+    .wine-grid {
+      grid-template-columns: 1fr;
+    }
+
+    .grape-cards {
+      grid-template-columns: 1fr;
+      max-width: 26rem;
+      margin-inline: auto;
+    }
+  }
+</style>

@@ -1,0 +1,97 @@
+---
+/**
+ * Inner-page hero: full-bleed image, scrim, label + display title.
+ */
+import SmartImage from "@/components/SmartImage.astro";
+
+interface Props {
+  title: string;
+  subtitle?: string;
+  image: ImageMetadata;
+  imageAlt?: string;
+  label?: string;
+}
+
+const { title, subtitle, image, imageAlt = "", label } = Astro.props;
+---
+
+<section class="page-hero">
+  <div class="page-hero-media" data-reveal="parallax" data-parallax="8">
+    <SmartImage
+      src={image}
+      alt={imageAlt}
+      eager
+      sizes="100vw"
+      widths={[640, 828, 1080, 1366, 1600, 2200]}
+      class="page-hero-img"
+    />
+  </div>
+  <div class="page-hero-scrim" aria-hidden="true"></div>
+  <div class="container page-hero-content">
+    {label && <p class="label page-hero-label">{label}</p>}
+    <h1 class="page-hero-title">
+      <slot name="title">{title}</slot>
+    </h1>
+    {subtitle && <p class="page-hero-subtitle serif-italic">{subtitle}</p>}
+  </div>
+</section>
+
+<style>
+  .page-hero {
+    position: relative;
+    min-height: clamp(24rem, 72vh, 46rem);
+    display: flex;
+    align-items: flex-end;
+    overflow: clip;
+    color: var(--linen);
+  }
+
+  .page-hero-media {
+    position: absolute;
+    inset: -6% 0;
+    z-index: 0;
+  }
+
+  .page-hero-media :global(.smart-image),
+  .page-hero-media :global(.smart-image img) {
+    width: 100%;
+    height: 100%;
+  }
+
+  .page-hero-media :global(.smart-image) {
+    aspect-ratio: auto !important;
+  }
+
+  .page-hero-scrim {
+    position: absolute;
+    inset: 0;
+    z-index: 1;
+    background:
+      linear-gradient(to bottom, rgb(35 32 26 / 0.34), transparent 38%),
+      linear-gradient(to top, rgb(35 32 26 / 0.78), rgb(35 32 26 / 0.12) 56%);
+  }
+
+  .page-hero-content {
+    position: relative;
+    z-index: 2;
+    padding-block: var(--space-lg);
+  }
+
+  .page-hero-label {
+    color: var(--rose);
+    margin-bottom: var(--space-xs);
+  }
+
+  .page-hero-title {
+    font-size: var(--text-display);
+    font-weight: 400;
+    max-width: 14ch;
+  }
+
+  .page-hero-subtitle {
+    margin-top: var(--space-xs);
+    font-size: var(--text-md);
+    color: color-mix(in srgb, var(--linen) 88%, transparent);
+    max-width: 46ch;
+  }
+</style>

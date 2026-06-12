@@ -1,0 +1,33 @@
+name: Astro Build
+
+on:
+  pull_request:
+    branches:
+      - master
+    paths:
+      - "mosteiro-landim-astro/**"
+      - ".github/workflows/astro-build.yml"
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: mosteiro-landim-astro
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: npm
+          cache-dependency-path: mosteiro-landim-astro/package-lock.json
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Build Astro site
+        run: npm run build

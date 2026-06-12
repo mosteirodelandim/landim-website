@@ -1,0 +1,39 @@
+{
+  "en": {
+    "title": "Photo Gallery",
+    "subHeading": "Days of celebration, gardens, the vineyard and the family. Moments that shape our path.",
+
+    "quote": "\"A picture is worth a thousand words.\"",
+    "quoteAuthor": "Henrik Ibsen",
+
+    "paragraph": {
+      "description1": "We have the privilege of welcoming visitors from every corner of the world, who fall for the Monastery's historic settings. We share some of those moments in this photo gallery. Explore it and discover the indoor and outdoor spaces, as well as every detail of the events we host."
+    },
+
+    "gardenTitle": "Gardens",
+    "gardenDescription": "Our enchanting gardens, offering refreshing shade, welcome your guests — perfect spots for the start of the celebration, cocktail hour, sunset parties and special moments.",
+    "cloisterTitle": "Cloister",
+    "cloisterDescription": "Seating around 350 guests, the cloister is the focal point of the Monastery. Its surrounding Doric columns, steeped in history, and the adjoining nooks make the cloister a welcoming space for your event, whether for 50 or 350 guests.",
+    "roomsTitle": "Halls",
+    "roomsDescription": "The three halls adjoining the cloister can be opened to guests or fully enclosed, making them a great alternative should the weather be less kind.",
+    "churchTitle": "Church",
+    "churchDescription": "The church, belonging to the Parish of Landim and adjoining the Monastery, is just seconds away from the celebration.",
+
+    "spotlight": {
+      "title": "Instagram",
+      "description": "Our Instagram page is the perfect place to get to know our spaces even better."
+    },
+
+    "ui": {
+      "heroLabel": "Gallery",
+      "heroAlt": "Corners of Mosteiro de Landim",
+      "navLabel": "Gallery chapters",
+      "photosCount": "photographs",
+      "chapterWord": "Chapter",
+      "zoomAria": "Enlarge photograph {n} of {title}",
+      "imageAlt": "{title} of Mosteiro de Landim — photograph {n}",
+      "spotlightCta": "Follow on Instagram"
+    }
+
+  }
+}

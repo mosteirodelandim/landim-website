@@ -1,0 +1,77 @@
+---
+/**
+ * Infinite text marquee — pure CSS, pauses for reduced motion.
+ */
+interface Props {
+  items: string[];
+  class?: string;
+}
+
+const { items, class: className = "" } = Astro.props;
+const row = [...items, ...items];
+---
+
+<div class:list={["marquee", className]} aria-hidden="true">
+  <div class="marquee-track">
+    {
+      [0, 1].map(() => (
+        <div class="marquee-group">
+          {row.map((item) => (
+            <span class="marquee-item">
+              {item}
+              <i class="marquee-sep serif-italic">·</i>
+            </span>
+          ))}
+        </div>
+      ))
+    }
+  </div>
+</div>
+
+<style>
+  .marquee {
+    overflow: clip;
+    border-block: 1px solid var(--hairline);
+    padding-block: var(--space-xs);
+    user-select: none;
+  }
+
+  .marquee-track {
+    display: flex;
+    width: max-content;
+    animation: marquee-scroll 36s linear infinite;
+  }
+
+  .marquee-group {
+    display: flex;
+    flex-shrink: 0;
+  }
+
+  .marquee-item {
+    display: inline-flex;
+    align-items: baseline;
+    gap: 2.6rem;
+    padding-right: 2.6rem;
+    font-family: var(--font-display);
+    font-size: var(--text-lg);
+    font-weight: 400;
+    white-space: nowrap;
+    color: var(--fg-soft);
+  }
+
+  .marquee-sep {
+    color: var(--clay);
+  }
+
+  @keyframes marquee-scroll {
+    to {
+      transform: translateX(-50%);
+    }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .marquee-track {
+      animation: none;
+    }
+  }
+</style>

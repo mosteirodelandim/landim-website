@@ -1,0 +1,221 @@
+---
+import { Image } from "astro:assets";
+import logoWhite from "@/assets/images/logo_white_twoline.png";
+import logoBlack from "@/assets/images/logo_black_twoline.png";
+import { getContent, localizePath, resolveLocale } from "@/i18n";
+
+interface Props {
+  tone?: "light" | "dark";
+}
+
+const { tone = "light" } = Astro.props;
+
+const locale = resolveLocale(Astro.currentLocale);
+const t = getContent(locale);
+const homeHref = localizePath("/", locale);
+
+// Logical path (without the /en prefix), used to link the same page across locales.
+const path = Astro.url.pathname;
+const logicalPath = locale === "en" ? path.replace(/^\/en(?=\/|$)/, "") || "/" : path;
+const ptHref = localizePath(logicalPath, "pt");
+const enHref = localizePath(logicalPath, "en");
+---
+
+<header id="site-header" class:list={["site-header", `tone-${tone}`]}>
+  <a class="brand" href={homeHref} aria-label={t.ui.homeAria}>
+    <Image class="brand-logo brand-logo--white" src={logoWhite} alt="Mosteiro de Landim" widths={[160, 240, 320]} sizes="130px" />
+    <Image class="brand-logo brand-logo--black" src={logoBlack} alt="Mosteiro de Landim" widths={[160, 240, 320]} sizes="130px" />
+  </a>
+
+  <div class="header-actions">
+    <nav class="lang-switch" aria-label={t.ui.languageSwitch}>
+      <a
+        class:list={["lang-link", { "is-active": locale === "pt" }]}
+        href={ptHref}
+        hreflang="pt"
+        aria-current={locale === "pt" ? "true" : undefined}
+        data-astro-prefetch>PT</a
+      >
+      <span class="lang-sep" aria-hidden="true">/</span>
+      <a
+        class:list={["lang-link", { "is-active": locale === "en" }]}
+        href={enHref}
+        hreflang="en"
+        aria-current={locale === "en" ? "true" : undefined}
+        data-astro-prefetch>EN</a
+      >
+    </nav>
+
+    <button
+      id="menu-toggle"
+      class="menu-toggle"
+      type="button"
+      aria-expanded="false"
+      aria-controls="menu-overlay"
+      data-label-menu={t.ui.menu}
+      data-label-close={t.ui.close}
+    >
+      <span class="menu-toggle-lines" aria-hidden="true"><i></i><i></i></span>
+      <span class="menu-toggle-text label">{t.ui.menu}</span>
+    </button>
+  </div>
+</header>
+
+<style>
+  .site-header {
+    position: fixed;
+    inset: 0 0 auto 0;
+    z-index: var(--z-header);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: var(--space-sm);
+    padding: clamp(0.9rem, 2vw, 1.1rem) var(--gutter);
+    transition:
+      background var(--dur-base) var(--ease-out),
+      color var(--dur-base) var(--ease-out),
+      box-shadow var(--dur-base) var(--ease-out),
+      padding var(--dur-base) var(--ease-out);
+  }
+
+  .tone-light {
+    color: var(--linen);
+  }
+
+  .tone-dark {
+    color: var(--espresso);
+  }
+
+  .site-header.is-scrolled {
+    color: var(--espresso);
+    background: color-mix(in oklab, var(--linen) 86%, transparent);
+    backdrop-filter: blur(14px);
+    -webkit-backdrop-filter: blur(14px);
+    box-shadow: 0 1px 0 var(--hairline);
+  }
+
+  /* While the menu overlay is open the header rises above it and darkens */
+  .site-header.menu-open {
+    z-index: calc(var(--z-menu) + 1);
+    color: var(--espresso);
+    background: transparent;
+    backdrop-filter: none;
+    -webkit-backdrop-filter: none;
+    box-shadow: none;
+  }
+
+  .brand {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.65rem;
+    text-decoration: none;
+    color: inherit;
+  }
+
+  .brand:hover {
+    color: inherit;
+  }
+
+  .brand-logo {
+    display: block;
+    height: clamp(2.4rem, 4vw, 3rem);
+    width: auto;
+  }
+
+  .site-header.is-scrolled .brand-logo {
+    height: clamp(2.4rem, 4vw, 3rem);
+  }
+
+  /* Default (over hero): show white logo, hide black */
+  .brand-logo--white { display: block; }
+  .brand-logo--black { display: none; }
+
+  /* Scrolled or dark-tone or menu-open: show black logo, hide white */
+  .site-header.is-scrolled .brand-logo--white,
+  .site-header.menu-open .brand-logo--white,
+  .tone-dark .brand-logo--white { display: none; }
+
+  .site-header.is-scrolled .brand-logo--black,
+  .site-header.menu-open .brand-logo--black,
+  .tone-dark .brand-logo--black { display: block; }
+
+  .menu-toggle {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.7rem;
+    color: inherit;
+    padding: 0.4rem 0;
+  }
+
+  .header-actions {
+    display: inline-flex;
+    align-items: center;
+    gap: clamp(0.9rem, 2vw, 1.6rem);
+  }
+
+  .lang-switch {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+    font-size: var(--text-xs);
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+  }
+
+  .lang-link {
+    color: inherit;
+    opacity: 0.6;
+    text-decoration: none;
+    padding: 0.2rem 0.1rem;
+    transition: opacity var(--dur-fast) var(--ease-out);
+  }
+
+  .lang-link:hover {
+    opacity: 1;
+    color: inherit;
+  }
+
+  .lang-link.is-active {
+    opacity: 1;
+    font-weight: 600;
+    text-decoration: underline;
+    text-underline-offset: 0.25em;
+  }
+
+  .lang-sep {
+    opacity: 0.4;
+  }
+
+  .menu-toggle-text {
+    color: inherit;
+  }
+
+  .menu-toggle-lines {
+    display: inline-flex;
+    flex-direction: column;
+    gap: 0.4rem;
+    width: 2rem;
+  }
+
+  .menu-toggle-lines i {
+    display: block;
+    height: 1px;
+    background: currentcolor;
+    transition: transform var(--dur-base) var(--ease-out), width var(--dur-base) var(--ease-out);
+  }
+
+  .menu-toggle-lines i:last-child {
+    width: 70%;
+    align-self: flex-end;
+  }
+
+  .menu-toggle:hover .menu-toggle-lines i:last-child {
+    width: 100%;
+  }
+
+  @media (max-width: 48rem) {
+    .brand-logo {
+      height: clamp(2rem, 8vw, 2.4rem);
+    }
+  }
+</style>

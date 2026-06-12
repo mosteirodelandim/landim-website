@@ -1,0 +1,281 @@
+---
+/**
+ * Horizontal drag-to-scroll image strip.
+ */
+import SmartImage from "@/components/SmartImage.astro";
+import { getContent, resolveLocale } from "@/i18n";
+
+interface StripItem {
+  src: ImageMetadata;
+  alt?: string;
+  caption?: string;
+}
+
+interface Props {
+  items: StripItem[];
+  /** Retained for caller compatibility; strip is drag-only (no lightbox). */
+  lightbox?: string;
+  /** CSS aspect-ratio for every panel (default landscape 3/2) */
+  aspect?: string;
+  class?: string;
+}
+
+const { items, aspect = "3 / 2", class: className = "" } = Astro.props;
+
+const ui = getContent(resolveLocale(Astro.currentLocale)).ui;
+
+const [aw, ah] = aspect.split("/").map((s) => parseFloat(s));
+const orientation = ah > aw ? "portrait" : "landscape";
+---
+
+<div
+  class:list={["gallery-strip", className]}
+  data-reveal="fade-up"
+  data-aspect={orientation}
+>
+  <ul class="strip-track" data-strip>
+    {
+      items.map((item) => (
+        <li class="strip-item">
+          <SmartImage
+            src={item.src}
+            alt={item.alt ?? item.caption ?? ""}
+            sizes="(min-width: 64rem) 38rem, 86vw"
+            widths={[480, 800, 1200]}
+            aspect={aspect}
+          />
+          {item.caption && <p class="strip-caption serif-italic">{item.caption}</p>}
+        </li>
+      ))
+    }
+  </ul>
+  <p class="strip-hint label" aria-hidden="true">
+    <span class="strip-hint-arrow">←</span>
+    {ui.dragHint}
+    <span class="strip-hint-arrow">→</span>
+  </p>
+</div>
+
+<style>
+  .gallery-strip {
+    position: relative;
+  }
+
+  .strip-track {
+    list-style: none;
+    margin: 0;
+    padding: 0 var(--gutter);
+    display: flex;
+    gap: clamp(0.9rem, 2vw, 1.8rem);
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    scrollbar-width: none;
+    cursor: grab;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  .strip-track::-webkit-scrollbar {
+    display: none;
+  }
+
+  .strip-track.is-dragging {
+    cursor: grabbing;
+    scroll-snap-type: none;
+  }
+
+  .strip-item {
+    flex: 0 0 clamp(17rem, 62vw, 38rem);
+    scroll-snap-align: center;
+  }
+
+  .gallery-strip[data-aspect="portrait"] .strip-item {
+    flex-basis: clamp(13rem, 46vw, 22rem);
+  }
+
+  .strip-item :global(.smart-image) {
+    border-radius: var(--radius-sm);
+  }
+
+  .strip-item :global(img) {
+    user-select: none;
+    -webkit-user-select: none;
+    -webkit-user-drag: none;
+    pointer-events: none;
+  }
+
+  .strip-caption {
+    margin-top: 0.6rem;
+    font-size: var(--text-sm);
+    color: var(--fg-soft);
+  }
+
+  .strip-hint {
+    text-align: center;
+    margin-top: var(--space-sm);
+    color: var(--clay-deep);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+  }
+
+  .strip-hint-arrow {
+    display: inline-block;
+    animation: strip-hint-nudge 2.2s var(--ease-out) infinite;
+  }
+
+  .strip-hint-arrow:last-child {
+    animation-delay: 1.1s;
+  }
+
+  @keyframes strip-hint-nudge {
+    0%,
+    100% {
+      transform: translateX(0);
+      opacity: 0.55;
+    }
+    50% {
+      transform: translateX(0.3rem);
+      opacity: 1;
+    }
+  }
+
+  .strip-hint-arrow:first-child {
+    animation-name: strip-hint-nudge-left;
+  }
+
+  @keyframes strip-hint-nudge-left {
+    0%,
+    100% {
+      transform: translateX(0);
+      opacity: 0.55;
+    }
+    50% {
+      transform: translateX(-0.3rem);
+      opacity: 1;
+    }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .strip-hint-arrow {
+      animation: none;
+    }
+  }
+</style>
+
+<script>
+  function initStrips() {
+    document.querySelectorAll<HTMLElement>("[data-strip]").forEach((track) => {
+      if (track.dataset.bound) return;
+      track.dataset.bound = "true";
+
+      let isDown = false;
+      let startX = 0;
+      let startScroll = 0;
+      let moved = false;
+      let velX = 0;
+      let lastClientX = 0;
+      let lastTime = 0;
+      let pending = false;
+      let pendingScroll = 0;
+      let rafId: number | null = null;
+
+      track.addEventListener("pointerdown", (e) => {
+        if (rafId) { cancelAnimationFrame(rafId); rafId = null; }
+        isDown = true;
+        moved = false;
+        startX = e.clientX;
+        startScroll = track.scrollLeft;
+        pendingScroll = track.scrollLeft;
+        velX = 0;
+        lastClientX = e.clientX;
+        lastTime = performance.now();
+        track.setPointerCapture(e.pointerId);
+      });
+
+      track.addEventListener("pointermove", (e) => {
+        if (!isDown) return;
+        const dx = e.clientX - startX;
+        if (Math.abs(dx) > 5) {
+          moved = true;
+          track.classList.add("is-dragging");
+        }
+        // Velocity tracking
+        const now = performance.now();
+        const dt = Math.max(1, now - lastTime);
+        velX = (e.clientX - lastClientX) / dt;
+        lastClientX = e.clientX;
+        lastTime = now;
+
+        pendingScroll = startScroll - dx;
+        if (!pending) {
+          pending = true;
+          requestAnimationFrame(() => {
+            track.scrollLeft = pendingScroll;
+            pending = false;
+          });
+        }
+      });
+
+      track.addEventListener("pointerup", () => {
+        if (!isDown) return;
+        isDown = false;
+        if (!moved) {
+          track.classList.remove("is-dragging");
+          return;
+        }
+
+        // Momentum coast then snap to nearest item
+        const momentum = velX * -380;
+        const coastTarget = Math.max(
+          0,
+          Math.min(track.scrollWidth - track.clientWidth, track.scrollLeft + momentum),
+        );
+
+        // Find the strip-item whose center is nearest to coastTarget + half clientWidth
+        const items = Array.from(track.querySelectorAll<HTMLElement>(".strip-item"));
+        const viewCenter = coastTarget + track.clientWidth / 2;
+        let snapLeft = coastTarget;
+        let minDist = Infinity;
+        items.forEach((item) => {
+          const itemCenter = item.offsetLeft + item.offsetWidth / 2;
+          const dist = Math.abs(itemCenter - viewCenter);
+          if (dist < minDist) { minDist = dist; snapLeft = item.offsetLeft + item.offsetWidth / 2 - track.clientWidth / 2; }
+        });
+        snapLeft = Math.max(0, Math.min(track.scrollWidth - track.clientWidth, snapLeft));
+
+        const startVal = track.scrollLeft;
+        const delta = snapLeft - startVal;
+        const duration = Math.min(600, Math.max(200, Math.abs(delta) * 1.1));
+        let startTime: number | null = null;
+
+        function coast(time: number) {
+          if (!startTime) startTime = time;
+          const t = Math.min((time - startTime) / duration, 1);
+          const ease = 1 - Math.pow(1 - t, 3);
+          track.scrollLeft = startVal + delta * ease;
+          if (t < 1) {
+            rafId = requestAnimationFrame(coast);
+          } else {
+            rafId = null;
+            track.classList.remove("is-dragging");
+          }
+        }
+
+        if (Math.abs(delta) > 2) {
+          rafId = requestAnimationFrame(coast);
+        } else {
+          track.classList.remove("is-dragging");
+        }
+      });
+
+      track.addEventListener("pointercancel", () => {
+        isDown = false;
+        track.classList.remove("is-dragging");
+      });
+    });
+  }
+
+  initStrips();
+  document.addEventListener("astro:page-load", initStrips);
+</script>

@@ -1,0 +1,110 @@
+{
+  "en": {
+    "heading1": "One Monastery",
+    "heading2": "One family",
+    "heading3": "Ten generations",
+
+    "history": {
+      "title": "The estate",
+      "subtitle": "Once upon a time there was an old and romantic estate...",
+      "description1": "Who are we? A family home with centuries of history — formerly the Monastery of the Order of the Canons Regular of St. Augustine in the 11th century, turned into a private home in the 18th century. Ever since, generation after generation, it has remained within the same family, preserving traditions, cherishing its heritage and keeping family moments and memories.",
+      "description2": "From our parents, António Vicente de Sequeira Leal Sampaio da Nóvoa and Maria Rosa Dourado Eusébio Sampaio da Nóvoa, we inherited the responsibility of caring for this unique place and of passing it on — even more cared for and preserved — to our children and grandchildren. The story continues...",
+      "quote": "\"Time is never wasted on what we love.\"",
+
+
+      "quoteAuthor": "Alberto Sampaio",
+      "description3": "We treasure the legacy left to us and are devoted to keeping it intact for future generations. We are guided by the words of our ancestors, which inspire and lead us.",
+
+      "imagesCaption": "Historic photographs of the old cloister and Chapter House.",
+
+      "lottie": {
+        "title": "History",
+        "description": "Every corner of Mosteiro de Landim is bound to unique and precious pieces of history.",
+        "hyperlink": "here"
+      }
+    },
+
+    "family": {
+      "title": "Generations of family",
+      "subtitle": "Many generations of family have passed through here...",
+
+      "poem": {
+        "verse1": "Sacred is this home of ours:",
+        "verse2": "Protective, like a wing.",
+        "verse3": "It guards and shelters our hearth;",
+        "verse4": "Within it, with tenderness.",
+        "verse5": "The heart finds its nest.",
+        "verse6": "Love has its altar here!",
+        "author": "poem by Sebastião de Carvalho"
+      },
+
+      "description1": "This poem, written by Sebastião de Carvalho, a distinguished lawyer and poet from Guimarães, married to our great-great-aunt Maria Henriqueta Leal Sampaio de Carvalho, perfectly captures the values instilled from generation to generation in our family. These four verses, set in azulejo on the house veranda, are part of all our memories, repeated year after year by everyone who pauses in that singular spot.",
+      "description2": "In 2025 we celebrated 250 years since the deed of sale of the Monastery of Santa Maria de Landim to our ancestor Manuel Batista Landim. The property has remained in the family ever since, now spanning ten generations, always keeping a close bond with the city of Famalicão."
+    },
+
+    "wines": {
+      "title": "Wine",
+      "subtitle": "An award-winning harvest tradition...",
+
+      "description1": "The lands of Mosteiro de Landim stretch over more than twenty hectares. On this farmland a tradition of vine growing was born that endures to this day. So every year in September we gather family and friends of the family and of Landim to take part in the harvest, keeping up a long-standing tradition.",
+      "description2": "In 2005 we brought to market a wine from the Loureiro grape that we named Camélia — a wine that, in its very first year, won the award in the \u201cBest of the Region\u201d category from the Vinho Verde Region Wine Commission. This wine was discontinued in 2017.",
+
+      "lottie": {
+        "title": "Wine",
+        "description": "The vineyards of Mosteiro de Landim have been awarded several times, as has our wine.",
+        "hyperlink": "here"
+      }
+    },
+
+    "events_spaces": {
+      "title": "Services & Spaces",
+      "subtitle": "The variety of spaces we offer makes Landim perfect for any event...",
+
+      "description1": "The value of a celebration is not limited to the occasion alone, but also to the setting that surrounds it. Mosteiro de Landim and its centuries-old gardens have a charm that makes them unique. You need only step through the Monastery's gates to realise you have found the ideal place and spaces to gather family and friends and share happy, special moments.",
+      "description2": "Whether a simple lunch, a family party, a religious ceremony, a golden anniversary or a wedding, the Monastery offers a range of spaces — the cloister, the gardens, the church and the centuries-old halls. Thanks to its unique character and generous space, the Monastery easily adapts to the needs of any kind of event. ",
+      "description3": "Alongside this, the Monastery provides catering, decoration and event-planning services through privileged partners with vast experience in making the most of the venue's many possibilities.",
+
+      "images": {
+        "image1": {
+          "title": "Cloister",
+          "subtitle": "Centuries of history. The heart of every celebration."
+        },
+        "image2": {
+          "title": "Halls",
+          "subtitle": "Spacious, versatile halls steeped in history. "
+        },
+        "image3": {
+          "title": "Gardens",
+          "subtitle": "Award-winning, beautiful and centuries-old.",
+          "hyperlink": "here"
+        },
+        "image4": {
+          "title": "Church",
+          "subtitle": "The Monastery church is perfect for religious ceremonies, right next door."
+        }
+      },
+
+      "lottie": {
+        "title": "Services",
+        "description": "Mosteiro de Landim offers a varied range of events tailored to your taste.",
+        "hyperlink": "here"
+      }
+
+    },
+
+    "ui": {
+      "heroLabel": "About Us",
+      "heroAlt": "Façade of Mosteiro de Landim",
+      "section1Label": "The home",
+      "section2Label": "Family",
+      "section3Label": "Tradition",
+      "section4Label": "Events",
+      "ctaHistory": "See history",
+      "ctaWines": "See wines",
+      "ctaEvents": "See events",
+      "altVindimas": "Grape harvest at Mosteiro de Landim",
+      "altVinhas": "The Monastery's vineyards",
+      "altWine": "Camélia wine"
+    }
+  }
+}

@@ -1,0 +1,106 @@
+---
+/**
+ * Native, accessible accordion built on <details>/<summary>.
+ * Pass items via slot-less prop array; rich answers can use `html`.
+ */
+interface Item {
+  question: string;
+  html: string;
+}
+
+interface Props {
+  items: Item[];
+}
+
+const { items } = Astro.props;
+---
+
+<div class="accordion" data-reveal="stagger-children">
+  {
+    items.map((item, i) => (
+      <details class="accordion-item" name="faq">
+        <summary>
+          <span class="accordion-num label">{String(i + 1).padStart(2, "0")}</span>
+          <span class="accordion-question">{item.question}</span>
+          <span class="accordion-icon" aria-hidden="true">
+            <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.2">
+              <path d="M8 2v12M2 8h12" />
+            </svg>
+          </span>
+        </summary>
+        <div class="accordion-answer" set:html={item.html} />
+      </details>
+    ))
+  }
+</div>
+
+<style>
+  .accordion {
+    display: flex;
+    flex-direction: column;
+    border-top: 1px solid var(--hairline);
+  }
+
+  .accordion-item {
+    border-bottom: 1px solid var(--hairline);
+  }
+
+  summary {
+    display: flex;
+    align-items: baseline;
+    gap: 1.2rem;
+    padding: var(--space-sm) 0.2rem;
+    cursor: pointer;
+    list-style: none;
+    transition: color var(--dur-fast) var(--ease-out);
+  }
+
+  summary::-webkit-details-marker {
+    display: none;
+  }
+
+  summary:hover {
+    color: var(--clay-deep);
+  }
+
+  .accordion-num {
+    color: var(--gold-ink);
+  }
+
+  .accordion-question {
+    flex: 1;
+    font-family: var(--font-display);
+    font-size: var(--text-md);
+    font-weight: 460;
+    line-height: 1.3;
+  }
+
+  .accordion-icon {
+    width: 1rem;
+    height: 1rem;
+    flex-shrink: 0;
+    align-self: center;
+    color: var(--clay);
+    transition: transform var(--dur-base) var(--ease-out);
+  }
+
+  details[open] .accordion-icon {
+    transform: rotate(45deg);
+  }
+
+  .accordion-answer {
+    padding: 0 0.2rem var(--space-sm) calc(1.2rem + 2ch);
+    color: var(--fg-soft);
+    max-width: 62rem;
+  }
+
+  .accordion-answer :global(a) {
+    color: var(--clay-deep);
+  }
+
+  @media (max-width: 48rem) {
+    .accordion-answer {
+      padding-left: 0.2rem;
+    }
+  }
+</style>

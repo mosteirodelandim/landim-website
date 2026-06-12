@@ -1,0 +1,303 @@
+---
+import { getNavLinks, getHistoryAnchors } from "@/data/nav";
+import { config } from "@/config";
+import { getContent, localizePath, resolveLocale } from "@/i18n";
+
+const locale = resolveLocale(Astro.currentLocale);
+const t = getContent(locale);
+const allLinks = getNavLinks(locale);
+const historyAnchors = getHistoryAnchors(locale);
+const historyHref = localizePath("/history", locale);
+---
+
+<div id="menu-overlay" class="menu-overlay" aria-hidden="true">
+  <div class="menu-inner">
+    <nav class="menu-nav" aria-label={t.sidebar.label}>
+      <ol class="menu-list">
+        {
+          allLinks.map((link, i) => (
+            <li class="menu-item" style={`--i: ${i}`}>
+              <a class="menu-link" href={link.href}>
+                <span class="menu-num label" aria-hidden="true">
+                  {String(i + 1).padStart(2, "0")}
+                </span>
+                <span class="menu-label">{link.label}</span>
+              </a>
+              {link.href === historyHref && (
+                <ul class="menu-sublist">
+                  {historyAnchors.map((sub) => (
+                    <li>
+                      <a class="menu-sublink" href={sub.href}>
+                        {sub.label}
+                      </a>
+                    </li>
+                  ))}
+                </ul>
+              )}
+            </li>
+          ))
+        }
+      </ol>
+    </nav>
+
+    <div class="menu-meta">
+      <div class="menu-meta-block">
+        <p class="label">{t.ui.contacts}</p>
+        <a href={`mailto:${config.emailContact}`}>{config.emailContact}</a>
+        <a href={`tel:${config.phoneContact.replace(/\s/g, "")}`}>{config.phoneContact}</a>
+        <p class="menu-address">{config.address}</p>
+      </div>
+      <div class="menu-meta-block">
+        <p class="label">{t.ui.follow}</p>
+        {
+          config.socialLinks.map((s) => (
+            <a href={s.url} target="_blank" rel="noopener noreferrer">
+              {s.name}
+            </a>
+          ))
+        }
+      </div>
+    </div>
+  </div>
+</div>
+
+<style>
+  .menu-overlay {
+    position: fixed;
+    inset: 0;
+    z-index: var(--z-menu);
+    background: var(--parchment);
+    clip-path: inset(0 0 100% 0);
+    visibility: hidden;
+    overflow-y: auto;
+    transition:
+      clip-path 0.7s var(--ease-in-out),
+      visibility 0s linear 0.7s;
+  }
+
+  .menu-overlay.is-open {
+    clip-path: inset(0 0 0% 0);
+    visibility: visible;
+    transition:
+      clip-path 0.7s var(--ease-in-out),
+      visibility 0s;
+  }
+
+  .menu-inner {
+    min-height: 100%;
+    display: grid;
+    grid-template-columns: 1fr auto;
+    gap: var(--space-lg);
+    align-items: end;
+    padding: calc(var(--space-lg) + 3rem) var(--gutter) var(--space-lg);
+    width: min(100% , var(--container-wide));
+    margin-inline: auto;
+  }
+
+  .menu-list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .menu-item {
+    opacity: 0;
+    transform: translateY(1.4rem);
+    transition:
+      opacity 0.55s var(--ease-out),
+      transform 0.55s var(--ease-out);
+  }
+
+  .is-open .menu-item {
+    opacity: 1;
+    transform: none;
+    transition-delay: calc(0.25s + var(--i) * 0.05s);
+  }
+
+  .menu-link {
+    display: inline-flex;
+    align-items: baseline;
+    gap: 1.2rem;
+    text-decoration: none;
+    padding-block: 0.18em;
+  }
+
+  .menu-num {
+    color: var(--clay);
+  }
+
+  .menu-label {
+    font-family: var(--font-display);
+    font-size: clamp(1.9rem, 4.6vh, 3.2rem);
+    line-height: 1.16;
+    letter-spacing: -0.01em;
+    transition: color var(--dur-fast) var(--ease-out), font-style 0s;
+  }
+
+  .menu-link:hover .menu-label {
+    color: var(--clay-deep);
+    font-style: italic;
+  }
+
+  .menu-sublist {
+    list-style: none;
+    margin: 0.2rem 0 0.6rem;
+    padding: 0 0 0 3.2rem;
+    display: flex;
+    flex-wrap: wrap;
+    column-gap: 1.4rem;
+    row-gap: 0.15rem;
+  }
+
+  .menu-sublink {
+    font-size: var(--text-sm);
+    color: var(--fg-soft);
+    text-decoration: none;
+  }
+
+  .menu-sublink:hover {
+    color: var(--clay-deep);
+    text-decoration: underline;
+  }
+
+  .menu-meta {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-md);
+    padding-bottom: 0.5rem;
+    opacity: 0;
+    transform: translateY(1rem);
+    transition:
+      opacity 0.55s var(--ease-out) 0.55s,
+      transform 0.55s var(--ease-out) 0.55s;
+  }
+
+  .is-open .menu-meta {
+    opacity: 1;
+    transform: none;
+  }
+
+  .menu-meta-block {
+    display: flex;
+    flex-direction: column;
+    gap: 0.35rem;
+  }
+
+  .menu-meta-block .label {
+    margin-bottom: 0.4rem;
+    color: var(--clay);
+  }
+
+  .menu-meta-block a {
+    text-decoration: none;
+    font-size: var(--text-sm);
+  }
+
+  .menu-meta-block a:hover {
+    text-decoration: underline;
+  }
+
+  .menu-address {
+    font-size: var(--text-xs);
+    color: var(--fg-soft);
+    max-width: 18rem;
+  }
+
+  @media (max-width: 64rem) {
+    .menu-inner {
+      grid-template-columns: 1fr;
+      align-items: start;
+      gap: var(--space-md);
+    }
+
+    .menu-label {
+      font-size: clamp(1.7rem, 3.4vh, 2.4rem);
+    }
+
+    .menu-sublist {
+      display: none;
+    }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .menu-overlay,
+    .menu-item,
+    .menu-meta {
+      transition-duration: 0.01s;
+      transition-delay: 0s;
+    }
+  }
+</style>
+
+<script>
+  function initMenu() {
+    const overlay = document.getElementById("menu-overlay");
+    const toggle = document.getElementById("menu-toggle");
+    const header = document.getElementById("site-header");
+    if (!overlay || !toggle || overlay.dataset.bound) return;
+    overlay.dataset.bound = "true";
+
+    let lastFocused: HTMLElement | null = null;
+
+    const focusables = () =>
+      Array.from(
+        overlay.querySelectorAll<HTMLElement>("a[href], button:not([disabled])"),
+      ).filter((el) => el.offsetParent !== null);
+
+    function setOpen(open: boolean) {
+      overlay!.classList.toggle("is-open", open);
+      overlay!.setAttribute("aria-hidden", String(!open));
+      toggle!.setAttribute("aria-expanded", String(open));
+      header!.classList.toggle("menu-open", open);
+      document.documentElement.classList.toggle("menu-locked", open);
+      window.__lenis?.[open ? "stop" : "start"]();
+      const label = toggle!.querySelector(".menu-toggle-text");
+      if (label) {
+        const opened = toggle!.dataset.labelClose ?? "Close";
+        const closed = toggle!.dataset.labelMenu ?? "Menu";
+        label.textContent = open ? opened : closed;
+      }
+      if (open) {
+        lastFocused = document.activeElement as HTMLElement;
+        focusables()[0]?.focus();
+      } else {
+        lastFocused?.focus();
+      }
+    }
+
+    const isOpen = () => overlay!.classList.contains("is-open");
+
+    toggle.addEventListener("click", () => setOpen(!isOpen()));
+
+    overlay.addEventListener("click", (e) => {
+      const link = (e.target as HTMLElement).closest("a");
+      if (link) setOpen(false);
+    });
+
+    document.addEventListener("keydown", (e) => {
+      if (!isOpen()) return;
+      if (e.key === "Escape") {
+        setOpen(false);
+        return;
+      }
+      if (e.key === "Tab") {
+        const items = [toggle!, ...focusables()];
+        const idx = items.indexOf(document.activeElement as HTMLElement);
+        if (e.shiftKey && idx <= 0) {
+          e.preventDefault();
+          items[items.length - 1].focus();
+        } else if (!e.shiftKey && idx === items.length - 1) {
+          e.preventDefault();
+          items[0].focus();
+        }
+      }
+    });
+
+    document.addEventListener("astro:before-swap", () => setOpen(false), { once: true });
+  }
+
+  initMenu();
+  document.addEventListener("astro:page-load", initMenu);
+</script>
