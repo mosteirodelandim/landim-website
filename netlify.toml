@@ -2,6 +2,13 @@
   command = "npm run build"
   publish = "dist"
 
+# All responses: revalidate before using (catches HTML pages served as clean URLs)
+[[headers]]
+  for = "/*"
+  [headers.values]
+    Cache-Control = "public, no-cache"
+
+# Hashed assets: safe to cache forever — Astro content-hashes filenames on every build
 [[headers]]
   for = "/_astro/*"
   [headers.values]
@@ -12,6 +19,7 @@
   [headers.values]
     Cache-Control = "public, max-age=31536000, immutable"
 
+# Security headers
 [[headers]]
   for = "/*"
   [headers.values]
