@@ -24,8 +24,8 @@ importers:
         specifier: ^3.15.0
         version: 3.15.0
       lenis:
-        specifier: ^1.3.23
-        version: 1.3.23
+        specifier: ^1.3.25
+        version: 1.3.25
       sharp:
         specifier: ^0.35.0
         version: 0.35.1
@@ -1223,8 +1223,8 @@ packages:
     resolution: {integrity: sha512-o+NO+8WrRiQEE4/7nwRJhN1HWpVmJm511pBHUxPLtp0BUISzlBplORYSmTclCnJvQq2tKu/sgl3xVpkc7ZWuQQ==}
     engines: {node: '>=6'}
 
-  lenis@1.3.23:
-    resolution: {integrity: sha512-YxYq3TJqj9sJNv0V9SkyQHejt14xwyIwgDaaMK89Uf9SxQfIszu+gTQSSphh6BWlLTNVKvvXAGkg+Zf+oFIevg==}
+  lenis@1.3.25:
+    resolution: {integrity: sha512-mOKxayErlaONK8fm4LN3XNd99Qu4plTpn9h9qf8wxzjGrJDzuD84FYzZ81HCd6ZsWp++VWVwOzL286Pf2s2u4A==}
     peerDependencies:
       '@nuxt/kit': '>=3.0.0'
       react: '>=17.0.0'
@@ -3118,7 +3118,7 @@ snapshots:
 
   kleur@4.1.5: {}
 
-  lenis@1.3.23: {}
+  lenis@1.3.25: {}
 
   longest-streak@3.1.0: {}
 
