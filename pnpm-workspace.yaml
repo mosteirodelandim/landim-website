@@ -1,3 +1,12 @@
 allowBuilds:
   esbuild: true
   sharp: true
+
+# @astrojs/astro2tsx pins @emnapi/core but leaves @emnapi/runtime as an
+# unsatisfied peer, so pnpm picks the highest runtime in the graph (e.g. the
+# 2.0.0-beta pulled in by rolldown's wasm binding). A core/runtime major
+# mismatch crashes `astro check` ("this.bridge.setLastError is not a function").
+packageExtensions:
+  "@astrojs/astro2tsx":
+    dependencies:
+      "@emnapi/runtime": "1.11.3"
